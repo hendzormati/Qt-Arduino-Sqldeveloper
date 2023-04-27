@@ -1,2 +1,2 @@
 # Qt-Arduino-Sqldevelopers
-This repository contains a desktop application developed on Qt Creator for managing a Share and Care Center for the homeless
+This repository contains a desktop application developed on Qt Creator for managing a Share and Care Center for the homeless. The application includes features such as personnel management, beneficiary management, consultation tracking, donation management (money), and stock management (physical donations that will be sold). The application is secure and has a smart component, including an RFID sensor for user authentication, as well as an LCD and 7-segment display. Additionally, the application includes a flame sensor in case of fire in one of the rooms.
