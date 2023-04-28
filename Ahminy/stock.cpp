@@ -105,17 +105,23 @@ QSqlQueryModel* stock::Recherche_inv(QString recherche)
 
     {
         QSqlQueryModel * model= new QSqlQueryModel();
-        model->setQuery("SELECT * FROM stock WHERE  categorie LIKE '%"+recherche+"%' OR sexe_s LIKE '%"+recherche+"%' OR id_s LIKE '%"+recherche+"%' OR nb_tot LIKE '%"+recherche+"%' OR prix LIKE '%"+recherche+"%' OR nb_res LIKE '%"+recherche+"%' OR type LIKE '%"+recherche+"%'");
-        model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
-        model->setHeaderData(1,Qt::Horizontal,QObject::tr("Categorie"));
-        model->setHeaderData(2,Qt::Horizontal,QObject::tr("Type"));
-        model->setHeaderData(3,Qt::Horizontal,QObject::tr("Sexe"));
-        model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix"));
-        model->setHeaderData(5,Qt::Horizontal,QObject::tr("N°Total"));
-        model->setHeaderData(6,Qt::Horizontal,QObject::tr("N°Restant"));
-
+   QSqlQuery query;
+   query.prepare("select id_s,categorie,type,sexe_s,prix,nb_tot,nb_res from stock where   id_s LIKE :ch or  categorie LIKE :ch2 or type LIKE :ch2 or sexe_s LIKE :ch2 or prix LIKE :ch or nb_tot LIKE :ch or nb_res LIKE :ch ");
+   query.bindValue(":ch", recherche+ "%");
+   QString ch1=recherche.toLower();
+   ch1[0]=ch1[0].toUpper();
+   query.bindValue(":ch2", ch1 + "%");
+   if (query.exec()) {
+       model->setQuery(query);
+       model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+       model->setHeaderData(1,Qt::Horizontal,QObject::tr("Categorie"));
+       model->setHeaderData(2,Qt::Horizontal,QObject::tr("Type"));
+       model->setHeaderData(3,Qt::Horizontal,QObject::tr("Sexe"));
+       model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix"));
+       model->setHeaderData(5,Qt::Horizontal,QObject::tr("N°Total"));
+       model->setHeaderData(6,Qt::Horizontal,QObject::tr("N°Restant"));
+   }
    return model;
-
 }
 //verif ajout
 bool stock::verif_exist(stock S)

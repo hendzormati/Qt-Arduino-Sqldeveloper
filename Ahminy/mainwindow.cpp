@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "taille " <<tab.size();
     if(tab.size()!=0)
     {
-   for (int i = 0; i < tab.size(); i++)
+        for (int i = 0; i < tab.size(); i++)
         {
             notifyIcon->show();
             QString num = QString::number(i+1);
@@ -327,12 +327,15 @@ void MainWindow::on_ajouterperso_clicked()
     ui->statp->setEnabled(0);
     ui->pdfp->setHidden(1);
     ui->rechercheperso->setEnabled(0);
+    ui->tableViewP->setModel(P.afficher_p());
+    ui->tableViewP->setEnabled(0);
     ui->typetrip->setHidden(1);
     ui->perso->setCurrentIndex(1);
 }
 
 void MainWindow::on_closeajouterperso_clicked()
 {   on_home_p_clicked();
+
 }
 
 void MainWindow::on_confirmerAjouterperso_clicked()
@@ -507,7 +510,8 @@ void MainWindow::on_modifierp_clicked()
     QString id=ui->rechercherper->text().toUpper();
     Personnel p1;
     ui->rechercherper->setEnabled(0);
-    ui->modifierp->setEnabled(0);
+    ui->modifierp->setEnabled(1);
+    ui->tableViewP->setEnabled(0);
     ui->supprimerp->setEnabled(0);
     ui->ajoutrfidp->setEnabled(0);
     ui->afficherp->setEnabled(0);
@@ -532,6 +536,7 @@ void MainWindow::on_closemodifierperso_clicked()
 {
     ui->perso->setCurrentIndex(0);
     ui->tableViewP->setModel(P.afficher_p());
+    ui->tableViewP->setEnabled(1);
     ui->modifierp->setEnabled(1);
     ui->supprimerp->setEnabled(1);
     ui->ajoutrfidp->setEnabled(1);
@@ -571,6 +576,7 @@ void MainWindow::on_confirmerModifierperso_clicked()
         if(test)
         {   ui->perso->setCurrentIndex(0);
             ui->tableViewP->setModel(p1.afficher_p());
+            ui->tableViewP->setEnabled(1);
             ui->modifierp->setEnabled(1);
             ui->supprimerp->setEnabled(1);
             ui->ajoutrfidp->setEnabled(1);
@@ -850,6 +856,17 @@ void MainWindow::on_ajoutrfidp_clicked()
         QString id=ui->rechercherper->text().toUpper();
         Personnel p1;
         P.getperso(p1,id);
+        ui->rechercherper->setEnabled(0);
+        ui->tableViewP->setEnabled(1);
+        ui->modifierp->setEnabled(0);
+        ui->supprimerp->setEnabled(0);
+        ui->ajoutrfidp->setEnabled(1);
+        ui->afficherp->setEnabled(0);
+        ui->pdfp->setEnabled(0);
+        ui->rechercheperso->setEnabled(0);
+        ui->statp->setEnabled(0);
+        ui->trierp->setEnabled(0);
+        ui->mailp->setEnabled(0);
         ui->perso->setCurrentIndex(5);}
 
 
@@ -1036,6 +1053,7 @@ void MainWindow::on_closestatperso_clicked()
 void MainWindow::on_closerfid_clicked()
 {
     ui->perso->setCurrentIndex(0);
+    ui->tableViewP->setEnabled(1);
 }
 void MainWindow::on_tableViewP_clicked(const QModelIndex &index)
 {
@@ -1063,6 +1081,7 @@ void MainWindow::on_home_p_clicked()
 {
     clearajoutperso();
     ui->rechercheperso->setEnabled(1);
+    ui->tableViewP->setEnabled(1);
     ui->trierp->setEnabled(1);
     ui->statp->setEnabled(1);
     ui->mailp->setEnabled(1);
@@ -1197,7 +1216,18 @@ void MainWindow::on_lancerlescan_clicked()
         P.affecterrfid_p(id,rfid,code);
         msgBox.setIcon(QMessageBox::Information);
         msgBox.setText("Carte attribuée."); msgBox.exec();
-        on_home_p_clicked();
+        ui->perso->setCurrentIndex(0);
+        ui->tableViewP->setModel(P.afficher_p());
+        ui->tableViewP->setEnabled(1);
+        ui->modifierp->setEnabled(1);
+        ui->supprimerp->setEnabled(1);
+        ui->ajoutrfidp->setEnabled(1);
+        ui->afficherp->setEnabled(1);
+        ui->pdfp->setEnabled(1);
+        ui->rechercheperso->setEnabled(1);
+        ui->statp->setEnabled(1);
+        ui->trierp->setEnabled(1);
+        ui->mailp->setEnabled(1);
 
     }
 }
@@ -1760,7 +1790,8 @@ void MainWindow::on_ajoutersdf_clicked()
     ui->textsdf->setHidden(1);
     ui->fichierhistorique->setHidden(1);
     ui->selectrisdf->setHidden(1);
-
+    ui->tableViewsdf->setEnabled(0);
+    ui->tableViewsdf->setModel(Stmp.afficher_b());
     ui->recherchesdf->setEnabled(0);
     ui->statsdfsexe->setEnabled(0);
     ui->triersdf->setEnabled(0);
@@ -1922,7 +1953,7 @@ void MainWindow::on_confirmerAjoutersdf_clicked()
             ui->Sdf->setCurrentIndex(0);
             //Boutons:
             ui->recherchersdf->clear();
-
+            ui->tableViewsdf->setEnabled(1);
             ui->recherchesdf->setEnabled(1);
             ui->statsdfsexe->setEnabled(1);
             ui->triersdf->setEnabled(1);
@@ -1944,7 +1975,7 @@ void MainWindow::on_closeajoutersdf_clicked()
 
     //Boutons:
     ui->recherchersdf->clear();
-
+    ui->tableViewsdf->setEnabled(1);
     ui->recherchesdf->setEnabled(1);
     ui->statsdfsexe->setEnabled(1);
     ui->triersdf->setEnabled(1);
@@ -2047,6 +2078,7 @@ void MainWindow::on_modsdf_clicked()
     ui->triersdf->setEnabled(0);
     ui->statsdfsexe->setEnabled(0);
     ui->sdfnotif->setEnabled(0);
+    ui->tableViewsdf->setEnabled(0);
 
 }
 
@@ -2113,7 +2145,7 @@ void MainWindow::on_confirmerModifiersdf_clicked()
         ui->pdfsdf->setEnabled(1);
         ui->textsdf->setEnabled(1);
         ui->fichierhistorique->setEnabled(1);
-
+        ui->tableViewsdf->setEnabled(1);
         //ui->recherchersdf->setEnabled(1);
         ui->recherchesdf->setEnabled(1);
         ui->triersdf->setEnabled(1);
@@ -2132,7 +2164,7 @@ void MainWindow::on_confirmerModifiersdf_clicked()
 void MainWindow::on_closeModifiersdf_clicked()
 {
     ui->Sdf->setCurrentIndex(0);
-
+    ui->tableViewsdf->setEnabled(1);
     //Boutons:
     ui->supprimersdf->setEnabled(1);
     ui->modsdf->setEnabled(1);
@@ -2149,84 +2181,10 @@ void MainWindow::on_closeModifiersdf_clicked()
 }
 
 //yassmine inventaire
-
-//mayssa donation
-
-
-//loujain consultation
-
-void MainWindow::on_ajoutermed_clicked()
-{
-    ui->med->setCurrentIndex(1);
-}
-
-void MainWindow::on_confirmerAjoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_closeajoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_cinpatient_activated()
-{
-    ui->descriptionpatient->setFocus();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void MainWindow::on_ajouterinventaire_clicked()
 {
     on_homeinv_clicked();
+    ui->tableView_inv->setEnabled(0);
     ui->statinv->setEnabled(0);
     ui->triinv->setEnabled(0);
     ui->bilaninv->setEnabled(0);
@@ -2261,6 +2219,7 @@ void MainWindow::on_confirmerAjouterinv_clicked()
     int id_s=0;
 
     ui->inv->setCurrentIndex(0);
+
     QString categorie=ui->categorieinv->currentText();
     QString type=ui->typeinv->currentText();
     QString sexe_s=ui->sexeinv->currentText();
@@ -2281,6 +2240,7 @@ void MainWindow::on_confirmerAjouterinv_clicked()
         Stock_stat s_stat(id_s,prix,nb_tot,nb_res,currentDate);
         s_stat.ajouter_stock_stat();
         ui->tableView_inv->setModel(S1.afficher_inv());
+                  on_homeinv_clicked();
         ui->imageinv_2->setVisible(true);
         ui->annuler_imageinv->setVisible(false);
         ui->image_name_inv->setText("");
@@ -2315,6 +2275,7 @@ void MainWindow::on_confirmerAjouterinv_clicked()
 
         if(test)
         { ui->tableView_inv->setModel(S1.afficher_inv());
+          on_homeinv_clicked();
         }
         else
         {
@@ -2352,6 +2313,7 @@ void MainWindow::on_homeinv_clicked()
     ui->triinv_combo->setHidden(1);
     ui->triinv_combo->setCurrentIndex(0);
     ui->inv->setCurrentIndex(0);
+    ui->tableView_inv->setEnabled(1);
     ui->tableView_inv->setModel(S1.afficher_inv());
 }
 
@@ -2628,8 +2590,9 @@ void MainWindow::on_closeaffiche_image_inv_clicked()
 void MainWindow::on_modifierinv_2_clicked()
 {
     //on_homeinv_clicked();
-        ui->inv->setCurrentIndex(2);
+    ui->inv->setCurrentIndex(2);
     ui->rechercherinv_2->setEnabled(0);
+    ui->tableView_inv->setEnabled(0);
     ui->suppmodifinv->setHidden(0);
     ui->suppmodifinv->setEnabled(0);
 
@@ -2694,6 +2657,7 @@ void MainWindow::on_modifierinv_2_clicked()
 
 void MainWindow::on_closeajouterinv_2_clicked()
 {
+    ui->tableView_inv->setEnabled(1);
     ui->rechercherinv_2->setEnabled(1);
     ui->suppmodifinv->setHidden(0);
     ui->suppmodifinv->setEnabled(0);
@@ -2768,6 +2732,7 @@ void MainWindow::on_modifierinv_page2_clicked()
     Stock_stat s_stat(id_s,prix,nb_tot,nb_res,currentDate);
     s_stat.ajouter_stock_stat();
     //on_homeinv_clicked();
+    ui->tableView_inv->setEnabled(1);
     ui->inv->setCurrentIndex(0);
     ui->tableView_inv->setModel(S1.afficher_inv());
     ui->rechercherinv_2->setEnabled(1);
@@ -2893,20 +2858,20 @@ void MainWindow::on_vendre_inv_clicked()
 {
     ui->suppmodifinv->setHidden(0);
     ui->suppmodifinv->setEnabled(0);
-    ui->modifierinv_2->setHidden(0);
-    ui->supprimerinv->setHidden(0);
-    ui->vendre_inv->setHidden(0);
+    ui->modifierinv_2->setEnabled(0);
+    ui->supprimerinv->setEnabled(0);
+    ui->vendre_inv->setEnabled(0);
     ui->triinv->setEnabled(0);
     ui->bilaninv->setEnabled(0);
     ui->statinv->setEnabled(0);
     ui->pdfinv->setEnabled(0);
     ui->rechercherinv_2->setEnabled(1);
     ui->triinv_combo->setHidden(1);
-  vente d;
+    vente d;
     d.setWindowTitle("Vente Stock");
     int id_s = ui->suppmodifinv->text().toInt();
     d.setidinv(id_s);
-        int nb=S1.get_nbr_res_vendre(id_s);
+    int nb=S1.get_nbr_res_vendre(id_s);
     qDebug() << nb;
     if(nb==0)
     {
@@ -2923,47 +2888,56 @@ void MainWindow::on_vendre_inv_clicked()
     }
     else
     {d.max(nb);
-    d.exec();}
-//on_homeinv_clicked();
+        d.exec();}
+    ui->tableView_inv->setModel(S1.afficher_inv());
+    ui->modifierinv_2->setEnabled(1);
+    ui->supprimerinv->setEnabled(1);
+    ui->vendre_inv->setEnabled(1);
+    ui->triinv->setEnabled(1);
+    ui->bilaninv->setEnabled(1);
+    ui->statinv->setEnabled(1);
+    ui->pdfinv->setEnabled(1);
 
 }
 
-/*void MainWindow::on_closevendre_inv_clicked()
+//mayssa donation
+
+
+//loujain consultation
+
+void MainWindow::on_ajoutermed_clicked()
 {
-    on_homeinv_clicked();
-}*/
+    ui->med->setCurrentIndex(1);
+}
 
-/*void MainWindow::on_vendreinv_clicked()
+void MainWindow::on_confirmerAjoutermed_clicked()
 {
-    stock S;
-    int id_s = ui->suppmodifinv->text().toInt();
-    int nb_res=ui->nb_resinv_2->value();
+    ui->med->setCurrentIndex(0);
+}
 
-    int r = S.get_nbr_res_vendre(id_s);
-    if (r < nb_res){
-        QMessageBox::critical(nullptr, QObject::tr("Stock épuisé"),
-                              QObject::tr("vous n'avez pas cette quantité en stock.\n"
-                                          "vous ne pouvez pas effectué cette opération"), QMessageBox::Cancel);
-    }
-    else {
-        S.update_nbr_rest_vendre(r-nb_res,id_s);
-        QString type=ui->typeinv_2->currentText();
+void MainWindow::on_closeajoutermed_clicked()
+{
+    ui->med->setCurrentIndex(0);
+}
 
-        data.append(type);
-        if (nb_res!=0){data.clear();
-            data.append("0");}
-        A.write_to_arduino(data);
-
-        QDate currentDate = QDate::currentDate();
-        double prix=ui->prixinv_2->value();
-        int nb_tot=ui->nb_totinv_2->value();
-        Stock_stat s_stat(id_s,prix,nb_tot,nb_res,currentDate);
-        s_stat.ajouter_stock_stat();
-        on_homeinv_clicked();
-    }
+void MainWindow::on_cinpatient_activated()
+{
+    ui->descriptionpatient->setFocus();
+}
 
 
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
