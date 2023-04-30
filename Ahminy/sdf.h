@@ -12,7 +12,8 @@
 #include <QPainter>
 #include <QDir>
 #include <QTextStream>
-
+#include <QDesktopServices>
+#include <QUrl>
 
 class Sdf
 {

@@ -370,16 +370,19 @@ void MainWindow::on_confirmerAjouterperso_clicked()
             {
                 msgBox.setIcon(QMessageBox::Critical);
                 msgBox.setText("Cin déjà enregistré."); msgBox.exec();
+                ui->perso->setCurrentIndex(1);
             }
             else if (P.recherche_tel_p(numtel))
             {
                 msgBox.setIcon(QMessageBox::Critical);
                 msgBox.setText("Numero de Téléphone déjà enregistré."); msgBox.exec();
+                ui->perso->setCurrentIndex(2);
             }
             else if (P.recherche_mail_p(mail_p))
             {
                 msgBox.setIcon(QMessageBox::Critical);
                 msgBox.setText("Email déjà enregistré."); msgBox.exec();
+                ui->perso->setCurrentIndex(2);
             }
             else { ////cryptage
                 QByteArray br = cinp.toUtf8();
@@ -551,20 +554,6 @@ void MainWindow::on_confirmerModifierperso_clicked()
 {  bool verif=verif_modifierperso();
     if(verif)
     {
-        QString adresse=ui->adresseperso_2->text().toLower();
-        adresse[0]=adresse[0].toUpper();
-        QString num=ui->numtelperso_2->text();
-        QString mail=ui->mailperso_2->text();
-        Personnel p1;
-        QString id=ui->rechercherper->text().toUpper();
-        P.getperso(p1,id);
-        p1.set_numtel(num);
-        p1.set_adresse(adresse);
-        p1.set_mail_p(mail);
-        //// update les donnée mtaa li connectée
-        if(p1.get_id_p()==P.get_id_p()) P=p1;
-        bool test=p1.modifier_p(id);
-        //on_home_p_clicked();
         QMessageBox msgBox;
         msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
         msgBox.setFixedSize(600,600);
@@ -573,6 +562,34 @@ void MainWindow::on_confirmerModifierperso_clicked()
         msgBox.setFont(bellMTFont);
         msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
         msgBox.setWindowTitle("Ahminy");
+        QString adresse=ui->adresseperso_2->text().toLower();
+        adresse[0]=adresse[0].toUpper();
+        QString num=ui->numtelperso_2->text();
+        QString mail=ui->mailperso_2->text();
+        Personnel p1;
+        QString id=ui->rechercherper->text().toUpper();
+        P.getperso(p1,id);
+        if (P.recherche_tel_p(num) && (p1.get_numtel()!=num))
+                    {
+                        msgBox.setIcon(QMessageBox::Critical);
+                        msgBox.setText("Numero de Téléphone déjà enregistré."); msgBox.exec();
+                        ui->perso->setCurrentIndex(3);
+                    }
+        else if (P.recherche_mail_p(mail) && (p1.get_mail_p()!=mail))
+        {
+            msgBox.setIcon(QMessageBox::Critical);
+            msgBox.setText("Email déjà enregistré."); msgBox.exec();
+            ui->perso->setCurrentIndex(3);
+        }
+        else {
+        p1.set_numtel(num);
+        p1.set_adresse(adresse);
+        p1.set_mail_p(mail);
+        //// update les donnée mtaa li connectée
+        if(p1.get_id_p()==P.get_id_p()) P=p1;
+        bool test=p1.modifier_p(id);
+        //on_home_p_clicked();
+
         if(test)
         {   ui->perso->setCurrentIndex(0);
             ui->tableViewP->setModel(p1.afficher_p());
@@ -589,7 +606,7 @@ void MainWindow::on_confirmerModifierperso_clicked()
         }
         else {        msgBox.setIcon(QMessageBox::Critical);
             msgBox.setText("Modification non éffectué."); msgBox.exec();}
-    }}
+    }}}
 
 bool MainWindow::verif_ajoutperso()
 {
@@ -874,17 +891,8 @@ void MainWindow::on_ajoutrfidp_clicked()
 }
 void MainWindow::on_pdfp_clicked()
 {
-    QMessageBox msgBox;
-    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-    msgBox.setFixedSize(600,600);
-    msgBox.setWindowOpacity(0.8);
-    QFont bellMTFont("Bell MT");
-    msgBox.setFont(bellMTFont);
-    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-    msgBox.setWindowTitle("Ahminy");
     P.generatePDFReport(ui->rechercherper->text());
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setText("Pdf généré avec succés."); msgBox.exec();
+
 }
 void MainWindow::on_statp_clicked()
 {
@@ -899,7 +907,7 @@ void MainWindow::on_statp_clicked()
     }
     else
     {
-        nbper= -1;
+        nbper= 0;
     }
     query.prepare("SELECT COUNT(*) from PERSONNEL where metier = :metier");
     query.bindValue(":metier", "Receptionniste");
@@ -909,7 +917,7 @@ void MainWindow::on_statp_clicked()
     }
     else
     {
-        nbsdf= -1;
+        nbsdf= 0;
     }
     query.prepare("SELECT COUNT(*) from PERSONNEL where metier = :metier");
     query.bindValue(":metier", "Gestionnaire De Stock");
@@ -919,7 +927,7 @@ void MainWindow::on_statp_clicked()
     }
     else
     {
-        nbinv= -1;
+        nbinv= 0;
     }
     query.prepare("SELECT COUNT(*) from PERSONNEL where metier = :metier");
     query.bindValue(":metier", "Tresorier");
@@ -929,7 +937,7 @@ void MainWindow::on_statp_clicked()
     }
     else
     {
-        nbtre= -1;
+        nbtre= 0;
     }
     query.prepare("SELECT COUNT(*) from PERSONNEL where metier = :metier");
     query.bindValue(":metier", "Medecin");
@@ -939,7 +947,7 @@ void MainWindow::on_statp_clicked()
     }
     else
     {
-        nbmed= -1;
+        nbmed= 0;
     }
     QPieSeries *series = new QPieSeries();
     series->setHoleSize(0.35);
@@ -958,9 +966,18 @@ void MainWindow::on_statp_clicked()
         msgBox.setText("Base De donnée vide."); msgBox.exec();
     }
     else
-    {if (qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbper)
+    {
+        int total=nbper+nbsdf+nbinv+nbtre+nbmed;
+        double per_per = (double)nbper / total * 100.0;
+        double sdf_per = (double)nbsdf / total * 100.0;
+        double inv_per = (double)nbinv / total * 100.0;
+        double tre_per = (double)nbtre / total * 100.0;
+        double med_per = (double)nbmed / total * 100.0;
+qDebug() << "total" <<total << "per_per" << per_per << "sdf_per" << sdf_per << "inv_per" << inv_per <<  "tre_per" << tre_per << "med_per" << med_per ;
+
+        if (qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbper)
         {
-            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf);slice1->setLabelVisible();}
+            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf);slice1->setLabelVisible();slice1->setLabel(QString("%1%").arg(sdf_per, 0, 'f', 0));}
             else series->append("Standardiste", nbsdf);
             if(nbtre !=0) {QPieSlice *slice2 = series->append("Tresorier", nbtre); slice2->setLabelVisible();}
             else series->append("Tresorier", nbtre);
@@ -973,7 +990,7 @@ void MainWindow::on_statp_clicked()
         }
         else if(qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbsdf)
         {
-            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Receptionniste", nbsdf); slice1->setExploded();slice1->setLabelVisible();}
+            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Receptionniste", nbsdf); slice1->setExploded();slice1->setLabelVisible();slice1->setLabel(QString("%1%").arg(sdf_per, 0, 'f', 0));}
             else series->append("Standardiste", nbsdf);
             if(nbtre !=0) {QPieSlice *slice2 = series->append("Tresorier", nbtre); slice2->setLabelVisible();}
             else series->append("Tresorier", nbtre);
@@ -987,7 +1004,7 @@ void MainWindow::on_statp_clicked()
         else if(qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbtre)
         {
 
-            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf); slice1->setLabelVisible();}
+            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf); slice1->setLabelVisible();slice1->setLabel(QString("%1%").arg(sdf_per, 0, 'f', 0));}
             else series->append("Standardiste", nbsdf);
             if(nbtre !=0) {QPieSlice *slice2 = series->append("Tresorier", nbtre);slice2->setExploded(); slice2->setLabelVisible();}
             else series->append("Tresorier", nbtre);
@@ -1000,7 +1017,7 @@ void MainWindow::on_statp_clicked()
         }
         else if(qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbinv)
         {
-            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf); slice1->setLabelVisible();}
+            if(nbsdf !=0) {QPieSlice *slice1 = series->append("Standardiste", nbsdf); slice1->setLabelVisible();slice1->setLabel(QString("%1%").arg(sdf_per, 0, 'f', 0));}
             else series->append("Standardiste", nbsdf);
             if(nbtre !=0) {QPieSlice *slice2 = series->append("Tresorier", nbtre); slice2->setLabelVisible();}
             else series->append("Tresorier", nbtre);
@@ -1017,7 +1034,7 @@ void MainWindow::on_statp_clicked()
             else series->append("Standardiste", nbsdf);
             if(nbtre !=0) {QPieSlice *slice2 = series->append("Tresorier", nbtre); slice2->setLabelVisible();}
             else series->append("Tresorier", nbtre);
-            if(nbinv !=0) {QPieSlice *slice3 = series->append("Gest..De Stock", nbinv);slice3->setLabelVisible();}
+            if(nbinv !=0) {QPieSlice *slice3 = series->append("Gest.. De Stock", nbinv);slice3->setLabelVisible();}
             else series->append("Gest..De Stock", nbinv);
             if(nbmed !=0) {QPieSlice *slice4 = series->append("Medecin", nbmed);slice4->setExploded();slice4->setLabelVisible();}
             else series->append("Medecin", nbmed);
@@ -1035,10 +1052,20 @@ void MainWindow::on_statp_clicked()
         bgPen.setWidth(35);
         chart->setBackgroundBrush(bgBrush);
         chart->setBackgroundPen(bgPen);
-        QChartView *chartview = new QChartView(chart);
-        chartview->setRenderHint(QPainter::Antialiasing);
-
-        chartview->setParent(ui->statperso);
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+        QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
+            if (isHovered) {
+                QString ch;
+                if(slice->label()=="Gest.. De Stock") ch="Gestionnaire De Stock";
+                else if(slice->label()=="Resp.. RH") ch="Responsable RH";
+                else ch=slice->label();
+                chartView->setToolTip(QString("%1: %2%").arg(ch).arg(slice->value() / total * 100.0, 0, 'f', 2));
+            } else {
+                chartView->setToolTip("");
+            }
+        });
+        chartView->setParent(ui->statperso);
         ui->perso->setCurrentIndex(4);
     }
 
@@ -1577,7 +1604,7 @@ void MainWindow::on_statsdfsexe_clicked()
 
     int nbf=Stmp.nb_sexe("Femme");
     int nbh=Stmp.nb_sexe("Homme");
-
+    int total=nbf+nbh;
     QPieSeries *series = new QPieSeries();
     series->setHoleSize(0.35);
 
@@ -1619,8 +1646,14 @@ void MainWindow::on_statsdfsexe_clicked()
     chart->setBackgroundPen(bgPen);
     QChartView *chartview = new QChartView(chart);
     chartview->setRenderHint(QPainter::Antialiasing);
-
-    chartview->setParent(ui->statsexesdf);
+    QObject::connect(series, &QPieSeries::hovered, chartview, [=] (QPieSlice *slice, bool isHovered) {
+        if (isHovered) {
+            chartview->setToolTip(QString("%1: %2%").arg(slice->label()).arg(slice->value() / total * 100.0, 0, 'f',0));
+        } else {
+            chartview->setToolTip("");
+        }
+ });
+  chartview->setParent(ui->statsexesdf);
     if ((nbf==0) && (nbh==0))
     {
         ui->Sdf->setCurrentIndex(0);
@@ -1628,7 +1661,7 @@ void MainWindow::on_statsdfsexe_clicked()
         msgBox.setText("Base de donnée vide");
         msgBox.exec();
     }
-    else ui->Sdf->setCurrentIndex(3);
+    else ui->Sdf->setCurrentIndex(3);  
 }
 
 
@@ -1686,22 +1719,8 @@ void MainWindow::on_closenotifsdf_clicked()
 
 void MainWindow::on_pdfsdf_clicked()
 {
-    QMessageBox msgBox;
-    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-    msgBox.setWindowOpacity(0.8);
-    msgBox.setFixedSize(600,600);
-    QFont bellMTFont("Bell MT");
-    msgBox.setFont(bellMTFont);
-    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-    msgBox.setWindowTitle("Ahminy");
-
     QString cin_b=ui->recherchersdf->text();
     Stmp.creesdf_pdf(cin_b);
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setText("PDF Généré");
-    msgBox.exec();
-
-    //ui->recherchersdf->clear();
 }
 
 
@@ -2403,6 +2422,7 @@ void MainWindow::on_statinv_clicked()
     int bas=s.nb_categorie("Bas");
     int accesoire=s.nb_categorie("Accessoires");
     int chaussure=s.nb_categorie("Chaussures");
+    int total=haut+bas+accesoire+chaussure;
     QMessageBox msgBox;
     msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
     msgBox.setWindowOpacity(0.8);
@@ -2435,6 +2455,13 @@ void MainWindow::on_statinv_clicked()
     chart->setBackgroundPen(bgPen);
     QChartView* chartview= new QChartView(chart);
     chartview->setRenderHint(QPainter::Antialiasing);
+    QObject::connect(series, &QPieSeries::hovered, chartview, [=] (QPieSlice *slice, bool isHovered) {
+        if (isHovered) {
+            chartview->setToolTip(QString("%1: %2%").arg(slice->label()).arg(slice->value() / total * 100.0, 0, 'f',2));
+        } else {
+            chartview->setToolTip("");
+        }
+ });
     chartview->setParent(ui->horizontalFrame);
     if ((haut==0) && (bas==0)&&(accesoire==0) && (chaussure==0))
     {

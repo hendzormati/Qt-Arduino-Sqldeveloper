@@ -87,7 +87,6 @@ public:
     QFrame *ajouterperso2;
     QLineEdit *numtelperso;
     QLabel *telpersoL;
-    QLabel *titreajoutperso2;
     QLabel *adressepersoL;
     QLabel *metierpersoL;
     QLineEdit *adresseperso;
@@ -263,13 +262,6 @@ public:
     QFrame *affichimage_inv;
     QLabel *affiche_image_inv;
     QPushButton *closeaffiche_image_inv;
-    QWidget *modifier_nb_res_inv;
-    QFrame *modifierInv_2;
-    QLabel *titrevendreinv;
-    QLabel *nb_resinvL_2;
-    QSpinBox *nb_resinv_2;
-    QPushButton *vendreinv;
-    QPushButton *closevendre_inv;
     QTableView *tableView_excel_inv;
     QWidget *tresorier;
     QLabel *titredon;
@@ -959,26 +951,22 @@ public:
         ajouterperso2->setFrameShadow(QFrame::Raised);
         numtelperso = new QLineEdit(ajouterperso2);
         numtelperso->setObjectName(QStringLiteral("numtelperso"));
-        numtelperso->setGeometry(QRect(190, 95, 171, 41));
+        numtelperso->setGeometry(QRect(170, 56, 191, 41));
         telpersoL = new QLabel(ajouterperso2);
         telpersoL->setObjectName(QStringLiteral("telpersoL"));
-        telpersoL->setGeometry(QRect(30, 95, 151, 31));
+        telpersoL->setGeometry(QRect(20, 61, 151, 31));
         telpersoL->setFont(font8);
-        titreajoutperso2 = new QLabel(ajouterperso2);
-        titreajoutperso2->setObjectName(QStringLiteral("titreajoutperso2"));
-        titreajoutperso2->setGeometry(QRect(56, 37, 311, 31));
-        titreajoutperso2->setFont(font10);
         adressepersoL = new QLabel(ajouterperso2);
         adressepersoL->setObjectName(QStringLiteral("adressepersoL"));
-        adressepersoL->setGeometry(QRect(30, 194, 121, 31));
+        adressepersoL->setGeometry(QRect(20, 180, 121, 31));
         adressepersoL->setFont(font8);
         metierpersoL = new QLabel(ajouterperso2);
         metierpersoL->setObjectName(QStringLiteral("metierpersoL"));
-        metierpersoL->setGeometry(QRect(30, 244, 131, 31));
+        metierpersoL->setGeometry(QRect(20, 236, 131, 31));
         metierpersoL->setFont(font8);
         adresseperso = new QLineEdit(ajouterperso2);
         adresseperso->setObjectName(QStringLiteral("adresseperso"));
-        adresseperso->setGeometry(QRect(160, 194, 201, 41));
+        adresseperso->setGeometry(QRect(170, 176, 191, 41));
         closeajouterperso2 = new QPushButton(ajouterperso2);
         closeajouterperso2->setObjectName(QStringLiteral("closeajouterperso2"));
         closeajouterperso2->setGeometry(QRect(12, 11, 28, 28));
@@ -989,24 +977,24 @@ public:
         confirmerAjouterperso->setFont(font9);
         salairepersoL = new QLabel(ajouterperso2);
         salairepersoL->setObjectName(QStringLiteral("salairepersoL"));
-        salairepersoL->setGeometry(QRect(30, 298, 131, 31));
+        salairepersoL->setGeometry(QRect(20, 291, 131, 31));
         salairepersoL->setFont(font8);
         salaireperso = new QLineEdit(ajouterperso2);
         salaireperso->setObjectName(QStringLiteral("salaireperso"));
-        salaireperso->setGeometry(QRect(190, 298, 171, 41));
+        salaireperso->setGeometry(QRect(170, 284, 191, 41));
         salaireperso->setReadOnly(true);
         metierperso = new QComboBox(ajouterperso2);
         metierperso->setObjectName(QStringLiteral("metierperso"));
-        metierperso->setGeometry(QRect(160, 244, 201, 41));
+        metierperso->setGeometry(QRect(170, 230, 191, 41));
         precedentajouterperso2 = new QPushButton(ajouterperso2);
         precedentajouterperso2->setObjectName(QStringLiteral("precedentajouterperso2"));
-        precedentajouterperso2->setGeometry(QRect(7, 30, 50, 50));
+        precedentajouterperso2->setGeometry(QRect(310, 10, 50, 50));
         mailperso = new QLineEdit(ajouterperso2);
         mailperso->setObjectName(QStringLiteral("mailperso"));
-        mailperso->setGeometry(QRect(160, 145, 201, 41));
+        mailperso->setGeometry(QRect(170, 116, 191, 41));
         mailpersoL = new QLabel(ajouterperso2);
         mailpersoL->setObjectName(QStringLiteral("mailpersoL"));
-        mailpersoL->setGeometry(QRect(30, 150, 121, 31));
+        mailpersoL->setGeometry(QRect(20, 121, 121, 31));
         mailpersoL->setFont(font8);
         perso->addTab(ajouterpersonnel2, QString());
         modifierpersonnel = new QWidget();
@@ -1111,26 +1099,26 @@ public:
         modifierperso->setFrameShadow(QFrame::Raised);
         numtelperso_2 = new QLineEdit(modifierperso);
         numtelperso_2->setObjectName(QStringLiteral("numtelperso_2"));
-        numtelperso_2->setGeometry(QRect(190, 170, 171, 41));
+        numtelperso_2->setGeometry(QRect(170, 165, 191, 41));
         telpersoL_2 = new QLabel(modifierperso);
         telpersoL_2->setObjectName(QStringLiteral("telpersoL_2"));
-        telpersoL_2->setGeometry(QRect(30, 172, 151, 31));
+        telpersoL_2->setGeometry(QRect(20, 170, 151, 31));
         telpersoL_2->setFont(font8);
         titremodifierperso = new QLabel(modifierperso);
         titremodifierperso->setObjectName(QStringLiteral("titremodifierperso"));
-        titremodifierperso->setGeometry(QRect(26, 37, 341, 31));
+        titremodifierperso->setGeometry(QRect(26, 50, 341, 31));
         titremodifierperso->setFont(font10);
         adressepersoL_2 = new QLabel(modifierperso);
         adressepersoL_2->setObjectName(QStringLiteral("adressepersoL_2"));
-        adressepersoL_2->setGeometry(QRect(30, 290, 121, 31));
+        adressepersoL_2->setGeometry(QRect(20, 290, 121, 31));
         adressepersoL_2->setFont(font8);
         metierpersoL_2 = new QLabel(modifierperso);
         metierpersoL_2->setObjectName(QStringLiteral("metierpersoL_2"));
-        metierpersoL_2->setGeometry(QRect(30, 110, 131, 31));
+        metierpersoL_2->setGeometry(QRect(20, 110, 131, 31));
         metierpersoL_2->setFont(font8);
         adresseperso_2 = new QLineEdit(modifierperso);
         adresseperso_2->setObjectName(QStringLiteral("adresseperso_2"));
-        adresseperso_2->setGeometry(QRect(160, 290, 201, 41));
+        adresseperso_2->setGeometry(QRect(170, 285, 191, 41));
         closemodifierperso = new QPushButton(modifierperso);
         closemodifierperso->setObjectName(QStringLiteral("closemodifierperso"));
         closemodifierperso->setGeometry(QRect(12, 11, 28, 28));
@@ -1141,13 +1129,13 @@ public:
         confirmerModifierperso->setFont(font9);
         metierperso_2 = new QComboBox(modifierperso);
         metierperso_2->setObjectName(QStringLiteral("metierperso_2"));
-        metierperso_2->setGeometry(QRect(160, 110, 201, 41));
+        metierperso_2->setGeometry(QRect(170, 105, 191, 41));
         mailperso_2 = new QLineEdit(modifierperso);
         mailperso_2->setObjectName(QStringLiteral("mailperso_2"));
-        mailperso_2->setGeometry(QRect(160, 230, 201, 41));
+        mailperso_2->setGeometry(QRect(170, 225, 191, 41));
         mailpersoL_2 = new QLabel(modifierperso);
         mailpersoL_2->setObjectName(QStringLiteral("mailpersoL_2"));
-        mailpersoL_2->setGeometry(QRect(30, 235, 121, 31));
+        mailpersoL_2->setGeometry(QRect(20, 230, 121, 31));
         mailpersoL_2->setFont(font8);
         perso->addTab(modifierpersonnel, QString());
         statpersonnel = new QWidget();
@@ -1219,7 +1207,7 @@ public:
         rfidperso->setFrameShadow(QFrame::Raised);
         titrerfid = new QLabel(rfidperso);
         titrerfid->setObjectName(QStringLiteral("titrerfid"));
-        titrerfid->setGeometry(QRect(76, 40, 231, 31));
+        titrerfid->setGeometry(QRect(80, 40, 231, 31));
         titrerfid->setFont(font10);
         closerfid = new QPushButton(rfidperso);
         closerfid->setObjectName(QStringLiteral("closerfid"));
@@ -1227,15 +1215,15 @@ public:
         closerfid->setFont(font12);
         scancarte = new QLabel(rfidperso);
         scancarte->setObjectName(QStringLiteral("scancarte"));
-        scancarte->setGeometry(QRect(30, 110, 321, 51));
+        scancarte->setGeometry(QRect(30, 100, 321, 51));
         scancarte->setFont(font5);
         iconrfid = new QPushButton(rfidperso);
         iconrfid->setObjectName(QStringLiteral("iconrfid"));
         iconrfid->setEnabled(false);
-        iconrfid->setGeometry(QRect(136, 187, 111, 121));
+        iconrfid->setGeometry(QRect(135, 180, 111, 121));
         lancerlescan = new QPushButton(rfidperso);
         lancerlescan->setObjectName(QStringLiteral("lancerlescan"));
-        lancerlescan->setGeometry(QRect(117, 340, 173, 53));
+        lancerlescan->setGeometry(QRect(90, 340, 201, 53));
         lancerlescan->setFont(font6);
         perso->addTab(ajoutrfid, QString());
         affichagepersonnel = new QWidget(mainpersonnel);
@@ -1398,7 +1386,7 @@ public:
 "border-image: url(:/images/supprimerperso1.png);\n"
 "}\n"
 "#supprimerp:hover{\n"
-"border-image: url(:/images/supprimerperso2.png);\n"
+"border-image: url(:/images/supprimerperso3.png);\n"
 "}\n"
 "#supprimerp:pressed{\n"
 "border-image: url(:/images/supprimerperso3.png);\n"
@@ -1798,7 +1786,7 @@ public:
         modifiersdf1->setFrameShadow(QFrame::Raised);
         nbpassagesdfL = new QLabel(modifiersdf1);
         nbpassagesdfL->setObjectName(QStringLiteral("nbpassagesdfL"));
-        nbpassagesdfL->setGeometry(QRect(20, 122, 161, 31));
+        nbpassagesdfL->setGeometry(QRect(20, 122, 161, 41));
         nbpassagesdfL->setFont(font8);
         confirmerModifiersdf = new QPushButton(modifiersdf1);
         confirmerModifiersdf->setObjectName(QStringLiteral("confirmerModifiersdf"));
@@ -1806,8 +1794,14 @@ public:
         confirmerModifiersdf->setFont(font9);
         titremodifiersdf1 = new QLabel(modifiersdf1);
         titremodifiersdf1->setObjectName(QStringLiteral("titremodifiersdf1"));
-        titremodifiersdf1->setGeometry(QRect(56, 37, 341, 31));
-        titremodifiersdf1->setFont(font10);
+        titremodifiersdf1->setGeometry(QRect(30, 50, 321, 31));
+        QFont font15;
+        font15.setFamily(QStringLiteral("Bell MT"));
+        font15.setPointSize(20);
+        font15.setBold(true);
+        font15.setUnderline(true);
+        font15.setWeight(75);
+        titremodifiersdf1->setFont(font15);
         numchsdfL = new QLabel(modifiersdf1);
         numchsdfL->setObjectName(QStringLiteral("numchsdfL"));
         numchsdfL->setGeometry(QRect(20, 192, 161, 31));
@@ -1819,7 +1813,7 @@ public:
         nbpassagesdf = new QLineEdit(modifiersdf1);
         nbpassagesdf->setObjectName(QStringLiteral("nbpassagesdf"));
         nbpassagesdf->setEnabled(false);
-        nbpassagesdf->setGeometry(QRect(200, 125, 151, 31));
+        nbpassagesdf->setGeometry(QRect(200, 126, 151, 35));
         affchambre = new QRadioButton(modifiersdf1);
         affchambre->setObjectName(QStringLiteral("affchambre"));
         affchambre->setEnabled(false);
@@ -1831,7 +1825,7 @@ public:
         modchambre->setGeometry(QRect(210, 290, 121, 20));
         num_lit = new QComboBox(modifiersdf1);
         num_lit->setObjectName(QStringLiteral("num_lit"));
-        num_lit->setGeometry(QRect(200, 190, 151, 31));
+        num_lit->setGeometry(QRect(200, 186, 151, 35));
         num_lit->setStyleSheet(QLatin1String("#num_lit{ \n"
 "border: 2px solid #dcd0c9;\n"
 "border-radius: 7px;\n"
@@ -1849,9 +1843,10 @@ public:
         nblit = new QLabel(modifiersdf1);
         nblit->setObjectName(QStringLiteral("nblit"));
         nblit->setGeometry(QRect(200, 230, 161, 16));
-        QFont font15;
-        font15.setFamily(QStringLiteral("Microsoft JhengHei Light"));
-        nblit->setFont(font15);
+        QFont font16;
+        font16.setFamily(QStringLiteral("Microsoft JhengHei Light"));
+        font16.setPointSize(8);
+        nblit->setFont(font16);
         Sdf->addTab(modifiersdf, QString());
         statsdf = new QWidget();
         statsdf->setObjectName(QStringLiteral("statsdf"));
@@ -1884,13 +1879,13 @@ public:
         titresexe = new QLabel(statsdf);
         titresexe->setObjectName(QStringLiteral("titresexe"));
         titresexe->setGeometry(QRect(70, 510, 291, 31));
-        QFont font16;
-        font16.setFamily(QStringLiteral("Berlin Sans FB Demi"));
-        font16.setPointSize(23);
-        font16.setBold(true);
-        font16.setUnderline(false);
-        font16.setWeight(75);
-        titresexe->setFont(font16);
+        QFont font17;
+        font17.setFamily(QStringLiteral("Berlin Sans FB Demi"));
+        font17.setPointSize(23);
+        font17.setBold(true);
+        font17.setUnderline(false);
+        font17.setWeight(75);
+        titresexe->setFont(font17);
         Sdf->addTab(statsdf, QString());
         statsexesdf->raise();
         titresexe->raise();
@@ -2546,7 +2541,7 @@ public:
         ajouterInv->setFrameShadow(QFrame::Raised);
         categorieinvL = new QLabel(ajouterInv);
         categorieinvL->setObjectName(QStringLiteral("categorieinvL"));
-        categorieinvL->setGeometry(QRect(24, 79, 131, 41));
+        categorieinvL->setGeometry(QRect(24, 89, 131, 41));
         categorieinvL->setFont(font5);
         confirmerAjouterinv = new QPushButton(ajouterInv);
         confirmerAjouterinv->setObjectName(QStringLiteral("confirmerAjouterinv"));
@@ -2554,11 +2549,11 @@ public:
         confirmerAjouterinv->setFont(font9);
         titreajoutinv1 = new QLabel(ajouterInv);
         titreajoutinv1->setObjectName(QStringLiteral("titreajoutinv1"));
-        titreajoutinv1->setGeometry(QRect(50, 30, 311, 31));
+        titreajoutinv1->setGeometry(QRect(48, 30, 311, 31));
         titreajoutinv1->setFont(font10);
         typeinvL = new QLabel(ajouterInv);
         typeinvL->setObjectName(QStringLiteral("typeinvL"));
-        typeinvL->setGeometry(QRect(22, 135, 131, 31));
+        typeinvL->setGeometry(QRect(22, 145, 131, 31));
         typeinvL->setFont(font5);
         closeajouterinv = new QPushButton(ajouterInv);
         closeajouterinv->setObjectName(QStringLiteral("closeajouterinv"));
@@ -2566,49 +2561,49 @@ public:
         closeajouterinv->setFont(font12);
         categorieinv = new QComboBox(ajouterInv);
         categorieinv->setObjectName(QStringLiteral("categorieinv"));
-        categorieinv->setGeometry(QRect(160, 80, 201, 41));
+        categorieinv->setGeometry(QRect(160, 90, 201, 41));
         typeinv = new QComboBox(ajouterInv);
         typeinv->setObjectName(QStringLiteral("typeinv"));
-        typeinv->setGeometry(QRect(160, 130, 201, 41));
+        typeinv->setGeometry(QRect(160, 140, 201, 41));
         sexeinvL = new QLabel(ajouterInv);
         sexeinvL->setObjectName(QStringLiteral("sexeinvL"));
-        sexeinvL->setGeometry(QRect(23, 185, 121, 31));
+        sexeinvL->setGeometry(QRect(23, 195, 121, 31));
         sexeinvL->setFont(font5);
         sexeinv = new QComboBox(ajouterInv);
         sexeinv->setObjectName(QStringLiteral("sexeinv"));
-        sexeinv->setGeometry(QRect(160, 180, 201, 41));
+        sexeinv->setGeometry(QRect(160, 190, 201, 41));
         nb_totinvL = new QLabel(ajouterInv);
         nb_totinvL->setObjectName(QStringLiteral("nb_totinvL"));
-        nb_totinvL->setGeometry(QRect(20, 240, 241, 31));
+        nb_totinvL->setGeometry(QRect(20, 250, 241, 31));
         nb_totinvL->setFont(font5);
         nb_totinv = new QSpinBox(ajouterInv);
         nb_totinv->setObjectName(QStringLiteral("nb_totinv"));
-        nb_totinv->setGeometry(QRect(260, 240, 101, 31));
+        nb_totinv->setGeometry(QRect(260, 250, 101, 31));
         nb_totinv->setMinimum(1);
         nb_totinv->setMaximum(100);
         prixinvL = new QLabel(ajouterInv);
         prixinvL->setObjectName(QStringLiteral("prixinvL"));
-        prixinvL->setGeometry(QRect(20, 300, 131, 31));
+        prixinvL->setGeometry(QRect(20, 310, 131, 31));
         prixinvL->setFont(font5);
         prixinv = new QDoubleSpinBox(ajouterInv);
         prixinv->setObjectName(QStringLiteral("prixinv"));
-        prixinv->setGeometry(QRect(160, 300, 201, 31));
+        prixinv->setGeometry(QRect(160, 310, 201, 31));
         prixinv->setMaximum(1000);
         prixinv->setSingleStep(0.1);
         imageinvl = new QLabel(ajouterInv);
         imageinvl->setObjectName(QStringLiteral("imageinvl"));
-        imageinvl->setGeometry(QRect(20, 350, 101, 41));
+        imageinvl->setGeometry(QRect(20, 360, 101, 41));
         imageinvl->setFont(font5);
         imageinv_2 = new QPushButton(ajouterInv);
         imageinv_2->setObjectName(QStringLiteral("imageinv_2"));
-        imageinv_2->setGeometry(QRect(290, 360, 71, 28));
+        imageinv_2->setGeometry(QRect(290, 370, 71, 28));
         annuler_imageinv = new QPushButton(ajouterInv);
         annuler_imageinv->setObjectName(QStringLiteral("annuler_imageinv"));
-        annuler_imageinv->setGeometry(QRect(292, 360, 71, 28));
+        annuler_imageinv->setGeometry(QRect(292, 370, 71, 28));
         imginven = new QLineEdit(ajouterInv);
         imginven->setObjectName(QStringLiteral("imginven"));
         imginven->setEnabled(false);
-        imginven->setGeometry(QRect(160, 360, 141, 28));
+        imginven->setGeometry(QRect(160, 370, 141, 28));
         imginven->setStyleSheet(QLatin1String("#imginven{\n"
 "	border: 2px solid #dcd0c9;\n"
 "border-radius: 7px;\n"
@@ -2618,7 +2613,7 @@ public:
 "}"));
         image_name_inv = new QLabel(ajouterInv);
         image_name_inv->setObjectName(QStringLiteral("image_name_inv"));
-        image_name_inv->setGeometry(QRect(165, 350, 131, 51));
+        image_name_inv->setGeometry(QRect(165, 360, 131, 51));
         image_name_inv->setStyleSheet(QLatin1String("color: #858585;\n"
 "font-weight: bold;\n"
 "font-size: 10px;"));
@@ -2823,75 +2818,69 @@ public:
         modifierInv->setFrameShadow(QFrame::Raised);
         typeinv_2 = new QComboBox(modifierInv);
         typeinv_2->setObjectName(QStringLiteral("typeinv_2"));
-        typeinv_2->setGeometry(QRect(160, 130, 201, 41));
+        typeinv_2->setGeometry(QRect(160, 140, 201, 41));
         titremodifierinv = new QLabel(modifierInv);
         titremodifierinv->setObjectName(QStringLiteral("titremodifierinv"));
-        titremodifierinv->setGeometry(QRect(50, 30, 311, 31));
+        titremodifierinv->setGeometry(QRect(48, 30, 311, 31));
         titremodifierinv->setFont(font10);
         typeinvL_2 = new QLabel(modifierInv);
         typeinvL_2->setObjectName(QStringLiteral("typeinvL_2"));
-        typeinvL_2->setGeometry(QRect(22, 135, 91, 31));
+        typeinvL_2->setGeometry(QRect(22, 145, 91, 31));
         typeinvL_2->setFont(font5);
         nb_totinvL_2 = new QLabel(modifierInv);
         nb_totinvL_2->setObjectName(QStringLiteral("nb_totinvL_2"));
-        nb_totinvL_2->setGeometry(QRect(20, 240, 261, 31));
+        nb_totinvL_2->setGeometry(QRect(20, 250, 261, 31));
         nb_totinvL_2->setFont(font5);
         nb_totinv_2 = new QSpinBox(modifierInv);
         nb_totinv_2->setObjectName(QStringLiteral("nb_totinv_2"));
-        nb_totinv_2->setGeometry(QRect(260, 240, 101, 31));
+        nb_totinv_2->setGeometry(QRect(260, 250, 101, 31));
         nb_totinv_2->setMinimum(1);
         sexeinvL_2 = new QLabel(modifierInv);
         sexeinvL_2->setObjectName(QStringLiteral("sexeinvL_2"));
-        sexeinvL_2->setGeometry(QRect(23, 185, 91, 31));
+        sexeinvL_2->setGeometry(QRect(23, 195, 91, 31));
         sexeinvL_2->setFont(font5);
         categorieinvL_2 = new QLabel(modifierInv);
         categorieinvL_2->setObjectName(QStringLiteral("categorieinvL_2"));
-        categorieinvL_2->setGeometry(QRect(23, 79, 141, 41));
+        categorieinvL_2->setGeometry(QRect(23, 89, 141, 41));
         categorieinvL_2->setFont(font5);
         prixinvL_2 = new QLabel(modifierInv);
         prixinvL_2->setObjectName(QStringLiteral("prixinvL_2"));
-        prixinvL_2->setGeometry(QRect(20, 300, 121, 31));
+        prixinvL_2->setGeometry(QRect(20, 310, 121, 31));
         prixinvL_2->setFont(font5);
         prixinv_2 = new QDoubleSpinBox(modifierInv);
         prixinv_2->setObjectName(QStringLiteral("prixinv_2"));
-        prixinv_2->setGeometry(QRect(160, 300, 201, 31));
+        prixinv_2->setGeometry(QRect(160, 310, 201, 31));
         categorieinv_2 = new QComboBox(modifierInv);
         categorieinv_2->setObjectName(QStringLiteral("categorieinv_2"));
-        categorieinv_2->setGeometry(QRect(160, 80, 201, 41));
+        categorieinv_2->setGeometry(QRect(160, 90, 201, 41));
         sexeinv_2 = new QComboBox(modifierInv);
         sexeinv_2->setObjectName(QStringLiteral("sexeinv_2"));
-        sexeinv_2->setGeometry(QRect(160, 180, 201, 41));
+        sexeinv_2->setGeometry(QRect(160, 190, 201, 41));
         modifierinv_page2 = new QPushButton(modifierInv);
         modifierinv_page2->setObjectName(QStringLiteral("modifierinv_page2"));
         modifierinv_page2->setGeometry(QRect(120, 420, 133, 51));
-        QFont font17;
-        font17.setFamily(QStringLiteral("Bell MT"));
-        font17.setPointSize(14);
-        font17.setBold(true);
-        font17.setWeight(75);
-        font17.setKerning(true);
-        modifierinv_page2->setFont(font17);
+        modifierinv_page2->setFont(font9);
         closeajouterinv_2 = new QPushButton(modifierInv);
         closeajouterinv_2->setObjectName(QStringLiteral("closeajouterinv_2"));
         closeajouterinv_2->setGeometry(QRect(12, 11, 28, 28));
         closeajouterinv_2->setFont(font12);
         annuler_imageinv_2 = new QPushButton(modifierInv);
         annuler_imageinv_2->setObjectName(QStringLiteral("annuler_imageinv_2"));
-        annuler_imageinv_2->setGeometry(QRect(290, 360, 71, 28));
+        annuler_imageinv_2->setGeometry(QRect(290, 370, 71, 28));
         imageinvl_2 = new QLabel(modifierInv);
         imageinvl_2->setObjectName(QStringLiteral("imageinvl_2"));
-        imageinvl_2->setGeometry(QRect(20, 350, 101, 41));
+        imageinvl_2->setGeometry(QRect(20, 360, 101, 41));
         imageinvl_2->setFont(font5);
         imageinv_3 = new QPushButton(modifierInv);
         imageinv_3->setObjectName(QStringLiteral("imageinv_3"));
-        imageinv_3->setGeometry(QRect(290, 360, 71, 28));
+        imageinv_3->setGeometry(QRect(290, 370, 71, 28));
         image_name_inv_2 = new QLabel(modifierInv);
         image_name_inv_2->setObjectName(QStringLiteral("image_name_inv_2"));
-        image_name_inv_2->setGeometry(QRect(165, 360, 141, 31));
+        image_name_inv_2->setGeometry(QRect(165, 370, 141, 31));
         imginven_2 = new QLineEdit(modifierInv);
         imginven_2->setObjectName(QStringLiteral("imginven_2"));
         imginven_2->setEnabled(false);
-        imginven_2->setGeometry(QRect(160, 360, 141, 28));
+        imginven_2->setGeometry(QRect(160, 370, 141, 28));
         imginven_2->setStyleSheet(QLatin1String("#imginven_2{\n"
 "	border: 2px solid #dcd0c9;\n"
 "border-radius: 7px;\n"
@@ -2983,223 +2972,6 @@ public:
         closeaffiche_image_inv->setGeometry(QRect(12, 11, 28, 28));
         closeaffiche_image_inv->setFont(font12);
         inv->addTab(afficheplusInvl, QString());
-        modifier_nb_res_inv = new QWidget();
-        modifier_nb_res_inv->setObjectName(QStringLiteral("modifier_nb_res_inv"));
-        modifier_nb_res_inv->setStyleSheet(QStringLiteral("#modifier_nb_res_inv{ background: #fbf9f9;}"));
-        modifierInv_2 = new QFrame(modifier_nb_res_inv);
-        modifierInv_2->setObjectName(QStringLiteral("modifierInv_2"));
-        modifierInv_2->setGeometry(QRect(10, 90, 381, 451));
-        modifierInv_2->setStyleSheet(QLatin1String("#modifierInv_2{background:#f8f5f1;border:8px double #f0e4e0;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}\n"
-"#titrevendreinv{color:#d7837f;}\n"
-"#typeinvL_2{color:#dd6564;}\n"
-"#categorieinvL_2{color:#dd6564;}\n"
-"#sexeinvL_2{color:#dd6564;}\n"
-"#nb_totinvL_2{color:#dd6564;}\n"
-"#prixinvL_2{color:#dd6564;}\n"
-"#nb_resinvL_2{color:#dd6564;}\n"
-"#id_s_invL{color:#dd6564;}\n"
-"#imageinvl_2{color:#dd6564;}\n"
-"#vendreinv{\n"
-"color:#d7837f;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#vendreinv:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#vendreinv:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"#typeinv_2{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#typeinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"s"
-                        "election-color:#56695b;\n"
-"}\n"
-"#categorieinv_2{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#categorieinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"\n"
-"#sexeinv_2{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#sexeinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#nb_totinv_2{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#nb_totinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#nb_resinv_2{ \n"
-"bo"
-                        "rder: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#nb_resinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#prixinv_2{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#prixinv_2 QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#lineEdit_id_s_modifier{ \n"
-"border: 2px solid #dcd0c9;\n"
-"border-radius: 7px;\n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#lineEdit_id_s_modifier QAbstractItemView{ \n"
-"color: #858585;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#closeajouterinv_2{\n"
-"color:#d7837f;\n"
-"border: 4px inset #dcd"
-                        "0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#closeajouterinv_2:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#closeajouterinv_2:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-"#annuler_imageinv_2{\n"
-"color:#858585;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#annuler_imageinv_2:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#annuler_imageinv_2:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-"\n"
-"#imageinv_3{\n"
-"color:#858585;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#imageinv_3:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#imageinv_3:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-"#closevendre_inv{\n"
-"color:#d7837f;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#closevendre_inv:hover{\n"
-""
-                        "border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#closevendre_inv:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-""));
-        modifierInv_2->setFrameShape(QFrame::StyledPanel);
-        modifierInv_2->setFrameShadow(QFrame::Raised);
-        titrevendreinv = new QLabel(modifierInv_2);
-        titrevendreinv->setObjectName(QStringLiteral("titrevendreinv"));
-        titrevendreinv->setGeometry(QRect(150, 60, 311, 31));
-        titrevendreinv->setFont(font10);
-        nb_resinvL_2 = new QLabel(modifierInv_2);
-        nb_resinvL_2->setObjectName(QStringLiteral("nb_resinvL_2"));
-        nb_resinvL_2->setGeometry(QRect(20, 200, 251, 31));
-        nb_resinvL_2->setFont(font8);
-        nb_resinv_2 = new QSpinBox(modifierInv_2);
-        nb_resinv_2->setObjectName(QStringLiteral("nb_resinv_2"));
-        nb_resinv_2->setGeometry(QRect(290, 200, 61, 31));
-        nb_resinv_2->setMinimum(1);
-        vendreinv = new QPushButton(modifierInv_2);
-        vendreinv->setObjectName(QStringLiteral("vendreinv"));
-        vendreinv->setGeometry(QRect(110, 330, 133, 51));
-        vendreinv->setFont(font17);
-        closevendre_inv = new QPushButton(modifierInv_2);
-        closevendre_inv->setObjectName(QStringLiteral("closevendre_inv"));
-        closevendre_inv->setGeometry(QRect(12, 11, 28, 28));
-        closevendre_inv->setFont(font12);
-        inv->addTab(modifier_nb_res_inv, QString());
         tableView_excel_inv = new QTableView(inventaire);
         tableView_excel_inv->setObjectName(QStringLiteral("tableView_excel_inv"));
         tableView_excel_inv->setGeometry(QRect(-30, 730, 20, 21));
@@ -4012,7 +3784,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        exigo->setCurrentIndex(2);
+        exigo->setCurrentIndex(1);
         tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
@@ -4049,7 +3821,7 @@ public:
         perso->setTabText(perso->indexOf(imagepersonnel), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         cinpersoL->setText(QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
         confirmersuivantperso->setText(QApplication::translate("MainWindow", "Suivant", Q_NULLPTR));
-        titreajoutperso1->setText(QApplication::translate("MainWindow", "Ajouter Un Personnel :", Q_NULLPTR));
+        titreajoutperso1->setText(QApplication::translate("MainWindow", "Ajouter Un Personnel", Q_NULLPTR));
         nompersoL->setText(QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
         prenompersoL->setText(QApplication::translate("MainWindow", "Pr\303\251nom", Q_NULLPTR));
         dobpersoL->setText(QApplication::translate("MainWindow", "Date de naissance", Q_NULLPTR));
@@ -4059,7 +3831,6 @@ public:
         closeajouterperso->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         perso->setTabText(perso->indexOf(ajouterpersonnel), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         telpersoL->setText(QApplication::translate("MainWindow", "T\303\251l\303\251phone", Q_NULLPTR));
-        titreajoutperso2->setText(QApplication::translate("MainWindow", "Ajouter Un Personnel :", Q_NULLPTR));
         adressepersoL->setText(QApplication::translate("MainWindow", "Adresse", Q_NULLPTR));
         metierpersoL->setText(QApplication::translate("MainWindow", "M\303\251tier", Q_NULLPTR));
         closeajouterperso2->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
@@ -4117,7 +3888,7 @@ public:
 #endif // QT_NO_TOOLTIP
         supprimerp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        afficherp->setToolTip(QApplication::translate("MainWindow", "Voir plus", Q_NULLPTR));
+        afficherp->setToolTip(QApplication::translate("MainWindow", "Voir Plus", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         afficherp->setText(QString());
 #ifndef QT_NO_TOOLTIP
@@ -4140,13 +3911,16 @@ public:
 #endif // QT_NO_TOOLTIP
         pdfp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        mailp->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+        mailp->setToolTip(QApplication::translate("MainWindow", "Mailing", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         mailp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        home_p->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+        home_p->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         home_p->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        ajoutrfidp->setToolTip(QApplication::translate("MainWindow", "Affecter RFID", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         ajoutrfidp->setText(QString());
         titreperso->setText(QApplication::translate("MainWindow", "Gestion Du Personnel", Q_NULLPTR));
         tabpersonnel->setTabText(tabpersonnel->indexOf(mainpersonnel), QApplication::translate("MainWindow", "main", Q_NULLPTR));
@@ -4155,7 +3929,7 @@ public:
         Sdf->setTabText(Sdf->indexOf(imagesdf), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         cinsdfL->setText(QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
         confirmerAjoutersdf->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
-        titreajoutsdf1->setText(QApplication::translate("MainWindow", "Ajouter Un B\303\251n\303\251ficiaire :", Q_NULLPTR));
+        titreajoutsdf1->setText(QApplication::translate("MainWindow", "Ajouter Un B\303\251n\303\251ficiaire", Q_NULLPTR));
         nomsdfL->setText(QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
         prenomsdfL->setText(QApplication::translate("MainWindow", "Pr\303\251nom", Q_NULLPTR));
         dobsdfL->setText(QApplication::translate("MainWindow", "Date de naissance", Q_NULLPTR));
@@ -4166,7 +3940,7 @@ public:
         Sdf->setTabText(Sdf->indexOf(ajouterSdf), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         nbpassagesdfL->setText(QApplication::translate("MainWindow", "Nb Passage", Q_NULLPTR));
         confirmerModifiersdf->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
-        titremodifiersdf1->setText(QApplication::translate("MainWindow", "Affectation Chambre :", Q_NULLPTR));
+        titremodifiersdf1->setText(QApplication::translate("MainWindow", "Affectation Chambre", Q_NULLPTR));
         numchsdfL->setText(QApplication::translate("MainWindow", "N\302\260 Chambre", Q_NULLPTR));
         closeModifiersdf->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         affchambre->setText(QApplication::translate("MainWindow", "Affectation ", Q_NULLPTR));
@@ -4236,26 +4010,53 @@ public:
 #endif // QT_NO_TOOLTIP
         textsdf->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        homesdf->setToolTip(QApplication::translate("MainWindow", "Renvoyer Beneficiaire", Q_NULLPTR));
+        homesdf->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         homesdf->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        fichierhistorique->setToolTip(QApplication::translate("MainWindow", "Renvoyer Beneficiaire", Q_NULLPTR));
+        fichierhistorique->setToolTip(QApplication::translate("MainWindow", "Historique", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         fichierhistorique->setText(QString());
         exigo->setTabText(exigo->indexOf(sdf), QApplication::translate("MainWindow", "nour", Q_NULLPTR));
         titreinventaire->setText(QApplication::translate("MainWindow", "Gestion De Stock", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        vendre_inv->setToolTip(QApplication::translate("MainWindow", "Vendre", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         vendre_inv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        statinv->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         statinv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        modifierinv_2->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         modifierinv_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        affichplus->setToolTip(QApplication::translate("MainWindow", "Afficher Image", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         affichplus->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        supprimerinv->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         supprimerinv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        triinv->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         triinv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        bilaninv->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger Excel", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         bilaninv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        pdfinv->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger PDF", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         pdfinv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        rechercherinv_2->setToolTip(QApplication::translate("MainWindow", "Rechercher avec filtrage", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         rechercherinv_2->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        homeinv->setToolTip(QApplication::translate("MainWindow", "Renvoyer Beneficiaire", Q_NULLPTR));
+        homeinv->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         homeinv->setText(QString());
         triinv_combo->setItemText(0, QApplication::translate("MainWindow", "Cat\303\251gorie", Q_NULLPTR));
@@ -4270,7 +4071,7 @@ public:
         inv->setTabText(inv->indexOf(imageinventaire), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         categorieinvL->setText(QApplication::translate("MainWindow", "Categorie", Q_NULLPTR));
         confirmerAjouterinv->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
-        titreajoutinv1->setText(QApplication::translate("MainWindow", "Ajouter Une Donnation :", Q_NULLPTR));
+        titreajoutinv1->setText(QApplication::translate("MainWindow", "Ajouter Une Donnation", Q_NULLPTR));
         typeinvL->setText(QApplication::translate("MainWindow", "Type", Q_NULLPTR));
         closeajouterinv->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         categorieinv->clear();
@@ -4310,7 +4111,7 @@ public:
          << QApplication::translate("MainWindow", "Veste", Q_NULLPTR)
          << QApplication::translate("MainWindow", "Manteau", Q_NULLPTR)
         );
-        titremodifierinv->setText(QApplication::translate("MainWindow", "Modifier Une Donnation :", Q_NULLPTR));
+        titremodifierinv->setText(QApplication::translate("MainWindow", "Modifier Une Donnation", Q_NULLPTR));
         typeinvL_2->setText(QApplication::translate("MainWindow", "Type", Q_NULLPTR));
         nb_totinvL_2->setText(QApplication::translate("MainWindow", "Nombre des pi\303\251ces", Q_NULLPTR));
         sexeinvL_2->setText(QApplication::translate("MainWindow", "Sexe", Q_NULLPTR));
@@ -4342,11 +4143,6 @@ public:
         affiche_image_inv->setText(QString());
         closeaffiche_image_inv->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         inv->setTabText(inv->indexOf(afficheplusInvl), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
-        titrevendreinv->setText(QApplication::translate("MainWindow", "Vendre", Q_NULLPTR));
-        nb_resinvL_2->setText(QApplication::translate("MainWindow", "nombre de piece", Q_NULLPTR));
-        vendreinv->setText(QApplication::translate("MainWindow", "Vendre", Q_NULLPTR));
-        closevendre_inv->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
-        inv->setTabText(inv->indexOf(modifier_nb_res_inv), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         exigo->setTabText(exigo->indexOf(inventaire), QApplication::translate("MainWindow", "yassmine", Q_NULLPTR));
         titredon->setText(QApplication::translate("MainWindow", "Gestion Des Dons", Q_NULLPTR));
         ajouterdon->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));

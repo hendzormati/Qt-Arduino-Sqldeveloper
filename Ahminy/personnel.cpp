@@ -408,6 +408,7 @@ void Personnel::generatePDFReport(QString id)
         painter.end();
         qDebug() << "PDF generated successfully.";
         qDebug() << "Current working directory:" << QDir::currentPath();
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
     } else {
         qDebug() << "Error: could not open file" << fileName;
     }

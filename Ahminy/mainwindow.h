@@ -45,6 +45,7 @@
 #include <QDate>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+
 using namespace QtCharts;
 
 QT_BEGIN_NAMESPACE
