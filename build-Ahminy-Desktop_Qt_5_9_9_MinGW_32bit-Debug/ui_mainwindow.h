@@ -3339,7 +3339,7 @@ public:
         qrcodeDon->setFrameShadow(QFrame::Raised);
         titreqrcodedon = new QLabel(qrcodeDon);
         titreqrcodedon->setObjectName(QStringLiteral("titreqrcodedon"));
-        titreqrcodedon->setGeometry(QRect(80, 50, 231, 41));
+        titreqrcodedon->setGeometry(QRect(60, 50, 271, 41));
         titreqrcodedon->setFont(font10);
         titreqrcodedon->setAlignment(Qt::AlignCenter);
         closeqrcodedon = new QPushButton(qrcodeDon);

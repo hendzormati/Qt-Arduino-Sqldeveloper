@@ -6609,9 +6609,9 @@ background: #f6f1f7;
          <widget class="QLabel" name="titreqrcodedon">
           <property name="geometry">
            <rect>
-            <x>80</x>
+            <x>60</x>
             <y>50</y>
-            <width>231</width>
+            <width>271</width>
             <height>41</height>
            </rect>
           </property>
