@@ -154,6 +154,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->triinv_combo->setHidden(1);
     //MAYSSA
     ui->tableView_d->setModel(D.afficher_d());
+    meileurD();
     ui->lineEdit_recherche->setHidden(1);
     ui->comboBox_triDon->setHidden(1);
     /////lfouk
@@ -1661,7 +1662,7 @@ void MainWindow::on_statsdfsexe_clicked()
         msgBox.setText("Base de donnée vide");
         msgBox.exec();
     }
-    else ui->Sdf->setCurrentIndex(3);  
+    else ui->Sdf->setCurrentIndex(3);
 }
 
 
@@ -2234,11 +2235,6 @@ void MainWindow::on_confirmerAjouterinv_clicked()
     msgBox.setFont(bellMTFont);
     msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
     msgBox.setWindowTitle("Ahminy");
-
-    int id_s=0;
-
-    ui->inv->setCurrentIndex(0);
-
     QString categorie=ui->categorieinv->currentText();
     QString type=ui->typeinv->currentText();
     QString sexe_s=ui->sexeinv->currentText();
@@ -2246,6 +2242,11 @@ void MainWindow::on_confirmerAjouterinv_clicked()
     int nb_tot=ui->nb_totinv->value();
     int nb_res=ui->nb_totinv->value();
     QString imagePath = ui->image_name_inv->text();
+    int id_s=0;
+
+    ui->inv->setCurrentIndex(0);
+
+
     stock S(id_s,categorie,type,sexe_s,prix,nb_tot,nb_res,imagePath);
     if (S.verif_exist(S)==true)
     {
@@ -2801,8 +2802,9 @@ void MainWindow::on_pdfinv_clicked()
     QPrinter printer (QPrinter::ScreenResolution);
     printer.setPaperSize(QPrinter::A4);
     printer.setOrientation(QPrinter::Landscape);
-    printer.setOutputFormat (QPrinter::PdfFormat); printer.setOutputFileName ("consultation.pdf");
-    printer.setOutputFileName("PDF_inv/stock.pdf");
+    printer.setOutputFormat (QPrinter::PdfFormat);
+    QString filename="PDF_inv/stock_"+QDate::currentDate().toString("dd_MMMM_yyyy")+".pdf";
+    printer.setOutputFileName(filename);
     // Définition des styles d'écriture et de couleurs
 
     QTextDocument doc;
@@ -2868,17 +2870,7 @@ void MainWindow::on_pdfinv_clicked()
     doc.setHtml(h);
     // Enregistrement et fermeture du document
     doc.print(&printer);
-
-    QMessageBox msgBox;
-    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-    msgBox.setFixedSize(600,600);
-    msgBox.setWindowOpacity(0.8);
-    QFont bellMTFont("Bell MT");
-    msgBox.setFont(bellMTFont);
-    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-    msgBox.setWindowTitle("Ahminy");
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setText("PDF généré."); msgBox.exec();
+QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+filename));
 }
 
 void MainWindow::on_vendre_inv_clicked()
@@ -3188,6 +3180,7 @@ void MainWindow::on_confirmerAjouterdon_clicked()
         if (test)
         {
             on_homedon_clicked();
+            meileurD();
         }
         else
         {
@@ -3255,6 +3248,7 @@ void MainWindow::on_homedon_clicked()
     ui->identite->clear();
     ui->telephonedon_3->clear();
     ui->montantdon_3->clear();
+    meileurD();
 }
 
 void MainWindow::on_supprimer_d_clicked()
@@ -3274,7 +3268,7 @@ void MainWindow::on_supprimer_d_clicked()
     {
 
         msgBox.setIcon(QMessageBox::Information);
-        msgBox.setText("Suppression éffectué."); msgBox.exec();  ui->lineEdit_recherche->clear(); on_homedon_clicked();}
+        msgBox.setText("Suppression éffectué."); msgBox.exec();  ui->lineEdit_recherche->clear(); on_homedon_clicked(); meileurD();}
     else {        msgBox.setIcon(QMessageBox::Critical);
         msgBox.setText("Suppression non éffectué."); msgBox.exec(); ui->lineEdit_recherche->clear();}
 }
@@ -3434,8 +3428,209 @@ void MainWindow::on_confirmermodifdon_clicked()
 
         if (test)
         { on_closemodifdon_clicked();
+            meileurD();
         }
         else {        msgBox.setIcon(QMessageBox::Critical);
             msgBox.setText("Modification non éffectué."); msgBox.exec();}
     }
+}
+
+void MainWindow::on_lineEdit_recherche_textEdited(const QString &arg1)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    QString ch=arg1;
+    if (D.filtrageDynamique_d(ch)->rowCount() == 0) {
+        msgBox.setIcon(QMessageBox::Critical);
+
+        msgBox.setText("Aucune Correspondance."); msgBox.exec();
+    } else {
+        ui->tableView_d->setModel(D.filtrageDynamique_d(ch));
+    }
+
+}
+
+void MainWindow::on_comboBox_triDon_activated(int index)
+{
+    ui->tableView_d->setModel(D.tri_don(index));
+}
+
+void MainWindow::on_tri_d_clicked()
+{
+    on_homedon_clicked();
+
+        //Boutons:
+        ui->comboBox_triDon->setHidden(0);
+        ui->lineEdit_recherche->setHidden(1);
+
+        ui->stat_d->setEnabled(1);
+        ui->execldon->setEnabled(1);
+        ui->pdf_d->setEnabled(1);
+        ui->Meilleur_d->setEnabled(1);
+        ui->recherchedon->setEnabled(1);
+        ui->tableView_d->setModel(D.afficher_d());
+
+        ui->don->setCurrentIndex(0);
+        ui->comboBox_triDon->setCurrentIndex(0);
+}
+
+void MainWindow::on_stat_d_clicked()
+{
+
+    QSqlQuery query;
+    query.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons");
+
+    // Create chart and axis objects
+    QChart *chart = new QChart();
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    QValueAxis *axisY = new QValueAxis();
+    QValueAxis *axisYRight = new QValueAxis();
+    axisYRight->setLinePenColor(Qt::transparent); // Make the right Y-axis line invisible
+
+    // Set axis labels and ranges
+    axisX->setTitleText("Person");
+    axisY->setTitleText("Number of Donations");
+    axisYRight->setTitleText("Total Amount Donated");
+    int maxDonations = 0;
+    int maxAmount = 0;
+    int personIndex = 0; // Initialize personIndex to 0
+    while (query.next()) {
+
+        QString personId = query.value("nom_d").toString()+"_"+query.value("prenom_d").toString();;
+        int amount = query.value("montant_d").toInt();
+        int donations = query.value("nbr_d").toInt();
+        maxDonations = qMax(maxDonations, donations);
+        maxAmount = qMax(maxAmount, amount);
+        QBarSet *donationSet = new QBarSet("Number of Donations");
+        *donationSet << donations;
+        QBarSet *amountSet = new QBarSet("Total Amount Donated");
+        *amountSet << amount;
+
+        // Create bar series for current person
+        QBarSeries *personSeries = new QBarSeries();
+        personSeries->append(donationSet);
+        personSeries->append(amountSet);
+        chart->addSeries(personSeries); // Add the series to the chart
+        personSeries->attachAxis(axisX);
+        personSeries->attachAxis(axisY);
+        personSeries->attachAxis(axisYRight); // Attach the right Y-axis to the person series
+
+        // Set the index of the person on the X-axis
+        int personIdInt = personId.toInt();
+        QString categoryName = QString::number(personIndex) + " - " + QString::number(personIdInt);
+        axisX->append(categoryName);
+        personIndex++;
+    }
+
+    // Set axis ranges based on maximum values
+    axisY->setRange(0, maxDonations + 1);
+    axisYRight->setRange(0, maxAmount + 10);
+
+    // Set chart properties and display chart
+    chart->setTitle("Donations by Person");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->setGeometry(100, 100, 800, 600);
+    chart->createDefaultAxes();
+    QChartView *chartView = new QChartView(chart);
+    setCentralWidget(chartView);
+
+    // Set chart properties
+    chart->setTitle("My Chart");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    // Show the chart
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->show();
+            }
+
+void MainWindow::on_closeqrcodedon_clicked()
+{
+    ui->don->setCurrentIndex(0);
+    ui->tableView_d->setModel(D.afficher_d());
+    //ui->lineEdit_recherche->setEnabled(1);
+    ui->comboBox_triDon->setHidden(1);
+    /////lfouk
+    ui->modifier_d->setEnabled(1);
+    ui->supprimer_d->setEnabled(1);
+    ui->don_d->setEnabled(1);
+    ui->qr_code_2->setEnabled(1);
+    //// alajnab
+    ui->stat_d->setEnabled(1);
+    ui->execldon->setEnabled(1);
+    ui->pdf_d->setEnabled(1);
+    ui->Meilleur_d->setEnabled(1);
+    ui->recherchedon->setEnabled(1);
+    ui->tri_d->setEnabled(1);
+}
+
+
+void MainWindow::on_qr_code_2_clicked()
+{
+    don D1;
+    QString cin_d=ui->lineEdit_recherche->text();
+    D.Get_don(D1,cin_d);
+
+
+    ui->titreqrcodedon->setText(D1.getnom_d()+" "+D1.getprenom_d());
+    ui->don->setCurrentIndex(3);
+    QString text = QString("BEGIN:VCARD\nVERSION:3.0\nN:%1;%2;;;\nTEL:%3\nEND:VCARD")
+                    .arg(D1.getnom_d())
+                    .arg(D1.getprenom_d())
+                    .arg(D1.gettelephone_d());
+    using namespace qrcodegen;
+    // Create the QR Code object
+    QrCode qr = QrCode::encodeText(text.toUtf8().constData(), QrCode::Ecc::MEDIUM);
+      qint32 sz = qr.getSize();
+      QImage im(sz,sz, QImage::Format_RGB32);
+        QRgb black = qRgb(  0,  0,  0);
+        QRgb white = qRgb(255,255,255);
+      for (int y = 0; y < sz; y++)
+        for (int x = 0; x < sz; x++)
+          im.setPixel(x,y,qr.getModule(x, y) ? black : white );
+
+      ui->qr_code->setAlignment(Qt::AlignCenter);
+      ui->qr_code->setPixmap( QPixmap::fromImage(im.scaled(230,230,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
+
+      ui->don->setCurrentIndex(3);
+}
+void MainWindow::meileurD()
+{
+    QString meilleurmontant;
+    QString meilleurdonnation;
+    QString nom1,prenom1,nom2,prenom2,montant,nb;
+
+    QSqlQuery query;
+    query.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE nbr_d = (SELECT MAX(nbr_d) FROM dons)");
+    while (query.next()) {
+      nom1 = query.value("nom_d").toString();
+      prenom1 = query.value("prenom_d").toString();
+        nb = query.value("nbr_d").toString();
+    }
+meilleurdonnation=nom1+" "+prenom1+" tabara3a " + nb +" fois.";
+qDebug() << nom1<< prenom1 << nb ;
+QSqlQuery query1;
+query1.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE montant_d = (SELECT MAX(CAST(montant_d AS FLOAT)) FROM dons)");
+while (query1.next()) {
+  nom2 = query1.value("nom_d").toString();
+  prenom2 = query1.value("prenom_d").toString();
+  montant = query1.value("montant_d").toString();
+}
+meilleurmontant=nom2+" "+prenom2+" tabara3a " + montant +" Dt.";
+qDebug() << nom2<< prenom2 << montant << nb ;
+    ui->maxnbdon->setText(meilleurdonnation);
+    ui->maxmontantdon->setText(meilleurmontant);
+}
+
+void MainWindow::on_don_d_clicked()
+{
+
+    meileurD();
 }

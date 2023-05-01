@@ -296,6 +296,11 @@ public:
     QLabel *telephonedonL_3;
     QLabel *montantdonL_3;
     QLineEdit *montantdon_3;
+    QWidget *qrcodedon;
+    QFrame *qrcodeDon;
+    QLabel *titreqrcodedon;
+    QPushButton *closeqrcodedon;
+    QLabel *qr_code;
     QWidget *affichagedon;
     QPushButton *modifier_d;
     QPushButton *stat_d;
@@ -311,6 +316,8 @@ public:
     QComboBox *comboBox_triDon;
     QPushButton *homedon;
     QPushButton *tri_d;
+    QLabel *maxmontantdon;
+    QLabel *maxnbdon;
     QWidget *medecin;
     QWidget *affichagemed;
     QLabel *titremedecin;
@@ -2216,7 +2223,7 @@ public:
 "border-image:url(:/images/vendre_inv_2.png);}"));
         statinv = new QPushButton(affichageinv);
         statinv->setObjectName(QStringLiteral("statinv"));
-        statinv->setGeometry(QRect(30, 160, 39, 39));
+        statinv->setGeometry(QRect(30, 155, 39, 39));
         modifierinv_2 = new QPushButton(affichageinv);
         modifierinv_2->setObjectName(QStringLiteral("modifierinv_2"));
         modifierinv_2->setGeometry(QRect(310, 21, 35, 35));
@@ -2588,8 +2595,10 @@ public:
         prixinv = new QDoubleSpinBox(ajouterInv);
         prixinv->setObjectName(QStringLiteral("prixinv"));
         prixinv->setGeometry(QRect(160, 310, 201, 31));
+        prixinv->setMinimum(0.1);
         prixinv->setMaximum(1000);
         prixinv->setSingleStep(0.1);
+        prixinv->setValue(0.1);
         imageinvl = new QLabel(ajouterInv);
         imageinvl->setObjectName(QStringLiteral("imageinvl"));
         imageinvl->setGeometry(QRect(20, 360, 101, 41));
@@ -3148,7 +3157,7 @@ public:
         confirmerAjouterdon->setFont(font9);
         titreajoutdon1 = new QLabel(ajouterdon1);
         titreajoutdon1->setObjectName(QStringLiteral("titreajoutdon1"));
-        titreajoutdon1->setGeometry(QRect(56, 37, 311, 31));
+        titreajoutdon1->setGeometry(QRect(51, 37, 311, 31));
         titreajoutdon1->setFont(font10);
         nomdonL = new QLabel(ajouterdon1);
         nomdonL->setObjectName(QStringLiteral("nomdonL"));
@@ -3302,6 +3311,68 @@ public:
         montantdon_3->setObjectName(QStringLiteral("montantdon_3"));
         montantdon_3->setGeometry(QRect(160, 250, 201, 41));
         don->addTab(modifierDon, QString());
+        qrcodedon = new QWidget();
+        qrcodedon->setObjectName(QStringLiteral("qrcodedon"));
+        qrcodedon->setStyleSheet(QStringLiteral("#qrcodedon{ background: #fbf9f9;}"));
+        qrcodeDon = new QFrame(qrcodedon);
+        qrcodeDon->setObjectName(QStringLiteral("qrcodeDon"));
+        qrcodeDon->setGeometry(QRect(10, 90, 381, 421));
+        qrcodeDon->setStyleSheet(QLatin1String("#qrcodeDon{background:#f8f5f1;border:8px double #eff5d6;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}\n"
+"#titreqrcodedon{color:#52794a;}\n"
+"\n"
+"#closeqrcodedon{\n"
+"color:#56695b;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 15px;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#closeqrcodedon:hover{\n"
+"border: 4px outset #dcd0c9;\n"
+"background: #f0e4e0;\n"
+"}\n"
+"#closeqrcodedon:pressed{\n"
+"border: 4px inset #dcd0c9;\n"
+"background: #f6f1f7;\n"
+"}\n"
+""));
+        qrcodeDon->setFrameShape(QFrame::StyledPanel);
+        qrcodeDon->setFrameShadow(QFrame::Raised);
+        titreqrcodedon = new QLabel(qrcodeDon);
+        titreqrcodedon->setObjectName(QStringLiteral("titreqrcodedon"));
+        titreqrcodedon->setGeometry(QRect(80, 50, 231, 41));
+        titreqrcodedon->setFont(font10);
+        titreqrcodedon->setAlignment(Qt::AlignCenter);
+        closeqrcodedon = new QPushButton(qrcodeDon);
+        closeqrcodedon->setObjectName(QStringLiteral("closeqrcodedon"));
+        closeqrcodedon->setGeometry(QRect(12, 11, 28, 28));
+        closeqrcodedon->setFont(font12);
+        qr_code = new QLabel(qrcodeDon);
+        qr_code->setObjectName(QStringLiteral("qr_code"));
+        qr_code->setGeometry(QRect(70, 120, 241, 241));
+        qr_code->setStyleSheet(QLatin1String("#qr_code {\n"
+"	border:5px outset  #f3f2f7;\n"
+"    color: #62865C;\n"
+"    font-weight: bold;\n"
+"    font-size: 20px;\n"
+"     padding: 4px;\n"
+"    gridline-color: #56695b;\n"
+"    selection-background-color: #f3f2f7;\n"
+"}\n"
+"#qr_code QHeaderView::section{\n"
+"    background-color: #f8f5f1 ;\n"
+"    color: #56695b;\n"
+"    padding: 12px;\n"
+"    text-transform: uppercase;\n"
+"}\n"
+"#qr_code::item:selected {\n"
+"    background-color:#f0e4e0;\n"
+"}\n"
+"#tableView::item:focus{\n"
+"    color:#95a595;\n"
+"    border: 2px solid #f0e4e0;\n"
+"    background-color: #fafaeb ;\n"
+"}"));
+        don->addTab(qrcodedon, QString());
         affichagedon = new QWidget(tresorier);
         affichagedon->setObjectName(QStringLiteral("affichagedon"));
         affichagedon->setGeometry(QRect(530, 120, 821, 511));
@@ -3356,7 +3427,7 @@ public:
 ""));
         stat_d = new QPushButton(affichagedon);
         stat_d->setObjectName(QStringLiteral("stat_d"));
-        stat_d->setGeometry(QRect(40, 355, 39, 39));
+        stat_d->setGeometry(QRect(30, 155, 39, 39));
         stat_d->setFont(font4);
         stat_d->setStyleSheet(QLatin1String("#stat_d{\n"
 "	border-image: url(:/images/stattr1.png);\n"
@@ -3385,7 +3456,7 @@ public:
 "}"));
         Meilleur_d = new QPushButton(affichagedon);
         Meilleur_d->setObjectName(QStringLiteral("Meilleur_d"));
-        Meilleur_d->setGeometry(QRect(35, 165, 39, 39));
+        Meilleur_d->setGeometry(QRect(360, 430, 81, 71));
         Meilleur_d->setStyleSheet(QLatin1String("#Meilleur_d{\n"
 "	border-image: url(:/images/best1.png);\n"
 "}\n"
@@ -3445,7 +3516,7 @@ public:
 ""));
         execldon = new QPushButton(affichagedon);
         execldon->setObjectName(QStringLiteral("execldon"));
-        execldon->setGeometry(QRect(40, 230, 35, 35));
+        execldon->setGeometry(QRect(35, 360, 35, 35));
         execldon->setFont(font4);
         execldon->setStyleSheet(QLatin1String("#execldon{\n"
 "	border-image: url(:/images/excel1(1).png);\n"
@@ -3499,7 +3570,7 @@ public:
         tableView_d->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         pdf_d = new QPushButton(affichagedon);
         pdf_d->setObjectName(QStringLiteral("pdf_d"));
-        pdf_d->setGeometry(QRect(37, 290, 40, 40));
+        pdf_d->setGeometry(QRect(28, 220, 42, 42));
         pdf_d->setStyleSheet(QLatin1String("#pdf_d{\n"
 "	border-image: url(:/images/pdftr1.png);\n"
 "}\n"
@@ -3520,6 +3591,8 @@ public:
 "}\n"
 ""));
         comboBox_triDon = new QComboBox(affichagedon);
+        comboBox_triDon->addItem(icon3, QString());
+        comboBox_triDon->addItem(icon4, QString());
         comboBox_triDon->addItem(icon3, QString());
         comboBox_triDon->addItem(icon4, QString());
         comboBox_triDon->addItem(icon3, QString());
@@ -3557,7 +3630,7 @@ public:
 "}"));
         tri_d = new QPushButton(affichagedon);
         tri_d->setObjectName(QStringLiteral("tri_d"));
-        tri_d->setGeometry(QRect(35, 30, 39, 39));
+        tri_d->setGeometry(QRect(35, 295, 35, 35));
         tri_d->setFont(font4);
         tri_d->setStyleSheet(QLatin1String("#tri_d{\n"
 "	\n"
@@ -3568,6 +3641,40 @@ public:
 "	border-image: url(:/images/trisdf2.png);\n"
 "\n"
 "}"));
+        maxmontantdon = new QLabel(affichagedon);
+        maxmontantdon->setObjectName(QStringLiteral("maxmontantdon"));
+        maxmontantdon->setGeometry(QRect(3, 454, 371, 41));
+        maxmontantdon->setFont(font6);
+        maxmontantdon->setStyleSheet(QLatin1String("color:#52794a;\n"
+"color:#52794a;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 7px;\n"
+"background: #eff5d6;"));
+        maxnbdon = new QLabel(affichagedon);
+        maxnbdon->setObjectName(QStringLiteral("maxnbdon"));
+        maxnbdon->setGeometry(QRect(421, 454, 371, 41));
+        maxnbdon->setFont(font6);
+        maxnbdon->setStyleSheet(QLatin1String("color:#52794a;\n"
+"color:#52794a;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 7px;\n"
+"background: #eff5d6;"));
+        modifier_d->raise();
+        stat_d->raise();
+        lineEdit_recherche->raise();
+        don_d->raise();
+        supprimer_d->raise();
+        execldon->raise();
+        recherchedon->raise();
+        tableView_d->raise();
+        pdf_d->raise();
+        qr_code_2->raise();
+        comboBox_triDon->raise();
+        homedon->raise();
+        tri_d->raise();
+        maxmontantdon->raise();
+        maxnbdon->raise();
+        Meilleur_d->raise();
         exigo->addTab(tresorier, QString());
         medecin = new QWidget();
         medecin->setObjectName(QStringLiteral("medecin"));
@@ -3784,7 +3891,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        exigo->setCurrentIndex(1);
+        exigo->setCurrentIndex(3);
         tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
@@ -3985,13 +4092,13 @@ public:
 #endif // QT_NO_TOOLTIP
         triersdf->setText(QString());
         selectrisdf->setItemText(0, QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
-        selectrisdf->setItemText(1, QApplication::translate("MainWindow", "Prenom", Q_NULLPTR));
-        selectrisdf->setItemText(2, QApplication::translate("MainWindow", "Date Entree", Q_NULLPTR));
-        selectrisdf->setItemText(3, QApplication::translate("MainWindow", "Date Sortie", Q_NULLPTR));
-        selectrisdf->setItemText(4, QApplication::translate("MainWindow", "Prenom", Q_NULLPTR));
+        selectrisdf->setItemText(1, QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
+        selectrisdf->setItemText(2, QApplication::translate("MainWindow", "Prenom", Q_NULLPTR));
+        selectrisdf->setItemText(3, QApplication::translate("MainWindow", "Prenom", Q_NULLPTR));
+        selectrisdf->setItemText(4, QApplication::translate("MainWindow", "Date Entree", Q_NULLPTR));
         selectrisdf->setItemText(5, QApplication::translate("MainWindow", "Date Entree", Q_NULLPTR));
         selectrisdf->setItemText(6, QApplication::translate("MainWindow", "Date Sortie", Q_NULLPTR));
-        selectrisdf->setItemText(7, QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
+        selectrisdf->setItemText(7, QApplication::translate("MainWindow", "Date Sortie", Q_NULLPTR));
 
 #ifndef QT_NO_TOOLTIP
         statsdfsexe->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
@@ -4149,7 +4256,7 @@ public:
         don->setTabText(don->indexOf(imagedon), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         cindonL->setText(QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
         confirmerAjouterdon->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
-        titreajoutdon1->setText(QApplication::translate("MainWindow", "Ajouter Une Donnation :", Q_NULLPTR));
+        titreajoutdon1->setText(QApplication::translate("MainWindow", "Ajouter Une Donnation", Q_NULLPTR));
         nomdonL->setText(QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
         prenomdonL->setText(QApplication::translate("MainWindow", "Pr\303\251nom", Q_NULLPTR));
         closeajouterdon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
@@ -4163,6 +4270,10 @@ public:
         telephonedonL_3->setText(QApplication::translate("MainWindow", "T\303\251l\303\251phone", Q_NULLPTR));
         montantdonL_3->setText(QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
         don->setTabText(don->indexOf(modifierDon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        titreqrcodedon->setText(QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
+        closeqrcodedon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
+        qr_code->setText(QString());
+        don->setTabText(don->indexOf(qrcodedon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         modifier_d->setText(QString());
         stat_d->setText(QString());
         Meilleur_d->setText(QString());
@@ -4176,14 +4287,18 @@ public:
         comboBox_triDon->setItemText(1, QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
         comboBox_triDon->setItemText(2, QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
         comboBox_triDon->setItemText(3, QApplication::translate("MainWindow", "Nom", Q_NULLPTR));
-        comboBox_triDon->setItemText(4, QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
-        comboBox_triDon->setItemText(5, QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
+        comboBox_triDon->setItemText(4, QApplication::translate("MainWindow", "Pr\303\251nom", Q_NULLPTR));
+        comboBox_triDon->setItemText(5, QApplication::translate("MainWindow", "Pr\303\251nom", Q_NULLPTR));
+        comboBox_triDon->setItemText(6, QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
+        comboBox_triDon->setItemText(7, QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
 
 #ifndef QT_NO_TOOLTIP
         homedon->setToolTip(QApplication::translate("MainWindow", "Renvoyer Beneficiaire", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         homedon->setText(QString());
         tri_d->setText(QString());
+        maxmontantdon->setText(QApplication::translate("MainWindow", "nom prenom akther money", Q_NULLPTR));
+        maxnbdon->setText(QApplication::translate("MainWindow", "nom prenom akther nb don", Q_NULLPTR));
         exigo->setTabText(exigo->indexOf(tresorier), QApplication::translate("MainWindow", "mayssa", Q_NULLPTR));
         titremedecin->setText(QApplication::translate("MainWindow", "Gestion Des Consultations", Q_NULLPTR));
         ajoutermed->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));

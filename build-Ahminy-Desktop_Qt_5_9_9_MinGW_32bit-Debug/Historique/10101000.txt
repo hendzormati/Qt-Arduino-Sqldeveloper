@@ -22,3 +22,10 @@ Date d entree : 22/04/2023
 Date de sortie : 22/04/2023
 Numero de la chambre : 7
 
+
+Passage Numero : 2
+Ajouté par :  
+Date d entree : 28/04/2023
+Date de sortie : 30/04/2023
+Numero de la chambre : 8
+

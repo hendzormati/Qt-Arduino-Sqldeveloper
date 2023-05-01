@@ -45,7 +45,11 @@
 #include <QDate>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QCategoryAxis>
+#include <QValueAxis>
 using namespace QtCharts;
 
 QT_BEGIN_NAMESPACE
@@ -60,6 +64,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QString get_email(){return P.get_mail_p();}
+    void meileurD();
 private slots:
     //LOGIN + ACCESS
 
@@ -326,6 +331,20 @@ private slots:
     void on_closemodifdon_clicked();
 
     void on_confirmermodifdon_clicked();
+
+    void on_lineEdit_recherche_textEdited(const QString &arg1);
+
+    void on_comboBox_triDon_activated(int index);
+
+    void on_tri_d_clicked();
+
+    void on_stat_d_clicked();
+
+    void on_closeqrcodedon_clicked();
+
+    void on_qr_code_2_clicked();
+
+    void on_don_d_clicked();
 
 private:
     Ui::MainWindow *ui;

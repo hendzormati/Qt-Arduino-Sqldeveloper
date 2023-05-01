@@ -4,8 +4,10 @@
 #include <QSqlQueryModel>
 #include <QSqlQuery>
 #include <QString>
+#include <QIntValidator>
+#include <QMessageBox>
+#include <QFileDialog>
 #include <QDebug>
-
 class don
 {
 private:
@@ -46,6 +48,8 @@ public:
     bool recherchedontel(QString telephone_d);
     bool recherchedontel2(QString telephone_d,QString cindon);
     void Get_don(don &d, QString cin_d);
+    QSqlQueryModel * filtrageDynamique_d(QString ch);
+    QSqlQueryModel * tri_don(int i);
 };
 
 #endif // DON_H

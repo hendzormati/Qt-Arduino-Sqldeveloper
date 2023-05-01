@@ -34,7 +34,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <property name="usesScrollButtons">
      <bool>true</bool>
@@ -3604,61 +3604,61 @@ selection-color:#56695b;
        </item>
        <item>
         <property name="text">
-         <string>Prenom</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date Entree</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date Sortie</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Prenom</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date Entree</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date Sortie</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>Nom</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Date Entree</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Date Entree</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Date Sortie</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Date Sortie</string>
         </property>
         <property name="icon">
          <iconset resource="image.qrc">
@@ -4077,7 +4077,7 @@ border-image:url(:/images/vendre_inv_2.png);}</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>160</y>
+         <y>155</y>
          <width>39</width>
          <height>39</height>
         </rect>
@@ -4986,10 +4986,16 @@ background: #f6f1f7;
             <height>31</height>
            </rect>
           </property>
+          <property name="minimum">
+           <double>0.100000000000000</double>
+          </property>
           <property name="maximum">
            <double>1000.000000000000000</double>
           </property>
           <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
            <double>0.100000000000000</double>
           </property>
          </widget>
@@ -6132,7 +6138,7 @@ background: #f6f1f7;
          <widget class="QLabel" name="titreajoutdon1">
           <property name="geometry">
            <rect>
-            <x>56</x>
+            <x>51</x>
             <y>37</y>
             <width>311</width>
             <height>31</height>
@@ -6148,7 +6154,7 @@ background: #f6f1f7;
            </font>
           </property>
           <property name="text">
-           <string>Ajouter Une Donnation :</string>
+           <string>Ajouter Une Donnation</string>
           </property>
          </widget>
          <widget class="QLabel" name="nomdonL">
@@ -6558,6 +6564,133 @@ background: #f6f1f7;
          </widget>
         </widget>
        </widget>
+       <widget class="QWidget" name="qrcodedon">
+        <property name="styleSheet">
+         <string notr="true">#qrcodedon{ background: #fbf9f9;}</string>
+        </property>
+        <attribute name="title">
+         <string>Page</string>
+        </attribute>
+        <widget class="QFrame" name="qrcodeDon">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>381</width>
+           <height>421</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#qrcodeDon{background:#f8f5f1;border:8px double #eff5d6;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}
+#titreqrcodedon{color:#52794a;}
+
+#closeqrcodedon{
+color:#56695b;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#closeqrcodedon:hover{
+border: 4px outset #dcd0c9;
+background: #f0e4e0;
+}
+#closeqrcodedon:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="titreqrcodedon">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>50</y>
+            <width>231</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bell MT</family>
+            <pointsize>17</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>Nom Prenom</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="closeqrcodedon">
+          <property name="geometry">
+           <rect>
+            <x>12</x>
+            <y>11</y>
+            <width>28</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>X</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="qr_code">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>120</y>
+            <width>241</width>
+            <height>241</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#qr_code {
+	border:5px outset  #f3f2f7;
+    color: #62865C;
+    font-weight: bold;
+    font-size: 20px;
+     padding: 4px;
+    gridline-color: #56695b;
+    selection-background-color: #f3f2f7;
+}
+#qr_code QHeaderView::section{
+    background-color: #f8f5f1 ;
+    color: #56695b;
+    padding: 12px;
+    text-transform: uppercase;
+}
+#qr_code::item:selected {
+    background-color:#f0e4e0;
+}
+#tableView::item:focus{
+    color:#95a595;
+    border: 2px solid #f0e4e0;
+    background-color: #fafaeb ;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="affichagedon" native="true">
@@ -6804,8 +6937,8 @@ background: #f6f1f7;
       <widget class="QPushButton" name="stat_d">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>355</y>
+         <x>30</x>
+         <y>155</y>
          <width>39</width>
          <height>39</height>
         </rect>
@@ -6861,10 +6994,10 @@ background: #fafaeb;
       <widget class="QPushButton" name="Meilleur_d">
        <property name="geometry">
         <rect>
-         <x>35</x>
-         <y>165</y>
-         <width>39</width>
-         <height>39</height>
+         <x>360</x>
+         <y>430</y>
+         <width>81</width>
+         <height>71</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -7141,8 +7274,8 @@ background: #fafaeb;
       <widget class="QPushButton" name="execldon">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>230</y>
+         <x>35</x>
+         <y>360</y>
          <width>35</width>
          <height>35</height>
         </rect>
@@ -7246,10 +7379,10 @@ background: #fafaeb;
       <widget class="QPushButton" name="pdf_d">
        <property name="geometry">
         <rect>
-         <x>37</x>
-         <y>290</y>
-         <width>40</width>
-         <height>40</height>
+         <x>28</x>
+         <y>220</y>
+         <width>42</width>
+         <height>42</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -7359,6 +7492,24 @@ selection-color:#56695b;
        </item>
        <item>
         <property name="text">
+         <string>Prénom</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Prénom</string>
+        </property>
+        <property name="icon">
+         <iconset resource="image.qrc">
+          <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Montant</string>
         </property>
         <property name="icon">
@@ -7418,9 +7569,9 @@ selection-color:#56695b;
        <property name="geometry">
         <rect>
          <x>35</x>
-         <y>30</y>
-         <width>39</width>
-         <height>39</height>
+         <y>295</y>
+         <width>35</width>
+         <height>35</height>
         </rect>
        </property>
        <property name="font">
@@ -7446,6 +7597,78 @@ selection-color:#56695b;
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="maxmontantdon">
+       <property name="geometry">
+        <rect>
+         <x>3</x>
+         <y>454</y>
+         <width>371</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Bell MT</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#52794a;
+color:#52794a;
+border: 4px inset #dcd0c9;
+border-radius: 7px;
+background: #eff5d6;</string>
+       </property>
+       <property name="text">
+        <string>nom prenom akther money</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="maxnbdon">
+       <property name="geometry">
+        <rect>
+         <x>421</x>
+         <y>454</y>
+         <width>371</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Bell MT</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#52794a;
+color:#52794a;
+border: 4px inset #dcd0c9;
+border-radius: 7px;
+background: #eff5d6;</string>
+       </property>
+       <property name="text">
+        <string>nom prenom akther nb don</string>
+       </property>
+      </widget>
+      <zorder>modifier_d</zorder>
+      <zorder>stat_d</zorder>
+      <zorder>lineEdit_recherche</zorder>
+      <zorder>don_d</zorder>
+      <zorder>supprimer_d</zorder>
+      <zorder>execldon</zorder>
+      <zorder>recherchedon</zorder>
+      <zorder>tableView_d</zorder>
+      <zorder>pdf_d</zorder>
+      <zorder>qr_code_2</zorder>
+      <zorder>comboBox_triDon</zorder>
+      <zorder>homedon</zorder>
+      <zorder>tri_d</zorder>
+      <zorder>maxmontantdon</zorder>
+      <zorder>maxnbdon</zorder>
+      <zorder>Meilleur_d</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="medecin">
