@@ -87,6 +87,7 @@ background: #eff5d6;
 border: 4px inset #dcd0c9;
 background: #f6f1f7;
 }
+
 </string>
    </property>
    <property name="frameShape">
