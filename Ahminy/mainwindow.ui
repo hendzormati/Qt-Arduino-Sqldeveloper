@@ -6615,6 +6615,9 @@ background: #f6f1f7;
          </property>
          <property name="styleSheet">
           <string notr="true">#qrcodeDon{background:#f8f5f1;border:8px double #eff5d6;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}
+
+#titreqrcodedon_2{color:#52794a;}
+
 #titreqrcodedon{color:#52794a;}
 
 #closeqrcodedon{
@@ -6643,7 +6646,7 @@ background: #f6f1f7;
           <property name="geometry">
            <rect>
             <x>60</x>
-            <y>50</y>
+            <y>370</y>
             <width>271</width>
             <height>41</height>
            </rect>
@@ -6654,7 +6657,7 @@ background: #f6f1f7;
             <pointsize>17</pointsize>
             <weight>75</weight>
             <bold>true</bold>
-            <underline>true</underline>
+            <underline>false</underline>
            </font>
           </property>
           <property name="text">
@@ -6720,6 +6723,31 @@ background: #f6f1f7;
           </property>
           <property name="text">
            <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="titreqrcodedon_2">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>50</y>
+            <width>321</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bell MT</family>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>Scanner pour appeler</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </widget>
@@ -7603,7 +7631,7 @@ selection-color:#56695b;
         </font>
        </property>
        <property name="toolTip">
-        <string>Renvoyer Beneficiaire</string>
+        <string>Retour à la page d'accueil</string>
        </property>
        <property name="styleSheet">
         <string notr="true">#homedon

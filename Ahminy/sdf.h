@@ -12,8 +12,7 @@
 #include <QPainter>
 #include <QDir>
 #include <QTextStream>
-#include <QDesktopServices>
-#include <QUrl>
+
 
 class Sdf
 {
@@ -26,12 +25,13 @@ class Sdf
     QDate date_ent_b;
     QDate date_sor_b;
     int num_ch;
+    int malade_b;
 
 public:
 
     ///Constructeurs:
     Sdf();
-    Sdf(QString, QString, QString, QDate, QString, int, QDate, QDate, int);
+    Sdf(QString, QString, QString, QDate, QString, int, QDate, QDate, int, int);
 
     ///Getters:
     QString Get_cin_b(){return cin_b;}
@@ -43,6 +43,7 @@ public:
     QDate Get_date_ent_b(){return date_ent_b;}
     QDate Get_date_sor_b(){return date_sor_b;}
     int Get_num_ch(){return num_ch;}
+    int Get_malade_b(){return malade_b;}
 
     ///Setters:
     void Set_cin_b(QString cin){cin_b=cin;}
@@ -54,6 +55,7 @@ public:
     void Set_date_ent_b(QDate ent){date_ent_b=ent;}
     void Set_date_sor_b(QDate sor){date_sor_b=sor;}
     void Set_num_ch(int num){num_ch=num;}
+    void Set_malade_b(int m){malade_b=m;}
 
     ///CRUD:
     bool ajouter_b();
@@ -75,6 +77,7 @@ public:
     bool modifier_l(int num_l,int etat_l,int nb_lit);
     int Get_nb_lit(int num_l);
     bool Incondie_detecte(int num_l, int incendie);
+    bool modifier_malade(QString,int);
 
 };
 
