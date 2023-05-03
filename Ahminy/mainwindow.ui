@@ -3213,20 +3213,25 @@ selection-color:#56695b;
          <widget class="QLabel" name="nblit">
           <property name="geometry">
            <rect>
-            <x>200</x>
-            <y>230</y>
-            <width>161</width>
-            <height>16</height>
+            <x>20</x>
+            <y>243</y>
+            <width>301</width>
+            <height>20</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Microsoft JhengHei Light</family>
-            <pointsize>8</pointsize>
+            <pointsize>11</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color:#62865C;</string>
+          </property>
           <property name="text">
-           <string>Nombre de lits</string>
+           <string>Nombre de lits disponnibles</string>
           </property>
          </widget>
         </widget>
@@ -6301,6 +6306,34 @@ background: #f6f1f7;
            </rect>
           </property>
          </widget>
+         <widget class="QLabel" name="label">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>328</x>
+            <y>310</y>
+            <width>31</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #52794a;
+font-weight: bold;
+font-size: 17px;</string>
+          </property>
+          <property name="text">
+           <string>Dt</string>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QWidget" name="modifierDon">
@@ -6994,9 +7027,9 @@ background: #fafaeb;
       <widget class="QPushButton" name="Meilleur_d">
        <property name="geometry">
         <rect>
-         <x>360</x>
+         <x>380</x>
          <y>430</y>
-         <width>81</width>
+         <width>31</width>
          <height>71</height>
         </rect>
        </property>

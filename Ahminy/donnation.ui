@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>donnation</class>
+ <widget class="QDialog" name="donnation">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>528</width>
+    <height>290</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QFrame" name="donnationmontant">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>531</width>
+     <height>288</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#donnationmontant{background:#f8f5f1;border:8px double #eff5d6;  border-top-right-radius: 10px;   border-bottom-left-radius: 10px;}
+#titremodifdon{color:#52794a;}
+
+#NbfoisL{color:#62865C;}
+
+#montantL{color:#62865C;}
+
+#nbfois{ selection-color:#56695b;
+color: #52794a;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #dcd0c9;
+border-radius: 7px;
+background-color: #fefefb;
+  selection-background-color: #e3dac9;
+}
+#nbfois:hover{
+border: 2px inset #dcd0c9;
+background: #fafaeb;
+}
+
+#montant{ selection-color:#56695b;
+color: #52794a;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #dcd0c9;
+border-radius: 7px;
+background-color: #fefefb;
+  selection-background-color: #e3dac9;
+}
+#montant:hover{
+border: 2px inset #dcd0c9;
+background: #fafaeb;
+}
+
+#ajouter{
+color:#52794a;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#ajouter:hover{
+border: 4px outset #dcd0c9;
+background: #eff5d6;
+}
+#ajouter:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}
+
+#annuler{
+color:#52794a;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#annuler:hover{
+border: 4px outset #dcd0c9;
+background: #eff5d6;
+}
+#annuler:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="ajouter">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>210</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ajouter</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="annuler">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>210</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Annuler</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nbfois">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>50</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="montant">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>110</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NbfoisL">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>50</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Nombre de donnation</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="montantL">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>120</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Montant</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

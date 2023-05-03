@@ -212,10 +212,16 @@ void stock::update_nbr_rest_vendre(int nb_res,int id_s)
 
 
     query.exec();
-
-
 }
+void stock::update_nbr_tot_vendre(int nb_tot,int id_s)
+{
+    QSqlQuery query;
+    query.prepare("update stock set nb_tot="+QString::number(nb_tot)+" where id_s= :id_s");
+    query.bindValue(":id_s",id_s);
 
+
+    query.exec();
+}
 int stock::get_id_s()
 {
     QSqlQuery query;

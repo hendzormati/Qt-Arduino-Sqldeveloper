@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpinBox>
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +31,8 @@ public:
     QSpinBox *nbresinv;
     QPushButton *vendinv;
     QPushButton *closeinv;
+    QRadioButton *vendre;
+    QRadioButton *ajouter;
 
     void setupUi(QDialog *vente)
     {
@@ -103,11 +106,11 @@ public:
         titreveninv->setFont(font);
         nbresinv = new QSpinBox(vendreinvdialog);
         nbresinv->setObjectName(QStringLiteral("nbresinv"));
-        nbresinv->setGeometry(QRect(80, 120, 171, 31));
+        nbresinv->setGeometry(QRect(290, 110, 171, 31));
         nbresinv->setMinimum(1);
         vendinv = new QPushButton(vendreinvdialog);
         vendinv->setObjectName(QStringLiteral("vendinv"));
-        vendinv->setGeometry(QRect(320, 90, 131, 41));
+        vendinv->setGeometry(QRect(110, 160, 131, 41));
         QFont font1;
         font1.setFamily(QStringLiteral("Bell MT"));
         font1.setPointSize(14);
@@ -117,8 +120,14 @@ public:
         vendinv->setFont(font1);
         closeinv = new QPushButton(vendreinvdialog);
         closeinv->setObjectName(QStringLiteral("closeinv"));
-        closeinv->setGeometry(QRect(320, 150, 131, 41));
+        closeinv->setGeometry(QRect(290, 160, 131, 41));
         closeinv->setFont(font1);
+        vendre = new QRadioButton(vendreinvdialog);
+        vendre->setObjectName(QStringLiteral("vendre"));
+        vendre->setGeometry(QRect(150, 120, 97, 20));
+        ajouter = new QRadioButton(vendreinvdialog);
+        ajouter->setObjectName(QStringLiteral("ajouter"));
+        ajouter->setGeometry(QRect(20, 120, 97, 20));
 
         retranslateUi(vente);
 
@@ -131,6 +140,8 @@ public:
         titreveninv->setText(QApplication::translate("vente", "Nombre de pieces a vendre", Q_NULLPTR));
         vendinv->setText(QApplication::translate("vente", "Vendre", Q_NULLPTR));
         closeinv->setText(QApplication::translate("vente", "Annuler", Q_NULLPTR));
+        vendre->setText(QApplication::translate("vente", "Vendre", Q_NULLPTR));
+        ajouter->setText(QApplication::translate("vente", "Ajouter", Q_NULLPTR));
     } // retranslateUi
 
 };

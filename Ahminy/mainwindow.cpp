@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->resize(1035,700);
     ui->tableViewP->horizontalScrollBar()->setDisabled(true);
-
     ui->nom_prenom_P->setVisible(false);
     ui->barpersonnel->setCurrentIndex(-1);
     ui->barpersonnel->setVisible(false);
@@ -68,26 +67,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->cinsdf->setMaxLength(8);
     ui->nomsdf->setMaxLength(20);
     ui->prenomsdf->setMaxLength(20);
-
-
-    //Notifications Au Debut:
-    QSystemTrayIcon *notifyIcon;
-    notifyIcon=new QSystemTrayIcon();
-    notifyIcon->setIcon(QIcon(":/images/ahminy.png"));
-    QVector <QString> tab=Stmp.notifsdf();
-    qDebug() << "taille " <<tab.size();
-    if(tab.size()!=0)
-    {
-        for (int i = 0; i < tab.size(); i++)
-        {
-            notifyIcon->show();
-            QString num = QString::number(i+1);
-            notifyIcon->showMessage("Notification "+ num , tab[i], QSystemTrayIcon::Information);
-        }
-
-    }
-
-
     ///Arduino:
     int ret2=A_sdf.connect_incondie();
     switch(ret2){
@@ -193,7 +172,81 @@ void MainWindow::Incondie()
         d.exec();
     }
 }
+ Email  MainWindow::createcodemail(QString mail ,QString code,QString nomprenom  )
+ {
+     EmailAddress credentials("hend.zormati@esprit.tn",
+                              "211JFT8977");
 
+     // Create the from EmailAddress
+     EmailAddress from("hend.zormati@esprit.tn");
+
+     // Create the to EmailAddress
+     EmailAddress to(mail);
+     QString mailcode = "Bonjour " + nomprenom + ",\n\n"
+                  + "Nous sommes ravis de vous informer que votre carte d'identification RFID a été activée avec succès. Veuillez trouver ci-dessous le code d'authentification nécessaire pour vous connecter à votre compte :\n\n"
+                  + "Code d'authentification : " + code + "\n\n"
+                  + "Nous vous rappelons que ce code est strictement confidentiel et doit être conservé en lieu sûr. Veuillez également noter que l'utilisation de votre carte d'identification RFID est strictement personnelle et ne doit pas être partagée avec quiconque.\n\n"
+                  + "Si vous rencontrez des problèmes pour vous connecter à votre compte, n'hésitez pas à nous contacter immédiatement.\n\n"
+                  + "Cordialement,\n"
+                  + "Ahminy";
+
+
+
+
+     // Create the email
+     Email email(credentials,
+                 from,
+                 to,
+                 "Ahminy: Code D'authentification De La Carte RFID",
+                 mailcode);
+
+     return email;
+ }
+ void MainWindow::sendcodemail(QString mail ,QString code,QString nomprenom  )
+ {
+     // Create the email object
+     Email email = createcodemail(mail,code,nomprenom);
+
+     // Create the SMTPClient
+     client_ = new SMTPClient("smtp.gmail.com",
+                              465);
+
+     // Connection used to receive the results
+     connect(client_, SIGNAL(status(Status::e, QString)),
+             this, SLOT(onStatus(Status::e, QString)), Qt::UniqueConnection);
+     // Try to send the email
+     client_->sendEmail(email);
+ }
+
+ void MainWindow::onStatus(Status::e status, QString errorMessage)
+ {
+     switch (status)
+     {
+     case Status::Success:
+     {   QMessageBox msgBox;
+         msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+         msgBox.setWindowOpacity(0.8);
+         msgBox.setFixedSize(600,600);
+         QFont bellMTFont("Bell MT");
+         msgBox.setFont(bellMTFont);
+         msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+         msgBox.setWindowTitle("Ahminy");
+         msgBox.setIcon(QMessageBox::Information);
+         msgBox.setText("Code envoyé !");
+         break;}
+     case Status::Failed:
+     {
+         QMessageBox::warning(NULL, tr("Ahminy"), tr("Vérifier Le email assosié à nom prenom !"));
+         qCritical() << errorMessage;
+     }
+         break;
+     default:
+         break;
+     }
+
+     // Delete the client pointer
+     client_->deleteLater();
+ }
 void MainWindow::on_dialogClosed()
 {
     A_sdf.write_to_incondie("0");
@@ -245,6 +298,9 @@ void MainWindow::on_confirm_clicked()
     if(test)
     {
         P.getperso(P,ui->username->text().toUpper());
+        QString nomprenom=P.get_nom_p()+" "+P.get_prenom_p();
+        qDebug() << nomprenom;
+        A_per.write_to_rfidpers(nomprenom.toUtf8());
         x=ui->metierperso_2->findText(P.get_metier());
         ui->barpersonnel->setCurrentIndex(-1);
         this->resize(1400,750);
@@ -279,11 +335,27 @@ void MainWindow::getacces(int i)
                 ui->profil_p->setStyleSheet("#profil_p{border-image: url(:/images/profilpersof.png);}");
             else ui->profil_p->setStyleSheet("#profil_p{border-image: url(:/images/profilpersoh.png);}");
             break;
-        case 1: ui->nom_prenom_P->setStyleSheet("#nom_prenom_P{border: 2px solid white;border-radius: 7px;color:#62865C;font-weight: bold;font-size: 18px;background: white;}");
+        case 1:{ ui->nom_prenom_P->setStyleSheet("#nom_prenom_P{border: 2px solid white;border-radius: 7px;color:#62865C;font-weight: bold;font-size: 18px;background: white;}");
             if(P.get_sexe_p()=="Femme")
                 ui->profil_p->setStyleSheet("#profil_p{border-image: url(:/images/profilsdff.png);}");
             else ui->profil_p->setStyleSheet("#profil_p{border-image: url(:/images/profilsdfh.png);}");
-            break;
+            //Notifications Au Debut:
+            QSystemTrayIcon *notifyIcon;
+            notifyIcon=new QSystemTrayIcon();
+            notifyIcon->setIcon(QIcon(":/images/ahminy.png"));
+            QVector <QString> tab=Stmp.notifsdf();
+            qDebug() << "taille " <<tab.size();
+            if(tab.size()!=0)
+            {
+                for (int i = 0; i < tab.size(); i++)
+                {
+                    notifyIcon->show();
+                    QString num = QString::number(i+1);
+                    notifyIcon->showMessage("Notification "+ num , tab[i], QSystemTrayIcon::Information);
+                }
+
+            }
+            break;}
         case 2: ui->nom_prenom_P->setStyleSheet("#nom_prenom_P{border: 2px solid white;border-radius: 7px;color:#d7837f;font-weight: bold;font-size: 18px;background: white;}");
             if(P.get_sexe_p()=="Femme")
                 ui->profil_p->setStyleSheet("#profil_p{border-image: url(:/images/profilinvf.png);}");
@@ -864,6 +936,7 @@ void MainWindow::on_ajoutrfidp_clicked()
     msgBox.setFont(bellMTFont);
     msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
     msgBox.setWindowTitle("Ahminy");
+    client_ = NULL;
     if(!connectardper)
     {
         msgBox.setIcon(QMessageBox::Critical);
@@ -872,8 +945,6 @@ void MainWindow::on_ajoutrfidp_clicked()
     else
     {A_per.write_to_rfidpers("0"); //  lancez le scan
         QString id=ui->rechercherper->text().toUpper();
-        Personnel p1;
-        P.getperso(p1,id);
         ui->rechercherper->setEnabled(0);
         ui->tableViewP->setEnabled(1);
         ui->modifierp->setEnabled(0);
@@ -1207,7 +1278,7 @@ void MainWindow::on_lancerlescan_clicked()
 {
     datapers=A_per.read_from_rfidpers();
     QString rfid=datapers.mid(0,7);
-
+    //QString rfid="ntestiwfel mail";
     qDebug() << " fel ajout" << rfid << endl;
 
     /// fel arduino twali todhhor scan terminé w lampe bleu wala haja
@@ -1241,9 +1312,12 @@ void MainWindow::on_lancerlescan_clicked()
             code.append(chars.at(index));
         }
         qDebug() << "code l carte random : " << code ;
+        Personnel p1;
+        P.getperso(p1,id);
+        sendcodemail(p1.get_mail_p(),code,p1.get_prenom_p()+" "+p1.get_nom_p());
         P.affecterrfid_p(id,rfid,code);
         msgBox.setIcon(QMessageBox::Information);
-        msgBox.setText("Carte attribuée."); msgBox.exec();
+        msgBox.setText("Carte attribuée à "+p1.get_nom_p()+" "+p1.get_prenom_p()+".\n Code envoyé à "+p1.get_mail_p()); msgBox.exec();
         ui->perso->setCurrentIndex(0);
         ui->tableViewP->setModel(P.afficher_p());
         ui->tableViewP->setEnabled(1);
@@ -1784,10 +1858,12 @@ void MainWindow::on_fichierhistorique_clicked()
     Historique d;
     d.setWindowTitle("Historique");
     QString cin_b=ui->recherchersdf->text();
+    Sdf s;
+    Stmp.Get_sdf(s,cin_b);
     if(Stmp.readtext_sdf(cin_b).isEmpty())
     {
         msgBox.setIcon(QMessageBox::Critical);
-        msgBox.setText("Historique Indisponnible.");
+        msgBox.setText("Historique Uniquement Disponnible Suite à La Sortie De "+s.Get_prenom_b()+" "+s.Get_nom_b()+" .");
         msgBox.exec();
     }
     else {d.afficherhistorique(Stmp.readtext_sdf(cin_b));
@@ -2084,7 +2160,7 @@ void MainWindow::on_modsdf_clicked()
     ui->nbpassagesdf->setText(nb_ps);
     if(S.Get_num_ch()==0) ui->affchambre->setChecked(true);
     else ui->modchambre->setChecked(true);
-
+    ui->nblit->setHidden(1);
     //Boutons:
     ui->supprimersdf->setEnabled(0);
     ui->modsdf->setEnabled(0);
@@ -2105,10 +2181,13 @@ void MainWindow::on_modsdf_clicked()
 
 void MainWindow::on_num_lit_currentTextChanged(const QString &arg1)
 {
+    ui->nblit->setHidden(0);
     int numch=(&arg1)->toInt();
     int nb_lit=Stmp.Get_nb_lit(numch);
     QString nblit = QString::number(nb_lit);
-    ui->nblit->setText("Nombre de lit restant: "+ nblit);
+    if(nb_lit>1)
+    ui->nblit->setText("Nombre de lits disponnibles : "+ nblit);
+    else ui->nblit->setText("Nombre de lit disponnible : "+ nblit);
 }
 
 
@@ -2904,6 +2983,8 @@ void MainWindow::on_vendre_inv_clicked()
         msgBox.setWindowTitle("Ahminy");
         msgBox.setIcon(QMessageBox::Critical);
         msgBox.setText("Stock epuisé."); msgBox.exec();
+        d.max(nb);
+        d.exec();
     }
     else
     {d.max(nb);
@@ -3210,7 +3291,10 @@ void MainWindow::on_telephonedon_returnPressed()
 
     ui->montantdon->setFocus();
 }
-
+void MainWindow::on_montantdon_returnPressed()
+{
+    on_confirmerAjouterdon_clicked();
+}
 void MainWindow::on_recherchedon_clicked()
 {
     on_homedon_clicked();
@@ -3631,6 +3715,13 @@ qDebug() << nom2<< prenom2 << montant << nb ;
 
 void MainWindow::on_don_d_clicked()
 {
-
+    donnation d;
+        d.setWindowTitle("Donnation");
+        QString cin_d = ui->lineEdit_recherche->text();
+        d.setmontant(cin_d);
+        d.exec();
+        ui->tableView_d->setModel(D.afficher_d());
     meileurD();
 }
+
+

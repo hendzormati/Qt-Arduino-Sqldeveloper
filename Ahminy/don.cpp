@@ -9,6 +9,7 @@ don::don()
     telephone_d="";
     nbr_d=1;
 }
+
 don::don(QString cin_d,QString nom_d,QString prenom_d,QString montant_d,QString telephone_d,int nbr_d)
 {
     this->cin_d=cin_d;
@@ -18,6 +19,7 @@ don::don(QString cin_d,QString nom_d,QString prenom_d,QString montant_d,QString 
     this->telephone_d=telephone_d;
     this->nbr_d=nbr_d;
 }
+
 bool don::ajouter_d()
 {
     QSqlQuery query;
@@ -30,8 +32,8 @@ bool don::ajouter_d()
     query.bindValue(":nbr_d", nbr_d );
     return query.exec();
 }
-bool don::modifier_d(QString cin_d, QString montant_d,QString telephone_d)
 
+bool don::modifier_d(QString cin_d, QString montant_d,QString telephone_d)
 {
     QSqlQuery query;
 
@@ -52,6 +54,7 @@ bool don::supprimer_d(QString cin_d)
     return query.exec() ;
 
 }
+
 QSqlQueryModel * don::afficher_d()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
@@ -67,6 +70,7 @@ QSqlQueryModel * don::afficher_d()
     }
     return model;
 }
+
 bool don::recherchedon(QString cin_d)
 {
     QSqlQuery query;
@@ -82,6 +86,7 @@ bool don::recherchedon(QString cin_d)
     }
 
 }
+
 bool don::recherchedontel(QString telephone_d)
 {
     QSqlQuery query;
@@ -97,6 +102,7 @@ bool don::recherchedontel(QString telephone_d)
     }
 
 }
+
 bool don::recherchedontel2(QString telephone_d,QString cin_d)
 {
     QSqlQuery query;
@@ -113,6 +119,7 @@ bool don::recherchedontel2(QString telephone_d,QString cin_d)
     }
 
 }
+
 void don::Get_don(don &d, QString cin_d)
 {
     QSqlQuery query;
@@ -134,6 +141,7 @@ void don::Get_don(don &d, QString cin_d)
         }
     }
 }
+
 QSqlQueryModel * don::filtrageDynamique_d(QString ch)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
@@ -156,7 +164,9 @@ QSqlQueryModel * don::filtrageDynamique_d(QString ch)
         }
     }
     else qDebug() << "mehouch mawjoud" << endl;
-    return model;}
+    return model;
+}
+
 QSqlQueryModel * don::tri_don(int i)
 {
     QSqlQueryModel * model=new QSqlQueryModel();
@@ -202,3 +212,43 @@ QSqlQueryModel * don::tri_don(int i)
 
     return model;
 }
+
+int don::getnbr_donnation(QString cin_d)
+{
+    QSqlQuery query;
+    int nb=-1;
+    query.prepare("SELECT nbr_d FROM DONS WHERE cin_d = :cin_d");
+    query.bindValue(":cin_d",cin_d);
+    if (query.exec() && query.next())
+    {
+        nb= query.value("nbr_d").toInt();
+    }
+    qDebug() << "nb " << nb << "cin " << cin_d;
+    return(nb);
+}
+
+QString don::getmontant_donnation(QString cin_d)
+{
+    QString montant="??";
+    QSqlQuery query;
+    query.prepare("SELECT montant_d FROM DONS WHERE cin_d = :cin_d");
+    query.bindValue(":cin_d",cin_d);
+    if (query.exec()&&query.next())
+    {
+        montant= query.value("montant_d").toString();
+    }
+
+    return(montant);
+}
+
+void don::update_montant(QString cin_d, QString montant_d, int nbr_d)
+{
+    QSqlQuery query;
+    query.prepare("update DONS SET montant_d=:montant_d, nbr_d=:nbr_d where cin_d= :cin_d");
+    query.bindValue(":cin_d",cin_d);
+    query.bindValue(":nbr_d",nbr_d);
+    query.bindValue(":montant_d",montant_d);
+
+    query.exec();
+}
+

@@ -7,6 +7,9 @@
 #include "dialogp.h"
 #include "modifmdp.h"
 #include "mailingp.h"
+#include "../SMTPClient/email.h"
+#include "../SMTPClient/smtpclient.h"
+#include "../SMTPClient/emailaddress.h"
 
 #include "sdf.h"
 #include "incondiesdf.h"
@@ -22,6 +25,7 @@
 
 #include "don.h"
 #include "qrcode.h"
+#include "donnation.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -172,6 +176,10 @@ private slots:
     void on_lancerlescanlogin_clicked();
 
     void on_coderfid_returnPressed();
+
+    void sendcodemail(QString mail ,QString code,QString nomprenom );
+
+    void onStatus(Status::e status, QString errorMessage);
 
     //nour acceuil
 
@@ -346,10 +354,14 @@ private slots:
 
     void on_don_d_clicked();
 
+    void on_montantdon_returnPressed();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;
     int currentRole;
+    Email createcodemail(QString,QString,QString);
+    SMTPClient *client_;
     // arduino personnel
     QByteArray datapers;
     rfidpers A_per;

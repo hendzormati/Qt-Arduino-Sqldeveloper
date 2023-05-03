@@ -50,6 +50,7 @@ public:
     bool modifier(int);
     int get_nbr_rest(stock S);
     void update_nbr_rest(int nb_res,stock S);
+
     int nb_categorie(QString categorie);
     int get_id_s();
 
@@ -62,6 +63,7 @@ public:
     int get_nbr_res_vendre(int id_s);
     int get_nbr_tot_vendre(int id_s);
     void update_nbr_rest_vendre(int nb_res,int id_s);
+    void update_nbr_tot_vendre(int nb_tot,int id_s);
     QSqlQueryModel * afficher_inv_bilan();
     QSqlQueryModel * tri_inv_type_2();
     QSqlQueryModel * tri_inv_categorie_2();

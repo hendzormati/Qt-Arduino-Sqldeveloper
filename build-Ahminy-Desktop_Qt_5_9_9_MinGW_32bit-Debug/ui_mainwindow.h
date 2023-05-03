@@ -285,6 +285,7 @@ public:
     QLabel *telephonedonL;
     QLabel *montantdonL;
     QLineEdit *montantdon;
+    QLabel *label;
     QWidget *modifierDon;
     QFrame *modifierdon;
     QLineEdit *identite;
@@ -1849,11 +1850,14 @@ public:
 "}"));
         nblit = new QLabel(modifiersdf1);
         nblit->setObjectName(QStringLiteral("nblit"));
-        nblit->setGeometry(QRect(200, 230, 161, 16));
+        nblit->setGeometry(QRect(20, 243, 301, 20));
         QFont font16;
         font16.setFamily(QStringLiteral("Microsoft JhengHei Light"));
-        font16.setPointSize(8);
+        font16.setPointSize(11);
+        font16.setBold(true);
+        font16.setWeight(75);
         nblit->setFont(font16);
+        nblit->setStyleSheet(QStringLiteral("color:#62865C;"));
         Sdf->addTab(modifiersdf, QString());
         statsdf = new QWidget();
         statsdf->setObjectName(QStringLiteral("statsdf"));
@@ -3191,6 +3195,14 @@ public:
         montantdon = new QLineEdit(ajouterdon1);
         montantdon->setObjectName(QStringLiteral("montantdon"));
         montantdon->setGeometry(QRect(160, 300, 201, 41));
+        label = new QLabel(ajouterdon1);
+        label->setObjectName(QStringLiteral("label"));
+        label->setEnabled(false);
+        label->setGeometry(QRect(328, 310, 31, 21));
+        label->setFont(font);
+        label->setStyleSheet(QLatin1String("color: #52794a;\n"
+"font-weight: bold;\n"
+"font-size: 17px;"));
         don->addTab(ajouterDon, QString());
         modifierDon = new QWidget();
         modifierDon->setObjectName(QStringLiteral("modifierDon"));
@@ -3456,7 +3468,7 @@ public:
 "}"));
         Meilleur_d = new QPushButton(affichagedon);
         Meilleur_d->setObjectName(QStringLiteral("Meilleur_d"));
-        Meilleur_d->setGeometry(QRect(360, 430, 81, 71));
+        Meilleur_d->setGeometry(QRect(380, 430, 31, 71));
         Meilleur_d->setStyleSheet(QLatin1String("#Meilleur_d{\n"
 "	border-image: url(:/images/best1.png);\n"
 "}\n"
@@ -4052,7 +4064,7 @@ public:
         closeModifiersdf->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         affchambre->setText(QApplication::translate("MainWindow", "Affectation ", Q_NULLPTR));
         modchambre->setText(QApplication::translate("MainWindow", "Modification", Q_NULLPTR));
-        nblit->setText(QApplication::translate("MainWindow", "Nombre de lits", Q_NULLPTR));
+        nblit->setText(QApplication::translate("MainWindow", "Nombre de lits disponnibles", Q_NULLPTR));
         Sdf->setTabText(Sdf->indexOf(modifiersdf), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         closestatsdf->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         titresexe->setText(QApplication::translate("MainWindow", "Stat selon le sexe", Q_NULLPTR));
@@ -4262,6 +4274,7 @@ public:
         closeajouterdon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         telephonedonL->setText(QApplication::translate("MainWindow", "T\303\251l\303\251phone", Q_NULLPTR));
         montantdonL->setText(QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "Dt", Q_NULLPTR));
         don->setTabText(don->indexOf(ajouterDon), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         identiteL->setText(QApplication::translate("MainWindow", "Identit\303\251", Q_NULLPTR));
         confirmermodifdon->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));

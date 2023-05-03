@@ -9,6 +9,7 @@ INPUT(
 ./debug\dialogp.o
 ./debug\dialogs.o
 ./debug\don.o
+./debug\donnation.o
 ./debug\excel.o
 ./debug\historique.o
 ./debug\incondiesdf.o
@@ -29,6 +30,7 @@ INPUT(
 ./debug\moc_alerteincondie.o
 ./debug\moc_dialogp.o
 ./debug\moc_dialogs.o
+./debug\moc_donnation.o
 ./debug\moc_excel.o
 ./debug\moc_historique.o
 ./debug\moc_mailingp.o

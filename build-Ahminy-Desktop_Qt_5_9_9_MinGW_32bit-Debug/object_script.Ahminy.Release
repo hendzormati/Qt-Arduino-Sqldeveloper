@@ -9,6 +9,7 @@ INPUT(
 ./release\dialogp.o
 ./release\dialogs.o
 ./release\don.o
+./release\donnation.o
 ./release\excel.o
 ./release\historique.o
 ./release\incondiesdf.o
@@ -29,6 +30,7 @@ INPUT(
 ./release\moc_alerteincondie.o
 ./release\moc_dialogp.o
 ./release\moc_dialogs.o
+./release\moc_donnation.o
 ./release\moc_excel.o
 ./release\moc_historique.o
 ./release\moc_mailingp.o

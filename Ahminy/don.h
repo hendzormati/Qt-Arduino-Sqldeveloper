@@ -50,6 +50,9 @@ public:
     void Get_don(don &d, QString cin_d);
     QSqlQueryModel * filtrageDynamique_d(QString ch);
     QSqlQueryModel * tri_don(int i);
+    int getnbr_donnation(QString cin_d);
+    QString getmontant_donnation(QString cin_d);
+    void update_montant(QString cin_d, QString montant_d, int nbr_d);
 };
 
 #endif // DON_H

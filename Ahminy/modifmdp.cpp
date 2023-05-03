@@ -154,13 +154,23 @@ Email modifmdp::createcodemail()
 
     // Create the to EmailAddress
     EmailAddress to(email);
+    QString nomprenom=P.get_prenom_p()+" "+P.get_nom_p();
+    QString mailcode = "Bonjour " + nomprenom + ",\n\n"
+                 + "Nous avons bien reçu votre demande de modification de mot de passe pour votre compte utilisateur dans notre application de gestion. Pour garantir la sécurité de votre compte, nous avons envoyé un code d'authentification à votre adresse e-mail enregistrée.\n\n"
+                 + "Veuillez trouver ci-dessous le code d'authentification nécessaire pour procéder à cette opération :\n\n"
+                 + "Code d'authentification : " + code + "\n\n"
+                 + "Si vous n'avez pas demandé la modification de votre mot de passe, veuillez ignorer ce message et ne pas divulguer le code à quiconque.\n\n"
+                 + "Si vous avez des questions ou des problèmes pour modifier votre mot de passe, n'hésitez pas à contacter notre service d'assistance à la clientèle.\n\n"
+                 + "Cordialement,\n\n"
+                 + "Ahminy";
+
 
     // Create the email
     Email email(credentials,
                 from,
                 to,
-                "Ahminy: Code De vérification Pour La Modification De Mot De Passe",
-                code);
+                "Ahminy: Code d'authentification pour réinitialisation de mot de passe",
+                mailcode);
 
     return email;
 }

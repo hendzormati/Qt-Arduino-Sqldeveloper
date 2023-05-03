@@ -25,9 +25,13 @@ private slots:
 
     void on_vendinv_clicked();
 
+    void on_ajouter_clicked();
+
+    void on_vendre_clicked();
+
 private:
     Ui::vente *ui;
-    int Id;
+    int Id,n;
     stock s;
 };
 

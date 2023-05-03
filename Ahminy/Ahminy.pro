@@ -27,6 +27,7 @@ SOURCES += \
     dialogp.cpp \
     dialogs.cpp \
     don.cpp \
+    donnation.cpp \
     excel.cpp \
     historique.cpp \
     incondiesdf.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     dialogp.h \
     dialogs.h \
     don.h \
+    donnation.h \
     excel.h \
     historique.h \
     incondiesdf.h \
@@ -67,6 +69,7 @@ FORMS += \
     alerteincondie.ui \
     dialogp.ui \
     dialogs.ui \
+    donnation.ui \
     historique.ui \
     mailingp.ui \
     mainwindow.ui \
