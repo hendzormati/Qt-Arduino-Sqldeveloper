@@ -53,6 +53,8 @@ public:
     int getnbr_donnation(QString cin_d);
     QString getmontant_donnation(QString cin_d);
     void update_montant(QString cin_d, QString montant_d, int nbr_d);
+    QString getnomprenom_donnation(QString cin_d);
+    QSqlQueryModel * afficher_hist_don();
 };
 
 #endif // DON_H

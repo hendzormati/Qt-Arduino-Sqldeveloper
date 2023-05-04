@@ -356,6 +356,8 @@ private slots:
 
     void on_montantdon_returnPressed();
 
+    void on_execldon_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;
@@ -377,5 +379,6 @@ private:
     Arduino A;
     // arduino mayssa
     don D;
+    excel *excelObj;
 };
 #endif // MAINWINDOW_H

@@ -8259,6 +8259,16 @@ selection-color:#b9b2c1;
      <string/>
     </property>
    </widget>
+   <widget class="QTableView" name="tableView_excel_don">
+    <property name="geometry">
+     <rect>
+      <x>-100</x>
+      <y>-100</y>
+      <width>20</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>

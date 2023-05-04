@@ -6,18 +6,17 @@ Sdf::Sdf()
 }
 
 
-Sdf::Sdf(QString cin, QString prenom, QString nom, QDate dob, QString sexe, int nb, QDate ent, QDate sor, int num, int m)
+Sdf::Sdf(QString cin, QString prenom, QString nom, QDate dob, QString sexe, int nb, QDate ent, QDate sor, int num)
 {
-   cin_b=cin;
-   prenom_b=prenom;
-   nom_b=nom;
-   dob_b=dob;
-   sexe_b=sexe;
-   nb_pass_b=nb;
-   date_ent_b=ent;
-   date_sor_b=sor;
-   num_ch=num;
-   malade_b=m;
+    cin_b=cin;
+    prenom_b=prenom;
+    nom_b=nom;
+    dob_b=dob;
+    sexe_b=sexe;
+    nb_pass_b=nb;
+    date_ent_b=ent;
+    date_sor_b=sor;
+    num_ch=num;
 }
 
 
@@ -25,7 +24,7 @@ bool Sdf::ajouter_b()
 {
     QSqlQuery query;
 
-    query.prepare("INSERT INTO Beneficiaires VALUES (:cin_b, :prenom_b, :nom_b, :dob_b, :sexe_b, :nb_pass_b, :date_ent_b, :date_sor_b, :num_ch, :malade_b)");
+    query.prepare("INSERT INTO Beneficiaires VALUES (:cin_b, :prenom_b, :nom_b, :dob_b, :sexe_b, :nb_pass_b, :date_ent_b, :date_sor_b, :num_ch)");
     query.bindValue(":cin_b",cin_b);
     query.bindValue(":prenom_b",prenom_b);
     query.bindValue(":nom_b",nom_b);
@@ -35,7 +34,6 @@ bool Sdf::ajouter_b()
     query.bindValue(":date_ent_b",date_ent_b);
     query.bindValue(":date_sor_b",date_sor_b);
     query.bindValue(":num_ch",num_ch);
-    query.bindValue(":malade_b",malade_b);
 
     return query.exec();
 }
@@ -45,13 +43,12 @@ bool Sdf::modifier_b(QString cin_b)
 {
     QSqlQuery query;
 
-    query.prepare("UPDATE Beneficiaires SET nb_pass_b=:nb_pass_b, date_ent_b=:date_ent_b, date_sor_b=:date_sor_b, num_ch=:num_ch, malade_b=:malade_b WHERE cin_b=:cin_b");
+    query.prepare("UPDATE Beneficiaires SET nb_pass_b=:nb_pass_b, date_ent_b=:date_ent_b, date_sor_b=:date_sor_b, num_ch=:num_ch WHERE cin_b=:cin_b");
     query.bindValue(":cin_b",cin_b);
     query.bindValue(":nb_pass_b",nb_pass_b);
     query.bindValue(":date_ent_b",date_ent_b);
     query.bindValue(":date_sor_b",date_sor_b);
     query.bindValue(":num_ch",num_ch);
-    query.bindValue(":malade_b",malade_b);
 
     return query.exec();
 }
@@ -118,8 +115,7 @@ void Sdf::Get_sdf(Sdf &s, QString cin_b)
                   query.value("nb_pass_b").toInt(),
                   query.value("date_ent_b").toDate(),
                   query.value("date_sor_b").toDate(),
-                  query.value("num_ch").toInt(),
-                  query.value("malade_b").toInt());
+                  query.value("num_ch").toInt());
             s=S;
         }
     }
@@ -134,19 +130,19 @@ QSqlQueryModel * Sdf::tri_sdf(int i)
     {
         model->setQuery("select * from Beneficiaires ORDER BY nom_b");
     }
-    else if (i==1)
+    else if (i==3)
     {
         model->setQuery("select * from Beneficiaires ORDER BY prenom_b DESC");
     }
-    else if (i==2)
+    else if (i==4)
     {
         model->setQuery("select * from Beneficiaires ORDER BY date_ent_b");
     }
-    else if (i==3)
+    else if (i==7)
     {
         model->setQuery("select * from Beneficiaires ORDER BY date_sor_b DESC");
     }
-    else if (i==4)
+    else if (i==2)
     {
         model->setQuery("select * from Beneficiaires ORDER BY prenom_b");
     }
@@ -158,7 +154,7 @@ QSqlQueryModel * Sdf::tri_sdf(int i)
     {
         model->setQuery("select * from Beneficiaires ORDER BY date_sor_b");
     }
-    else if (i==7)
+    else if (i==1)
     {
         model->setQuery("select * from Beneficiaires ORDER BY nom_b DESC");
     }
@@ -203,8 +199,8 @@ void Sdf::creesdf_pdf(QString cin_b)
 
     if (!query.exec())
     {
-         qDebug() << "Error: could not execute query.";
-         return;
+        qDebug() << "Error: could not execute query.";
+        return;
     }
     Sdf s;
     s.Get_sdf(s,cin_b);
@@ -219,11 +215,11 @@ void Sdf::creesdf_pdf(QString cin_b)
 
         writer.setPageMargins(QMarginsF(30, 30, 30, 30));
         painter.setRenderHint(QPainter::Antialiasing);
-                QImage logo(":/images/ahminy.png");
-                painter.drawImage(QRectF(-170,-120, 2000, 1500), logo);
-                QPen pen("#6b694c");
-                        painter.setPen(pen);
-                        painter.setFont(QFont("Baskerville Old Face", 18));
+        QImage logo(":/images/ahminy.png");
+        painter.drawImage(QRectF(-170,-120, 2000, 1500), logo);
+        QPen pen("#6b694c");
+        painter.setPen(pen);
+        painter.setFont(QFont("Baskerville Old Face", 18));
 
         QFont titleFont("Arial", 30, QFont::Bold);
         painter.setFont(titleFont);
@@ -290,8 +286,9 @@ void Sdf::creesdf_pdf(QString cin_b)
 
         }
         painter.end();
-     }
-     else {qDebug() << "Error: could not open file" << fileName;}
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+    }
+    else {qDebug() << "Error: could not open file" << fileName;}
 }
 
 
@@ -306,46 +303,37 @@ int Sdf::calcul_date(QDate dateDebut)
 
 QVector<QString> Sdf::notifsdf()
 {
-     QSqlQuery query;
-     QVector<QString> noms;
+    QSqlQuery query;
+    QVector<QString> noms;
 
-     query.prepare("SELECT cin_b, nom_b, prenom_b, date_ent_b, num_ch, malade_b FROM Beneficiaires");
-     if (!query.exec())
-     {
-         qDebug() << "Erreur lors de l'exécution de la requête ";
-     }
-     else qDebug() << "Done";
+    query.prepare("SELECT cin_b, nom_b, prenom_b, date_ent_b, num_ch FROM Beneficiaires");
+    if (!query.exec())
+    {
+        qDebug() << "Erreur lors de l'exécution de la requête ";
+    }
+    else qDebug() << "Done";
 
-     while (query.next())
-     {
+    while (query.next())
+    {
         QDate date_ent=query.value(3).toDate();
         QString nom = query.value(1).toString();
         QString prenom = query.value(2).toString();
         QString cin = query.value(0).toString();
         int nbch = query.value(4).toInt();
-        int mal = query.value(5).toInt();
 
         int nbjour=calcul_date(date_ent);
 
         if((nbjour>10)&&(nbch!=0))
         {
+            //qDebug() << nom << prenom << nbjour;
             nbjour= nbjour - 10;
             QString nbjr = QString::number(nbjour);
-            if(mal==0)
-            {
-                //qDebug() << nom << prenom << nbjour;
-                QString nom_comp = "Veuillez noter que " + nom + " " + prenom + " portant la CIN (" + cin +") a dépassé la durée de séjour autorisée avec une periode de "+nbjr+" jours.";
-                noms.push_back(nom_comp);
-            }
-            else
-            {
-                QString nom_comp = "Veuillez noter que " + nom + " " + prenom + " portant la CIN (" + cin +") est gravement malade. Ce dernier peut dépassé la durée de séjour autorisée.";
-                noms.push_back(nom_comp);
-            }
+            QString nom_comp = "Veuillez noter que " + nom + " " + prenom + " portant la CIN (" + cin +") a dépassé la durée de séjour autorisée avec une periode de "+nbjr+" jours.";
+            noms.push_back(nom_comp);
         }
-     }
+    }
 
-     return noms;
+    return noms;
 }
 
 
@@ -425,7 +413,7 @@ QSqlQueryModel * Sdf::filtrage_sdf(QString ch)
     QSqlQueryModel * model= new QSqlQueryModel();
     QSqlQuery query;
 
-    query.prepare("select cin_b, prenom_b, nom_b, num_ch, sexe_b from Beneficiaires where cin_b LIKE :ch1 or  prenom_b LIKE :ch2 or nom_b LIKE :ch2 or num_ch LIKE :ch1 or sexe_b LIKE :ch2 ");
+    query.prepare("select cin_b, prenom_b, nom_b, nb_pass_b, num_ch FROM Beneficiaires where cin_b LIKE :ch1 or  prenom_b LIKE :ch2 or nom_b LIKE :ch2 or nb_pass_b LIKE :ch1 or num_ch LIKE :ch1 ");
     query.bindValue(":ch", ch.toLower() + "%");
     query.bindValue(":ch1", ch + "%");
     QString ch1=ch.toLower();
@@ -438,15 +426,15 @@ QSqlQueryModel * Sdf::filtrage_sdf(QString ch)
         model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
         model->setHeaderData(1,Qt::Horizontal,QObject::tr("Prenom"));
         model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nom"));
-        model->setHeaderData(3,Qt::Horizontal,QObject::tr("N°chambre"));
-        model->setHeaderData(4,Qt::Horizontal,QObject::tr("Sexe"));
+        model->setHeaderData(3,Qt::Horizontal,QObject::tr("N°Passage"));
+        model->setHeaderData(4,Qt::Horizontal,QObject::tr("N°Chambre"));
         while (query.next())
         {
             qDebug() << query.value("nom_b").toString();
         }
-     }
+    }
 
-     return model;
+    return model;
 }
 
 
@@ -476,7 +464,7 @@ int Sdf::Get_nb_lit(int num_l)
 
     while (query.next())
     {
-      return query.value("nb_lit").toInt();
+        return query.value("nb_lit").toInt();
     }
 
     return 0;
@@ -492,18 +480,6 @@ bool Sdf::Incondie_detecte(int num_l, int incendie)
     query.prepare("UPDATE Chambres SET incendie=:incendie WHERE num_l=:num_l");
     query.bindValue(":num_l",num_l);
     query.bindValue(":incendie",incendie);
-
-    return query.exec();
-}
-
-
-bool Sdf::modifier_malade(QString cin_b,int malade_b)
-{
-    QSqlQuery query;
-
-    query.prepare("UPDATE Beneficiaires SET malade_b=:malade_b WHERE cin_b=:cin_b");
-    query.bindValue(":cin_b",cin_b);
-    query.bindValue(":malade_b",malade_b);
 
     return query.exec();
 }

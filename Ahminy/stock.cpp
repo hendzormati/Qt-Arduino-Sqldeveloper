@@ -63,13 +63,7 @@ QSqlQueryModel * stock::afficher_inv_bilan()
 {
 QSqlQueryModel * model=new QSqlQueryModel ();
 model->setQuery("SELECT stock.type, EXTRACT(MONTH FROM stock_stat.date_ajout) AS mois, (SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) AS nb,  stock.prix as prix_unitaire ,stock.prix*(SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) as prix_total FROM stock_stat ,stock where stock_stat.id_s = stock.id_s GROUP BY EXTRACT(MONTH FROM stock_stat.date_ajout), stock.type, stock.prix; ");
-//model->setHeaderData(0,Qt::Horizontal,QObject::tr("Type"));
-//model->setHeaderData(1,Qt::Horizontal,QObject::tr("Mois"));
-//model->setHeaderData(2,Qt::Horizontal,QObject::tr("Nb"));
-//model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prix_Unitaire"));
-//model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prix_Total"));
 return model;
-
 }
 //delete
 bool stock::supprimer(int id_s)

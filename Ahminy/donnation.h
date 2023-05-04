@@ -3,8 +3,9 @@
 
 #include <QDialog>
 #include <string>
+#include <QDate>
 #include "don.h"
-
+#include "personnel.h"
 namespace Ui {
 class donnation;
 }
@@ -17,7 +18,7 @@ public:
     explicit donnation(QWidget *parent = nullptr);
     ~donnation();
 
-    void setmontant(QString cin_d);
+    void setmontant(QString cin_d,Personnel &p);
 
 private slots:
     void on_annuler_clicked();
@@ -28,6 +29,7 @@ private:
     Ui::donnation *ui;
     QString CIN;
     don D;
+    Personnel P;
 };
 
 #endif // DONNATION_H

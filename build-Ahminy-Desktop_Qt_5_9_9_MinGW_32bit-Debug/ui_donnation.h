@@ -106,6 +106,7 @@ public:
 "border: 4px inset #dcd0c9;\n"
 "background: #f6f1f7;\n"
 "}\n"
+"\n"
 ""));
         donnationmontant->setFrameShape(QFrame::StyledPanel);
         donnationmontant->setFrameShadow(QFrame::Raised);

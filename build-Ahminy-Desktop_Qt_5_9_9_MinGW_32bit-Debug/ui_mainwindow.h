@@ -302,6 +302,7 @@ public:
     QLabel *titreqrcodedon;
     QPushButton *closeqrcodedon;
     QLabel *qr_code;
+    QLabel *titreqrcodedon_2;
     QWidget *affichagedon;
     QPushButton *modifier_d;
     QPushButton *stat_d;
@@ -342,6 +343,7 @@ public:
     QComboBox *barpersonnel;
     QLabel *nom_prenom_P;
     QPushButton *profil_p;
+    QTableView *tableView_excel_don;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -3330,6 +3332,9 @@ public:
         qrcodeDon->setObjectName(QStringLiteral("qrcodeDon"));
         qrcodeDon->setGeometry(QRect(10, 90, 381, 421));
         qrcodeDon->setStyleSheet(QLatin1String("#qrcodeDon{background:#f8f5f1;border:8px double #eff5d6;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}\n"
+"\n"
+"#titreqrcodedon_2{color:#52794a;}\n"
+"\n"
 "#titreqrcodedon{color:#52794a;}\n"
 "\n"
 "#closeqrcodedon{\n"
@@ -3351,8 +3356,14 @@ public:
         qrcodeDon->setFrameShadow(QFrame::Raised);
         titreqrcodedon = new QLabel(qrcodeDon);
         titreqrcodedon->setObjectName(QStringLiteral("titreqrcodedon"));
-        titreqrcodedon->setGeometry(QRect(60, 50, 271, 41));
-        titreqrcodedon->setFont(font10);
+        titreqrcodedon->setGeometry(QRect(60, 370, 271, 41));
+        QFont font18;
+        font18.setFamily(QStringLiteral("Bell MT"));
+        font18.setPointSize(17);
+        font18.setBold(true);
+        font18.setUnderline(false);
+        font18.setWeight(75);
+        titreqrcodedon->setFont(font18);
         titreqrcodedon->setAlignment(Qt::AlignCenter);
         closeqrcodedon = new QPushButton(qrcodeDon);
         closeqrcodedon->setObjectName(QStringLiteral("closeqrcodedon"));
@@ -3384,6 +3395,11 @@ public:
 "    border: 2px solid #f0e4e0;\n"
 "    background-color: #fafaeb ;\n"
 "}"));
+        titreqrcodedon_2 = new QLabel(qrcodeDon);
+        titreqrcodedon_2->setObjectName(QStringLiteral("titreqrcodedon_2"));
+        titreqrcodedon_2->setGeometry(QRect(30, 50, 321, 41));
+        titreqrcodedon_2->setFont(font15);
+        titreqrcodedon_2->setAlignment(Qt::AlignCenter);
         don->addTab(qrcodedon, QString());
         affichagedon = new QWidget(tresorier);
         affichagedon->setObjectName(QStringLiteral("affichagedon"));
@@ -3832,22 +3848,22 @@ public:
         titreajoutmed1 = new QLabel(ajouterMed);
         titreajoutmed1->setObjectName(QStringLiteral("titreajoutmed1"));
         titreajoutmed1->setGeometry(QRect(56, 37, 311, 31));
-        QFont font18;
-        font18.setFamily(QStringLiteral("Bell MT"));
-        font18.setPointSize(15);
-        font18.setBold(true);
-        font18.setUnderline(true);
-        font18.setWeight(75);
-        titreajoutmed1->setFont(font18);
-        descriptionpatientL = new QLabel(ajouterMed);
-        descriptionpatientL->setObjectName(QStringLiteral("descriptionpatientL"));
-        descriptionpatientL->setGeometry(QRect(18, 180, 131, 31));
         QFont font19;
         font19.setFamily(QStringLiteral("Bell MT"));
         font19.setPointSize(15);
         font19.setBold(true);
+        font19.setUnderline(true);
         font19.setWeight(75);
-        descriptionpatientL->setFont(font19);
+        titreajoutmed1->setFont(font19);
+        descriptionpatientL = new QLabel(ajouterMed);
+        descriptionpatientL->setObjectName(QStringLiteral("descriptionpatientL"));
+        descriptionpatientL->setGeometry(QRect(18, 180, 131, 31));
+        QFont font20;
+        font20.setFamily(QStringLiteral("Bell MT"));
+        font20.setPointSize(15);
+        font20.setBold(true);
+        font20.setWeight(75);
+        descriptionpatientL->setFont(font20);
         closeajoutermed = new QPushButton(ajouterMed);
         closeajoutermed->setObjectName(QStringLiteral("closeajoutermed"));
         closeajoutermed->setGeometry(QRect(12, 11, 28, 28));
@@ -3899,12 +3915,15 @@ public:
         profil_p->setGeometry(QRect(24, 12, 31, 31));
         profil_p->setMouseTracking(false);
         profil_p->setStyleSheet(QStringLiteral(""));
+        tableView_excel_don = new QTableView(centralwidget);
+        tableView_excel_don->setObjectName(QStringLiteral("tableView_excel_don"));
+        tableView_excel_don->setGeometry(QRect(-100, -100, 20, 21));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
 
         exigo->setCurrentIndex(3);
-        tabpersonnel->setCurrentIndex(1);
+        tabpersonnel->setCurrentIndex(0);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -4139,7 +4158,7 @@ public:
         exigo->setTabText(exigo->indexOf(sdf), QApplication::translate("MainWindow", "nour", Q_NULLPTR));
         titreinventaire->setText(QApplication::translate("MainWindow", "Gestion De Stock", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        vendre_inv->setToolTip(QApplication::translate("MainWindow", "Vendre", Q_NULLPTR));
+        vendre_inv->setToolTip(QApplication::translate("MainWindow", "Vendre/Ajouter", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         vendre_inv->setText(QString());
 #ifndef QT_NO_TOOLTIP
@@ -4286,15 +4305,37 @@ public:
         titreqrcodedon->setText(QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
         closeqrcodedon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         qr_code->setText(QString());
+        titreqrcodedon_2->setText(QApplication::translate("MainWindow", "Scanner pour appeler", Q_NULLPTR));
         don->setTabText(don->indexOf(qrcodedon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        modifier_d->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         modifier_d->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        stat_d->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         stat_d->setText(QString());
         Meilleur_d->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        don_d->setToolTip(QApplication::translate("MainWindow", "Ajouter Donnation", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         don_d->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        supprimer_d->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         supprimer_d->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        execldon->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger Excel", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         execldon->setText(QString());
         recherchedon->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        pdf_d->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger PDF", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         pdf_d->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        qr_code_2->setToolTip(QApplication::translate("MainWindow", "Qr Code", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         qr_code_2->setText(QString());
         comboBox_triDon->setItemText(0, QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
         comboBox_triDon->setItemText(1, QApplication::translate("MainWindow", "Cin", Q_NULLPTR));
@@ -4306,9 +4347,12 @@ public:
         comboBox_triDon->setItemText(7, QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
 
 #ifndef QT_NO_TOOLTIP
-        homedon->setToolTip(QApplication::translate("MainWindow", "Renvoyer Beneficiaire", Q_NULLPTR));
+        homedon->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         homedon->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        tri_d->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         tri_d->setText(QString());
         maxmontantdon->setText(QApplication::translate("MainWindow", "nom prenom akther money", Q_NULLPTR));
         maxnbdon->setText(QApplication::translate("MainWindow", "nom prenom akther nb don", Q_NULLPTR));

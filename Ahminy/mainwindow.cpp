@@ -156,7 +156,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->telephonedon_3->setMaxLength(8);
     ui->montantdon->setMaxLength(8);
     ui->montantdon_3->setMaxLength(8);
-
+ui->tableView_excel_don->setModel(D.afficher_hist_don());
+ui->tableView_excel_don->setVisible(false);
 }
 void MainWindow::Incondie()
 {
@@ -2035,7 +2036,7 @@ void MainWindow::on_confirmerAjoutersdf_clicked()
 
     ///Fin controle de saisie:
 
-    Sdf S(cin_b, prenom_b, nom_b, dob_b, sexe_b, 0, date.currentDate(), date.currentDate(), 0, 0);
+    Sdf S(cin_b, prenom_b, nom_b, dob_b, sexe_b, 0, date.currentDate(), date.currentDate(), 0);
 
     bool test=true;
     if (verif)
@@ -3257,11 +3258,25 @@ void MainWindow::on_confirmerAjouterdon_clicked()
     if (verif)
     {
         test=D1.ajouter_d();
+if(test)
+{
+    QDateTime dt;
+    QSqlQuery query;
+    query.prepare("insert into historiquedon values (:id_p, :cin, :nomprenom_p,:montant,:date_d,:NOMPRENOM_D)");
+    query.bindValue(":id_p",P.get_id_p() );
+    query.bindValue(":cin", cin_d );
+    query.bindValue(":nomprenom_p",P.get_prenom_p()+" "+P.get_nom_p());
+    query.bindValue(":montant", montant_d);
+    query.bindValue(":date_d",dt.currentDateTime().toString("dd/MM/yyyy hh:mm:ss"));
+    query.bindValue(":NOMPRENOM_D",prenom_d+" "+nom_d);
+     query.exec();
 
+
+}
         if (test)
         {
-            on_homedon_clicked();
-            meileurD();
+               on_homedon_clicked();
+               meileurD();
         }
         else
         {
@@ -3718,10 +3733,31 @@ void MainWindow::on_don_d_clicked()
     donnation d;
         d.setWindowTitle("Donnation");
         QString cin_d = ui->lineEdit_recherche->text();
-        d.setmontant(cin_d);
+        d.setmontant(cin_d,P);
         d.exec();
         ui->tableView_d->setModel(D.afficher_d());
     meileurD();
 }
 
 
+
+void MainWindow::on_execldon_clicked()
+{
+    QString systemDate = QDate::currentDate().toString("dd_MMMM_yyyy");
+    qDebug() << systemDate;
+
+    QString defaultPath = qApp->applicationDirPath()+"/../excel_don/";
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), defaultPath + "historique_dons_" + systemDate + ".xls",
+                                                    tr("Excel Files (*.xls)"));
+    if (fileName.isEmpty())
+        return;
+    ui->tableView_excel_don->setModel(D.afficher_hist_don());
+    excel obj(fileName,"mydata",ui->tableView_excel_don);
+
+    // Columns to export  nomprenom,NOMPRENOM_D,montant,date_d
+    obj.addField(0, "tresorier", "char(60)");
+    obj.addField(1, "Donateur", "char(60)");
+    obj.addField(2, "Montant", "char(40)");
+    obj.addField(3, "Date_de_la_Transaction", "char(60)");
+    obj.export2Excel();
+}

@@ -251,4 +251,22 @@ void don::update_montant(QString cin_d, QString montant_d, int nbr_d)
 
     query.exec();
 }
+QString don::getnomprenom_donnation(QString cin_d)
+{
+    QString name="";
+    QSqlQuery query;
+    query.prepare("SELECT nom_d, prenom_d FROM DONS WHERE cin_d = :cin_d");
+    query.bindValue(":cin_d",cin_d);
+    if (query.exec()&& query.next())
+    {
+        QString name= query.value("prenom_d").toString()+" "+query.value("nom_d").toString();
+    }
+    return name;
+}
+QSqlQueryModel * don::afficher_hist_don()
+{
+QSqlQueryModel * model=new QSqlQueryModel ();
 
+model->setQuery("SELECT nomprenom_p as tresorier,NOMPRENOM_D as Donateur,montant as Montant,date_d as Date_de_la_Transaction from historiquedon");
+return model;
+}
