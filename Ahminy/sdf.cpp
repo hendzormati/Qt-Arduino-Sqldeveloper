@@ -287,10 +287,11 @@ void Sdf::creesdf_pdf(QString cin_b)
             painter.drawText(500, y, "Numero de Chambre :");
             painter.drawText(5500, y,  QString::number(num_ch));
             y += 800;
-            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+
 
         }
         painter.end();
+         QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
      }
      else {qDebug() << "Error: could not open file" << fileName;}
 }

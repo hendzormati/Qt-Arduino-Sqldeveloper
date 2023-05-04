@@ -87,8 +87,8 @@ void modifmdp::onStatus(Status::e status, QString errorMessage)
         ui->nbtentativeL->setHidden(0);
         ui->nbtentative->setHidden(0);
         ui->nbtentative->setText(QString::number(nbtentative));
-        ui->strengthmdpL->setHidden(0);
-        ui->strengthmdpL->setText(code);
+        //ui->strengthmdpL->setHidden(0);
+        //ui->strengthmdpL->setText(code);
         break;}
     case Status::Failed:
     {
@@ -160,7 +160,7 @@ Email modifmdp::createcodemail()
                  + "Veuillez trouver ci-dessous le code d'authentification nécessaire pour procéder à cette opération :\n\n"
                  + "Code d'authentification : " + code + "\n\n"
                  + "Si vous n'avez pas demandé la modification de votre mot de passe, veuillez ignorer ce message et ne pas divulguer le code à quiconque.\n\n"
-                 + "Si vous avez des questions ou des problèmes pour modifier votre mot de passe, n'hésitez pas à contacter notre service d'assistance à la clientèle.\n\n"
+                 + "Si vous avez des questions ou des problèmes pour modifier votre mot de passe, n'hésitez pas à contacter notre service de Ressource Humaine .\n\n"
                  + "Cordialement,\n\n"
                  + "Ahminy";
 

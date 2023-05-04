@@ -297,12 +297,17 @@ public:
     QLabel *telephonedonL_3;
     QLabel *montantdonL_3;
     QLineEdit *montantdon_3;
+    QLabel *label_2;
     QWidget *qrcodedon;
     QFrame *qrcodeDon;
     QLabel *titreqrcodedon;
     QPushButton *closeqrcodedon;
     QLabel *qr_code;
     QLabel *titreqrcodedon_2;
+    QWidget *statdon;
+    QPushButton *closestatdon;
+    QFrame *statdon_2;
+    QVBoxLayout *verticalLayout_3;
     QWidget *affichagedon;
     QPushButton *modifier_d;
     QPushButton *stat_d;
@@ -1882,7 +1887,7 @@ public:
 "}"));
         closestatsdf = new QPushButton(statsdf);
         closestatsdf->setObjectName(QStringLiteral("closestatsdf"));
-        closestatsdf->setGeometry(QRect(20, 80, 28, 28));
+        closestatsdf->setGeometry(QRect(10, 70, 28, 28));
         closestatsdf->setFont(font12);
         statsexesdf = new QFrame(statsdf);
         statsexesdf->setObjectName(QStringLiteral("statsexesdf"));
@@ -2990,6 +2995,7 @@ public:
         tableView_excel_inv = new QTableView(inventaire);
         tableView_excel_inv->setObjectName(QStringLiteral("tableView_excel_inv"));
         tableView_excel_inv->setGeometry(QRect(-30, 730, 20, 21));
+        tableView_excel_inv->setStyleSheet(QStringLiteral(""));
         exigo->addTab(inventaire, QString());
         tresorier = new QWidget();
         tresorier->setObjectName(QStringLiteral("tresorier"));
@@ -3324,6 +3330,14 @@ public:
         montantdon_3 = new QLineEdit(modifierdon);
         montantdon_3->setObjectName(QStringLiteral("montantdon_3"));
         montantdon_3->setGeometry(QRect(160, 250, 201, 41));
+        label_2 = new QLabel(modifierdon);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setEnabled(false);
+        label_2->setGeometry(QRect(327, 261, 31, 21));
+        label_2->setFont(font);
+        label_2->setStyleSheet(QLatin1String("color: #52794a;\n"
+"font-weight: bold;\n"
+"font-size: 17px;"));
         don->addTab(modifierDon, QString());
         qrcodedon = new QWidget();
         qrcodedon->setObjectName(QStringLiteral("qrcodedon"));
@@ -3401,9 +3415,38 @@ public:
         titreqrcodedon_2->setFont(font15);
         titreqrcodedon_2->setAlignment(Qt::AlignCenter);
         don->addTab(qrcodedon, QString());
+        statdon = new QWidget();
+        statdon->setObjectName(QStringLiteral("statdon"));
+        statdon->setStyleSheet(QStringLiteral("#statdon{ background: #fbf9f9;}"));
+        closestatdon = new QPushButton(statdon);
+        closestatdon->setObjectName(QStringLiteral("closestatdon"));
+        closestatdon->setGeometry(QRect(10, 60, 28, 28));
+        closestatdon->setFont(font12);
+        closestatdon->setStyleSheet(QLatin1String("#closestatdon{\n"
+"color:#56695b;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 15px;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#closestatdon:hover{\n"
+"border: 4px outset #dcd0c9;\n"
+"background: #f0e4e0;\n"
+"}\n"
+"#closestatdon:pressed{\n"
+"border: 4px inset #dcd0c9;\n"
+"background: #f6f1f7;\n"
+"}"));
+        statdon_2 = new QFrame(statdon);
+        statdon_2->setObjectName(QStringLiteral("statdon_2"));
+        statdon_2->setGeometry(QRect(-90, 60, 561, 460));
+        verticalLayout_3 = new QVBoxLayout(statdon_2);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        don->addTab(statdon, QString());
+        statdon_2->raise();
+        closestatdon->raise();
         affichagedon = new QWidget(tresorier);
         affichagedon->setObjectName(QStringLiteral("affichagedon"));
-        affichagedon->setGeometry(QRect(530, 120, 821, 511));
+        affichagedon->setGeometry(QRect(530, 120, 821, 561));
         affichagedon->setStyleSheet(QStringLiteral("#affichagedon{background:#eff5d6;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}"));
         modifier_d = new QPushButton(affichagedon);
         modifier_d->setObjectName(QStringLiteral("modifier_d"));
@@ -3484,14 +3527,12 @@ public:
 "}"));
         Meilleur_d = new QPushButton(affichagedon);
         Meilleur_d->setObjectName(QStringLiteral("Meilleur_d"));
-        Meilleur_d->setGeometry(QRect(380, 430, 31, 71));
+        Meilleur_d->setEnabled(false);
+        Meilleur_d->setGeometry(QRect(670, 451, 81, 91));
         Meilleur_d->setStyleSheet(QLatin1String("#Meilleur_d{\n"
-"	border-image: url(:/images/best1.png);\n"
+"	border-image: url(:/images/meilleurd.png);\n"
 "}\n"
-"#Meilleur_d:hover{\n"
-"	\n"
-"	border-image: url(:/images/best2.png);\n"
-"}\n"
+"\n"
 ""));
         don_d = new QPushButton(affichagedon);
         don_d->setObjectName(QStringLiteral("don_d"));
@@ -3671,22 +3712,24 @@ public:
 "}"));
         maxmontantdon = new QLabel(affichagedon);
         maxmontantdon->setObjectName(QStringLiteral("maxmontantdon"));
-        maxmontantdon->setGeometry(QRect(3, 454, 371, 41));
+        maxmontantdon->setGeometry(QRect(130, 450, 521, 41));
         maxmontantdon->setFont(font6);
         maxmontantdon->setStyleSheet(QLatin1String("color:#52794a;\n"
 "color:#52794a;\n"
-"border: 4px inset #dcd0c9;\n"
+"border: 1px outset #f8b052;\n"
 "border-radius: 7px;\n"
 "background: #eff5d6;"));
+        maxmontantdon->setAlignment(Qt::AlignCenter);
         maxnbdon = new QLabel(affichagedon);
         maxnbdon->setObjectName(QStringLiteral("maxnbdon"));
-        maxnbdon->setGeometry(QRect(421, 454, 371, 41));
+        maxnbdon->setGeometry(QRect(130, 500, 521, 41));
         maxnbdon->setFont(font6);
         maxnbdon->setStyleSheet(QLatin1String("color:#52794a;\n"
 "color:#52794a;\n"
-"border: 4px inset #dcd0c9;\n"
+"border: 1px inset #f8b052;\n"
 "border-radius: 7px;\n"
 "background: #eff5d6;"));
+        maxnbdon->setAlignment(Qt::AlignCenter);
         modifier_d->raise();
         stat_d->raise();
         lineEdit_recherche->raise();
@@ -3923,7 +3966,7 @@ public:
         retranslateUi(MainWindow);
 
         exigo->setCurrentIndex(3);
-        tabpersonnel->setCurrentIndex(0);
+        tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -4301,12 +4344,15 @@ public:
         closemodifdon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         telephonedonL_3->setText(QApplication::translate("MainWindow", "T\303\251l\303\251phone", Q_NULLPTR));
         montantdonL_3->setText(QApplication::translate("MainWindow", "Montant", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "Dt", Q_NULLPTR));
         don->setTabText(don->indexOf(modifierDon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         titreqrcodedon->setText(QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
         closeqrcodedon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
         qr_code->setText(QString());
         titreqrcodedon_2->setText(QApplication::translate("MainWindow", "Scanner pour appeler", Q_NULLPTR));
         don->setTabText(don->indexOf(qrcodedon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        closestatdon->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
+        don->setTabText(don->indexOf(statdon), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         modifier_d->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP

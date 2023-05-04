@@ -2588,16 +2588,8 @@ void MainWindow::on_bilaninv_clicked()
     obj.addField(2, "Nb", "char(30)");
     obj.addField(3, "Prix_Unitaire", "char(30)");
     obj.addField(4, "Prix_Total", "char(30)");
-
-
-
-    int retVal = obj.export2Excel();
-    if( retVal > 0)
-    {
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setText("Excel Généré avec succés. ");
-        msgBox.exec();
-    }
+    obj.export2Excel();
+    QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
 
 
 
@@ -3581,63 +3573,61 @@ void MainWindow::on_tri_d_clicked()
 
 void MainWindow::on_stat_d_clicked()
 {
-
     on_homedon_clicked();
-        QSqlQuery query;
-        query.prepare("SELECT TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH'), SUM(montant), LISTAGG(NOMPRENOM_D, '\n ') WITHIN GROUP (ORDER BY date_d) AS Donateurs FROM historiquedon WHERE EXTRACT(YEAR FROM TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS')) = EXTRACT(YEAR FROM SYSDATE) GROUP BY TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH') ");
+    QSqlQuery query;
+    query.prepare("SELECT  TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH') AS Mois,  SUM(montant) AS Total_Don,   LISTAGG(NOMPRENOM_D, '\n') WITHIN GROUP (ORDER BY date_d) AS Donateurs FROM ( SELECT  date_d,  montant,  NOMPRENOM_D,  ROW_NUMBER() OVER (PARTITION BY NOMPRENOM_D ORDER BY date_d) AS rn FROM historiquedon   WHERE EXTRACT(YEAR FROM TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS')) = EXTRACT(YEAR FROM SYSDATE) )  WHERE rn = 1 GROUP BY TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH')");
 
-        if (!query.exec()) {
-            qDebug() << "Failed to execute query:" << query.lastError().text();
-            return;
-        }
-        std::map<std::string, std::vector<std::string>> monthNames;
-        // Create a QChart object and set the chart title
-        QChart chart = new QChart();
-        chart->setTitle("Montant des dons par mois pour l'année "+ QString::number(QDate::currentDate().year()));
+    if (!query.exec()) {
+        qDebug() << "Failed to execute query:" << query.lastError().text();
+        return;
+    }
+    std::map<std::string, std::vector<std::string>> monthNames;
+    // Create a QChart object and set the chart title
+    QChart *chart = new QChart();
+    chart->setTitle("Montant des dons par mois pour l'année "+ QString::number(QDate::currentDate().year()));
 
-        // Create a QPieSeries object to hold the data
-        QPieSeriesseries = new QPieSeries();
-        series->setHoleSize(0.35);
-        // Loop through the query results and add a QPieSlice for each month
-    [9:10 PM]
+    // Create a QPieSeries object to hold the data
+    QPieSeries *series = new QPieSeries();
+    series->setHoleSize(0.35);
+    // Loop through the query results and add a QPieSlice for each month
     while (query.next()) {
 
-            QString month = query.value(0).toString();
-            double amount = query.value(1).toDouble();
-            QString tooltipText = query.value(2).toString();
-            QString ch="total des donnation du mois d'"+month+":"+QString::number(amount) + " Dt \n Les Donnateurs : \n"+ tooltipText;
-            monthNames[month.toStdString()].push_back(ch.toStdString());
-            qDebug() << month << amount <<ch;
-            QPieSlice slice = new QPieSlice(month, amount, chart);
-            //slice->setToolTip(tooltipText);
-            series->append(slice);
-        }
-        chart->addSeries(series);
-        chart->setAnimationOptions(QChart::SeriesAnimations);
-        chart->setTheme(QChart::ChartThemeQt);
-        QColor bgColor("#f8f5f1");
-        QBrush bgBrush(bgColor);
-        QPen bgPen("#f8f5f1");
-        bgPen.setWidth(35);
-        chart->setBackgroundBrush(bgBrush);
-        chart->setBackgroundPen(bgPen);
-        QChartViewchartView = new QChartView(chart);
-        chartView->setRenderHint(QPainter::Antialiasing);
-        QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
-                if (isHovered) {
-                    QString month = slice->label();
-                    std::vector<std::string> donators = monthNames.at(month.toStdString());
-                            std::string toolTipText;
-                            for (const auto& donator : donators) {
-                                toolTipText += donator + "\n";
-                            }
-                            chartView->setToolTip(QString::fromStdString(toolTipText));
-                } else {
-                    chartView->setToolTip("");
-                }
-            });
-        chartView->setParent(ui->statdon_2);
-            ui->don->setCurrentIndex(4);
+        QString month = query.value(0).toString();
+        double amount = query.value(1).toDouble();
+        QString tooltipText = query.value(2).toString();
+        QString ch="total des donnation du mois d'"+month+":"+QString::number(amount) + " Dt \n Les Donnateurs : \n"+ tooltipText;
+        monthNames[month.toStdString()].push_back(ch.toStdString());
+        qDebug() << month << amount <<ch;
+        QPieSlice *slice = new QPieSlice(month, amount, chart);
+        //slice->setToolTip(tooltipText);
+        series->append(slice);
+    }
+    chart->addSeries(series);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->setTheme(QChart::ChartThemeQt);
+    QColor bgColor("#f8f5f1");
+    QBrush bgBrush(bgColor);
+    QPen bgPen("#f8f5f1");
+    bgPen.setWidth(35);
+    chart->setBackgroundBrush(bgBrush);
+    chart->setBackgroundPen(bgPen);
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
+            if (isHovered) {
+                QString month = slice->label();
+                std::vector<std::string> donators = monthNames.at(month.toStdString());
+                        std::string toolTipText;
+                        for (const auto& donator : donators) {
+                            toolTipText += donator + "\n";
+                        }
+                        chartView->setToolTip(QString::fromStdString(toolTipText));
+            } else {
+                chartView->setToolTip("");
+            }
+        });
+    chartView->setParent(ui->statdon_2);
+        ui->don->setCurrentIndex(4);
 }
 
 
@@ -3677,25 +3667,37 @@ void MainWindow::meileurD()
     QString nom1,prenom1,nom2,prenom2,montant,nb;
 
     QSqlQuery query;
+   ui->maxnbdon->setHidden(1);
+   ui->Meilleur_d->setHidden(1);
     query.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE nbr_d = (SELECT MAX(nbr_d) FROM dons)");
     while (query.next()) {
       nom1 = query.value("nom_d").toString();
       prenom1 = query.value("prenom_d").toString();
         nb = query.value("nbr_d").toString();
+        meilleurdonnation="Donateur Récurrent : "+nom1+" "+prenom1+" a contribué " + nb +" fois.";
+         ui->maxnbdon->setText(meilleurdonnation);
+         ui->maxnbdon->setHidden(0);
+         ui->Meilleur_d->setHidden(0);
     }
-meilleurdonnation=nom1+" "+prenom1+" tabara3a " + nb +" fois.";
+
 qDebug() << nom1<< prenom1 << nb ;
 QSqlQuery query1;
+ui->maxmontantdon->setHidden(1);
 query1.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE montant_d = (SELECT MAX(CAST(montant_d AS FLOAT)) FROM dons)");
 while (query1.next()) {
   nom2 = query1.value("nom_d").toString();
   prenom2 = query1.value("prenom_d").toString();
   montant = query1.value("montant_d").toString();
+  meilleurmontant="Meilleur Donateur : "+nom2+" "+prenom2+" a donné  " + montant +" Dt.";
+  ui->maxmontantdon->setText(meilleurmontant);
+  ui->maxmontantdon->setHidden(0);
+  ui->Meilleur_d->setHidden(0);
 }
-meilleurmontant=nom2+" "+prenom2+" tabara3a " + montant +" Dt.";
+
 qDebug() << nom2<< prenom2 << montant << nb ;
-    ui->maxnbdon->setText(meilleurdonnation);
-    ui->maxmontantdon->setText(meilleurmontant);
+
+
+
 }
 
 void MainWindow::on_don_d_clicked()
@@ -3730,6 +3732,7 @@ void MainWindow::on_execldon_clicked()
     obj.addField(2, "Montant", "char(40)");
     obj.addField(3, "Date_de_la_Transaction", "char(60)");
     obj.export2Excel();
+    QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
 }
 
 void MainWindow::on_pdf_d_clicked()
@@ -3804,4 +3807,26 @@ void MainWindow::on_pdf_d_clicked()
      }
      else {qDebug() << "Error: could not open file" << fileName;}
 }
-
+void MainWindow::on_closestatdon_clicked()
+{
+    ui->don->setCurrentIndex(0);
+}
+void MainWindow::on_closeqrcodedon_clicked()
+{
+    ui->don->setCurrentIndex(0);
+    ui->tableView_d->setModel(D.afficher_d());
+    //ui->lineEdit_recherche->setEnabled(1);
+    ui->comboBox_triDon->setHidden(1);
+    /////lfouk
+    ui->modifier_d->setEnabled(1);
+    ui->supprimer_d->setEnabled(1);
+    ui->don_d->setEnabled(1);
+    ui->qr_code_2->setEnabled(1);
+    //// alajnab
+    ui->stat_d->setEnabled(1);
+    ui->execldon->setEnabled(1);
+    ui->pdf_d->setEnabled(1);
+    ui->Meilleur_d->setEnabled(1);
+    ui->recherchedon->setEnabled(1);
+    ui->tri_d->setEnabled(1);
+}

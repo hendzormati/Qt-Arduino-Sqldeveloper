@@ -197,11 +197,11 @@ QSqlQueryModel * don::tri_don(int i)
     }
     else if (i==6)
     {
-        model->setQuery("SELECT * FROM DONS ORDER BY montant_d");
+        model->setQuery("SELECT * FROM DONS ORDER BY CAST(montant_d AS numeric)");
     }
     else if (i==7)
     {
-        model->setQuery("SELECT * FROM DONS ORDER BY montant_d DESC");
+        model->setQuery("SELECT * FROM DONS ORDER BY CAST(montant_d AS numeric) DESC");
     }
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin_d"));

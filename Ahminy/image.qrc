@@ -138,5 +138,6 @@
         <file>images/vendre_inv_2.png</file>
         <file>images/qrcode1.png</file>
         <file>images/qrcode2.png</file>
+        <file>images/meilleurd.png</file>
     </qresource>
 </RCC>

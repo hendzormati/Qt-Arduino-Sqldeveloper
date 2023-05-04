@@ -20,7 +20,7 @@ void donnation::setmontant(QString cin_d,Personnel &p)
     QString nb=QString::number(nbfois+1);
     ui->nbfois->setText(nb);
     QString anc_mont=D.getmontant_donnation(CIN);
-    ui->montant->setPlaceholderText("Total Des Donnations: "+anc_mont+ " Dt");
+    ui->montant->setPlaceholderText("Total Des Donnations: "+anc_mont);
 }
 
 donnation::~donnation()

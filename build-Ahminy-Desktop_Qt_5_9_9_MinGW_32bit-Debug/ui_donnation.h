@@ -32,6 +32,7 @@ public:
     QLineEdit *montant;
     QLabel *NbfoisL;
     QLabel *montantL;
+    QLabel *label;
 
     void setupUi(QDialog *donnation)
     {
@@ -145,6 +146,17 @@ public:
         montantL->setObjectName(QStringLiteral("montantL"));
         montantL->setGeometry(QRect(40, 120, 121, 31));
         montantL->setFont(font1);
+        label = new QLabel(donnationmontant);
+        label->setObjectName(QStringLiteral("label"));
+        label->setEnabled(false);
+        label->setGeometry(QRect(430, 120, 31, 21));
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        label->setFont(font2);
+        label->setStyleSheet(QLatin1String("color: #52794a;\n"
+"font-weight: bold;\n"
+"font-size: 17px;"));
 
         retranslateUi(donnation);
 
@@ -158,6 +170,7 @@ public:
         annuler->setText(QApplication::translate("donnation", "Annuler", Q_NULLPTR));
         NbfoisL->setText(QApplication::translate("donnation", "Nombre de donnation", Q_NULLPTR));
         montantL->setText(QApplication::translate("donnation", "Montant", Q_NULLPTR));
+        label->setText(QApplication::translate("donnation", "Dt", Q_NULLPTR));
     } // retranslateUi
 
 };

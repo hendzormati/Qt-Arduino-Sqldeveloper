@@ -5847,6 +5847,9 @@ background: #f6f1f7;
         <height>21</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tresorier">
@@ -6595,6 +6598,34 @@ background: #f6f1f7;
            </rect>
           </property>
          </widget>
+         <widget class="QLabel" name="label_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>327</x>
+            <y>261</y>
+            <width>31</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #52794a;
+font-weight: bold;
+font-size: 17px;</string>
+          </property>
+          <property name="text">
+           <string>Dt</string>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QWidget" name="qrcodedon">
@@ -6817,7 +6848,7 @@ background: #f6f1f7;
         <x>530</x>
         <y>120</y>
         <width>821</width>
-        <height>511</height>
+        <height>561</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -7116,22 +7147,22 @@ background: #fafaeb;
        </property>
       </widget>
       <widget class="QPushButton" name="Meilleur_d">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>430</y>
-         <width>31</width>
-         <height>71</height>
+         <x>670</x>
+         <y>451</y>
+         <width>81</width>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
         <string notr="true">#Meilleur_d{
-	border-image: url(:/images/best1.png);
+	border-image: url(:/images/meilleurd.png);
 }
-#Meilleur_d:hover{
-	
-	border-image: url(:/images/best2.png);
-}
+
 </string>
        </property>
        <property name="text">
@@ -7742,9 +7773,9 @@ selection-color:#56695b;
       <widget class="QLabel" name="maxmontantdon">
        <property name="geometry">
         <rect>
-         <x>3</x>
-         <y>454</y>
-         <width>371</width>
+         <x>130</x>
+         <y>450</y>
+         <width>521</width>
          <height>41</height>
         </rect>
        </property>
@@ -7759,20 +7790,23 @@ selection-color:#56695b;
        <property name="styleSheet">
         <string notr="true">color:#52794a;
 color:#52794a;
-border: 4px inset #dcd0c9;
+border: 1px outset #f8b052;
 border-radius: 7px;
 background: #eff5d6;</string>
        </property>
        <property name="text">
         <string>nom prenom akther money</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
       <widget class="QLabel" name="maxnbdon">
        <property name="geometry">
         <rect>
-         <x>421</x>
-         <y>454</y>
-         <width>371</width>
+         <x>130</x>
+         <y>500</y>
+         <width>521</width>
          <height>41</height>
         </rect>
        </property>
@@ -7787,12 +7821,15 @@ background: #eff5d6;</string>
        <property name="styleSheet">
         <string notr="true">color:#52794a;
 color:#52794a;
-border: 4px inset #dcd0c9;
+border: 1px inset #f8b052;
 border-radius: 7px;
 background: #eff5d6;</string>
        </property>
        <property name="text">
         <string>nom prenom akther nb don</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
       <zorder>modifier_d</zorder>

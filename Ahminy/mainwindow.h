@@ -54,6 +54,7 @@
 #include <QBarSet>
 #include <QCategoryAxis>
 #include <QValueAxis>
+#include <map>
 using namespace QtCharts;
 
 QT_BEGIN_NAMESPACE
@@ -360,6 +361,7 @@ private slots:
 
     void on_pdf_d_clicked();
 
+   void on_closestatdon_clicked();
 private:
     Ui::MainWindow *ui;
     Personnel P;
