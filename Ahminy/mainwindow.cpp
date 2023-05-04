@@ -2036,7 +2036,7 @@ void MainWindow::on_confirmerAjoutersdf_clicked()
 
     ///Fin controle de saisie:
 
-    Sdf S(cin_b, prenom_b, nom_b, dob_b, sexe_b, 0, date.currentDate(), date.currentDate(), 0);
+    Sdf S(cin_b, prenom_b, nom_b, dob_b, sexe_b, 0, date.currentDate(), date.currentDate(), 0, 0);
 
     bool test=true;
     if (verif)
