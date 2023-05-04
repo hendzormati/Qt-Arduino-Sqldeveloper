@@ -208,6 +208,34 @@ background: #f6f1f7;
      <string>Montant</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>120</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #52794a;
+font-weight: bold;
+font-size: 17px;</string>
+    </property>
+    <property name="text">
+     <string>Dt</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

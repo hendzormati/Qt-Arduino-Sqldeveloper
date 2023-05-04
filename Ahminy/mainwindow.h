@@ -358,6 +358,8 @@ private slots:
 
     void on_execldon_clicked();
 
+    void on_pdf_d_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;

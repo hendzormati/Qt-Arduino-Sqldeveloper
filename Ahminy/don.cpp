@@ -270,3 +270,65 @@ QSqlQueryModel * model=new QSqlQueryModel ();
 model->setQuery("SELECT nomprenom_p as tresorier,NOMPRENOM_D as Donateur,montant as Montant,date_d as Date_de_la_Transaction from historiquedon");
 return model;
 }
+
+//Bilan:
+///Nombre total des donateurs :
+int don::nb_donateurs()
+{
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(DISTINCT cin_d) FROM DONS");
+    if (query.exec()&&query.next())
+    {
+        return query.value(0).toInt();
+    }
+
+   else return 0;
+}
+
+///Montant total des dons reçus :
+float don::total_dons()
+{
+    QSqlQuery query;
+    query.prepare("SELECT SUM(montant_d) FROM DONS");
+    if (query.exec() && query.next())
+    {
+        return query.value(0).toFloat();
+    }
+    else return 0;
+}
+
+///Nombre de donateurs récurrents (ayant donné plus que 3 fois) :
+int don::nb_donateurs_recurrents()
+{
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(DISTINCT cin_d) FROM DONS WHERE nbr_d >= 3");
+    if (query.exec() && query.next())
+    {
+        return query.value(0).toInt();
+    }
+    return 0;
+}
+
+///Top 5 des donateurs en termes de montant donné :
+QVector <QString> don::top5_donateurs()
+{
+    QSqlQuery query;
+    QVector <QString> result;
+    int i = 1;
+    query.prepare("SELECT cin_d, nom_d, prenom_d, CAST(montant_d AS numeric) AS montant_num FROM DONS ORDER BY montant_num DESC");
+    if (!query.exec())
+    {
+        qDebug() << "Erreur: impossible d'exécuter la requête SQL";
+    }
+    while (query.next())
+    {
+        QString cin = query.value(0).toString();
+        QString nom = query.value(1).toString();
+        QString prenom = query.value(2).toString();
+        QString montant = query.value(3).toString();
+        QString ligne_resultat = QString::number(i) + " : " + cin + " " + nom + " " + prenom + " " + montant + " Dt";
+        result.push_back(ligne_resultat);
+        i++;
+    }
+    return result;
+}

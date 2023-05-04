@@ -3262,8 +3262,8 @@ background: #f6f1f7;
         <widget class="QPushButton" name="closestatsdf">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>70</y>
+           <x>20</x>
+           <y>80</y>
            <width>28</width>
            <height>28</height>
           </rect>
@@ -6751,63 +6751,6 @@ background: #f6f1f7;
           </property>
          </widget>
         </widget>
-       </widget>
-       <widget class="QWidget" name="statdon">
-        <property name="styleSheet">
-         <string notr="true">#statdon{ background: #fbf9f9;}</string>
-        </property>
-        <attribute name="title">
-         <string>Page</string>
-        </attribute>
-        <widget class="QPushButton" name="closestatdon">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>60</y>
-           <width>28</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#closestatdon{
-color:#56695b;
-border: 4px inset #dcd0c9;
-border-radius: 15px;
-background: #f3f2f7;
-}
-#closestatdon:hover{
-border: 4px outset #dcd0c9;
-background: #f0e4e0;
-}
-#closestatdon:pressed{
-border: 4px inset #dcd0c9;
-background: #f6f1f7;
-}</string>
-         </property>
-         <property name="text">
-          <string>X</string>
-         </property>
-        </widget>
-        <widget class="QFrame" name="statdon_2">
-         <property name="geometry">
-          <rect>
-           <x>-90</x>
-           <y>60</y>
-           <width>561</width>
-           <height>460</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3"/>
-        </widget>
-        <zorder>statdon_2</zorder>
-        <zorder>closestatdon</zorder>
        </widget>
       </widget>
      </widget>

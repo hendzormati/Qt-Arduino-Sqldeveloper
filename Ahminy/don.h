@@ -8,6 +8,9 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDebug>
+#include <vector>
+using namespace std;
+
 class don
 {
 private:
@@ -55,6 +58,12 @@ public:
     void update_montant(QString cin_d, QString montant_d, int nbr_d);
     QString getnomprenom_donnation(QString cin_d);
     QSqlQueryModel * afficher_hist_don();
+
+    //Bilan
+    int nb_donateurs();
+    float total_dons();
+    int nb_donateurs_recurrents();
+    QVector <QString> top5_donateurs();
 };
 
 #endif // DON_H

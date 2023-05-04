@@ -3582,92 +3582,62 @@ void MainWindow::on_tri_d_clicked()
 void MainWindow::on_stat_d_clicked()
 {
 
-    QSqlQuery query;
-    query.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons");
+    on_homedon_clicked();
+        QSqlQuery query;
+        query.prepare("SELECT TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH'), SUM(montant), LISTAGG(NOMPRENOM_D, '\n ') WITHIN GROUP (ORDER BY date_d) AS Donateurs FROM historiquedon WHERE EXTRACT(YEAR FROM TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS')) = EXTRACT(YEAR FROM SYSDATE) GROUP BY TO_CHAR(TO_DATE(date_d, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH') ");
 
-    // Create chart and axis objects
-    QChart *chart = new QChart();
-    QBarCategoryAxis *axisX = new QBarCategoryAxis();
-    QValueAxis *axisY = new QValueAxis();
-    QValueAxis *axisYRight = new QValueAxis();
-    axisYRight->setLinePenColor(Qt::transparent); // Make the right Y-axis line invisible
+        if (!query.exec()) {
+            qDebug() << "Failed to execute query:" << query.lastError().text();
+            return;
+        }
+        std::map<std::string, std::vector<std::string>> monthNames;
+        // Create a QChart object and set the chart title
+        QChart chart = new QChart();
+        chart->setTitle("Montant des dons par mois pour l'année "+ QString::number(QDate::currentDate().year()));
 
-    // Set axis labels and ranges
-    axisX->setTitleText("Person");
-    axisY->setTitleText("Number of Donations");
-    axisYRight->setTitleText("Total Amount Donated");
-    int maxDonations = 0;
-    int maxAmount = 0;
-    int personIndex = 0; // Initialize personIndex to 0
+        // Create a QPieSeries object to hold the data
+        QPieSeriesseries = new QPieSeries();
+        series->setHoleSize(0.35);
+        // Loop through the query results and add a QPieSlice for each month
+    [9:10 PM]
     while (query.next()) {
 
-        QString personId = query.value("nom_d").toString()+"_"+query.value("prenom_d").toString();;
-        int amount = query.value("montant_d").toInt();
-        int donations = query.value("nbr_d").toInt();
-        maxDonations = qMax(maxDonations, donations);
-        maxAmount = qMax(maxAmount, amount);
-        QBarSet *donationSet = new QBarSet("Number of Donations");
-        *donationSet << donations;
-        QBarSet *amountSet = new QBarSet("Total Amount Donated");
-        *amountSet << amount;
-
-        // Create bar series for current person
-        QBarSeries *personSeries = new QBarSeries();
-        personSeries->append(donationSet);
-        personSeries->append(amountSet);
-        chart->addSeries(personSeries); // Add the series to the chart
-        personSeries->attachAxis(axisX);
-        personSeries->attachAxis(axisY);
-        personSeries->attachAxis(axisYRight); // Attach the right Y-axis to the person series
-
-        // Set the index of the person on the X-axis
-        int personIdInt = personId.toInt();
-        QString categoryName = QString::number(personIndex) + " - " + QString::number(personIdInt);
-        axisX->append(categoryName);
-        personIndex++;
-    }
-
-    // Set axis ranges based on maximum values
-    axisY->setRange(0, maxDonations + 1);
-    axisYRight->setRange(0, maxAmount + 10);
-
-    // Set chart properties and display chart
-    chart->setTitle("Donations by Person");
-    chart->setAnimationOptions(QChart::SeriesAnimations);
-    chart->setGeometry(100, 100, 800, 600);
-    chart->createDefaultAxes();
-    QChartView *chartView = new QChartView(chart);
-    setCentralWidget(chartView);
-
-    // Set chart properties
-    chart->setTitle("My Chart");
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignBottom);
-    chart->setAnimationOptions(QChart::SeriesAnimations);
-
-    // Show the chart
-    chartView->setRenderHint(QPainter::Antialiasing);
-    chartView->show();
-            }
-
-void MainWindow::on_closeqrcodedon_clicked()
-{
-    ui->don->setCurrentIndex(0);
-    ui->tableView_d->setModel(D.afficher_d());
-    //ui->lineEdit_recherche->setEnabled(1);
-    ui->comboBox_triDon->setHidden(1);
-    /////lfouk
-    ui->modifier_d->setEnabled(1);
-    ui->supprimer_d->setEnabled(1);
-    ui->don_d->setEnabled(1);
-    ui->qr_code_2->setEnabled(1);
-    //// alajnab
-    ui->stat_d->setEnabled(1);
-    ui->execldon->setEnabled(1);
-    ui->pdf_d->setEnabled(1);
-    ui->Meilleur_d->setEnabled(1);
-    ui->recherchedon->setEnabled(1);
-    ui->tri_d->setEnabled(1);
+            QString month = query.value(0).toString();
+            double amount = query.value(1).toDouble();
+            QString tooltipText = query.value(2).toString();
+            QString ch="total des donnation du mois d'"+month+":"+QString::number(amount) + " Dt \n Les Donnateurs : \n"+ tooltipText;
+            monthNames[month.toStdString()].push_back(ch.toStdString());
+            qDebug() << month << amount <<ch;
+            QPieSlice slice = new QPieSlice(month, amount, chart);
+            //slice->setToolTip(tooltipText);
+            series->append(slice);
+        }
+        chart->addSeries(series);
+        chart->setAnimationOptions(QChart::SeriesAnimations);
+        chart->setTheme(QChart::ChartThemeQt);
+        QColor bgColor("#f8f5f1");
+        QBrush bgBrush(bgColor);
+        QPen bgPen("#f8f5f1");
+        bgPen.setWidth(35);
+        chart->setBackgroundBrush(bgBrush);
+        chart->setBackgroundPen(bgPen);
+        QChartViewchartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+        QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
+                if (isHovered) {
+                    QString month = slice->label();
+                    std::vector<std::string> donators = monthNames.at(month.toStdString());
+                            std::string toolTipText;
+                            for (const auto& donator : donators) {
+                                toolTipText += donator + "\n";
+                            }
+                            chartView->setToolTip(QString::fromStdString(toolTipText));
+                } else {
+                    chartView->setToolTip("");
+                }
+            });
+        chartView->setParent(ui->statdon_2);
+            ui->don->setCurrentIndex(4);
 }
 
 
@@ -3761,3 +3731,77 @@ void MainWindow::on_execldon_clicked()
     obj.addField(3, "Date_de_la_Transaction", "char(60)");
     obj.export2Excel();
 }
+
+void MainWindow::on_pdf_d_clicked()
+{
+   QDate d;
+   QString date=d.currentDate().toString("dd MMMM yyyy");
+    don D;
+    QString fileName = "PDF_DON/BilanDon_"+date+".pdf";
+
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly))
+    {
+        QPdfWriter writer(&file);
+        QPainter painter(&writer);
+        writer.setPageSize(QPageSize(QPageSize::A4));
+
+        writer.setPageMargins(QMarginsF(30, 30, 30, 30));
+        painter.setRenderHint(QPainter::Antialiasing);
+        QImage logo(":/images/ahminy.png");
+        painter.drawImage(QRectF(-170,-120, 2000, 1500), logo);
+        QPen pen("#6b694c");
+        painter.setPen(pen);
+        painter.setFont(QFont("Baskerville Old Face", 18));
+
+        QFont titleFont("Arial", 30, QFont::Bold);
+        painter.setFont(titleFont);
+        painter.drawText(2800, 700, "Bilan sur les donations");
+
+        QFont headerFont("Arial", 20, QFont::Bold);
+        painter.setFont(headerFont);
+
+        int y = 3000;
+
+        QString nbdona=QString::number(D.nb_donateurs());
+        QString totaldons=QString::number(D.total_dons());
+        QString nbdonarec=QString::number(D.nb_donateurs_recurrents());
+        QString pourdon=QString::number((D.nb_donateurs_recurrents()*100)/D.nb_donateurs());
+        QVector <QString> tab=D.top5_donateurs();
+
+            pen.setColor("#5c4633");
+            painter.setPen(pen);
+            painter.setFont(QFont("Bell MT", 25,QFont::DemiBold));
+
+            painter.drawText(500, y, "Nombre total des donateurs :");y += 800;
+            painter.drawText(6500, y, nbdona+" donateur(s)");
+            y += 800;
+
+            painter.drawText(500, y, "Montant total des dons reçus :");y += 800;
+            painter.drawText(6500, y, totaldons+ " Dt");
+            y += 800;
+
+            painter.drawText(500, y, "Nombre de donateurs récurrents :");y += 800;
+            painter.drawText(6500, y, nbdonarec+" donateur(s)");
+            y += 800;
+
+            painter.drawText(500, y, "Pourcentage de donateurs récurrents :");y += 800;
+            painter.drawText(6500, y, pourdon+" % donateur(s)");
+            y += 800;
+
+            painter.drawText(500, y, "Top 5 des donateurs :");
+            y += 800;
+            for (int i = 0; i < 5; i++)
+            {
+                painter.drawText(1000, y, tab[i]);
+                y += 800;
+            }
+
+
+            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+
+        painter.end();
+     }
+     else {qDebug() << "Error: could not open file" << fileName;}
+}
+
