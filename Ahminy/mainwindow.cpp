@@ -2019,20 +2019,20 @@ void MainWindow::on_confirmerAjoutersdf_clicked()
         verif=false;
     }
 
-    //DATE:
-    else if (dob_b > dateRec)
-    {
-        ui->Sdf->setCurrentIndex(1);
-        msgBox.setText("La date saisie dépasse la date actuelle.");
-        msgBox.exec();
-        verif=false;
-    }
-
     //SEXE:
     else if (!ui->femmesdf->isChecked() && !ui->hommesdf->isChecked())
     {
         ui->Sdf->setCurrentIndex(1);
         msgBox.setText("Veuillez sélectionner le sexe.");
+        msgBox.exec();
+        verif=false;
+    }
+
+    //DATE:
+    else if (dob_b > dateRec)
+    {
+        ui->Sdf->setCurrentIndex(1);
+        msgBox.setText("La date saisie dépasse la date actuelle.");
         msgBox.exec();
         verif=false;
     }
