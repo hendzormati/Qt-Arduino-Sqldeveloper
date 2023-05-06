@@ -27,6 +27,8 @@
 #include "qrcode.h"
 #include "donnation.h"
 
+#include "fiche.h"
+
 #include <QMessageBox>
 #include <QDebug>
 #include <QList>
@@ -203,7 +205,6 @@ private slots:
     void on_statsdfsexe_clicked();
     void on_closestatsdf_clicked();
     void on_sdfnotif_clicked();
-    void on_closenotifsdf_clicked();
     void on_pdfsdf_clicked();
     void on_textsdf_clicked();
     void on_fichierhistorique_clicked();
@@ -221,52 +222,6 @@ private slots:
     void Incondie();
     void on_dialogClosed();
     //yassmine inventaire
-
-    //mayssa donation
-
-    void on_ajouterdon_clicked();
-
-    void on_closeajouterdon_clicked();
-
-    void on_confirmerAjouterdon_clicked();
-
-    void on_cindon_returnPressed();
-
-    void on_nomdon_returnPressed();
-
-    void on_prenomdon_returnPressed();
-
-    void on_telephonedon_returnPressed();
-
-    //loujain consultation
-
-    void on_ajoutermed_clicked();
-
-    void on_confirmerAjoutermed_clicked();
-
-    void on_closeajoutermed_clicked();
-
-    void on_cinpatient_activated();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     void on_ajouterinventaire_clicked();
 
     void on_closeajouterinv_clicked();
@@ -321,9 +276,21 @@ private slots:
 
     void on_vendre_inv_clicked();
 
-    //void on_closevendre_inv_clicked();
+    //mayssa donation
 
-    //void on_vendreinv_clicked();
+    void on_ajouterdon_clicked();
+
+    void on_closeajouterdon_clicked();
+
+    void on_confirmerAjouterdon_clicked();
+
+    void on_cindon_returnPressed();
+
+    void on_nomdon_returnPressed();
+
+    void on_prenomdon_returnPressed();
+
+    void on_telephonedon_returnPressed();
 
     void on_recherchedon_clicked();
 
@@ -362,6 +329,44 @@ private slots:
     void on_pdf_d_clicked();
 
    void on_closestatdon_clicked();
+    //loujain consultation
+
+    void on_confirmerAjoutermed_clicked();
+
+    void on_closeajoutermed_clicked();
+
+    void on_cinpatient_activated();
+
+   void on_home_f_clicked();
+
+   void on_trierf_clicked();
+
+   void on_recherchefiche_clicked();
+
+   void on_typetrif_activated(int index);
+
+   void on_rechercherfiche_returnPressed();
+
+   void on_rechercherfiche_textEdited(const QString &arg1);
+
+   void on_ajouterfichee_clicked();
+
+   void on_confirmerAjoutfich_clicked();
+
+   void on_closeajoutfich_clicked();
+
+   void clear_fiche();
+   void on_closemodifich_clicked();
+
+   void on_modiffiche_clicked();
+
+   void on_tableViewF_clicked(const QModelIndex &index);
+
+   void on_supprimerf_clicked();
+
+   void on_confirmerModifich_clicked();
+
+   void on_cinpatientfich_currentTextChanged(const QString &arg1);
 private:
     Ui::MainWindow *ui;
     Personnel P;
@@ -384,5 +389,7 @@ private:
     // arduino mayssa
     don D;
     excel *excelObj;
+    // loujain
+    fiche F;
 };
 #endif // MAINWINDOW_H

@@ -29,6 +29,7 @@ SOURCES += \
     don.cpp \
     donnation.cpp \
     excel.cpp \
+    fiche.cpp \
     historique.cpp \
     incondiesdf.cpp \
     mailingp.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     don.h \
     donnation.h \
     excel.h \
+    fiche.h \
     historique.h \
     incondiesdf.h \
     mailingp.h \

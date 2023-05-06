@@ -11,6 +11,7 @@ INPUT(
 ./debug\don.o
 ./debug\donnation.o
 ./debug\excel.o
+./debug\fiche.o
 ./debug\historique.o
 ./debug\incondiesdf.o
 ./debug\mailingp.o

@@ -1,11 +1,13 @@
 #ifndef PERSONNEL_H
 #define PERSONNEL_H
+
 #include<QString>
 #include<QDate>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QtCharts>
 #include <QChartView>
+
 class Personnel
 {
     QString id_p;

@@ -158,6 +158,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->montantdon_3->setMaxLength(8);
 ui->tableView_excel_don->setModel(D.afficher_hist_don());
 ui->tableView_excel_don->setVisible(false);
+
+    //loujain
+on_home_f_clicked();
+ui->recherchefiche->setEnabled(1);
+ui->tableViewF->setEnabled(1);
+ui->trierf->setEnabled(1);
+ui->rechercherfiche->setHidden(1);
+ui->typetrif->setHidden(1);
+ui->typetrif->setCurrentIndex(0);
+ui->tableViewF->setModel(F.afficher_f());
 }
 void MainWindow::Incondie()
 {
@@ -1786,13 +1796,6 @@ void MainWindow::on_sdfnotif_clicked()
 
     }
 }
-void MainWindow::on_closenotifsdf_clicked()
-{
-    //Boutons:
-    ui->Sdf->setCurrentIndex(0);
-}
-
-
 void MainWindow::on_pdfsdf_clicked()
 {
     QString cin_b=ui->recherchersdf->text();
@@ -2994,87 +2997,6 @@ void MainWindow::on_vendre_inv_clicked()
 }
 
 //mayssa donation
-
-
-//loujain consultation
-
-void MainWindow::on_ajoutermed_clicked()
-{
-    ui->med->setCurrentIndex(1);
-}
-
-void MainWindow::on_confirmerAjoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_closeajoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_cinpatient_activated()
-{
-    ui->descriptionpatient->setFocus();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void MainWindow::on_ajouterdon_clicked()
 {
     on_homedon_clicked();
@@ -3829,4 +3751,442 @@ void MainWindow::on_closeqrcodedon_clicked()
     ui->Meilleur_d->setEnabled(1);
     ui->recherchedon->setEnabled(1);
     ui->tri_d->setEnabled(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//loujain consultation
+
+void MainWindow::on_confirmerAjoutermed_clicked()
+{
+    ui->med->setCurrentIndex(0);
+}
+
+void MainWindow::on_closeajoutermed_clicked()
+{
+    ui->med->setCurrentIndex(0);
+}
+
+void MainWindow::on_cinpatient_activated()
+{
+    ui->descriptionpatient->setFocus();
+}
+void MainWindow::on_home_f_clicked()
+{
+    //clearajoutperso();
+    //ui->statp->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+    //ui->modifierp->setHidden(1);
+    //ui->supprimerp->setHidden(1);
+    //ui->ajoutrfidp->setHidden(1);
+   // ui->afficherp->setHidden(1);
+   // ui->pdfp->setHidden(1);
+    ui->modiffiche->setHidden(1);
+    ui->supprimerf->setHidden(1);
+    ui->recherchefiche->setEnabled(1);
+    ui->tableViewF->setEnabled(1);
+    ui->trierf->setEnabled(1);
+    ui->rechercherfiche->setHidden(1);
+    ui->typetrif->setHidden(1);
+    ui->typetrif->setCurrentIndex(0);
+    ui->tableViewF->setModel(F.afficher_f());
+    ui->med->setCurrentIndex(0);
+    clear_fiche();
+
+}
+
+void MainWindow::on_trierf_clicked()
+{
+    on_home_f_clicked();
+    ui->recherchefiche->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+    ui->typetrif->setHidden(0);
+    ui->typetrif->setCurrentIndex(0);
+    ui->tableViewF->setModel(F.afficher_f());
+    ui->med->setCurrentIndex(0);
+}
+
+void MainWindow::on_recherchefiche_clicked()
+{
+    //ui->statp->setEnabled(1);
+    ui->trierf->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+    ui->rechercherfiche->setHidden(0);
+    ui->typetrif->setHidden(1);
+    ui->rechercherfiche->clear();
+    ui->tableViewF->setModel(F.afficher_f());
+    ui->rechercherfiche->setEnabled(1);
+    ui->modiffiche->setHidden(1);
+    ui->supprimerf->setHidden(1);
+    //ui->ajoutrfidp->setHidden(1);
+   // ui->afficherp->setHidden(1);
+    //ui->pdfp->setHidden(1);
+    ui->med->setCurrentIndex(0);
+}
+
+void MainWindow::on_typetrif_activated(int index)
+{
+    ui->tableViewF->setModel(F.trier_f(index));
+}
+
+void MainWindow::on_rechercherfiche_returnPressed()
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setFixedSize(600,600);
+    msgBox.setWindowOpacity(0.8);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    if(ui->rechercherfiche->text().isEmpty())
+    {
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Aucune Donnée Saisie."); msgBox.exec();
+    }
+}
+
+void MainWindow::on_rechercherfiche_textEdited(const QString &arg1)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    QString ch=arg1;
+    if (F.filtrageDynamique_f(ch)->rowCount() == 0) {
+        msgBox.setIcon(QMessageBox::Critical);
+
+        msgBox.setText("Aucune Correspondance."); msgBox.exec();
+    } else {
+        ui->tableViewF->setModel(F.filtrageDynamique_f(ch));
+    }
+
+
+}
+
+void MainWindow::on_ajouterfichee_clicked()
+{
+    ui->cinpatientfich->clear();
+    QStringList num_cin;
+    QSqlQuery query;
+    query.prepare("SELECT cin_b FROM Beneficiaires");
+    if (!query.exec())
+    {
+        qDebug() << "Error: could not execute query.";
+        return;
+    }
+    while (query.next())
+    {
+        QString num = query.value(0).toString();
+        if(!F.recherche_cin_b(num)) num_cin.append(num);
+    }
+    ui->cinpatientfich->insertItems(0,num_cin);
+    on_home_f_clicked();
+    ui->nomprepat->setHidden(1);
+    on_cinpatientfich_currentTextChanged(ui->cinpatientfich->itemText(0));
+    ui->med->setCurrentIndex(2);
+    ui->tableViewF->setEnabled(0);
+}
+
+void MainWindow::on_confirmerAjoutfich_clicked()
+{
+    QMessageBox msgBox;
+        msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+        msgBox.setWindowOpacity(0.8);
+        msgBox.setFixedSize(600,600);
+        QFont bellMTFont("Bell MT");
+        msgBox.setFont(bellMTFont);
+        msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+        msgBox.setWindowTitle("Ahminy");
+        msgBox.setIcon(QMessageBox::Information);
+
+        ///Debut controle de saisie:
+        ui->descriptionpatfich->setMaximumBlockCount(60);
+
+        bool numdesc=true;
+        for (int i=0; i<ui->descriptionpatfich->toPlainText().length(); i++)
+        {
+            if (ui->descriptionpatfich->toPlainText()[i].isDigit())
+            {
+                numdesc=false;
+                break;
+            }
+        }
+
+        bool verif=true;
+        if (ui->descriptionpatfich->toPlainText().isEmpty())
+            {
+                ui->med->setCurrentIndex(2);
+                msgBox.setText("Veuillez remplir la description.");
+                msgBox.exec();
+                verif=false;
+            }
+        else if (!numdesc)
+        {
+            ui->med->setCurrentIndex(2);
+            msgBox.setText("Description ne comporter pas des chiffres.");
+            msgBox.exec();
+            verif=false;
+        }
+
+        ///Fin controle de saisie:
+
+        QDate dateRec = QDate::currentDate();
+        fiche F(ui->cinpatientfich->currentText(),ui->nomprepat->text(),ui->antpatientfich->currentText(),ui->descriptionpatfich->toPlainText(),dateRec);
+        bool test=true;
+        if (verif)
+        {
+            test=F.ajouter_f();
+    if (test)
+            {
+                 ui->tableViewF->setEnabled(1);
+                ui->tableViewF->setModel(F.afficher_f()); //refresh
+                clear_fiche();
+                ui->med->setCurrentIndex(0);
+            }
+            else
+            {
+                msgBox.setText("Ajout non effectué.");
+                msgBox.exec();
+            }
+        }
+}
+
+void MainWindow::on_closeajoutfich_clicked()
+{
+    on_home_f_clicked();
+    ui->tableViewF->setEnabled(1);
+}
+void MainWindow::clear_fiche()
+{
+    ///Ajouter:
+    ui->descriptionpatfich->clear();
+
+    ///Modifier:
+    ui->descriptionpatfich_2->clear();
+
+}
+
+void MainWindow::on_closemodifich_clicked()
+{
+    on_home_f_clicked();
+    ui->tableViewF->setEnabled(1);
+}
+
+void MainWindow::on_modiffiche_clicked()
+{
+    QString cin_b=ui->rechercherfiche->text();
+        QSqlQuery query;
+        query.prepare("SELECT nomprenom, description_ant ,categorie_ant FROM fiche WHERE cin_b=:cin_b");
+        query.bindValue(":cin_b",cin_b);
+        if (!query.exec())
+        {
+            qDebug() << "Error: could not execute query.";
+            return;
+        }
+        while (query.next())
+        {
+            ui->nomprepat_2->setText(query.value(0).toString());
+            ui->descriptionpatfich_2->setPlainText(query.value(1).toString());
+            ui->antpatientfich_2->setCurrentIndex(ui->antpatientfich_2->findText(query.value(2).toString()));
+        }
+     ui->med->setCurrentIndex(3);
+     ui->tableViewF->setEnabled(0);
+}
+
+void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
+{
+    ui->rechercherfiche->setHidden(0);
+    ui->modiffiche->setHidden(0);
+    ui->supprimerf->setHidden(0);
+    //ui->ajoutrfidp->setHidden(0);
+    //ui->pdfp->setHidden(0);
+   // ui->afficherp->setHidden(0);
+    ui->modiffiche->setEnabled(1);
+    ui->supprimerf->setEnabled(1);
+    //ui->ajoutrfidp->setEnabled(1);
+    //ui->pdfp->setEnabled(1);
+    //ui->afficherp->setEnabled(1);
+    ui->typetrif->setCurrentIndex(0);
+    ui->typetrif->setHidden(1);
+    ui->rechercherfiche->setText(ui->tableViewF->model()->data(ui->tableViewF->model()->index(index.row(),0)).toString());
+    ui->rechercherfiche->setEnabled(0);
+    ui->recherchefiche->setEnabled(1);
+    ui->trierp->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+}
+
+void MainWindow::on_supprimerf_clicked()
+{
+    QString cin_b=ui->rechercherfiche->text().toUpper();
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setFixedSize(600,600);
+    msgBox.setWindowOpacity(0.8);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    ui->rechercherfiche->clear();
+    bool test2=F.supprimer_f(cin_b);
+    if(test2)
+    {ui->tableViewF->setModel(F.afficher_f());
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setText("Suppression éffectué."); msgBox.exec(); on_home_f_clicked();}
+    else {        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Suppression non éffectué."); msgBox.exec();}
+
+    ui->recherchefiche->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    ui->trierf->setEnabled(1);
+}
+
+void MainWindow::on_confirmerModifich_clicked()
+{
+    QMessageBox msgBox;
+       msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+       msgBox.setWindowOpacity(0.8);
+       msgBox.setFixedSize(600,600);
+       QFont bellMTFont("Bell MT");
+       msgBox.setFont(bellMTFont);
+       msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+       msgBox.setWindowTitle("Ahminy");
+       msgBox.setIcon(QMessageBox::Information);
+
+       ///Debut controle de saisie:
+       ui->descriptionpatfich_2->setMaximumBlockCount(60);
+
+       bool numdesc=true;
+       for (int i=0; i<ui->descriptionpatfich_2->toPlainText().length(); i++)
+       {
+           if (ui->descriptionpatfich_2->toPlainText()[i].isDigit())
+           {
+               numdesc=false;
+               break;
+           }
+       }
+
+       bool verif=true;
+       if (ui->descriptionpatfich_2->toPlainText().isEmpty())
+           {
+               ui->med->setCurrentIndex(3);
+               msgBox.setText("Veuillez remplir la description.");
+               msgBox.exec();
+               verif=false;
+           }
+       else if (!numdesc)
+       {
+           ui->med->setCurrentIndex(3);
+           msgBox.setText("Description ne comporter pas des chiffres.");
+           msgBox.exec();
+           verif=false;
+       }
+
+       ///Fin controle de saisie:
+   fiche f;
+       QString cin_b=ui->rechercherfiche->text();
+       F.getfiche(f,cin_b);
+       if (verif)
+       {
+
+           QDate dateRec = QDate::currentDate();
+           f.set_date_f(dateRec);
+           f.set_description_ant(ui->descriptionpatfich_2->toPlainText());
+           f.set_categorie_ant(ui->antpatientfich_2->currentText());
+           bool test=f.modifier_f(cin_b);
+           if (test)
+           {
+               ui->tableViewF->setEnabled(1);
+               ui->tableViewF->setModel(F.afficher_f()); //refresh
+               clear_fiche();
+               ui->med->setCurrentIndex(0);
+           }
+           else
+           {
+               msgBox.setText("Modification non effectué.");
+               msgBox.exec();
+           }
+       }
+}
+void MainWindow::on_cinpatientfich_currentTextChanged(const QString &arg1)
+{
+    ui->nomprepat->setHidden(0);
+    QSqlQuery query;
+    query.prepare("SELECT nom_b, prenom_b FROM Beneficiaires WHERE cin_b=:cin_b");
+    query.bindValue(":cin_b",arg1);
+    if (!query.exec())
+    {
+        qDebug() << "Error: could not execute query.";
+        return;
+    }
+    while (query.next())
+    {
+
+        qDebug() << query.value(0).toString() +" "+ query.value(1).toString();
+        ui->nomprepat->setText(query.value(0).toString() +" "+ query.value(1).toString());
+    }
 }

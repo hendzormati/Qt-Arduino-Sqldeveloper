@@ -11,6 +11,7 @@ INPUT(
 ./release\don.o
 ./release\donnation.o
 ./release\excel.o
+./release\fiche.o
 ./release\historique.o
 ./release\incondiesdf.o
 ./release\mailingp.o
