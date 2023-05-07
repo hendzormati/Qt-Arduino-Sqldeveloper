@@ -24,6 +24,8 @@ SOURCES += \
     alerteincondie.cpp \
     arduino.cpp \
     connection.cpp \
+    consultation.cpp \
+    dialogc.cpp \
     dialogp.cpp \
     dialogs.cpp \
     don.cpp \
@@ -49,6 +51,8 @@ HEADERS += \
     alerteincondie.h \
     arduino.h \
     connection.h \
+    consultation.h \
+    dialogc.h \
     dialogp.h \
     dialogs.h \
     don.h \
@@ -69,6 +73,7 @@ HEADERS += \
 
 FORMS += \
     alerteincondie.ui \
+    dialogc.ui \
     dialogp.ui \
     dialogs.ui \
     donnation.ui \

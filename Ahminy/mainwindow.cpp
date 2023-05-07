@@ -156,18 +156,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->telephonedon_3->setMaxLength(8);
     ui->montantdon->setMaxLength(8);
     ui->montantdon_3->setMaxLength(8);
-ui->tableView_excel_don->setModel(D.afficher_hist_don());
-ui->tableView_excel_don->setVisible(false);
+    ui->tableView_excel_don->setModel(D.afficher_hist_don());
+    ui->tableView_excel_don->setVisible(false);
 
     //loujain
-on_home_f_clicked();
-ui->recherchefiche->setEnabled(1);
-ui->tableViewF->setEnabled(1);
-ui->trierf->setEnabled(1);
-ui->rechercherfiche->setHidden(1);
-ui->typetrif->setHidden(1);
-ui->typetrif->setCurrentIndex(0);
-ui->tableViewF->setModel(F.afficher_f());
+    on_home_f_clicked();
+    ui->recherchefiche->setEnabled(1);
+    ui->tableViewF->setEnabled(1);
+    ui->trierf->setEnabled(1);
+    ui->rechercherfiche->setHidden(1);
+    ui->typetrif->setHidden(1);
+    ui->typetrif->setCurrentIndex(0);
+    ui->tableViewF->setModel(F.afficher_f());
 }
 void MainWindow::Incondie()
 {
@@ -183,81 +183,81 @@ void MainWindow::Incondie()
         d.exec();
     }
 }
- Email  MainWindow::createcodemail(QString mail ,QString code,QString nomprenom  )
- {
-     EmailAddress credentials("hend.zormati@esprit.tn",
-                              "211JFT8977");
+Email  MainWindow::createcodemail(QString mail ,QString code,QString nomprenom  )
+{
+    EmailAddress credentials("hend.zormati@esprit.tn",
+                             "211JFT8977");
 
-     // Create the from EmailAddress
-     EmailAddress from("hend.zormati@esprit.tn");
+    // Create the from EmailAddress
+    EmailAddress from("hend.zormati@esprit.tn");
 
-     // Create the to EmailAddress
-     EmailAddress to(mail);
-     QString mailcode = "Bonjour " + nomprenom + ",\n\n"
-                  + "Nous sommes ravis de vous informer que votre carte d'identification RFID a été activée avec succès. Veuillez trouver ci-dessous le code d'authentification nécessaire pour vous connecter à votre compte :\n\n"
-                  + "Code d'authentification : " + code + "\n\n"
-                  + "Nous vous rappelons que ce code est strictement confidentiel et doit être conservé en lieu sûr. Veuillez également noter que l'utilisation de votre carte d'identification RFID est strictement personnelle et ne doit pas être partagée avec quiconque.\n\n"
-                  + "Si vous rencontrez des problèmes pour vous connecter à votre compte, n'hésitez pas à nous contacter immédiatement.\n\n"
-                  + "Cordialement,\n"
-                  + "Ahminy";
-
-
+    // Create the to EmailAddress
+    EmailAddress to(mail);
+    QString mailcode = "Bonjour " + nomprenom + ",\n\n"
+            + "Nous sommes ravis de vous informer que votre carte d'identification RFID a été activée avec succès. Veuillez trouver ci-dessous le code d'authentification nécessaire pour vous connecter à votre compte :\n\n"
+            + "Code d'authentification : " + code + "\n\n"
+            + "Nous vous rappelons que ce code est strictement confidentiel et doit être conservé en lieu sûr. Veuillez également noter que l'utilisation de votre carte d'identification RFID est strictement personnelle et ne doit pas être partagée avec quiconque.\n\n"
+            + "Si vous rencontrez des problèmes pour vous connecter à votre compte, n'hésitez pas à nous contacter immédiatement.\n\n"
+            + "Cordialement,\n"
+            + "Ahminy";
 
 
-     // Create the email
-     Email email(credentials,
-                 from,
-                 to,
-                 "Ahminy: Code D'authentification De La Carte RFID",
-                 mailcode);
 
-     return email;
- }
- void MainWindow::sendcodemail(QString mail ,QString code,QString nomprenom  )
- {
-     // Create the email object
-     Email email = createcodemail(mail,code,nomprenom);
 
-     // Create the SMTPClient
-     client_ = new SMTPClient("smtp.gmail.com",
-                              465);
+    // Create the email
+    Email email(credentials,
+                from,
+                to,
+                "Ahminy: Code D'authentification De La Carte RFID",
+                mailcode);
 
-     // Connection used to receive the results
-     connect(client_, SIGNAL(status(Status::e, QString)),
-             this, SLOT(onStatus(Status::e, QString)), Qt::UniqueConnection);
-     // Try to send the email
-     client_->sendEmail(email);
- }
+    return email;
+}
+void MainWindow::sendcodemail(QString mail ,QString code,QString nomprenom  )
+{
+    // Create the email object
+    Email email = createcodemail(mail,code,nomprenom);
 
- void MainWindow::onStatus(Status::e status, QString errorMessage)
- {
-     switch (status)
-     {
-     case Status::Success:
-     {   QMessageBox msgBox;
-         msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-         msgBox.setWindowOpacity(0.8);
-         msgBox.setFixedSize(600,600);
-         QFont bellMTFont("Bell MT");
-         msgBox.setFont(bellMTFont);
-         msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-         msgBox.setWindowTitle("Ahminy");
-         msgBox.setIcon(QMessageBox::Information);
-         msgBox.setText("Code envoyé !");
-         break;}
-     case Status::Failed:
-     {
-         QMessageBox::warning(NULL, tr("Ahminy"), tr("Vérifier Le email assosié à nom prenom !"));
-         qCritical() << errorMessage;
-     }
-         break;
-     default:
-         break;
-     }
+    // Create the SMTPClient
+    client_ = new SMTPClient("smtp.gmail.com",
+                             465);
 
-     // Delete the client pointer
-     client_->deleteLater();
- }
+    // Connection used to receive the results
+    connect(client_, SIGNAL(status(Status::e, QString)),
+            this, SLOT(onStatus(Status::e, QString)), Qt::UniqueConnection);
+    // Try to send the email
+    client_->sendEmail(email);
+}
+
+void MainWindow::onStatus(Status::e status, QString errorMessage)
+{
+    switch (status)
+    {
+    case Status::Success:
+    {   QMessageBox msgBox;
+        msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+        msgBox.setWindowOpacity(0.8);
+        msgBox.setFixedSize(600,600);
+        QFont bellMTFont("Bell MT");
+        msgBox.setFont(bellMTFont);
+        msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+        msgBox.setWindowTitle("Ahminy");
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setText("Code envoyé !");
+        break;}
+    case Status::Failed:
+    {
+        QMessageBox::warning(NULL, tr("Ahminy"), tr("Vérifier Le email assosié à nom prenom !"));
+        qCritical() << errorMessage;
+    }
+        break;
+    default:
+        break;
+    }
+
+    // Delete the client pointer
+    client_->deleteLater();
+}
 void MainWindow::on_dialogClosed()
 {
     A_sdf.write_to_incondie("0");
@@ -654,11 +654,11 @@ void MainWindow::on_confirmerModifierperso_clicked()
         QString id=ui->rechercherper->text().toUpper();
         P.getperso(p1,id);
         if (P.recherche_tel_p(num) && (p1.get_numtel()!=num))
-                    {
-                        msgBox.setIcon(QMessageBox::Critical);
-                        msgBox.setText("Numero de Téléphone déjà enregistré."); msgBox.exec();
-                        ui->perso->setCurrentIndex(3);
-                    }
+        {
+            msgBox.setIcon(QMessageBox::Critical);
+            msgBox.setText("Numero de Téléphone déjà enregistré."); msgBox.exec();
+            ui->perso->setCurrentIndex(3);
+        }
         else if (P.recherche_mail_p(mail) && (p1.get_mail_p()!=mail))
         {
             msgBox.setIcon(QMessageBox::Critical);
@@ -666,31 +666,31 @@ void MainWindow::on_confirmerModifierperso_clicked()
             ui->perso->setCurrentIndex(3);
         }
         else {
-        p1.set_numtel(num);
-        p1.set_adresse(adresse);
-        p1.set_mail_p(mail);
-        //// update les donnée mtaa li connectée
-        if(p1.get_id_p()==P.get_id_p()) P=p1;
-        bool test=p1.modifier_p(id);
-        //on_home_p_clicked();
+            p1.set_numtel(num);
+            p1.set_adresse(adresse);
+            p1.set_mail_p(mail);
+            //// update les donnée mtaa li connectée
+            if(p1.get_id_p()==P.get_id_p()) P=p1;
+            bool test=p1.modifier_p(id);
+            //on_home_p_clicked();
 
-        if(test)
-        {   ui->perso->setCurrentIndex(0);
-            ui->tableViewP->setModel(p1.afficher_p());
-            ui->tableViewP->setEnabled(1);
-            ui->modifierp->setEnabled(1);
-            ui->supprimerp->setEnabled(1);
-            ui->ajoutrfidp->setEnabled(1);
-            ui->afficherp->setEnabled(1);
-            ui->pdfp->setEnabled(1);
-            ui->rechercheperso->setEnabled(1);
-            ui->statp->setEnabled(1);
-            ui->trierp->setEnabled(1);
-            ui->mailp->setEnabled(1);
-        }
-        else {        msgBox.setIcon(QMessageBox::Critical);
-            msgBox.setText("Modification non éffectué."); msgBox.exec();}
-    }}}
+            if(test)
+            {   ui->perso->setCurrentIndex(0);
+                ui->tableViewP->setModel(p1.afficher_p());
+                ui->tableViewP->setEnabled(1);
+                ui->modifierp->setEnabled(1);
+                ui->supprimerp->setEnabled(1);
+                ui->ajoutrfidp->setEnabled(1);
+                ui->afficherp->setEnabled(1);
+                ui->pdfp->setEnabled(1);
+                ui->rechercheperso->setEnabled(1);
+                ui->statp->setEnabled(1);
+                ui->trierp->setEnabled(1);
+                ui->mailp->setEnabled(1);
+            }
+            else {        msgBox.setIcon(QMessageBox::Critical);
+                msgBox.setText("Modification non éffectué."); msgBox.exec();}
+        }}}
 
 bool MainWindow::verif_ajoutperso()
 {
@@ -1056,7 +1056,7 @@ void MainWindow::on_statp_clicked()
         double inv_per = (double)nbinv / total * 100.0;
         double tre_per = (double)nbtre / total * 100.0;
         double med_per = (double)nbmed / total * 100.0;
-qDebug() << "total" <<total << "per_per" << per_per << "sdf_per" << sdf_per << "inv_per" << inv_per <<  "tre_per" << tre_per << "med_per" << med_per ;
+        qDebug() << "total" <<total << "per_per" << per_per << "sdf_per" << sdf_per << "inv_per" << inv_per <<  "tre_per" << tre_per << "med_per" << med_per ;
 
         if (qMax(qMax(qMax(nbper,nbsdf),qMax(nbtre,nbinv)),nbmed)==nbper)
         {
@@ -1738,8 +1738,8 @@ void MainWindow::on_statsdfsexe_clicked()
         } else {
             chartview->setToolTip("");
         }
- });
-  chartview->setParent(ui->statsexesdf);
+    });
+    chartview->setParent(ui->statsexesdf);
     if ((nbf==0) && (nbh==0))
     {
         ui->Sdf->setCurrentIndex(0);
@@ -2190,7 +2190,7 @@ void MainWindow::on_num_lit_currentTextChanged(const QString &arg1)
     int nb_lit=Stmp.Get_nb_lit(numch);
     QString nblit = QString::number(nb_lit);
     if(nb_lit>1)
-    ui->nblit->setText("Nombre de lits disponnibles : "+ nblit);
+        ui->nblit->setText("Nombre de lits disponnibles : "+ nblit);
     else ui->nblit->setText("Nombre de lit disponnible : "+ nblit);
 }
 
@@ -2343,7 +2343,7 @@ void MainWindow::on_confirmerAjouterinv_clicked()
         Stock_stat s_stat(id_s,prix,nb_tot,nb_res,currentDate);
         s_stat.ajouter_stock_stat();
         ui->tableView_inv->setModel(S1.afficher_inv());
-                  on_homeinv_clicked();
+        on_homeinv_clicked();
         ui->imageinv_2->setVisible(true);
         ui->annuler_imageinv->setVisible(false);
         ui->image_name_inv->setText("");
@@ -2378,7 +2378,7 @@ void MainWindow::on_confirmerAjouterinv_clicked()
 
         if(test)
         { ui->tableView_inv->setModel(S1.afficher_inv());
-          on_homeinv_clicked();
+            on_homeinv_clicked();
         }
         else
         {
@@ -2545,7 +2545,7 @@ void MainWindow::on_statinv_clicked()
         } else {
             chartview->setToolTip("");
         }
- });
+    });
     chartview->setParent(ui->horizontalFrame);
     if ((haut==0) && (bas==0)&&(accesoire==0) && (chaussure==0))
     {
@@ -2945,7 +2945,7 @@ void MainWindow::on_pdfinv_clicked()
     doc.setHtml(h);
     // Enregistrement et fermeture du document
     doc.print(&printer);
-QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+filename));
+    QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+filename));
 }
 
 void MainWindow::on_vendre_inv_clicked()
@@ -3172,25 +3172,25 @@ void MainWindow::on_confirmerAjouterdon_clicked()
     if (verif)
     {
         test=D1.ajouter_d();
-if(test)
-{
-    QDateTime dt;
-    QSqlQuery query;
-    query.prepare("insert into historiquedon values (:id_p, :cin, :nomprenom_p,:montant,:date_d,:NOMPRENOM_D)");
-    query.bindValue(":id_p",P.get_id_p() );
-    query.bindValue(":cin", cin_d );
-    query.bindValue(":nomprenom_p",P.get_prenom_p()+" "+P.get_nom_p());
-    query.bindValue(":montant", montant_d);
-    query.bindValue(":date_d",dt.currentDateTime().toString("dd/MM/yyyy hh:mm:ss"));
-    query.bindValue(":NOMPRENOM_D",prenom_d+" "+nom_d);
-     query.exec();
+        if(test)
+        {
+            QDateTime dt;
+            QSqlQuery query;
+            query.prepare("insert into historiquedon values (:id_p, :cin, :nomprenom_p,:montant,:date_d,:NOMPRENOM_D)");
+            query.bindValue(":id_p",P.get_id_p() );
+            query.bindValue(":cin", cin_d );
+            query.bindValue(":nomprenom_p",P.get_prenom_p()+" "+P.get_nom_p());
+            query.bindValue(":montant", montant_d);
+            query.bindValue(":date_d",dt.currentDateTime().toString("dd/MM/yyyy hh:mm:ss"));
+            query.bindValue(":NOMPRENOM_D",prenom_d+" "+nom_d);
+            query.exec();
 
 
-}
+        }
         if (test)
         {
-               on_homedon_clicked();
-               meileurD();
+            on_homedon_clicked();
+            meileurD();
         }
         else
         {
@@ -3478,19 +3478,19 @@ void MainWindow::on_tri_d_clicked()
 {
     on_homedon_clicked();
 
-        //Boutons:
-        ui->comboBox_triDon->setHidden(0);
-        ui->lineEdit_recherche->setHidden(1);
+    //Boutons:
+    ui->comboBox_triDon->setHidden(0);
+    ui->lineEdit_recherche->setHidden(1);
 
-        ui->stat_d->setEnabled(1);
-        ui->execldon->setEnabled(1);
-        ui->pdf_d->setEnabled(1);
-        ui->Meilleur_d->setEnabled(1);
-        ui->recherchedon->setEnabled(1);
-        ui->tableView_d->setModel(D.afficher_d());
+    ui->stat_d->setEnabled(1);
+    ui->execldon->setEnabled(1);
+    ui->pdf_d->setEnabled(1);
+    ui->Meilleur_d->setEnabled(1);
+    ui->recherchedon->setEnabled(1);
+    ui->tableView_d->setModel(D.afficher_d());
 
-        ui->don->setCurrentIndex(0);
-        ui->comboBox_triDon->setCurrentIndex(0);
+    ui->don->setCurrentIndex(0);
+    ui->comboBox_triDon->setCurrentIndex(0);
 }
 
 void MainWindow::on_stat_d_clicked()
@@ -3536,20 +3536,20 @@ void MainWindow::on_stat_d_clicked()
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
     QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
-            if (isHovered) {
-                QString month = slice->label();
-                std::vector<std::string> donators = monthNames.at(month.toStdString());
-                        std::string toolTipText;
-                        for (const auto& donator : donators) {
-                            toolTipText += donator + "\n";
-                        }
-                        chartView->setToolTip(QString::fromStdString(toolTipText));
-            } else {
-                chartView->setToolTip("");
+        if (isHovered) {
+            QString month = slice->label();
+            std::vector<std::string> donators = monthNames.at(month.toStdString());
+            std::string toolTipText;
+            for (const auto& donator : donators) {
+                toolTipText += donator + "\n";
             }
-        });
+            chartView->setToolTip(QString::fromStdString(toolTipText));
+        } else {
+            chartView->setToolTip("");
+        }
+    });
     chartView->setParent(ui->statdon_2);
-        ui->don->setCurrentIndex(4);
+    ui->don->setCurrentIndex(4);
 }
 
 
@@ -3563,24 +3563,24 @@ void MainWindow::on_qr_code_2_clicked()
     ui->titreqrcodedon->setText(D1.getnom_d()+" "+D1.getprenom_d());
     ui->don->setCurrentIndex(3);
     QString text = QString("BEGIN:VCARD\nVERSION:3.0\nN:%1;%2;;;\nTEL:%3\nEND:VCARD")
-                    .arg(D1.getnom_d())
-                    .arg(D1.getprenom_d())
-                    .arg(D1.gettelephone_d());
+            .arg(D1.getnom_d())
+            .arg(D1.getprenom_d())
+            .arg(D1.gettelephone_d());
     using namespace qrcodegen;
     // Create the QR Code object
     QrCode qr = QrCode::encodeText(text.toUtf8().constData(), QrCode::Ecc::MEDIUM);
-      qint32 sz = qr.getSize();
-      QImage im(sz,sz, QImage::Format_RGB32);
-        QRgb black = qRgb(  0,  0,  0);
-        QRgb white = qRgb(255,255,255);
-      for (int y = 0; y < sz; y++)
+    qint32 sz = qr.getSize();
+    QImage im(sz,sz, QImage::Format_RGB32);
+    QRgb black = qRgb(  0,  0,  0);
+    QRgb white = qRgb(255,255,255);
+    for (int y = 0; y < sz; y++)
         for (int x = 0; x < sz; x++)
-          im.setPixel(x,y,qr.getModule(x, y) ? black : white );
+            im.setPixel(x,y,qr.getModule(x, y) ? black : white );
 
-      ui->qr_code->setAlignment(Qt::AlignCenter);
-      ui->qr_code->setPixmap( QPixmap::fromImage(im.scaled(230,230,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
+    ui->qr_code->setAlignment(Qt::AlignCenter);
+    ui->qr_code->setPixmap( QPixmap::fromImage(im.scaled(230,230,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
 
-      ui->don->setCurrentIndex(3);
+    ui->don->setCurrentIndex(3);
 }
 void MainWindow::meileurD()
 {
@@ -3589,34 +3589,34 @@ void MainWindow::meileurD()
     QString nom1,prenom1,nom2,prenom2,montant,nb;
 
     QSqlQuery query;
-   ui->maxnbdon->setHidden(1);
-   ui->Meilleur_d->setHidden(1);
+    ui->maxnbdon->setHidden(1);
+    ui->Meilleur_d->setHidden(1);
     query.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE nbr_d = (SELECT MAX(nbr_d) FROM dons)");
     while (query.next()) {
-      nom1 = query.value("nom_d").toString();
-      prenom1 = query.value("prenom_d").toString();
+        nom1 = query.value("nom_d").toString();
+        prenom1 = query.value("prenom_d").toString();
         nb = query.value("nbr_d").toString();
         meilleurdonnation="Donateur Récurrent : "+nom1+" "+prenom1+" a contribué " + nb +" fois.";
-         ui->maxnbdon->setText(meilleurdonnation);
-         ui->maxnbdon->setHidden(0);
-         ui->Meilleur_d->setHidden(0);
+        ui->maxnbdon->setText(meilleurdonnation);
+        ui->maxnbdon->setHidden(0);
+        ui->Meilleur_d->setHidden(0);
     }
 
-qDebug() << nom1<< prenom1 << nb ;
-QSqlQuery query1;
-ui->maxmontantdon->setHidden(1);
-query1.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE montant_d = (SELECT MAX(CAST(montant_d AS FLOAT)) FROM dons)");
-while (query1.next()) {
-  nom2 = query1.value("nom_d").toString();
-  prenom2 = query1.value("prenom_d").toString();
-  montant = query1.value("montant_d").toString();
-  meilleurmontant="Meilleur Donateur : "+nom2+" "+prenom2+" a donné  " + montant +" Dt.";
-  ui->maxmontantdon->setText(meilleurmontant);
-  ui->maxmontantdon->setHidden(0);
-  ui->Meilleur_d->setHidden(0);
-}
+    qDebug() << nom1<< prenom1 << nb ;
+    QSqlQuery query1;
+    ui->maxmontantdon->setHidden(1);
+    query1.exec("SELECT nom_d,prenom_d,montant_d,nbr_d FROM dons WHERE montant_d = (SELECT MAX(CAST(montant_d AS FLOAT)) FROM dons)");
+    while (query1.next()) {
+        nom2 = query1.value("nom_d").toString();
+        prenom2 = query1.value("prenom_d").toString();
+        montant = query1.value("montant_d").toString();
+        meilleurmontant="Meilleur Donateur : "+nom2+" "+prenom2+" a donné  " + montant +" Dt.";
+        ui->maxmontantdon->setText(meilleurmontant);
+        ui->maxmontantdon->setHidden(0);
+        ui->Meilleur_d->setHidden(0);
+    }
 
-qDebug() << nom2<< prenom2 << montant << nb ;
+    qDebug() << nom2<< prenom2 << montant << nb ;
 
 
 
@@ -3625,11 +3625,11 @@ qDebug() << nom2<< prenom2 << montant << nb ;
 void MainWindow::on_don_d_clicked()
 {
     donnation d;
-        d.setWindowTitle("Donnation");
-        QString cin_d = ui->lineEdit_recherche->text();
-        d.setmontant(cin_d,P);
-        d.exec();
-        ui->tableView_d->setModel(D.afficher_d());
+    d.setWindowTitle("Donnation");
+    QString cin_d = ui->lineEdit_recherche->text();
+    d.setmontant(cin_d,P);
+    d.exec();
+    ui->tableView_d->setModel(D.afficher_d());
     meileurD();
 }
 
@@ -3659,8 +3659,8 @@ void MainWindow::on_execldon_clicked()
 
 void MainWindow::on_pdf_d_clicked()
 {
-   QDate d;
-   QString date=d.currentDate().toString("dd MMMM yyyy");
+    QDate d;
+    QString date=d.currentDate().toString("dd MMMM yyyy");
     don D;
     QString fileName = "PDF_DON/BilanDon_"+date+".pdf";
 
@@ -3694,40 +3694,40 @@ void MainWindow::on_pdf_d_clicked()
         QString pourdon=QString::number((D.nb_donateurs_recurrents()*100)/D.nb_donateurs());
         QVector <QString> tab=D.top5_donateurs();
 
-            pen.setColor("#5c4633");
-            painter.setPen(pen);
-            painter.setFont(QFont("Bell MT", 25,QFont::DemiBold));
+        pen.setColor("#5c4633");
+        painter.setPen(pen);
+        painter.setFont(QFont("Bell MT", 25,QFont::DemiBold));
 
-            painter.drawText(500, y, "Nombre total des donateurs :");y += 800;
-            painter.drawText(6500, y, nbdona+" donateur(s)");
+        painter.drawText(500, y, "Nombre total des donateurs :");y += 800;
+        painter.drawText(6500, y, nbdona+" donateur(s)");
+        y += 800;
+
+        painter.drawText(500, y, "Montant total des dons reçus :");y += 800;
+        painter.drawText(6500, y, totaldons+ " Dt");
+        y += 800;
+
+        painter.drawText(500, y, "Nombre de donateurs récurrents :");y += 800;
+        painter.drawText(6500, y, nbdonarec+" donateur(s)");
+        y += 800;
+
+        painter.drawText(500, y, "Pourcentage de donateurs récurrents :");y += 800;
+        painter.drawText(6500, y, pourdon+" % donateur(s)");
+        y += 800;
+
+        painter.drawText(500, y, "Top 5 des donateurs :");
+        y += 800;
+        for (int i = 0; i < 5; i++)
+        {
+            painter.drawText(1000, y, tab[i]);
             y += 800;
-
-            painter.drawText(500, y, "Montant total des dons reçus :");y += 800;
-            painter.drawText(6500, y, totaldons+ " Dt");
-            y += 800;
-
-            painter.drawText(500, y, "Nombre de donateurs récurrents :");y += 800;
-            painter.drawText(6500, y, nbdonarec+" donateur(s)");
-            y += 800;
-
-            painter.drawText(500, y, "Pourcentage de donateurs récurrents :");y += 800;
-            painter.drawText(6500, y, pourdon+" % donateur(s)");
-            y += 800;
-
-            painter.drawText(500, y, "Top 5 des donateurs :");
-            y += 800;
-            for (int i = 0; i < 5; i++)
-            {
-                painter.drawText(1000, y, tab[i]);
-                y += 800;
-            }
+        }
 
 
-            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
 
         painter.end();
-     }
-     else {qDebug() << "Error: could not open file" << fileName;}
+    }
+    else {qDebug() << "Error: could not open file" << fileName;}
 }
 void MainWindow::on_closestatdon_clicked()
 {
@@ -3814,21 +3814,6 @@ void MainWindow::on_closeqrcodedon_clicked()
 
 
 //loujain consultation
-
-void MainWindow::on_confirmerAjoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_closeajoutermed_clicked()
-{
-    ui->med->setCurrentIndex(0);
-}
-
-void MainWindow::on_cinpatient_activated()
-{
-    ui->descriptionpatient->setFocus();
-}
 void MainWindow::on_home_f_clicked()
 {
     //clearajoutperso();
@@ -3837,13 +3822,16 @@ void MainWindow::on_home_f_clicked()
     //ui->modifierp->setHidden(1);
     //ui->supprimerp->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
-   // ui->afficherp->setHidden(1);
-   // ui->pdfp->setHidden(1);
+    // ui->afficherp->setHidden(1);
+    // ui->pdfp->setHidden(1);
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
+    ui->consultation->setHidden(1);
+    ui->consultation_2->setHidden(1);
     ui->recherchefiche->setEnabled(1);
     ui->tableViewF->setEnabled(1);
     ui->trierf->setEnabled(1);
+    ui->smsf->setEnabled(1);
     ui->rechercherfiche->setHidden(1);
     ui->typetrif->setHidden(1);
     ui->typetrif->setCurrentIndex(0);
@@ -3857,6 +3845,7 @@ void MainWindow::on_trierf_clicked()
 {
     on_home_f_clicked();
     ui->recherchefiche->setEnabled(1);
+    ui->smsf->setEnabled(1);
     //ui->statp->setEnabled(1);
     //ui->mailp->setEnabled(1);
     ui->typetrif->setHidden(0);
@@ -3869,6 +3858,7 @@ void MainWindow::on_recherchefiche_clicked()
 {
     //ui->statp->setEnabled(1);
     ui->trierf->setEnabled(1);
+    ui->smsf->setEnabled(1);
     //ui->mailp->setEnabled(1);
     ui->rechercherfiche->setHidden(0);
     ui->typetrif->setHidden(1);
@@ -3877,8 +3867,10 @@ void MainWindow::on_recherchefiche_clicked()
     ui->rechercherfiche->setEnabled(1);
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
+    ui->consultation->setHidden(1);
+    ui->consultation_2->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
-   // ui->afficherp->setHidden(1);
+    // ui->afficherp->setHidden(1);
     //ui->pdfp->setHidden(1);
     ui->med->setCurrentIndex(0);
 }
@@ -3954,65 +3946,66 @@ void MainWindow::on_ajouterfichee_clicked()
 void MainWindow::on_confirmerAjoutfich_clicked()
 {
     QMessageBox msgBox;
-        msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-        msgBox.setWindowOpacity(0.8);
-        msgBox.setFixedSize(600,600);
-        QFont bellMTFont("Bell MT");
-        msgBox.setFont(bellMTFont);
-        msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-        msgBox.setWindowTitle("Ahminy");
-        msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    msgBox.setIcon(QMessageBox::Information);
 
-        ///Debut controle de saisie:
-        ui->descriptionpatfich->setMaximumBlockCount(60);
+    ///Debut controle de saisie:
+    ui->descriptionpatfich->setMaximumBlockCount(60);
 
-        bool numdesc=true;
-        for (int i=0; i<ui->descriptionpatfich->toPlainText().length(); i++)
+    bool numdesc=true;
+    for (int i=0; i<ui->descriptionpatfich->toPlainText().length(); i++)
+    {
+        if (ui->descriptionpatfich->toPlainText()[i].isDigit())
         {
-            if (ui->descriptionpatfich->toPlainText()[i].isDigit())
-            {
-                numdesc=false;
-                break;
-            }
+            numdesc=false;
+            break;
         }
+    }
 
-        bool verif=true;
-        if (ui->descriptionpatfich->toPlainText().isEmpty())
-            {
-                ui->med->setCurrentIndex(2);
-                msgBox.setText("Veuillez remplir la description.");
-                msgBox.exec();
-                verif=false;
-            }
-        else if (!numdesc)
+    bool verif=true;
+    if (ui->descriptionpatfich->toPlainText().isEmpty())
+    {
+        ui->med->setCurrentIndex(2);
+        msgBox.setText("Veuillez remplir la description.");
+        msgBox.exec();
+        verif=false;
+    }
+    else if (!numdesc)
+    {
+        ui->med->setCurrentIndex(2);
+        msgBox.setText("Description ne comporter pas des chiffres.");
+        msgBox.exec();
+        verif=false;
+    }
+
+    ///Fin controle de saisie:
+    QString descr=ui->descriptionpatfich->toPlainText().toLower();
+    descr[0]=descr[0].toUpper();
+    QDate dateRec = QDate::currentDate();
+    fiche F(ui->cinpatientfich->currentText(),ui->nomprepat->text(),ui->antpatientfich->currentText(),descr,dateRec);
+    bool test=true;
+    if (verif)
+    {
+        test=F.ajouter_f();
+        if (test)
         {
-            ui->med->setCurrentIndex(2);
-            msgBox.setText("Description ne comporter pas des chiffres.");
+            ui->tableViewF->setEnabled(1);
+            ui->tableViewF->setModel(F.afficher_f()); //refresh
+            clear_fiche();
+            ui->med->setCurrentIndex(0);
+        }
+        else
+        {
+            msgBox.setText("Ajout non effectué.");
             msgBox.exec();
-            verif=false;
         }
-
-        ///Fin controle de saisie:
-
-        QDate dateRec = QDate::currentDate();
-        fiche F(ui->cinpatientfich->currentText(),ui->nomprepat->text(),ui->antpatientfich->currentText(),ui->descriptionpatfich->toPlainText(),dateRec);
-        bool test=true;
-        if (verif)
-        {
-            test=F.ajouter_f();
-    if (test)
-            {
-                 ui->tableViewF->setEnabled(1);
-                ui->tableViewF->setModel(F.afficher_f()); //refresh
-                clear_fiche();
-                ui->med->setCurrentIndex(0);
-            }
-            else
-            {
-                msgBox.setText("Ajout non effectué.");
-                msgBox.exec();
-            }
-        }
+    }
 }
 
 void MainWindow::on_closeajoutfich_clicked()
@@ -4039,22 +4032,22 @@ void MainWindow::on_closemodifich_clicked()
 void MainWindow::on_modiffiche_clicked()
 {
     QString cin_b=ui->rechercherfiche->text();
-        QSqlQuery query;
-        query.prepare("SELECT nomprenom, description_ant ,categorie_ant FROM fiche WHERE cin_b=:cin_b");
-        query.bindValue(":cin_b",cin_b);
-        if (!query.exec())
-        {
-            qDebug() << "Error: could not execute query.";
-            return;
-        }
-        while (query.next())
-        {
-            ui->nomprepat_2->setText(query.value(0).toString());
-            ui->descriptionpatfich_2->setPlainText(query.value(1).toString());
-            ui->antpatientfich_2->setCurrentIndex(ui->antpatientfich_2->findText(query.value(2).toString()));
-        }
-     ui->med->setCurrentIndex(3);
-     ui->tableViewF->setEnabled(0);
+    QSqlQuery query;
+    query.prepare("SELECT nomprenom, description_ant ,categorie_ant FROM fiche WHERE cin_b=:cin_b");
+    query.bindValue(":cin_b",cin_b);
+    if (!query.exec())
+    {
+        qDebug() << "Error: could not execute query.";
+        return;
+    }
+    while (query.next())
+    {
+        ui->nomprepat_2->setText(query.value(0).toString());
+        ui->descriptionpatfich_2->setPlainText(query.value(1).toString());
+        ui->antpatientfich_2->setCurrentIndex(ui->antpatientfich_2->findText(query.value(2).toString()));
+    }
+    ui->med->setCurrentIndex(3);
+    ui->tableViewF->setEnabled(0);
 }
 
 void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
@@ -4062,9 +4055,11 @@ void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
     ui->rechercherfiche->setHidden(0);
     ui->modiffiche->setHidden(0);
     ui->supprimerf->setHidden(0);
+    ui->consultation->setHidden(0);
+    ui->consultation_2->setHidden(0);
     //ui->ajoutrfidp->setHidden(0);
     //ui->pdfp->setHidden(0);
-   // ui->afficherp->setHidden(0);
+    // ui->afficherp->setHidden(0);
     ui->modiffiche->setEnabled(1);
     ui->supprimerf->setEnabled(1);
     //ui->ajoutrfidp->setEnabled(1);
@@ -4075,7 +4070,8 @@ void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
     ui->rechercherfiche->setText(ui->tableViewF->model()->data(ui->tableViewF->model()->index(index.row(),0)).toString());
     ui->rechercherfiche->setEnabled(0);
     ui->recherchefiche->setEnabled(1);
-    ui->trierp->setEnabled(1);
+    ui->trierf->setEnabled(1);
+    ui->smsf->setEnabled(1);
     //ui->statp->setEnabled(1);
     //ui->mailp->setEnabled(1);
 }
@@ -4103,74 +4099,77 @@ void MainWindow::on_supprimerf_clicked()
     ui->recherchefiche->setEnabled(1);
     //ui->statp->setEnabled(1);
     ui->trierf->setEnabled(1);
+    ui->smsf->setEnabled(1);
 }
 
 void MainWindow::on_confirmerModifich_clicked()
 {
     QMessageBox msgBox;
-       msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
-       msgBox.setWindowOpacity(0.8);
-       msgBox.setFixedSize(600,600);
-       QFont bellMTFont("Bell MT");
-       msgBox.setFont(bellMTFont);
-       msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
-       msgBox.setWindowTitle("Ahminy");
-       msgBox.setIcon(QMessageBox::Information);
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    msgBox.setIcon(QMessageBox::Information);
 
-       ///Debut controle de saisie:
-       ui->descriptionpatfich_2->setMaximumBlockCount(60);
+    ///Debut controle de saisie:
+    ui->descriptionpatfich_2->setMaximumBlockCount(60);
 
-       bool numdesc=true;
-       for (int i=0; i<ui->descriptionpatfich_2->toPlainText().length(); i++)
-       {
-           if (ui->descriptionpatfich_2->toPlainText()[i].isDigit())
-           {
-               numdesc=false;
-               break;
-           }
-       }
+    bool numdesc=true;
+    for (int i=0; i<ui->descriptionpatfich_2->toPlainText().length(); i++)
+    {
+        if (ui->descriptionpatfich_2->toPlainText()[i].isDigit())
+        {
+            numdesc=false;
+            break;
+        }
+    }
 
-       bool verif=true;
-       if (ui->descriptionpatfich_2->toPlainText().isEmpty())
-           {
-               ui->med->setCurrentIndex(3);
-               msgBox.setText("Veuillez remplir la description.");
-               msgBox.exec();
-               verif=false;
-           }
-       else if (!numdesc)
-       {
-           ui->med->setCurrentIndex(3);
-           msgBox.setText("Description ne comporter pas des chiffres.");
-           msgBox.exec();
-           verif=false;
-       }
+    bool verif=true;
+    if (ui->descriptionpatfich_2->toPlainText().isEmpty())
+    {
+        ui->med->setCurrentIndex(3);
+        msgBox.setText("Veuillez remplir la description.");
+        msgBox.exec();
+        verif=false;
+    }
+    else if (!numdesc)
+    {
+        ui->med->setCurrentIndex(3);
+        msgBox.setText("Description ne comporter pas des chiffres.");
+        msgBox.exec();
+        verif=false;
+    }
 
-       ///Fin controle de saisie:
-   fiche f;
-       QString cin_b=ui->rechercherfiche->text();
-       F.getfiche(f,cin_b);
-       if (verif)
-       {
+    ///Fin controle de saisie:
+    fiche f;
+    QString cin_b=ui->rechercherfiche->text();
+    QString descr=ui->descriptionpatfich_2->toPlainText().toLower();
+            descr[0]=descr[0].toUpper();
+    F.getfiche(f,cin_b);
+    if (verif)
+    {
 
-           QDate dateRec = QDate::currentDate();
-           f.set_date_f(dateRec);
-           f.set_description_ant(ui->descriptionpatfich_2->toPlainText());
-           f.set_categorie_ant(ui->antpatientfich_2->currentText());
-           bool test=f.modifier_f(cin_b);
-           if (test)
-           {
-               ui->tableViewF->setEnabled(1);
-               ui->tableViewF->setModel(F.afficher_f()); //refresh
-               clear_fiche();
-               ui->med->setCurrentIndex(0);
-           }
-           else
-           {
-               msgBox.setText("Modification non effectué.");
-               msgBox.exec();
-           }
-       }
+        QDate dateRec = QDate::currentDate();
+        f.set_date_f(dateRec);
+        f.set_description_ant(descr);
+        f.set_categorie_ant(ui->antpatientfich_2->currentText());
+        bool test=f.modifier_f(cin_b);
+        if (test)
+        {
+            ui->tableViewF->setEnabled(1);
+            ui->tableViewF->setModel(F.afficher_f()); //refresh
+            clear_fiche();
+            ui->med->setCurrentIndex(0);
+        }
+        else
+        {
+            msgBox.setText("Modification non effectué.");
+            msgBox.exec();
+        }
+    }
 }
 void MainWindow::on_cinpatientfich_currentTextChanged(const QString &arg1)
 {
@@ -4189,4 +4188,193 @@ void MainWindow::on_cinpatientfich_currentTextChanged(const QString &arg1)
         qDebug() << query.value(0).toString() +" "+ query.value(1).toString();
         ui->nomprepat->setText(query.value(0).toString() +" "+ query.value(1).toString());
     }
+}
+
+void MainWindow::on_consultation_clicked()
+{
+    ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+    ui->ajouterfichee->setHidden(1);
+    ui->med->setDisabled(1);
+    on_home_f_2_clicked();
+    ui->gestmed->setCurrentIndex(1);
+    QSqlQuery query;
+    query.prepare("SELECT nom_b, prenom_b FROM Beneficiaires WHERE cin_b=:cin_b");
+    query.bindValue(":cin_b",ui->rechercherfiche->text());
+    if (!query.exec())
+    {
+        qDebug() << "Error: could not execute query.";
+        return;
+    }
+    while (query.next())
+    {
+
+        qDebug() << query.value(0).toString() +" "+ query.value(1).toString();
+         ui->titremedecin->setText(query.value(0).toString() +" "+ query.value(1).toString());
+    }
+}
+
+void MainWindow::on_retourfiche_clicked()
+{
+    ui->gestmed->setCurrentIndex(0);
+     ui->titremedecin->setText("Gestion Des Patients");
+     ui->ajouterfichee->setHidden(0);
+     ui->med->setDisabled(0);
+     ui->med->setCurrentIndex(0);
+}
+void MainWindow::on_home_f_2_clicked()
+{
+    ui->modiffiche_2->setHidden(1);
+    ui->supprimerf_2->setHidden(1);
+
+    //ui->consultation_2->setHidden(1);
+    ui->recherchefiche_2->setEnabled(1);
+    ui->tableViewF_2->setEnabled(1);
+    ui->trierf_2->setEnabled(1);
+    ui->ajouterc->setEnabled(1);
+    ui->smsf->setEnabled(1);
+    ui->rechercherfiche_2->setHidden(1);
+    ui->typetrif_2->setHidden(1);
+    ui->typetrif_2->setCurrentIndex(0);
+    ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+    //clear_fiche();
+
+}
+
+void MainWindow::on_trierf_2_clicked()
+{
+    on_home_f_2_clicked();
+    ui->recherchefiche_2->setEnabled(1);
+    ui->smsf_2->setEnabled(1);
+    ui->retourfiche->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+    ui->typetrif_2->setHidden(0);
+    ui->typetrif_2->setCurrentIndex(0);
+    ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+}
+
+void MainWindow::on_recherchefiche_2_clicked()
+{
+    //ui->statp->setEnabled(1);
+    ui->trierf_2->setEnabled(1);
+    ui->smsf_2->setEnabled(1);
+    ui->ajouterc->setEnabled(1);
+    ui->retourfiche->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+    ui->rechercherfiche_2->setHidden(0);
+    ui->typetrif_2->setHidden(1);
+
+    ui->rechercherfiche_2->clear();
+    ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+    ui->rechercherfiche_2->setEnabled(1);
+    ui->modiffiche_2->setHidden(1);
+    ui->supprimerf_2->setHidden(1);
+
+    //ui->ajoutrfidp->setHidden(1);
+    // ui->afficherp->setHidden(1);
+    //ui->pdfp->setHidden(1);
+}
+
+void MainWindow::on_typetrif_2_activated(int index)
+{
+    ui->tableViewF_2->setModel(C.trier_c(index,ui->rechercherfiche->text()));
+}
+
+void MainWindow::on_rechercherfiche_2_returnPressed()
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setFixedSize(600,600);
+    msgBox.setWindowOpacity(0.8);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    if(ui->rechercherfiche_2->text().isEmpty())
+    {
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Aucune Donnée Saisie."); msgBox.exec();
+    }
+}
+
+void MainWindow::on_rechercherfiche_2_textEdited(const QString &arg1)
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    QString ch=arg1;
+    if (C.filtrageDynamique_c(ch,ui->rechercherfiche->text())->rowCount() == 0) {
+        msgBox.setIcon(QMessageBox::Critical);
+
+        msgBox.setText("Aucune Correspondance."); msgBox.exec();
+    } else {
+        ui->tableViewF_2->setModel(C.filtrageDynamique_c(ch,ui->rechercherfiche->text()));
+    }
+}
+void MainWindow::on_tableViewF_2_clicked(const QModelIndex &index)
+{
+    ui->rechercherfiche_2->setHidden(0);
+    ui->modiffiche_2->setHidden(0);
+    ui->supprimerf_2->setHidden(0);
+    //ui->consultation->setHidden(0);
+    //ui->consultation_2->setHidden(0);
+    //ui->ajoutrfidp->setHidden(0);
+    //ui->pdfp->setHidden(0);
+    // ui->afficherp->setHidden(0);
+    ui->modiffiche_2->setEnabled(1);
+    ui->supprimerf_2->setEnabled(1);
+    //ui->ajoutrfidp->setEnabled(1);
+    //ui->pdfp->setEnabled(1);
+    //ui->afficherp->setEnabled(1);
+    ui->typetrif_2->setCurrentIndex(0);
+    ui->typetrif_2->setHidden(1);
+    ui->rechercherfiche_2->setText(ui->tableViewF_2->model()->data(ui->tableViewF_2->model()->index(index.row(),0)).toString());
+    ui->rechercherfiche_2->setEnabled(0);
+    ui->recherchefiche_2->setEnabled(1);
+    ui->trierf_2->setEnabled(1);
+    ui->smsf->setEnabled(1);
+    ui->ajouterc->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    //ui->mailp->setEnabled(1);
+}
+
+void MainWindow::on_supprimerf_2_clicked()
+{
+    int idc=ui->rechercherfiche_2->text().toInt();
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1;border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setFixedSize(600,600);
+    msgBox.setWindowOpacity(0.8);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    ui->rechercherfiche_2->clear();
+    bool test2=C.supprimer_c(idc);
+    if(test2)
+    {ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setText("Suppression éffectué."); msgBox.exec(); on_home_f_2_clicked();}
+    else {        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.setText("Suppression non éffectué."); msgBox.exec();}
+
+    ui->recherchefiche_2->setEnabled(1);
+    //ui->statp->setEnabled(1);
+    ui->trierf_2->setEnabled(1);
+    ui->smsf_2->setEnabled(1);
+}
+
+void MainWindow::on_ajouterc_clicked()
+{
+    dialogc d;
+      d.setWindowTitle("Consultation");
+      //int id=ui->rechercherfiche_2->text();
+      d.setetat(1);
+      d.exec();
+      ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
 }

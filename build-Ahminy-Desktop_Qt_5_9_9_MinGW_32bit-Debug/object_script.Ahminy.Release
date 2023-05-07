@@ -6,6 +6,8 @@ INPUT(
 ./release\alerteincondie.o
 ./release\arduino.o
 ./release\connection.o
+./release\consultation.o
+./release\dialogc.o
 ./release\dialogp.o
 ./release\dialogs.o
 ./release\don.o
@@ -29,6 +31,7 @@ INPUT(
 ./release\moc_smtp.o
 ./release\moc_smtpclient.o
 ./release\moc_alerteincondie.o
+./release\moc_dialogc.o
 ./release\moc_dialogp.o
 ./release\moc_dialogs.o
 ./release\moc_donnation.o

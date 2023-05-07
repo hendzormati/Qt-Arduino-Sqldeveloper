@@ -65,7 +65,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -2107,7 +2107,7 @@ border-image: url(:/images/chercherperso3.png);
          <property name="geometry">
           <rect>
            <x>360</x>
-           <y>20</y>
+           <y>24</y>
            <width>150</width>
            <height>31</height>
           </rect>
@@ -2135,7 +2135,7 @@ background:#f3f2f7;
          <property name="geometry">
           <rect>
            <x>309</x>
-           <y>18</y>
+           <y>20</y>
            <width>35</width>
            <height>35</height>
           </rect>
@@ -2168,7 +2168,7 @@ border-image: url(:/images/modifierperso3.png);
          <property name="geometry">
           <rect>
            <x>565</x>
-           <y>20</y>
+           <y>22</y>
            <width>35</width>
            <height>35</height>
           </rect>
@@ -2195,7 +2195,7 @@ border-image: url(:/images/supprimerperso3.png);
          <property name="geometry">
           <rect>
            <x>520</x>
-           <y>20</y>
+           <y>22</y>
            <width>35</width>
            <height>33</height>
           </rect>
@@ -2249,7 +2249,7 @@ border-image: url(:/images/trierperso2.png);
          <property name="geometry">
           <rect>
            <x>360</x>
-           <y>20</y>
+           <y>24</y>
            <width>150</width>
            <height>31</height>
           </rect>
@@ -2357,7 +2357,7 @@ border-image: url(:/images/statperso2.png);
          <property name="geometry">
           <rect>
            <x>220</x>
-           <y>17</y>
+           <y>19</y>
            <width>36</width>
            <height>36</height>
           </rect>
@@ -2440,7 +2440,7 @@ border-image: url(:/images//home_p3.png);
          <property name="geometry">
           <rect>
            <x>265</x>
-           <y>18</y>
+           <y>20</y>
            <width>37</width>
            <height>37</height>
           </rect>
@@ -7858,415 +7858,6 @@ background: #eff5d6;</string>
      <attribute name="title">
       <string>loujain</string>
      </attribute>
-     <widget class="QWidget" name="affichagemed" native="true">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>120</y>
-        <width>821</width>
-        <height>511</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#affichagemed{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}</string>
-      </property>
-      <widget class="QTableView" name="tableViewF">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>110</y>
-         <width>695</width>
-         <height>331</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Bell MT</family>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
-#tableViewF {
-border:5px outset #f3f2f7;
-    color: #7888b9;
-	font-weight: bold;
-text-align: center;
-	font-size: 20px;
- 	padding: 4px;
-    gridline-color: #425180;
-	selection-background-color: #f3f2f7;
-}
-#tableViewF QHeaderView::section{
-    background-color: #f3f2f7;
-    color: #425180;
-    padding: 12px;
-    text-transform: uppercase;
-text-align: center;
-}
-
-#tableViewF::item:selected {
-    background-color: #e0dfe5;
-text-align: center;
-}
-#tableViewF::item:focus{
-	color:#7888b9;
-    border: 2px solid #7888b9;
-    background-color: #f2f2f7;
-text-align: center;
-}
-
-
-
-/*QScrollBar:vertical {
-    background-color: #828282;
-    width: 15px;
-    margin: 15px 3px 15px 3px;
-    border: 1px transparent #828282;
-    border-radius: 4px;
-}
-
-QScrollBar::handle:vertical {
-    background-color: #b6b6b6;
-    min-height: 5px;
-    border-radius: 4px;
-}
-
-QScrollBar::sub-line:vertical {
-    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /
-    border-image: url(icons/up_arrow_light.png);
-    height: 6px;
-    width: 10px;
-    subcontrol-position: top;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::add-line:vertical {
-    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image 
-    border-image: url(icons/down_arrow_light.png);
-    height: 6px;
-    width: 10px;
-    subcontrol-position: bottom;
-    subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical:hover,
-QScrollBar::sub-line:vertical:on {
-    border-image: url(icons/up_arrow_lighter.png);
-}
-
-QScrollBar::add-line:vertical:hover,
-QScrollBar::add-line:vertical:on {
-    border-image: url(icons/down_arrow_lighter.png);
-}
-
-QScrollBar::up-arrow:vertical,
-QScrollBar::down-arrow:vertical {
-    background: none;
-}
-
-
-QScrollBar::add-page:vertical,
-QScrollBar::sub-page:vertical {
-    background: none;
-}*/</string>
-       </property>
-       <property name="lineWidth">
-        <number>1</number>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOn</enum>
-       </property>
-       <property name="horizontalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOn</enum>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QAbstractScrollArea::AdjustIgnored</enum>
-       </property>
-       <property name="dragEnabled">
-        <bool>false</bool>
-       </property>
-       <property name="textElideMode">
-        <enum>Qt::ElideMiddle</enum>
-       </property>
-       <property name="gridStyle">
-        <enum>Qt::CustomDashLine</enum>
-       </property>
-       <property name="cornerButtonEnabled">
-        <bool>false</bool>
-       </property>
-       <attribute name="horizontalHeaderMinimumSectionSize">
-        <number>155</number>
-       </attribute>
-       <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>155</number>
-       </attribute>
-       <attribute name="verticalHeaderMinimumSectionSize">
-        <number>40</number>
-       </attribute>
-       <attribute name="verticalHeaderDefaultSectionSize">
-        <number>60</number>
-       </attribute>
-      </widget>
-      <widget class="QLineEdit" name="rechercherfiche">
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>20</y>
-         <width>150</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#rechercherfiche{ selection-color: #33457d;
-color: #425180;
-font-weight: bold;
-font-size: 15px;
-border: 2px outset #dcd0c9;
-border-radius: 7px;
-background-color: #fefefb;
-  selection-background-color: #d3d3d3;
-}
-#rechercherfiche:hover{
-border: 2px inset #dcd0c9;
-background:#f3f2f7;
-}</string>
-       </property>
-       <property name="placeholderText">
-        <string>Tous les champs disponible</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="trierf">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>260</y>
-         <width>36</width>
-         <height>36</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Trier</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#trierf{
-border-image: url(:/images/triperso1.png);
-}
-#trierf:hover{
-border-image: url(:/images/trierperso2.png);
-}
-#trierf:pressed{
-border-image: url(:/images/trierperso2.png);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="home_f">
-       <property name="geometry">
-        <rect>
-         <x>98</x>
-         <y>123</y>
-         <width>34</width>
-         <height>34</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Retour à la page d'accueil</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">
-#home_f{
-border-image: url(:/images/home_p1.png);
-}
-#home_f:hover{
-border-image: url(:/images//home_p2.png);
-}
-#home_f:pressed{
-border-image: url(:/images//home_p3.png);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="recherchefiche">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>7</y>
-         <width>50</width>
-         <height>50</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Rechercher avec filtrage</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#recherchefiche{
-border-image: url(:/images/chercherperso1.png);
-}
-#recherchefiche:hover{
-border-image: url(:/images/chercherperso2.png);
-}
-#recherchefiche:pressed{
-border-image: url(:/images/chercherperso3.png);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="typetrif">
-       <property name="geometry">
-        <rect>
-         <x>360</x>
-         <y>20</y>
-         <width>150</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#typetrif{ 
-border: 2px solid #7888b9;
-border-radius: 7px;
-color: #425180;
-font-weight: bold;
-font-size: 15px;
-}
-#typetrif QAbstractItemView{ 
-color: #7888b9;
-font-weight: bold;
-font-size: 15px;
-selection-background-color: #ffffff;
-selection-color:#425180;
-}</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Cin Patient</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Cin Patient</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Nom Prenom</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Nom Prenom</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date D'ajout</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Date D'ajout</string>
-        </property>
-        <property name="icon">
-         <iconset resource="image.qrc">
-          <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
-        </property>
-       </item>
-      </widget>
-      <widget class="QPushButton" name="supprimerf">
-       <property name="geometry">
-        <rect>
-         <x>565</x>
-         <y>20</y>
-         <width>35</width>
-         <height>35</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Supprimer</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#supprimerf{
-border-image: url(:/images/supprimerperso1.png);
-}
-#supprimerf:hover{
-border-image: url(:/images/supprimerperso3.png);
-}
-#supprimerf:pressed{
-border-image: url(:/images/supprimerperso3.png);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="modiffiche">
-       <property name="geometry">
-        <rect>
-         <x>320</x>
-         <y>20</y>
-         <width>35</width>
-         <height>35</height>
-        </rect>
-       </property>
-       <property name="mouseTracking">
-        <bool>false</bool>
-       </property>
-       <property name="toolTip">
-        <string>Modifier</string>
-       </property>
-       <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;modifier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">#modiffiche{
-border-image: url(:/images/modifierperso1.png);
-}
-#modiffiche:hover{
-border-image: url(:/images/modifierperso2.png);
-}
-#modiffiche:pressed{
-border-image: url(:/images/modifierperso3.png);
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </widget>
      <widget class="QLabel" name="titremedecin">
       <property name="geometry">
        <rect>
@@ -8286,7 +7877,10 @@ border-image: url(:/images/modifierperso3.png);
        </font>
       </property>
       <property name="text">
-       <string>Gestion Des Consultations</string>
+       <string>Gestion Des Patients</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QWidget" name="cadre_3" native="true">
@@ -8367,280 +7961,13 @@ background: #f6f1f7;
          </property>
         </widget>
        </widget>
-       <widget class="QWidget" name="ajoutermedecin">
+       <widget class="QWidget" name="hatachy">
         <property name="styleSheet">
          <string notr="true">#ajoutermedecin{ background: #fbf9f9;}</string>
         </property>
         <attribute name="title">
          <string>Tab 2</string>
         </attribute>
-        <widget class="QFrame" name="ajouterMed">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>90</y>
-           <width>381</width>
-           <height>421</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#ajouterMed{background:#f8f5f1;border:8px double #e0dfe5;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}
-#titreajoutmed1{color:#425180;}
-#cinpatientL{color:#4f619a;}
-#descriptionpatientL{color:#4f619a;}
-#resultatpatientL{color:#4f619a;}
-#descriptionpatient{ 
-color: #425180;
-font-weight: bold;
-font-size: 15px;
-border: 2px outset #e0dfe5;
-border-radius: 7px;
-background-color: #fefefb;
-selection-background-color: #d3d3d3;
-selection-color: #33457d;
-
-}
-#descriptionpatient:hover{
-border: 2px inset #dcd0c9;
-background: #f3f2f7;
-}
-#resultatpatient{ 
-color:#425180;
-font-weight: bold;
-font-size: 15px;
-border: 2px outset #e0dfe5;
-border-radius: 7px;
-background: #fefefb;
-selection-background-color: #d3d3d3;
-selection-color: #33457d;
-}
-#resultatpatient:hover{
-border: 2px inset #dcd0c9;
-background: #f3f2f7;
-}
-#cinpatient{ 
-border: 2px solid #e0dfe5;
-border-radius: 7px;
-color: #425180;
-font-weight: bold;
-font-size: 15px;
-}
-#cinpatient QAbstractItemView{ 
-color: #425180;
-font-weight: bold;
-font-size: 15px;
-selection-background-color: #ffffff;
-selection-color:#56695b;
-}
-#confirmerAjoutermed{
-color:#425180;
-border: 4px inset #dcd0c9;
-border-radius: 15px;
-background: #f3f2f7;
-}
-#confirmerAjoutermed:hover{
-border: 4px outset #dcd0c9;
-background: #e0dfe5;
-}
-#confirmerAjoutermed:pressed{
-border: 4px inset #dcd0c9;
-background: #f6f1f7;
-}
-#closeajoutermed{
-color:#425180;
-border: 4px inset #dcd0c9;
-border-radius: 15px;
-background: #f3f2f7;
-}
-#closeajoutermed:hover{
-border: 4px outset #dcd0c9;
-background: #f0e4e0;
-}
-#closeajoutermed:pressed{
-border: 4px inset #dcd0c9;
-background: #f6f1f7;
-}
-</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="cinpatientL">
-          <property name="geometry">
-           <rect>
-            <x>18</x>
-            <y>102</y>
-            <width>141</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bell MT</family>
-            <pointsize>16</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Cin Patient</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="confirmerAjoutermed">
-          <property name="geometry">
-           <rect>
-            <x>125</x>
-            <y>352</y>
-            <width>133</width>
-            <height>50</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bell MT</family>
-            <pointsize>16</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-            <kerning>true</kerning>
-           </font>
-          </property>
-          <property name="text">
-           <string>Confirmer</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="titreajoutmed1">
-          <property name="geometry">
-           <rect>
-            <x>56</x>
-            <y>37</y>
-            <width>311</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bell MT</family>
-            <pointsize>15</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-            <underline>true</underline>
-           </font>
-          </property>
-          <property name="text">
-           <string>Ajouter Une Consultation :</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="descriptionpatientL">
-          <property name="geometry">
-           <rect>
-            <x>18</x>
-            <y>180</y>
-            <width>131</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bell MT</family>
-            <pointsize>15</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Description</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="closeajoutermed">
-          <property name="geometry">
-           <rect>
-            <x>12</x>
-            <y>11</y>
-            <width>28</width>
-            <height>28</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>X</string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="cinpatient">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>100</y>
-            <width>201</width>
-            <height>41</height>
-           </rect>
-          </property>
-          <item>
-           <property name="text">
-            <string>12345678</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>14514678</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>47586914</string>
-           </property>
-          </item>
-         </widget>
-         <widget class="QLabel" name="resultatpatientL">
-          <property name="geometry">
-           <rect>
-            <x>18</x>
-            <y>278</y>
-            <width>131</width>
-            <height>31</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Bell MT</family>
-            <pointsize>16</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Résultat</string>
-          </property>
-         </widget>
-         <widget class="QPlainTextEdit" name="resultatpatient">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>260</y>
-            <width>201</width>
-            <height>70</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QPlainTextEdit" name="descriptionpatient">
-          <property name="geometry">
-           <rect>
-            <x>160</x>
-            <y>160</y>
-            <width>201</width>
-            <height>87</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
        </widget>
        <widget class="QWidget" name="ajouterfiche">
         <property name="styleSheet">
@@ -9230,6 +8557,1051 @@ background: #f6f1f7;
             <string>Environnementaux </string>
            </property>
           </item>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame">
+      <property name="geometry">
+       <rect>
+        <x>524</x>
+        <y>119</y>
+        <width>850</width>
+        <height>530</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame{ background: #fbf9f9;}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTabWidget" name="gestmed">
+       <property name="geometry">
+        <rect>
+         <x>-2</x>
+         <y>-24</y>
+         <width>861</width>
+         <height>558</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="Fiche">
+        <property name="styleSheet">
+         <string notr="true">#Fiche{ background: #fbf9f9;}</string>
+        </property>
+        <attribute name="title">
+         <string>Tab 1</string>
+        </attribute>
+        <widget class="QWidget" name="affichagemed" native="true">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>0</y>
+           <width>821</width>
+           <height>511</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#affichagemed{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}</string>
+         </property>
+         <widget class="QTableView" name="tableViewF">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>110</y>
+            <width>695</width>
+            <height>331</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bell MT</family>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#tableViewF {
+border:5px outset #f3f2f7;
+    color: #7888b9;
+	font-weight: bold;
+text-align: center;
+	font-size: 20px;
+ 	padding: 4px;
+    gridline-color: #425180;
+	selection-background-color: #f3f2f7;
+}
+#tableViewF QHeaderView::section{
+    background-color: #f3f2f7;
+    color: #425180;
+    padding: 12px;
+    text-transform: uppercase;
+text-align: center;
+}
+
+#tableViewF::item:selected {
+    background-color: #e0dfe5;
+text-align: center;
+}
+#tableViewF::item:focus{
+	color:#7888b9;
+    border: 2px solid #7888b9;
+    background-color: #f2f2f7;
+text-align: center;
+}
+
+
+
+/*QScrollBar:vertical {
+    background-color: #828282;
+    width: 15px;
+    margin: 15px 3px 15px 3px;
+    border: 1px transparent #828282;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #b6b6b6;
+    min-height: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::sub-line:vertical {
+    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /
+    border-image: url(icons/up_arrow_light.png);
+    height: 6px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image 
+    border-image: url(icons/down_arrow_light.png);
+    height: 6px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,
+QScrollBar::sub-line:vertical:on {
+    border-image: url(icons/up_arrow_lighter.png);
+}
+
+QScrollBar::add-line:vertical:hover,
+QScrollBar::add-line:vertical:on {
+    border-image: url(icons/down_arrow_lighter.png);
+}
+
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical {
+    background: none;
+}
+
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+}*/</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustIgnored</enum>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="textElideMode">
+           <enum>Qt::ElideMiddle</enum>
+          </property>
+          <property name="gridStyle">
+           <enum>Qt::CustomDashLine</enum>
+          </property>
+          <property name="cornerButtonEnabled">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>155</number>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>155</number>
+          </attribute>
+          <attribute name="verticalHeaderMinimumSectionSize">
+           <number>40</number>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>60</number>
+          </attribute>
+         </widget>
+         <widget class="QLineEdit" name="rechercherfiche">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>24</y>
+            <width>150</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#rechercherfiche{ selection-color: #33457d;
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #dcd0c9;
+border-radius: 7px;
+background-color: #fefefb;
+  selection-background-color: #d3d3d3;
+}
+#rechercherfiche:hover{
+border: 2px inset #dcd0c9;
+background:#f3f2f7;
+}</string>
+          </property>
+          <property name="placeholderText">
+           <string>Tous les champs disponible</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trierf">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>290</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Trier</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#trierf{
+border-image: url(:/images/triperso1.png);
+}
+#trierf:hover{
+border-image: url(:/images/trierperso2.png);
+}
+#trierf:pressed{
+border-image: url(:/images/trierperso2.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="home_f">
+          <property name="geometry">
+           <rect>
+            <x>98</x>
+            <y>123</y>
+            <width>34</width>
+            <height>34</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Retour à la page d'accueil</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#home_f{
+border-image: url(:/images/home_p1.png);
+}
+#home_f:hover{
+border-image: url(:/images//home_p2.png);
+}
+#home_f:pressed{
+border-image: url(:/images//home_p3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="recherchefiche">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>7</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Rechercher avec filtrage</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#recherchefiche{
+border-image: url(:/images/chercherperso1.png);
+}
+#recherchefiche:hover{
+border-image: url(:/images/chercherperso2.png);
+}
+#recherchefiche:pressed{
+border-image: url(:/images/chercherperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="typetrif">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>24</y>
+            <width>150</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#typetrif{ 
+border: 2px solid #7888b9;
+border-radius: 7px;
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+}
+#typetrif QAbstractItemView{ 
+color: #7888b9;
+font-weight: bold;
+font-size: 15px;
+selection-background-color: #ffffff;
+selection-color:#425180;
+}</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Cin Patient</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Cin Patient</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nom Prenom</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nom Prenom</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Date D'ajout</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Date D'ajout</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="supprimerf">
+          <property name="geometry">
+           <rect>
+            <x>565</x>
+            <y>24</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Supprimer</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#supprimerf{
+border-image: url(:/images/supprimerperso1.png);
+}
+#supprimerf:hover{
+border-image: url(:/images/supprimerperso3.png);
+}
+#supprimerf:pressed{
+border-image: url(:/images/supprimerperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="modiffiche">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>23</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Modifier</string>
+          </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;modifier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#modiffiche{
+border-image: url(:/images/modifierperso1.png);
+}
+#modiffiche:hover{
+border-image: url(:/images/modifierperso2.png);
+}
+#modiffiche:pressed{
+border-image: url(:/images/modifierperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="consultation">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>21</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Gérer Les Consultations De Ce Patient</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#consultation{
+border-image: url(:/images/consultation1.png);
+}
+#consultation:hover{
+border-image: url(:/images/consultation2.png);
+}
+#consultation:pressed{
+border-image: url(:/images/consultation1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="consultation_2">
+          <property name="geometry">
+           <rect>
+            <x>260</x>
+            <y>20</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Gérer Les Consultations De Ce Patient</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#consultation_2{
+border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);
+}
+#consultation_2:hover{
+border-image: url(:/Downloads/icons8-dying-64.png);
+}
+#consultation_2:pressed{
+border-image: url(:/images/consultation1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="smsf">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>210</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Contacter Un Autre Medecin</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#smsf{
+border-image: url(:/images/sms1.png);
+}
+#smsf:hover{
+border-image: url(:/images/sms2.png);
+}
+#smsf:pressed{
+border-image: url(:/images/sms1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="Consultation">
+        <property name="styleSheet">
+         <string notr="true">#Consultation{ background: #fbf9f9;}</string>
+        </property>
+        <attribute name="title">
+         <string>Tab 2</string>
+        </attribute>
+        <widget class="QWidget" name="affichagemed_2" native="true">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>0</y>
+           <width>821</width>
+           <height>511</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#affichagemed_2{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}</string>
+         </property>
+         <widget class="QTableView" name="tableViewF_2">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>110</y>
+            <width>695</width>
+            <height>331</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Bell MT</family>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#tableViewF_2 {
+border:5px outset #f3f2f7;
+    color: #7888b9;
+font-weight: bold;
+text-align: center;
+	font-size: 20px;
+ 	padding: 4px;
+    gridline-color: #425180;
+	selection-background-color: #f3f2f7;
+}
+#tableViewF_2 QHeaderView::section{
+    background-color: #f3f2f7;
+    color: #425180;
+    padding: 12px;
+    text-transform: uppercase;
+text-align: center;
+}
+
+#tableViewF_2::item:selected {
+    background-color: #e0dfe5;
+text-align: center;
+}
+#tableViewF_2::item:focus{
+	color:#7888b9;
+    border: 2px solid #7888b9;
+    background-color: #f2f2f7;
+text-align: center;
+}
+
+
+
+/*QScrollBar:vertical {
+    background-color: #828282;
+    width: 15px;
+    margin: 15px 3px 15px 3px;
+    border: 1px transparent #828282;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #b6b6b6;
+    min-height: 5px;
+    border-radius: 4px;
+}
+
+QScrollBar::sub-line:vertical {
+    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /
+    border-image: url(icons/up_arrow_light.png);
+    height: 6px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image 
+    border-image: url(icons/down_arrow_light.png);
+    height: 6px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,
+QScrollBar::sub-line:vertical:on {
+    border-image: url(icons/up_arrow_lighter.png);
+}
+
+QScrollBar::add-line:vertical:hover,
+QScrollBar::add-line:vertical:on {
+    border-image: url(icons/down_arrow_lighter.png);
+}
+
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical {
+    background: none;
+}
+
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+}*/</string>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustIgnored</enum>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="textElideMode">
+           <enum>Qt::ElideMiddle</enum>
+          </property>
+          <property name="gridStyle">
+           <enum>Qt::CustomDashLine</enum>
+          </property>
+          <property name="cornerButtonEnabled">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>155</number>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>155</number>
+          </attribute>
+          <attribute name="verticalHeaderMinimumSectionSize">
+           <number>40</number>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>60</number>
+          </attribute>
+         </widget>
+         <widget class="QLineEdit" name="rechercherfiche_2">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>24</y>
+            <width>150</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#rechercherfiche_2{ selection-color: #33457d;
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #dcd0c9;
+border-radius: 7px;
+background-color: #fefefb;
+  selection-background-color: #d3d3d3;
+}
+#rechercherfiche_2:hover{
+border: 2px inset #dcd0c9;
+background:#f3f2f7;
+}</string>
+          </property>
+          <property name="placeholderText">
+           <string>Tous les champs disponible</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="trierf_2">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>290</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Trier</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#trierf_2{
+border-image: url(:/images/triperso1.png);
+}
+#trierf_2:hover{
+border-image: url(:/images/trierperso2.png);
+}
+#trierf_2:pressed{
+border-image: url(:/images/trierperso2.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="home_f_2">
+          <property name="geometry">
+           <rect>
+            <x>98</x>
+            <y>123</y>
+            <width>34</width>
+            <height>34</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Retour à la page d'accueil</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#home_f_2{
+border-image: url(:/images/home_p1.png);
+}
+#home_f_2:hover{
+border-image: url(:/images//home_p2.png);
+}
+#home_f_2:pressed{
+border-image: url(:/images//home_p3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="recherchefiche_2">
+          <property name="geometry">
+           <rect>
+            <x>770</x>
+            <y>7</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Rechercher avec filtrage</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#recherchefiche_2{
+border-image: url(:/images/chercherperso1.png);
+}
+#recherchefiche_2:hover{
+border-image: url(:/images/chercherperso2.png);
+}
+#recherchefiche_2:pressed{
+border-image: url(:/images/chercherperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="typetrif_2">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>24</y>
+            <width>150</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#typetrif_2{ 
+border: 2px solid #7888b9;
+border-radius: 7px;
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+}
+#typetrif_2 QAbstractItemView{ 
+color: #7888b9;
+font-weight: bold;
+font-size: 15px;
+selection-background-color: #ffffff;
+selection-color:#425180;
+}</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Taille</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Taille</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Poids</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Poids</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Tension</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Tension</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Date d'Ajout</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Date d'Ajout</string>
+           </property>
+           <property name="icon">
+            <iconset resource="image.qrc">
+             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
+           </property>
+          </item>
+         </widget>
+         <widget class="QPushButton" name="supprimerf_2">
+          <property name="geometry">
+           <rect>
+            <x>565</x>
+            <y>24</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Supprimer</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#supprimerf_2{
+border-image: url(:/images/supprimerperso1.png);
+}
+#supprimerf_2:hover{
+border-image: url(:/images/supprimerperso3.png);
+}
+#supprimerf_2:pressed{
+border-image: url(:/images/supprimerperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="modiffiche_2">
+          <property name="geometry">
+           <rect>
+            <x>310</x>
+            <y>23</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
+          <property name="toolTip">
+           <string>Modifier</string>
+          </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;modifier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#modiffiche_2{
+border-image: url(:/images/modifierperso1.png);
+}
+#modiffiche_2:hover{
+border-image: url(:/images/modifierperso2.png);
+}
+#modiffiche_2:pressed{
+border-image: url(:/images/modifierperso3.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="ajouterc">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>210</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Ajouter Une Consultation</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#ajouterc{
+border-image: url(:/Downloads/icons8-dying-64.png);
+}
+#ajouterc:hover{
+border-image: url(:/images/consultation2.png);
+}
+#ajouterc:pressed{
+border-image: url(:/images/consultation1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="retourfiche">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>150</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Voir Tous Les Patients</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#retourfiche{
+border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);
+}
+#retourfiche:hover{
+border-image: url(:/Downloads/icons8-dying-64.png);
+}
+#retourfiche:pressed{
+border-image: url(:/images/consultation1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="smsf_2">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>10</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Contacter Un Autre Medecin</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#smsf_2{
+border-image: url(:/images/sms1.png);
+}
+#smsf_2:hover{
+border-image: url(:/images/sms2.png);
+}
+#smsf_2:pressed{
+border-image: url(:/images/sms1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
          </widget>
         </widget>
        </widget>

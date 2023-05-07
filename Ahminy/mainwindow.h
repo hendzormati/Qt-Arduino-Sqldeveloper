@@ -28,6 +28,8 @@
 #include "donnation.h"
 
 #include "fiche.h"
+#include "consultation.h"
+#include "dialogc.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -331,12 +333,6 @@ private slots:
    void on_closestatdon_clicked();
     //loujain consultation
 
-    void on_confirmerAjoutermed_clicked();
-
-    void on_closeajoutermed_clicked();
-
-    void on_cinpatient_activated();
-
    void on_home_f_clicked();
 
    void on_trierf_clicked();
@@ -367,6 +363,27 @@ private slots:
    void on_confirmerModifich_clicked();
 
    void on_cinpatientfich_currentTextChanged(const QString &arg1);
+   void on_consultation_clicked();
+
+   void on_retourfiche_clicked();
+
+   void on_home_f_2_clicked();
+
+   void on_trierf_2_clicked();
+
+   void on_recherchefiche_2_clicked();
+
+   void on_typetrif_2_activated(int index);
+
+   void on_rechercherfiche_2_returnPressed();
+
+   void on_rechercherfiche_2_textEdited(const QString &arg1);
+
+   void on_tableViewF_2_clicked(const QModelIndex &index);
+
+   void on_supprimerf_2_clicked();
+   void on_ajouterc_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;
@@ -391,5 +408,6 @@ private:
     excel *excelObj;
     // loujain
     fiche F;
+    consultation C;
 };
 #endif // MAINWINDOW_H

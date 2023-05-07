@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialogc</class>
+ <widget class="QDialog" name="dialogc">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>483</width>
+    <height>542</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QFrame" name="ajouterconst">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>481</width>
+     <height>541</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#ajouterconst{background:#f8f5f1;border:8px double #e0dfe5;  border-top-right-radius:5px;   border-bottom-left-radius: 5px;}
+
+#ajoutcons{color:#425180;}
+#cm{color:#425180;}
+#kg{color:#425180;}
+#hg{color:#425180;}
+#c{color:#425180;}
+
+#nomprenom{color:#4f619a;}
+#tailleL{color:#4f619a;}
+#poidsL{color:#4f619a;}
+#tensionL{color:#4f619a;}
+#temperatureL{color:#4f619a;}
+#resultatL{color:#4f619a;}
+
+#resultat{ 
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #e0dfe5;
+border-radius: 7px;
+background-color: #fefefb;
+selection-background-color: #d3d3d3;
+selection-color: #33457d;
+
+}
+#resultat:hover{
+border: 2px inset #dcd0c9;
+background: #f3f2f7;
+}
+
+#taille{ 
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #e0dfe5;
+border-radius: 7px;
+background-color: #fefefb;
+selection-background-color: #d3d3d3;
+selection-color: #33457d;
+
+}
+#taille:hover{
+border: 2px inset #dcd0c9;
+background: #f3f2f7;
+}
+
+#poids{ 
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #e0dfe5;
+border-radius: 7px;
+background-color: #fefefb;
+selection-background-color: #d3d3d3;
+selection-color: #33457d;
+
+}
+#poids:hover{
+border: 2px inset #dcd0c9;
+background: #f3f2f7;
+}
+
+#tension{ 
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #e0dfe5;
+border-radius: 7px;
+background-color: #fefefb;
+selection-background-color: #d3d3d3;
+selection-color: #33457d;
+
+}
+#tension:hover{
+border: 2px inset #dcd0c9;
+background: #f3f2f7;
+}
+
+#temperature{ 
+color: #425180;
+font-weight: bold;
+font-size: 15px;
+border: 2px outset #e0dfe5;
+border-radius: 7px;
+background-color: #fefefb;
+selection-background-color: #d3d3d3;
+selection-color: #33457d;
+
+}
+#temperature:hover{
+border: 2px inset #dcd0c9;
+background: #f3f2f7;
+}
+
+#confirmerAjouterconst{
+color:#425180;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#confirmerAjouterconst:hover{
+border: 4px outset #dcd0c9;
+background: #e0dfe5;
+}
+#confirmerAjouterconst:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}
+#closeajoutercons{
+color:#425180;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#closeajoutercons:hover{
+border: 4px outset #dcd0c9;
+background: #f0e4e0;
+}
+#closeajoutercons:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="confirmerAjouterconst">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>470</y>
+      <width>181</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Confirmer</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ajoutcons">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ajouter Une Consultation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="closeajoutercons">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>11</y>
+      <width>28</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="resultatL">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>355</y>
+      <width>231</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Résultat</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="resultat">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>345</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="taille">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>105</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tailleL">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Taille de Patient</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="poidsL">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Poids de Patient</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="temperatureL">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>290</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Température</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tensionL">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>230</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tension Artérielle</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="poids">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>165</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tension">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>225</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="temperature">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>285</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="cm">
+    <property name="geometry">
+     <rect>
+      <x>418</x>
+      <y>110</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Cm</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="kg">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>170</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Kg</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="c">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>290</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>°C</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hg">
+    <property name="geometry">
+     <rect>
+      <x>378</x>
+      <y>225</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>mmHg</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

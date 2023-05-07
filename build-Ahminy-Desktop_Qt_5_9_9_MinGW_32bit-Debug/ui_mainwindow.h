@@ -326,32 +326,13 @@ public:
     QLabel *maxmontantdon;
     QLabel *maxnbdon;
     QWidget *medecin;
-    QWidget *affichagemed;
-    QTableView *tableViewF;
-    QLineEdit *rechercherfiche;
-    QPushButton *trierf;
-    QPushButton *home_f;
-    QPushButton *recherchefiche;
-    QComboBox *typetrif;
-    QPushButton *supprimerf;
-    QPushButton *modiffiche;
     QLabel *titremedecin;
     QWidget *cadre_3;
     QTabWidget *med;
     QWidget *imagemedecin;
     QWidget *imagemed;
     QPushButton *ajouterfichee;
-    QWidget *ajoutermedecin;
-    QFrame *ajouterMed;
-    QLabel *cinpatientL;
-    QPushButton *confirmerAjoutermed;
-    QLabel *titreajoutmed1;
-    QLabel *descriptionpatientL;
-    QPushButton *closeajoutermed;
-    QComboBox *cinpatient;
-    QLabel *resultatpatientL;
-    QPlainTextEdit *resultatpatient;
-    QPlainTextEdit *descriptionpatient;
+    QWidget *hatachy;
     QWidget *ajouterfiche;
     QFrame *ajouterfich;
     QLabel *cinfichL;
@@ -374,6 +355,34 @@ public:
     QLabel *nomprepat_2;
     QLabel *antpatfichL_2;
     QComboBox *antpatientfich_2;
+    QFrame *frame;
+    QTabWidget *gestmed;
+    QWidget *Fiche;
+    QWidget *affichagemed;
+    QTableView *tableViewF;
+    QLineEdit *rechercherfiche;
+    QPushButton *trierf;
+    QPushButton *home_f;
+    QPushButton *recherchefiche;
+    QComboBox *typetrif;
+    QPushButton *supprimerf;
+    QPushButton *modiffiche;
+    QPushButton *consultation;
+    QPushButton *consultation_2;
+    QPushButton *smsf;
+    QWidget *Consultation;
+    QWidget *affichagemed_2;
+    QTableView *tableViewF_2;
+    QLineEdit *rechercherfiche_2;
+    QPushButton *trierf_2;
+    QPushButton *home_f_2;
+    QPushButton *recherchefiche_2;
+    QComboBox *typetrif_2;
+    QPushButton *supprimerf_2;
+    QPushButton *modiffiche_2;
+    QPushButton *ajouterc;
+    QPushButton *retourfiche;
+    QPushButton *smsf_2;
     QComboBox *barpersonnel;
     QLabel *nom_prenom_P;
     QPushButton *profil_p;
@@ -1396,7 +1405,7 @@ public:
 "}"));
         rechercherper = new QLineEdit(affichagepersonnel);
         rechercherper->setObjectName(QStringLiteral("rechercherper"));
-        rechercherper->setGeometry(QRect(360, 20, 150, 31));
+        rechercherper->setGeometry(QRect(360, 24, 150, 31));
         rechercherper->setStyleSheet(QLatin1String("#rechercherper{ selection-color: #33457d;\n"
 "color: #425180;\n"
 "font-weight: bold;\n"
@@ -1412,7 +1421,7 @@ public:
 "}"));
         modifierp = new QPushButton(affichagepersonnel);
         modifierp->setObjectName(QStringLiteral("modifierp"));
-        modifierp->setGeometry(QRect(309, 18, 35, 35));
+        modifierp->setGeometry(QRect(309, 20, 35, 35));
         modifierp->setMouseTracking(false);
         modifierp->setStyleSheet(QLatin1String("#modifierp{\n"
 "border-image: url(:/images/modifierperso1.png);\n"
@@ -1425,7 +1434,7 @@ public:
 "}"));
         supprimerp = new QPushButton(affichagepersonnel);
         supprimerp->setObjectName(QStringLiteral("supprimerp"));
-        supprimerp->setGeometry(QRect(565, 20, 35, 35));
+        supprimerp->setGeometry(QRect(565, 22, 35, 35));
         supprimerp->setStyleSheet(QLatin1String("#supprimerp{\n"
 "border-image: url(:/images/supprimerperso1.png);\n"
 "}\n"
@@ -1437,7 +1446,7 @@ public:
 "}"));
         afficherp = new QPushButton(affichagepersonnel);
         afficherp->setObjectName(QStringLiteral("afficherp"));
-        afficherp->setGeometry(QRect(520, 20, 35, 33));
+        afficherp->setGeometry(QRect(520, 22, 35, 33));
         afficherp->setStyleSheet(QLatin1String("#afficherp{\n"
 "border-image: url(:/images/afficherperso1.png);\n"
 "}\n"
@@ -1471,7 +1480,7 @@ public:
         typetrip->addItem(icon1, QString());
         typetrip->addItem(icon2, QString());
         typetrip->setObjectName(QStringLiteral("typetrip"));
-        typetrip->setGeometry(QRect(360, 20, 150, 31));
+        typetrip->setGeometry(QRect(360, 24, 150, 31));
         typetrip->setStyleSheet(QLatin1String("#typetrip{ \n"
 "border: 2px solid #7888b9;\n"
 "border-radius: 7px;\n"
@@ -1501,7 +1510,7 @@ public:
 "}"));
         pdfp = new QPushButton(affichagepersonnel);
         pdfp->setObjectName(QStringLiteral("pdfp"));
-        pdfp->setGeometry(QRect(220, 17, 36, 36));
+        pdfp->setGeometry(QRect(220, 19, 36, 36));
         pdfp->setStyleSheet(QLatin1String("#pdfp{\n"
 "border-image: url(:/images/pdfperso1.png);\n"
 "}\n"
@@ -1539,7 +1548,7 @@ public:
 "}"));
         ajoutrfidp = new QPushButton(affichagepersonnel);
         ajoutrfidp->setObjectName(QStringLiteral("ajoutrfidp"));
-        ajoutrfidp->setGeometry(QRect(265, 18, 37, 37));
+        ajoutrfidp->setGeometry(QRect(265, 20, 37, 37));
         ajoutrfidp->setStyleSheet(QLatin1String("#ajoutrfidp{\n"
 "border-image: url(:/images/rfidperso1.png);\n"
 "}\n"
@@ -3780,219 +3789,11 @@ public:
         medecin->setObjectName(QStringLiteral("medecin"));
         medecin->setStyleSheet(QLatin1String("#medecin{ background: #fbf9f9;}\n"
 "#titremedecin{color:#425180;}"));
-        affichagemed = new QWidget(medecin);
-        affichagemed->setObjectName(QStringLiteral("affichagemed"));
-        affichagemed->setGeometry(QRect(530, 120, 821, 511));
-        affichagemed->setStyleSheet(QStringLiteral("#affichagemed{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}"));
-        tableViewF = new QTableView(affichagemed);
-        tableViewF->setObjectName(QStringLiteral("tableViewF"));
-        tableViewF->setGeometry(QRect(90, 110, 695, 331));
-        tableViewF->setFont(font13);
-        tableViewF->setLayoutDirection(Qt::LeftToRight);
-        tableViewF->setAutoFillBackground(false);
-        tableViewF->setStyleSheet(QLatin1String("\n"
-"#tableViewF {\n"
-"border:5px outset #f3f2f7;\n"
-"    color: #7888b9;\n"
-"	font-weight: bold;\n"
-"text-align: center;\n"
-"	font-size: 20px;\n"
-" 	padding: 4px;\n"
-"    gridline-color: #425180;\n"
-"	selection-background-color: #f3f2f7;\n"
-"}\n"
-"#tableViewF QHeaderView::section{\n"
-"    background-color: #f3f2f7;\n"
-"    color: #425180;\n"
-"    padding: 12px;\n"
-"    text-transform: uppercase;\n"
-"text-align: center;\n"
-"}\n"
-"\n"
-"#tableViewF::item:selected {\n"
-"    background-color: #e0dfe5;\n"
-"text-align: center;\n"
-"}\n"
-"#tableViewF::item:focus{\n"
-"	color:#7888b9;\n"
-"    border: 2px solid #7888b9;\n"
-"    background-color: #f2f2f7;\n"
-"text-align: center;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"/*QScrollBar:vertical {\n"
-"    background-color: #828282;\n"
-"    width: 15px;\n"
-"    margin: 15px 3px 15px 3px;\n"
-"    border: 1px transparent #828282;\n"
-"    border-radius: 4px;\n"
-"}\n"
-"\n"
-"QScrollBar::handle:vertical {\n"
-"    background-color: #b6b6b6;\n"
-"    min-height: 5px;\n"
-"    border-radius: 4px;\n"
-"}\n"
-""
-                        "\n"
-"QScrollBar::sub-line:vertical {\n"
-"    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /\n"
-"    border-image: url(icons/up_arrow_light.png);\n"
-"    height: 6px;\n"
-"    width: 10px;\n"
-"    subcontrol-position: top;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical {\n"
-"    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image \n"
-"    border-image: url(icons/down_arrow_light.png);\n"
-"    height: 6px;\n"
-"    width: 10px;\n"
-"    subcontrol-position: bottom;\n"
-"    subcontrol-origin: margin;\n"
-"}\n"
-"\n"
-"QScrollBar::sub-line:vertical:hover,\n"
-"QScrollBar::sub-line:vertical:on {\n"
-"    border-image: url(icons/up_arrow_lighter.png);\n"
-"}\n"
-"\n"
-"QScrollBar::add-line:vertical:hover,\n"
-"QScrollBar::add-line:vertical:on {\n"
-"    border-image: url(icons/down_arrow_lighter.png);\n"
-"}\n"
-"\n"
-"QScrollBar::up-arrow:vertical,\n"
-"QScrollBar::down-arrow:vertical {\n"
-"    background: none;\n"
-"}\n"
-"\n"
-"\n"
-"QScrollBar::add-page:vertica"
-                        "l,\n"
-"QScrollBar::sub-page:vertical {\n"
-"    background: none;\n"
-"}*/"));
-        tableViewF->setLineWidth(1);
-        tableViewF->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-        tableViewF->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-        tableViewF->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
-        tableViewF->setDragEnabled(false);
-        tableViewF->setTextElideMode(Qt::ElideMiddle);
-        tableViewF->setGridStyle(Qt::CustomDashLine);
-        tableViewF->setCornerButtonEnabled(false);
-        tableViewF->horizontalHeader()->setDefaultSectionSize(155);
-        tableViewF->horizontalHeader()->setMinimumSectionSize(155);
-        tableViewF->verticalHeader()->setDefaultSectionSize(60);
-        tableViewF->verticalHeader()->setMinimumSectionSize(40);
-        rechercherfiche = new QLineEdit(affichagemed);
-        rechercherfiche->setObjectName(QStringLiteral("rechercherfiche"));
-        rechercherfiche->setGeometry(QRect(360, 20, 150, 31));
-        rechercherfiche->setStyleSheet(QLatin1String("#rechercherfiche{ selection-color: #33457d;\n"
-"color: #425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"border: 2px outset #dcd0c9;\n"
-"border-radius: 7px;\n"
-"background-color: #fefefb;\n"
-"  selection-background-color: #d3d3d3;\n"
-"}\n"
-"#rechercherfiche:hover{\n"
-"border: 2px inset #dcd0c9;\n"
-"background:#f3f2f7;\n"
-"}"));
-        trierf = new QPushButton(affichagemed);
-        trierf->setObjectName(QStringLiteral("trierf"));
-        trierf->setGeometry(QRect(30, 260, 36, 36));
-        trierf->setStyleSheet(QLatin1String("#trierf{\n"
-"border-image: url(:/images/triperso1.png);\n"
-"}\n"
-"#trierf:hover{\n"
-"border-image: url(:/images/trierperso2.png);\n"
-"}\n"
-"#trierf:pressed{\n"
-"border-image: url(:/images/trierperso2.png);\n"
-"}"));
-        home_f = new QPushButton(affichagemed);
-        home_f->setObjectName(QStringLiteral("home_f"));
-        home_f->setGeometry(QRect(98, 123, 34, 34));
-        home_f->setStyleSheet(QLatin1String("\n"
-"#home_f{\n"
-"border-image: url(:/images/home_p1.png);\n"
-"}\n"
-"#home_f:hover{\n"
-"border-image: url(:/images//home_p2.png);\n"
-"}\n"
-"#home_f:pressed{\n"
-"border-image: url(:/images//home_p3.png);\n"
-"}"));
-        recherchefiche = new QPushButton(affichagemed);
-        recherchefiche->setObjectName(QStringLiteral("recherchefiche"));
-        recherchefiche->setGeometry(QRect(770, 7, 50, 50));
-        recherchefiche->setStyleSheet(QLatin1String("#recherchefiche{\n"
-"border-image: url(:/images/chercherperso1.png);\n"
-"}\n"
-"#recherchefiche:hover{\n"
-"border-image: url(:/images/chercherperso2.png);\n"
-"}\n"
-"#recherchefiche:pressed{\n"
-"border-image: url(:/images/chercherperso3.png);\n"
-"}"));
-        typetrif = new QComboBox(affichagemed);
-        typetrif->addItem(icon1, QString());
-        typetrif->addItem(icon2, QString());
-        typetrif->addItem(icon1, QString());
-        typetrif->addItem(icon2, QString());
-        typetrif->addItem(icon1, QString());
-        typetrif->addItem(icon2, QString());
-        typetrif->setObjectName(QStringLiteral("typetrif"));
-        typetrif->setGeometry(QRect(360, 20, 150, 31));
-        typetrif->setStyleSheet(QLatin1String("#typetrif{ \n"
-"border: 2px solid #7888b9;\n"
-"border-radius: 7px;\n"
-"color: #425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#typetrif QAbstractItemView{ \n"
-"color: #7888b9;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#425180;\n"
-"}"));
-        supprimerf = new QPushButton(affichagemed);
-        supprimerf->setObjectName(QStringLiteral("supprimerf"));
-        supprimerf->setGeometry(QRect(565, 20, 35, 35));
-        supprimerf->setStyleSheet(QLatin1String("#supprimerf{\n"
-"border-image: url(:/images/supprimerperso1.png);\n"
-"}\n"
-"#supprimerf:hover{\n"
-"border-image: url(:/images/supprimerperso3.png);\n"
-"}\n"
-"#supprimerf:pressed{\n"
-"border-image: url(:/images/supprimerperso3.png);\n"
-"}"));
-        modiffiche = new QPushButton(affichagemed);
-        modiffiche->setObjectName(QStringLiteral("modiffiche"));
-        modiffiche->setGeometry(QRect(320, 20, 35, 35));
-        modiffiche->setMouseTracking(false);
-        modiffiche->setStyleSheet(QLatin1String("#modiffiche{\n"
-"border-image: url(:/images/modifierperso1.png);\n"
-"}\n"
-"#modiffiche:hover{\n"
-"border-image: url(:/images/modifierperso2.png);\n"
-"}\n"
-"#modiffiche:pressed{\n"
-"border-image: url(:/images/modifierperso3.png);\n"
-"}"));
         titremedecin = new QLabel(medecin);
         titremedecin->setObjectName(QStringLiteral("titremedecin"));
         titremedecin->setGeometry(QRect(756, 40, 451, 31));
         titremedecin->setFont(font14);
+        titremedecin->setAlignment(Qt::AlignCenter);
         cadre_3 = new QWidget(medecin);
         cadre_3->setObjectName(QStringLiteral("cadre_3"));
         cadre_3->setGeometry(QRect(90, 80, 391, 651));
@@ -4028,137 +3829,10 @@ public:
         ajouterfichee->setGeometry(QRect(126, 460, 130, 50));
         ajouterfichee->setFont(font7);
         med->addTab(imagemedecin, QString());
-        ajoutermedecin = new QWidget();
-        ajoutermedecin->setObjectName(QStringLiteral("ajoutermedecin"));
-        ajoutermedecin->setStyleSheet(QStringLiteral("#ajoutermedecin{ background: #fbf9f9;}"));
-        ajouterMed = new QFrame(ajoutermedecin);
-        ajouterMed->setObjectName(QStringLiteral("ajouterMed"));
-        ajouterMed->setGeometry(QRect(10, 90, 381, 421));
-        ajouterMed->setStyleSheet(QLatin1String("#ajouterMed{background:#f8f5f1;border:8px double #e0dfe5;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}\n"
-"#titreajoutmed1{color:#425180;}\n"
-"#cinpatientL{color:#4f619a;}\n"
-"#descriptionpatientL{color:#4f619a;}\n"
-"#resultatpatientL{color:#4f619a;}\n"
-"#descriptionpatient{ \n"
-"color: #425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"border: 2px outset #e0dfe5;\n"
-"border-radius: 7px;\n"
-"background-color: #fefefb;\n"
-"selection-background-color: #d3d3d3;\n"
-"selection-color: #33457d;\n"
-"\n"
-"}\n"
-"#descriptionpatient:hover{\n"
-"border: 2px inset #dcd0c9;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#resultatpatient{ \n"
-"color:#425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"border: 2px outset #e0dfe5;\n"
-"border-radius: 7px;\n"
-"background: #fefefb;\n"
-"selection-background-color: #d3d3d3;\n"
-"selection-color: #33457d;\n"
-"}\n"
-"#resultatpatient:hover{\n"
-"border: 2px inset #dcd0c9;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#cinpatient{ \n"
-"border: 2px solid #e0dfe5;\n"
-"border-radiu"
-                        "s: 7px;\n"
-"color: #425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"}\n"
-"#cinpatient QAbstractItemView{ \n"
-"color: #425180;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"selection-background-color: #ffffff;\n"
-"selection-color:#56695b;\n"
-"}\n"
-"#confirmerAjoutermed{\n"
-"color:#425180;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#confirmerAjoutermed:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #e0dfe5;\n"
-"}\n"
-"#confirmerAjoutermed:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-"#closeajoutermed{\n"
-"color:#425180;\n"
-"border: 4px inset #dcd0c9;\n"
-"border-radius: 15px;\n"
-"background: #f3f2f7;\n"
-"}\n"
-"#closeajoutermed:hover{\n"
-"border: 4px outset #dcd0c9;\n"
-"background: #f0e4e0;\n"
-"}\n"
-"#closeajoutermed:pressed{\n"
-"border: 4px inset #dcd0c9;\n"
-"background: #f6f1f7;\n"
-"}\n"
-""));
-        ajouterMed->setFrameShape(QFrame::StyledPanel);
-        ajouterMed->setFrameShadow(QFrame::Raised);
-        cinpatientL = new QLabel(ajouterMed);
-        cinpatientL->setObjectName(QStringLiteral("cinpatientL"));
-        cinpatientL->setGeometry(QRect(18, 102, 141, 31));
-        cinpatientL->setFont(font4);
-        confirmerAjoutermed = new QPushButton(ajouterMed);
-        confirmerAjoutermed->setObjectName(QStringLiteral("confirmerAjoutermed"));
-        confirmerAjoutermed->setGeometry(QRect(125, 352, 133, 50));
-        confirmerAjoutermed->setFont(font9);
-        titreajoutmed1 = new QLabel(ajouterMed);
-        titreajoutmed1->setObjectName(QStringLiteral("titreajoutmed1"));
-        titreajoutmed1->setGeometry(QRect(56, 37, 311, 31));
-        QFont font19;
-        font19.setFamily(QStringLiteral("Bell MT"));
-        font19.setPointSize(15);
-        font19.setBold(true);
-        font19.setUnderline(true);
-        font19.setWeight(75);
-        titreajoutmed1->setFont(font19);
-        descriptionpatientL = new QLabel(ajouterMed);
-        descriptionpatientL->setObjectName(QStringLiteral("descriptionpatientL"));
-        descriptionpatientL->setGeometry(QRect(18, 180, 131, 31));
-        QFont font20;
-        font20.setFamily(QStringLiteral("Bell MT"));
-        font20.setPointSize(15);
-        font20.setBold(true);
-        font20.setWeight(75);
-        descriptionpatientL->setFont(font20);
-        closeajoutermed = new QPushButton(ajouterMed);
-        closeajoutermed->setObjectName(QStringLiteral("closeajoutermed"));
-        closeajoutermed->setGeometry(QRect(12, 11, 28, 28));
-        closeajoutermed->setFont(font12);
-        cinpatient = new QComboBox(ajouterMed);
-        cinpatient->setObjectName(QStringLiteral("cinpatient"));
-        cinpatient->setGeometry(QRect(160, 100, 201, 41));
-        resultatpatientL = new QLabel(ajouterMed);
-        resultatpatientL->setObjectName(QStringLiteral("resultatpatientL"));
-        resultatpatientL->setGeometry(QRect(18, 278, 131, 31));
-        resultatpatientL->setFont(font4);
-        resultatpatient = new QPlainTextEdit(ajouterMed);
-        resultatpatient->setObjectName(QStringLiteral("resultatpatient"));
-        resultatpatient->setGeometry(QRect(160, 260, 201, 70));
-        descriptionpatient = new QPlainTextEdit(ajouterMed);
-        descriptionpatient->setObjectName(QStringLiteral("descriptionpatient"));
-        descriptionpatient->setGeometry(QRect(160, 160, 201, 87));
-        med->addTab(ajoutermedecin, QString());
+        hatachy = new QWidget();
+        hatachy->setObjectName(QStringLiteral("hatachy"));
+        hatachy->setStyleSheet(QStringLiteral("#ajoutermedecin{ background: #fbf9f9;}"));
+        med->addTab(hatachy, QString());
         ajouterfiche = new QWidget();
         ajouterfiche->setObjectName(QStringLiteral("ajouterfiche"));
         ajouterfiche->setStyleSheet(QStringLiteral("#ajouterfiche{background: #fbf9f9;}"));
@@ -4268,7 +3942,12 @@ public:
         descriptionpatfichL = new QLabel(ajouterfich);
         descriptionpatfichL->setObjectName(QStringLiteral("descriptionpatfichL"));
         descriptionpatfichL->setGeometry(QRect(26, 264, 131, 31));
-        descriptionpatfichL->setFont(font20);
+        QFont font19;
+        font19.setFamily(QStringLiteral("Bell MT"));
+        font19.setPointSize(15);
+        font19.setBold(true);
+        font19.setWeight(75);
+        descriptionpatfichL->setFont(font19);
         closeajoutfich = new QPushButton(ajouterfich);
         closeajoutfich->setObjectName(QStringLiteral("closeajoutfich"));
         closeajoutfich->setGeometry(QRect(12, 11, 28, 28));
@@ -4288,7 +3967,7 @@ public:
         antpatfichL = new QLabel(ajouterfich);
         antpatfichL->setObjectName(QStringLiteral("antpatfichL"));
         antpatfichL->setGeometry(QRect(26, 200, 141, 31));
-        antpatfichL->setFont(font20);
+        antpatfichL->setFont(font19);
         antpatientfich = new QComboBox(ajouterfich);
         antpatientfich->setObjectName(QStringLiteral("antpatientfich"));
         antpatientfich->setGeometry(QRect(165, 195, 191, 41));
@@ -4383,7 +4062,7 @@ public:
         descriptionpatfichL_2 = new QLabel(modifierfich);
         descriptionpatfichL_2->setObjectName(QStringLiteral("descriptionpatfichL_2"));
         descriptionpatfichL_2->setGeometry(QRect(26, 240, 141, 31));
-        descriptionpatfichL_2->setFont(font20);
+        descriptionpatfichL_2->setFont(font19);
         closemodifich = new QPushButton(modifierfich);
         closemodifich->setObjectName(QStringLiteral("closemodifich"));
         closemodifich->setGeometry(QRect(12, 11, 28, 28));
@@ -4399,11 +4078,522 @@ public:
         antpatfichL_2 = new QLabel(modifierfich);
         antpatfichL_2->setObjectName(QStringLiteral("antpatfichL_2"));
         antpatfichL_2->setGeometry(QRect(26, 170, 141, 31));
-        antpatfichL_2->setFont(font20);
+        antpatfichL_2->setFont(font19);
         antpatientfich_2 = new QComboBox(modifierfich);
         antpatientfich_2->setObjectName(QStringLiteral("antpatientfich_2"));
         antpatientfich_2->setGeometry(QRect(165, 165, 191, 41));
         med->addTab(modifierfiche, QString());
+        frame = new QFrame(medecin);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setGeometry(QRect(524, 119, 850, 530));
+        frame->setStyleSheet(QStringLiteral("#frame{ background: #fbf9f9;}"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        gestmed = new QTabWidget(frame);
+        gestmed->setObjectName(QStringLiteral("gestmed"));
+        gestmed->setGeometry(QRect(-2, -24, 861, 558));
+        Fiche = new QWidget();
+        Fiche->setObjectName(QStringLiteral("Fiche"));
+        Fiche->setStyleSheet(QStringLiteral("#Fiche{ background: #fbf9f9;}"));
+        affichagemed = new QWidget(Fiche);
+        affichagemed->setObjectName(QStringLiteral("affichagemed"));
+        affichagemed->setGeometry(QRect(6, 0, 821, 511));
+        affichagemed->setStyleSheet(QStringLiteral("#affichagemed{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}"));
+        tableViewF = new QTableView(affichagemed);
+        tableViewF->setObjectName(QStringLiteral("tableViewF"));
+        tableViewF->setGeometry(QRect(90, 110, 695, 331));
+        tableViewF->setFont(font13);
+        tableViewF->setLayoutDirection(Qt::LeftToRight);
+        tableViewF->setAutoFillBackground(false);
+        tableViewF->setStyleSheet(QLatin1String("\n"
+"#tableViewF {\n"
+"border:5px outset #f3f2f7;\n"
+"    color: #7888b9;\n"
+"	font-weight: bold;\n"
+"text-align: center;\n"
+"	font-size: 20px;\n"
+" 	padding: 4px;\n"
+"    gridline-color: #425180;\n"
+"	selection-background-color: #f3f2f7;\n"
+"}\n"
+"#tableViewF QHeaderView::section{\n"
+"    background-color: #f3f2f7;\n"
+"    color: #425180;\n"
+"    padding: 12px;\n"
+"    text-transform: uppercase;\n"
+"text-align: center;\n"
+"}\n"
+"\n"
+"#tableViewF::item:selected {\n"
+"    background-color: #e0dfe5;\n"
+"text-align: center;\n"
+"}\n"
+"#tableViewF::item:focus{\n"
+"	color:#7888b9;\n"
+"    border: 2px solid #7888b9;\n"
+"    background-color: #f2f2f7;\n"
+"text-align: center;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"/*QScrollBar:vertical {\n"
+"    background-color: #828282;\n"
+"    width: 15px;\n"
+"    margin: 15px 3px 15px 3px;\n"
+"    border: 1px transparent #828282;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background-color: #b6b6b6;\n"
+"    min-height: 5px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+""
+                        "\n"
+"QScrollBar::sub-line:vertical {\n"
+"    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /\n"
+"    border-image: url(icons/up_arrow_light.png);\n"
+"    height: 6px;\n"
+"    width: 10px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image \n"
+"    border-image: url(icons/down_arrow_light.png);\n"
+"    height: 6px;\n"
+"    width: 10px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical:hover,\n"
+"QScrollBar::sub-line:vertical:on {\n"
+"    border-image: url(icons/up_arrow_lighter.png);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical:hover,\n"
+"QScrollBar::add-line:vertical:on {\n"
+"    border-image: url(icons/down_arrow_lighter.png);\n"
+"}\n"
+"\n"
+"QScrollBar::up-arrow:vertical,\n"
+"QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-page:vertica"
+                        "l,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}*/"));
+        tableViewF->setLineWidth(1);
+        tableViewF->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        tableViewF->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        tableViewF->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        tableViewF->setDragEnabled(false);
+        tableViewF->setTextElideMode(Qt::ElideMiddle);
+        tableViewF->setGridStyle(Qt::CustomDashLine);
+        tableViewF->setCornerButtonEnabled(false);
+        tableViewF->horizontalHeader()->setDefaultSectionSize(155);
+        tableViewF->horizontalHeader()->setMinimumSectionSize(155);
+        tableViewF->verticalHeader()->setDefaultSectionSize(60);
+        tableViewF->verticalHeader()->setMinimumSectionSize(40);
+        rechercherfiche = new QLineEdit(affichagemed);
+        rechercherfiche->setObjectName(QStringLiteral("rechercherfiche"));
+        rechercherfiche->setGeometry(QRect(360, 24, 150, 31));
+        rechercherfiche->setStyleSheet(QLatin1String("#rechercherfiche{ selection-color: #33457d;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"border: 2px outset #dcd0c9;\n"
+"border-radius: 7px;\n"
+"background-color: #fefefb;\n"
+"  selection-background-color: #d3d3d3;\n"
+"}\n"
+"#rechercherfiche:hover{\n"
+"border: 2px inset #dcd0c9;\n"
+"background:#f3f2f7;\n"
+"}"));
+        trierf = new QPushButton(affichagemed);
+        trierf->setObjectName(QStringLiteral("trierf"));
+        trierf->setGeometry(QRect(30, 290, 36, 36));
+        trierf->setStyleSheet(QLatin1String("#trierf{\n"
+"border-image: url(:/images/triperso1.png);\n"
+"}\n"
+"#trierf:hover{\n"
+"border-image: url(:/images/trierperso2.png);\n"
+"}\n"
+"#trierf:pressed{\n"
+"border-image: url(:/images/trierperso2.png);\n"
+"}"));
+        home_f = new QPushButton(affichagemed);
+        home_f->setObjectName(QStringLiteral("home_f"));
+        home_f->setGeometry(QRect(98, 123, 34, 34));
+        home_f->setStyleSheet(QLatin1String("\n"
+"#home_f{\n"
+"border-image: url(:/images/home_p1.png);\n"
+"}\n"
+"#home_f:hover{\n"
+"border-image: url(:/images//home_p2.png);\n"
+"}\n"
+"#home_f:pressed{\n"
+"border-image: url(:/images//home_p3.png);\n"
+"}"));
+        recherchefiche = new QPushButton(affichagemed);
+        recherchefiche->setObjectName(QStringLiteral("recherchefiche"));
+        recherchefiche->setGeometry(QRect(770, 7, 50, 50));
+        recherchefiche->setStyleSheet(QLatin1String("#recherchefiche{\n"
+"border-image: url(:/images/chercherperso1.png);\n"
+"}\n"
+"#recherchefiche:hover{\n"
+"border-image: url(:/images/chercherperso2.png);\n"
+"}\n"
+"#recherchefiche:pressed{\n"
+"border-image: url(:/images/chercherperso3.png);\n"
+"}"));
+        typetrif = new QComboBox(affichagemed);
+        typetrif->addItem(icon1, QString());
+        typetrif->addItem(icon2, QString());
+        typetrif->addItem(icon1, QString());
+        typetrif->addItem(icon2, QString());
+        typetrif->addItem(icon1, QString());
+        typetrif->addItem(icon2, QString());
+        typetrif->setObjectName(QStringLiteral("typetrif"));
+        typetrif->setGeometry(QRect(360, 24, 150, 31));
+        typetrif->setStyleSheet(QLatin1String("#typetrif{ \n"
+"border: 2px solid #7888b9;\n"
+"border-radius: 7px;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"}\n"
+"#typetrif QAbstractItemView{ \n"
+"color: #7888b9;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"selection-background-color: #ffffff;\n"
+"selection-color:#425180;\n"
+"}"));
+        supprimerf = new QPushButton(affichagemed);
+        supprimerf->setObjectName(QStringLiteral("supprimerf"));
+        supprimerf->setGeometry(QRect(565, 24, 35, 35));
+        supprimerf->setStyleSheet(QLatin1String("#supprimerf{\n"
+"border-image: url(:/images/supprimerperso1.png);\n"
+"}\n"
+"#supprimerf:hover{\n"
+"border-image: url(:/images/supprimerperso3.png);\n"
+"}\n"
+"#supprimerf:pressed{\n"
+"border-image: url(:/images/supprimerperso3.png);\n"
+"}"));
+        modiffiche = new QPushButton(affichagemed);
+        modiffiche->setObjectName(QStringLiteral("modiffiche"));
+        modiffiche->setGeometry(QRect(310, 23, 35, 35));
+        modiffiche->setMouseTracking(false);
+        modiffiche->setStyleSheet(QLatin1String("#modiffiche{\n"
+"border-image: url(:/images/modifierperso1.png);\n"
+"}\n"
+"#modiffiche:hover{\n"
+"border-image: url(:/images/modifierperso2.png);\n"
+"}\n"
+"#modiffiche:pressed{\n"
+"border-image: url(:/images/modifierperso3.png);\n"
+"}"));
+        consultation = new QPushButton(affichagemed);
+        consultation->setObjectName(QStringLiteral("consultation"));
+        consultation->setGeometry(QRect(520, 21, 35, 35));
+        consultation->setStyleSheet(QLatin1String("#consultation{\n"
+"border-image: url(:/images/consultation1.png);\n"
+"}\n"
+"#consultation:hover{\n"
+"border-image: url(:/images/consultation2.png);\n"
+"}\n"
+"#consultation:pressed{\n"
+"border-image: url(:/images/consultation1.png);\n"
+"}"));
+        consultation_2 = new QPushButton(affichagemed);
+        consultation_2->setObjectName(QStringLiteral("consultation_2"));
+        consultation_2->setGeometry(QRect(260, 20, 35, 35));
+        consultation_2->setStyleSheet(QLatin1String("#consultation_2{\n"
+"border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);\n"
+"}\n"
+"#consultation_2:hover{\n"
+"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"}\n"
+"#consultation_2:pressed{\n"
+"border-image: url(:/images/consultation1.png);\n"
+"}"));
+        smsf = new QPushButton(affichagemed);
+        smsf->setObjectName(QStringLiteral("smsf"));
+        smsf->setGeometry(QRect(30, 210, 36, 36));
+        smsf->setStyleSheet(QLatin1String("\n"
+"#smsf{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}\n"
+"#smsf:hover{\n"
+"border-image: url(:/images/sms2.png);\n"
+"}\n"
+"#smsf:pressed{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}"));
+        gestmed->addTab(Fiche, QString());
+        Consultation = new QWidget();
+        Consultation->setObjectName(QStringLiteral("Consultation"));
+        Consultation->setStyleSheet(QStringLiteral("#Consultation{ background: #fbf9f9;}"));
+        affichagemed_2 = new QWidget(Consultation);
+        affichagemed_2->setObjectName(QStringLiteral("affichagemed_2"));
+        affichagemed_2->setGeometry(QRect(6, 0, 821, 511));
+        affichagemed_2->setStyleSheet(QStringLiteral("#affichagemed_2{background:#e0dfe5;  border-top-left-radius: 70px;   border-bottom-right-radius: 70px;}"));
+        tableViewF_2 = new QTableView(affichagemed_2);
+        tableViewF_2->setObjectName(QStringLiteral("tableViewF_2"));
+        tableViewF_2->setGeometry(QRect(90, 110, 695, 331));
+        tableViewF_2->setFont(font13);
+        tableViewF_2->setLayoutDirection(Qt::LeftToRight);
+        tableViewF_2->setAutoFillBackground(false);
+        tableViewF_2->setStyleSheet(QLatin1String("\n"
+"#tableViewF_2 {\n"
+"border:5px outset #f3f2f7;\n"
+"    color: #7888b9;\n"
+"font-weight: bold;\n"
+"text-align: center;\n"
+"	font-size: 20px;\n"
+" 	padding: 4px;\n"
+"    gridline-color: #425180;\n"
+"	selection-background-color: #f3f2f7;\n"
+"}\n"
+"#tableViewF_2 QHeaderView::section{\n"
+"    background-color: #f3f2f7;\n"
+"    color: #425180;\n"
+"    padding: 12px;\n"
+"    text-transform: uppercase;\n"
+"text-align: center;\n"
+"}\n"
+"\n"
+"#tableViewF_2::item:selected {\n"
+"    background-color: #e0dfe5;\n"
+"text-align: center;\n"
+"}\n"
+"#tableViewF_2::item:focus{\n"
+"	color:#7888b9;\n"
+"    border: 2px solid #7888b9;\n"
+"    background-color: #f2f2f7;\n"
+"text-align: center;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"/*QScrollBar:vertical {\n"
+"    background-color: #828282;\n"
+"    width: 15px;\n"
+"    margin: 15px 3px 15px 3px;\n"
+"    border: 1px transparent #828282;\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background-color: #b6b6b6;\n"
+"    min-height: 5px;\n"
+"    border-radius: 4px;\n"
+""
+                        "}\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /\n"
+"    border-image: url(icons/up_arrow_light.png);\n"
+"    height: 6px;\n"
+"    width: 10px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"    margin: 3px 0px 3px 1px; / 1px to correctly fit the 10px width image \n"
+"    border-image: url(icons/down_arrow_light.png);\n"
+"    height: 6px;\n"
+"    width: 10px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"\n"
+"QScrollBar::sub-line:vertical:hover,\n"
+"QScrollBar::sub-line:vertical:on {\n"
+"    border-image: url(icons/up_arrow_lighter.png);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical:hover,\n"
+"QScrollBar::add-line:vertical:on {\n"
+"    border-image: url(icons/down_arrow_lighter.png);\n"
+"}\n"
+"\n"
+"QScrollBar::up-arrow:vertical,\n"
+"QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-page:v"
+                        "ertical,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}*/"));
+        tableViewF_2->setLineWidth(1);
+        tableViewF_2->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        tableViewF_2->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        tableViewF_2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        tableViewF_2->setDragEnabled(false);
+        tableViewF_2->setTextElideMode(Qt::ElideMiddle);
+        tableViewF_2->setGridStyle(Qt::CustomDashLine);
+        tableViewF_2->setCornerButtonEnabled(false);
+        tableViewF_2->horizontalHeader()->setDefaultSectionSize(155);
+        tableViewF_2->horizontalHeader()->setMinimumSectionSize(155);
+        tableViewF_2->verticalHeader()->setDefaultSectionSize(60);
+        tableViewF_2->verticalHeader()->setMinimumSectionSize(40);
+        rechercherfiche_2 = new QLineEdit(affichagemed_2);
+        rechercherfiche_2->setObjectName(QStringLiteral("rechercherfiche_2"));
+        rechercherfiche_2->setGeometry(QRect(360, 24, 150, 31));
+        rechercherfiche_2->setStyleSheet(QLatin1String("#rechercherfiche_2{ selection-color: #33457d;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"border: 2px outset #dcd0c9;\n"
+"border-radius: 7px;\n"
+"background-color: #fefefb;\n"
+"  selection-background-color: #d3d3d3;\n"
+"}\n"
+"#rechercherfiche_2:hover{\n"
+"border: 2px inset #dcd0c9;\n"
+"background:#f3f2f7;\n"
+"}"));
+        trierf_2 = new QPushButton(affichagemed_2);
+        trierf_2->setObjectName(QStringLiteral("trierf_2"));
+        trierf_2->setGeometry(QRect(30, 290, 36, 36));
+        trierf_2->setStyleSheet(QLatin1String("#trierf_2{\n"
+"border-image: url(:/images/triperso1.png);\n"
+"}\n"
+"#trierf_2:hover{\n"
+"border-image: url(:/images/trierperso2.png);\n"
+"}\n"
+"#trierf_2:pressed{\n"
+"border-image: url(:/images/trierperso2.png);\n"
+"}"));
+        home_f_2 = new QPushButton(affichagemed_2);
+        home_f_2->setObjectName(QStringLiteral("home_f_2"));
+        home_f_2->setGeometry(QRect(98, 123, 34, 34));
+        home_f_2->setStyleSheet(QLatin1String("\n"
+"#home_f_2{\n"
+"border-image: url(:/images/home_p1.png);\n"
+"}\n"
+"#home_f_2:hover{\n"
+"border-image: url(:/images//home_p2.png);\n"
+"}\n"
+"#home_f_2:pressed{\n"
+"border-image: url(:/images//home_p3.png);\n"
+"}"));
+        recherchefiche_2 = new QPushButton(affichagemed_2);
+        recherchefiche_2->setObjectName(QStringLiteral("recherchefiche_2"));
+        recherchefiche_2->setGeometry(QRect(770, 7, 50, 50));
+        recherchefiche_2->setStyleSheet(QLatin1String("#recherchefiche_2{\n"
+"border-image: url(:/images/chercherperso1.png);\n"
+"}\n"
+"#recherchefiche_2:hover{\n"
+"border-image: url(:/images/chercherperso2.png);\n"
+"}\n"
+"#recherchefiche_2:pressed{\n"
+"border-image: url(:/images/chercherperso3.png);\n"
+"}"));
+        typetrif_2 = new QComboBox(affichagemed_2);
+        typetrif_2->addItem(icon1, QString());
+        typetrif_2->addItem(icon2, QString());
+        typetrif_2->addItem(icon1, QString());
+        typetrif_2->addItem(icon2, QString());
+        typetrif_2->addItem(icon1, QString());
+        typetrif_2->addItem(icon2, QString());
+        typetrif_2->addItem(icon1, QString());
+        typetrif_2->addItem(icon2, QString());
+        typetrif_2->setObjectName(QStringLiteral("typetrif_2"));
+        typetrif_2->setGeometry(QRect(360, 24, 150, 31));
+        typetrif_2->setStyleSheet(QLatin1String("#typetrif_2{ \n"
+"border: 2px solid #7888b9;\n"
+"border-radius: 7px;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"}\n"
+"#typetrif_2 QAbstractItemView{ \n"
+"color: #7888b9;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"selection-background-color: #ffffff;\n"
+"selection-color:#425180;\n"
+"}"));
+        supprimerf_2 = new QPushButton(affichagemed_2);
+        supprimerf_2->setObjectName(QStringLiteral("supprimerf_2"));
+        supprimerf_2->setGeometry(QRect(565, 24, 35, 35));
+        supprimerf_2->setStyleSheet(QLatin1String("#supprimerf_2{\n"
+"border-image: url(:/images/supprimerperso1.png);\n"
+"}\n"
+"#supprimerf_2:hover{\n"
+"border-image: url(:/images/supprimerperso3.png);\n"
+"}\n"
+"#supprimerf_2:pressed{\n"
+"border-image: url(:/images/supprimerperso3.png);\n"
+"}"));
+        modiffiche_2 = new QPushButton(affichagemed_2);
+        modiffiche_2->setObjectName(QStringLiteral("modiffiche_2"));
+        modiffiche_2->setGeometry(QRect(310, 23, 35, 35));
+        modiffiche_2->setMouseTracking(false);
+        modiffiche_2->setStyleSheet(QLatin1String("#modiffiche_2{\n"
+"border-image: url(:/images/modifierperso1.png);\n"
+"}\n"
+"#modiffiche_2:hover{\n"
+"border-image: url(:/images/modifierperso2.png);\n"
+"}\n"
+"#modiffiche_2:pressed{\n"
+"border-image: url(:/images/modifierperso3.png);\n"
+"}"));
+        ajouterc = new QPushButton(affichagemed_2);
+        ajouterc->setObjectName(QStringLiteral("ajouterc"));
+        ajouterc->setGeometry(QRect(30, 210, 35, 35));
+        ajouterc->setStyleSheet(QLatin1String("#ajouterc{\n"
+"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"}\n"
+"#ajouterc:hover{\n"
+"border-image: url(:/images/consultation2.png);\n"
+"}\n"
+"#ajouterc:pressed{\n"
+"border-image: url(:/images/consultation1.png);\n"
+"}"));
+        retourfiche = new QPushButton(affichagemed_2);
+        retourfiche->setObjectName(QStringLiteral("retourfiche"));
+        retourfiche->setGeometry(QRect(30, 150, 35, 35));
+        retourfiche->setStyleSheet(QLatin1String("#retourfiche{\n"
+"border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);\n"
+"}\n"
+"#retourfiche:hover{\n"
+"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"}\n"
+"#retourfiche:pressed{\n"
+"border-image: url(:/images/consultation1.png);\n"
+"}"));
+        smsf_2 = new QPushButton(affichagemed_2);
+        smsf_2->setObjectName(QStringLiteral("smsf_2"));
+        smsf_2->setGeometry(QRect(30, 10, 36, 36));
+        smsf_2->setStyleSheet(QLatin1String("\n"
+"#smsf_2{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}\n"
+"#smsf_2:hover{\n"
+"border-image: url(:/images/sms2.png);\n"
+"}\n"
+"#smsf_2:pressed{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}"));
+        gestmed->addTab(Consultation, QString());
         exigo->addTab(medecin, QString());
         barpersonnel = new QComboBox(centralwidget);
         barpersonnel->setObjectName(QStringLiteral("barpersonnel"));
@@ -4441,7 +4631,7 @@ public:
         retranslateUi(MainWindow);
 
         exigo->setCurrentIndex(4);
-        tabpersonnel->setCurrentIndex(1);
+        tabpersonnel->setCurrentIndex(0);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -4878,53 +5068,10 @@ public:
         maxmontantdon->setText(QApplication::translate("MainWindow", "nom prenom akther money", Q_NULLPTR));
         maxnbdon->setText(QApplication::translate("MainWindow", "nom prenom akther nb don", Q_NULLPTR));
         exigo->setTabText(exigo->indexOf(tresorier), QApplication::translate("MainWindow", "mayssa", Q_NULLPTR));
-        rechercherfiche->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        trierf->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        trierf->setText(QString());
-#ifndef QT_NO_TOOLTIP
-        home_f->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        home_f->setText(QString());
-#ifndef QT_NO_TOOLTIP
-        recherchefiche->setToolTip(QApplication::translate("MainWindow", "Rechercher avec filtrage", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        recherchefiche->setText(QString());
-        typetrif->setItemText(0, QApplication::translate("MainWindow", "Cin Patient", Q_NULLPTR));
-        typetrif->setItemText(1, QApplication::translate("MainWindow", "Cin Patient", Q_NULLPTR));
-        typetrif->setItemText(2, QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
-        typetrif->setItemText(3, QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
-        typetrif->setItemText(4, QApplication::translate("MainWindow", "Date D'ajout", Q_NULLPTR));
-        typetrif->setItemText(5, QApplication::translate("MainWindow", "Date D'ajout", Q_NULLPTR));
-
-#ifndef QT_NO_TOOLTIP
-        supprimerf->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        supprimerf->setText(QString());
-#ifndef QT_NO_TOOLTIP
-        modiffiche->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_WHATSTHIS
-        modiffiche->setWhatsThis(QApplication::translate("MainWindow", "<html><head/><body><p>modifier</p></body></html>", Q_NULLPTR));
-#endif // QT_NO_WHATSTHIS
-        modiffiche->setText(QString());
-        titremedecin->setText(QApplication::translate("MainWindow", "Gestion Des Consultations", Q_NULLPTR));
+        titremedecin->setText(QApplication::translate("MainWindow", "Gestion Des Patients", Q_NULLPTR));
         ajouterfichee->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
         med->setTabText(med->indexOf(imagemedecin), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
-        cinpatientL->setText(QApplication::translate("MainWindow", "Cin Patient", Q_NULLPTR));
-        confirmerAjoutermed->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
-        titreajoutmed1->setText(QApplication::translate("MainWindow", "Ajouter Une Consultation :", Q_NULLPTR));
-        descriptionpatientL->setText(QApplication::translate("MainWindow", "Description", Q_NULLPTR));
-        closeajoutermed->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
-        cinpatient->clear();
-        cinpatient->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "12345678", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "14514678", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "47586914", Q_NULLPTR)
-        );
-        resultatpatientL->setText(QApplication::translate("MainWindow", "R\303\251sultat", Q_NULLPTR));
-        med->setTabText(med->indexOf(ajoutermedecin), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
+        med->setTabText(med->indexOf(hatachy), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         cinfichL->setText(QApplication::translate("MainWindow", "Cin ", Q_NULLPTR));
         confirmerAjoutfich->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
         titreajoutfich->setText(QApplication::translate("MainWindow", "Ajouter un Patient", Q_NULLPTR));
@@ -4956,6 +5103,96 @@ public:
          << QApplication::translate("MainWindow", "Environnementaux ", Q_NULLPTR)
         );
         med->setTabText(med->indexOf(modifierfiche), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        rechercherfiche->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        trierf->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        trierf->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        home_f->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        home_f->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        recherchefiche->setToolTip(QApplication::translate("MainWindow", "Rechercher avec filtrage", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        recherchefiche->setText(QString());
+        typetrif->setItemText(0, QApplication::translate("MainWindow", "Cin Patient", Q_NULLPTR));
+        typetrif->setItemText(1, QApplication::translate("MainWindow", "Cin Patient", Q_NULLPTR));
+        typetrif->setItemText(2, QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
+        typetrif->setItemText(3, QApplication::translate("MainWindow", "Nom Prenom", Q_NULLPTR));
+        typetrif->setItemText(4, QApplication::translate("MainWindow", "Date D'ajout", Q_NULLPTR));
+        typetrif->setItemText(5, QApplication::translate("MainWindow", "Date D'ajout", Q_NULLPTR));
+
+#ifndef QT_NO_TOOLTIP
+        supprimerf->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        supprimerf->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        modiffiche->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        modiffiche->setWhatsThis(QApplication::translate("MainWindow", "<html><head/><body><p>modifier</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_WHATSTHIS
+        modiffiche->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        consultation->setToolTip(QApplication::translate("MainWindow", "G\303\251rer Les Consultations De Ce Patient", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        consultation->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        consultation_2->setToolTip(QApplication::translate("MainWindow", "G\303\251rer Les Consultations De Ce Patient", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        consultation_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        smsf->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        smsf->setText(QString());
+        gestmed->setTabText(gestmed->indexOf(Fiche), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
+        rechercherfiche_2->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        trierf_2->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        trierf_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        home_f_2->setToolTip(QApplication::translate("MainWindow", "Retour \303\240 la page d'accueil", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        home_f_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        recherchefiche_2->setToolTip(QApplication::translate("MainWindow", "Rechercher avec filtrage", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        recherchefiche_2->setText(QString());
+        typetrif_2->setItemText(0, QApplication::translate("MainWindow", "Taille", Q_NULLPTR));
+        typetrif_2->setItemText(1, QApplication::translate("MainWindow", "Taille", Q_NULLPTR));
+        typetrif_2->setItemText(2, QApplication::translate("MainWindow", "Poids", Q_NULLPTR));
+        typetrif_2->setItemText(3, QApplication::translate("MainWindow", "Poids", Q_NULLPTR));
+        typetrif_2->setItemText(4, QApplication::translate("MainWindow", "Tension", Q_NULLPTR));
+        typetrif_2->setItemText(5, QApplication::translate("MainWindow", "Tension", Q_NULLPTR));
+        typetrif_2->setItemText(6, QApplication::translate("MainWindow", "Date d'Ajout", Q_NULLPTR));
+        typetrif_2->setItemText(7, QApplication::translate("MainWindow", "Date d'Ajout", Q_NULLPTR));
+
+#ifndef QT_NO_TOOLTIP
+        supprimerf_2->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        supprimerf_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        modiffiche_2->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        modiffiche_2->setWhatsThis(QApplication::translate("MainWindow", "<html><head/><body><p>modifier</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_WHATSTHIS
+        modiffiche_2->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        ajouterc->setToolTip(QApplication::translate("MainWindow", "Ajouter Une Consultation", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        ajouterc->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        retourfiche->setToolTip(QApplication::translate("MainWindow", "Voir Tous Les Patients", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        retourfiche->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        smsf_2->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        smsf_2->setText(QString());
+        gestmed->setTabText(gestmed->indexOf(Consultation), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         exigo->setTabText(exigo->indexOf(medecin), QApplication::translate("MainWindow", "loujain", Q_NULLPTR));
         barpersonnel->clear();
         barpersonnel->insertItems(0, QStringList()
