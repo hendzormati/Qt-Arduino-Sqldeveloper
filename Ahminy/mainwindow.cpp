@@ -3827,7 +3827,7 @@ void MainWindow::on_home_f_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    ui->consultation_2->setHidden(1);
+    ui->imprimerfiche->setHidden(1);
     ui->recherchefiche->setEnabled(1);
     ui->tableViewF->setEnabled(1);
     ui->trierf->setEnabled(1);
@@ -3868,7 +3868,7 @@ void MainWindow::on_recherchefiche_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    ui->consultation_2->setHidden(1);
+    ui->imprimerfiche->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
     // ui->afficherp->setHidden(1);
     //ui->pdfp->setHidden(1);
@@ -4056,7 +4056,7 @@ void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
     ui->modiffiche->setHidden(0);
     ui->supprimerf->setHidden(0);
     ui->consultation->setHidden(0);
-    ui->consultation_2->setHidden(0);
+    ui->imprimerfiche->setHidden(0);
     //ui->ajoutrfidp->setHidden(0);
     //ui->pdfp->setHidden(0);
     // ui->afficherp->setHidden(0);
@@ -4388,10 +4388,113 @@ void MainWindow::on_modiffiche_2_clicked()
     d.setWindowTitle("Modifier Consultation");
     int id=ui->rechercherfiche_2->text().toInt();
     consultation c;
-    C.getconsultation(C,id);
+    C.getconsultation(c,id);
     d.setetat(0);
     d.setidcons(id);
     d.affichercons(c);
     d.exec();
     ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+}
+
+
+void MainWindow::on_imprimerfiche_clicked()
+{
+
+    /*QTextDocument document;
+    QTextCursor cursor(&document);
+    cursor.insertText("Hello, world!");
+
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName("output.pdf");
+
+    QPrintDialog printDialog(&printer, this);
+    if (printDialog.exec() == QDialog::Accepted) {
+        document.print(&printer);
+    }*/
+
+
+
+    QSqlQuery query;
+            query.prepare("SELECT * FROM fiche");
+            if (query.exec()) {
+                // create printer object
+                QPrinter printer(QPrinter::HighResolution);
+
+                // create print preview dialog
+                QPrintPreviewDialog preview(&printer, this);
+                preview.setMinimumSize(600, 400); // set minimum size
+
+                // connect to the paint requested signal to render the page
+                connect(&preview, &QPrintPreviewDialog::paintRequested, this, [=, &query](QPrinter *printer){
+                    // create painter object and set font
+                    QPainter painter(printer);
+                    QFont font("Helvetica", 12);
+                    painter.setFont(font);
+
+                    // set pen color to blue
+                    QPen pen;
+                    pen.setColor(Qt::blue);
+                    painter.setPen(pen);
+
+                    // iterate over result set and draw data on painter
+                    while (query.next()) {
+                        QString cin_b = query.value("cin_b").toString();
+                        QString nomprenom = query.value("nomprenom").toString();
+                        QString categorie_ant = query.value("categorie_ant").toString();
+                        QString description_ant = query.value("description_ant").toString();
+                        QString date_f = query.value("date_f").toString();
+
+                        // draw data on painter
+                        painter.drawText(100, 100, "CIN: " + cin_b);
+                        painter.drawText(100, 120, "Nom et prénom: " + nomprenom);
+                        painter.drawText(100, 140, "Catégorie antécédents: " + categorie_ant);
+                        painter.drawText(100, 160, "Description antécédents: " + description_ant);
+                        painter.drawText(100, 180, "Date de la fiche: " + date_f);
+                        painter.drawText(100, 200, "------------------------");
+                    }
+                });
+
+                // show print preview dialog
+                preview.exec();
+            } else {
+                qDebug() << "Error executing query: " << query.lastError().text();
+            }
+
+    /*QSqlQuery query;
+            query.prepare("SELECT * FROM fiche");
+            if (query.exec()) {
+                // create printer object
+                QPrinter printer(QPrinter::HighResolution);
+
+                // create print dialog
+                QPrintDialog printDialog(&printer, this);
+
+                // if the user clicked 'OK' in the print dialog, print the data
+                if (printDialog.exec() == QDialog::Accepted) {
+                    // create painter object and set font
+                    QPainter painter(&printer);
+                    QFont font("Helvetica", 12);
+                    painter.setFont(font);
+
+                    // iterate over result set and draw data on painter
+                    while (query.next()) {
+                        QString cin_b = query.value("cin_b").toString();
+                        QString nomprenom = query.value("nomprenom").toString();
+                        QString categorie_ant = query.value("categorie_ant").toString();
+                        QString description_ant = query.value("description_ant").toString();
+                        QString date_f = query.value("date_f").toString();
+
+                        // draw data on painter
+                        painter.drawText(100, 100, "CIN: " + cin_b);
+                        painter.drawText(100, 120, "Nom et prénom: " + nomprenom);
+                        painter.drawText(100, 140, "Catégorie antécédents: " + categorie_ant);
+                        painter.drawText(100, 160, "Description antécédents: " + description_ant);
+                        painter.drawText(100, 180, "Date de la fiche: " + date_f);
+                        painter.drawText(100, 200, "------------------------");
+                    }
+                }
+            } else {
+                qDebug() << "Error executing query: " << query.lastError().text();
+            }*/
 }

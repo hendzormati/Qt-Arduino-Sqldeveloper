@@ -59,6 +59,12 @@
 #include <QCategoryAxis>
 #include <QValueAxis>
 #include <map>
+
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
+#include <QPainter>
+
 using namespace QtCharts;
 
 QT_BEGIN_NAMESPACE
@@ -382,9 +388,12 @@ private slots:
    void on_tableViewF_2_clicked(const QModelIndex &index);
 
    void on_supprimerf_2_clicked();
+
    void on_ajouterc_clicked();
 
    void on_modiffiche_2_clicked();
+
+   void on_imprimerfiche_clicked();
 
 private:
     Ui::MainWindow *ui;

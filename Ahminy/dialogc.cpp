@@ -7,6 +7,12 @@ dialogc::dialogc(QWidget *parent) :
     ui(new Ui::dialogc)
 {
     ui->setupUi(this);
+    ui->resultat->setMaximumBlockCount(60);
+    ui->taille->setMaxLength(3);
+    ui->poids->setMaxLength(4);
+    ui->temperature->setMaxLength(4);
+    ui->tension->setMaxLength(3);
+
 }
 
 dialogc::~dialogc()
@@ -28,11 +34,6 @@ void dialogc::on_confirmerAjouterconst_clicked()
 
     ///Debut controle de saisie:
 
-    ui->resultat->setMaximumBlockCount(60);
-    ui->taille->setMaxLength(3);
-    ui->poids->setMaxLength(4);
-    ui->temperature->setMaxLength(4);
-    ui->tension->setMaxLength(3);
 
     QString res=ui->resultat->toPlainText().toLower();
     res[0]=res[0].toUpper();

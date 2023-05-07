@@ -8786,7 +8786,7 @@ background:#f3f2f7;
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>290</y>
+            <y>340</y>
             <width>36</width>
             <height>36</height>
            </rect>
@@ -8974,7 +8974,7 @@ border-image: url(:/images/supprimerperso3.png);
          <widget class="QPushButton" name="modiffiche">
           <property name="geometry">
            <rect>
-            <x>310</x>
+            <x>319</x>
             <y>23</y>
             <width>35</width>
             <height>35</height>
@@ -9031,10 +9031,10 @@ border-image: url(:/images/consultation1.png);
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="consultation_2">
+         <widget class="QPushButton" name="imprimerfiche">
           <property name="geometry">
            <rect>
-            <x>260</x>
+            <x>280</x>
             <y>20</y>
             <width>35</width>
             <height>35</height>
@@ -9044,14 +9044,14 @@ border-image: url(:/images/consultation1.png);
            <string>Gérer Les Consultations De Ce Patient</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">#consultation_2{
-border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);
+           <string notr="true">#imprimerfiche{
+border-image: url(:/images/imprimerf1.png);
 }
-#consultation_2:hover{
-border-image: url(:/Downloads/icons8-dying-64.png);
+#imprimerfiche:hover{
+border-image: url(:/images/imprimerf2.png);
 }
-#consultation_2:pressed{
-border-image: url(:/images/consultation1.png);
+#imprimerfiche:pressed{
+border-image: url(:/images/imprimerf1.png);
 }</string>
           </property>
           <property name="text">
@@ -9062,7 +9062,7 @@ border-image: url(:/images/consultation1.png);
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>210</y>
+            <y>260</y>
             <width>36</width>
             <height>36</height>
            </rect>
@@ -9080,6 +9080,34 @@ border-image: url(:/images/sms2.png);
 }
 #smsf:pressed{
 border-image: url(:/images/sms1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="statmed">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>180</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Voir Statistique</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#statmed{
+border-image: url(:/images/statperso1.png);
+}
+#statmed:hover{
+border-image: url(:/images/statperso2.png);
+}
+#statmed:pressed{
+border-image: url(:/images/statperso2.png);
 }</string>
           </property>
           <property name="text">
@@ -9284,7 +9312,7 @@ background:#f3f2f7;
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>270</y>
+            <y>340</y>
             <width>36</width>
             <height>36</height>
            </rect>
@@ -9524,7 +9552,7 @@ border-image: url(:/images/modifierperso3.png);
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>210</y>
+            <y>260</y>
             <width>40</width>
             <height>40</height>
            </rect>
@@ -9551,7 +9579,7 @@ border-image: url(:/images/ajoutc1.png);
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>150</y>
+            <y>180</y>
             <width>40</width>
             <height>40</height>
            </rect>

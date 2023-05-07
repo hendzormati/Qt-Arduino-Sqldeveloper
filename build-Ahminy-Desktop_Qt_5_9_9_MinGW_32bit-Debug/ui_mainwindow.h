@@ -368,8 +368,9 @@ public:
     QPushButton *supprimerf;
     QPushButton *modiffiche;
     QPushButton *consultation;
-    QPushButton *consultation_2;
+    QPushButton *imprimerfiche;
     QPushButton *smsf;
+    QPushButton *statmed;
     QWidget *Consultation;
     QWidget *affichagemed_2;
     QTableView *tableViewF_2;
@@ -1421,7 +1422,7 @@ public:
 "}"));
         modifierp = new QPushButton(affichagepersonnel);
         modifierp->setObjectName(QStringLiteral("modifierp"));
-        modifierp->setGeometry(QRect(309, 20, 35, 35));
+        modifierp->setGeometry(QRect(319, 20, 35, 35));
         modifierp->setMouseTracking(false);
         modifierp->setStyleSheet(QLatin1String("#modifierp{\n"
 "border-image: url(:/images/modifierperso1.png);\n"
@@ -1510,7 +1511,7 @@ public:
 "}"));
         pdfp = new QPushButton(affichagepersonnel);
         pdfp->setObjectName(QStringLiteral("pdfp"));
-        pdfp->setGeometry(QRect(220, 19, 36, 36));
+        pdfp->setGeometry(QRect(230, 19, 36, 36));
         pdfp->setStyleSheet(QLatin1String("#pdfp{\n"
 "border-image: url(:/images/pdfperso1.png);\n"
 "}\n"
@@ -1548,7 +1549,7 @@ public:
 "}"));
         ajoutrfidp = new QPushButton(affichagepersonnel);
         ajoutrfidp->setObjectName(QStringLiteral("ajoutrfidp"));
-        ajoutrfidp->setGeometry(QRect(265, 20, 37, 37));
+        ajoutrfidp->setGeometry(QRect(275, 20, 37, 37));
         ajoutrfidp->setStyleSheet(QLatin1String("#ajoutrfidp{\n"
 "border-image: url(:/images/rfidperso1.png);\n"
 "}\n"
@@ -4221,7 +4222,7 @@ public:
 "}"));
         trierf = new QPushButton(affichagemed);
         trierf->setObjectName(QStringLiteral("trierf"));
-        trierf->setGeometry(QRect(30, 290, 36, 36));
+        trierf->setGeometry(QRect(30, 340, 36, 36));
         trierf->setStyleSheet(QLatin1String("#trierf{\n"
 "border-image: url(:/images/triperso1.png);\n"
 "}\n"
@@ -4293,7 +4294,7 @@ public:
 "}"));
         modiffiche = new QPushButton(affichagemed);
         modiffiche->setObjectName(QStringLiteral("modiffiche"));
-        modiffiche->setGeometry(QRect(310, 23, 35, 35));
+        modiffiche->setGeometry(QRect(319, 23, 35, 35));
         modiffiche->setMouseTracking(false);
         modiffiche->setStyleSheet(QLatin1String("#modiffiche{\n"
 "border-image: url(:/images/modifierperso1.png);\n"
@@ -4316,21 +4317,21 @@ public:
 "#consultation:pressed{\n"
 "border-image: url(:/images/consultation1.png);\n"
 "}"));
-        consultation_2 = new QPushButton(affichagemed);
-        consultation_2->setObjectName(QStringLiteral("consultation_2"));
-        consultation_2->setGeometry(QRect(260, 20, 35, 35));
-        consultation_2->setStyleSheet(QLatin1String("#consultation_2{\n"
-"border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);\n"
+        imprimerfiche = new QPushButton(affichagemed);
+        imprimerfiche->setObjectName(QStringLiteral("imprimerfiche"));
+        imprimerfiche->setGeometry(QRect(280, 20, 35, 35));
+        imprimerfiche->setStyleSheet(QLatin1String("#imprimerfiche{\n"
+"border-image: url(:/images/imprimerf1.png);\n"
 "}\n"
-"#consultation_2:hover{\n"
-"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"#imprimerfiche:hover{\n"
+"border-image: url(:/images/imprimerf2.png);\n"
 "}\n"
-"#consultation_2:pressed{\n"
-"border-image: url(:/images/consultation1.png);\n"
+"#imprimerfiche:pressed{\n"
+"border-image: url(:/images/imprimerf1.png);\n"
 "}"));
         smsf = new QPushButton(affichagemed);
         smsf->setObjectName(QStringLiteral("smsf"));
-        smsf->setGeometry(QRect(30, 210, 36, 36));
+        smsf->setGeometry(QRect(30, 260, 36, 36));
         smsf->setStyleSheet(QLatin1String("\n"
 "#smsf{\n"
 "border-image: url(:/images/sms1.png);\n"
@@ -4340,6 +4341,19 @@ public:
 "}\n"
 "#smsf:pressed{\n"
 "border-image: url(:/images/sms1.png);\n"
+"}"));
+        statmed = new QPushButton(affichagemed);
+        statmed->setObjectName(QStringLiteral("statmed"));
+        statmed->setGeometry(QRect(30, 180, 36, 36));
+        statmed->setStyleSheet(QLatin1String("\n"
+"#statmed{\n"
+"border-image: url(:/images/statperso1.png);\n"
+"}\n"
+"#statmed:hover{\n"
+"border-image: url(:/images/statperso2.png);\n"
+"}\n"
+"#statmed:pressed{\n"
+"border-image: url(:/images/statperso2.png);\n"
 "}"));
         gestmed->addTab(Fiche, QString());
         Consultation = new QWidget();
@@ -4355,8 +4369,7 @@ public:
         tableViewF_2->setFont(font13);
         tableViewF_2->setLayoutDirection(Qt::LeftToRight);
         tableViewF_2->setAutoFillBackground(false);
-        tableViewF_2->setStyleSheet(QLatin1String("\n"
-"#tableViewF_2 {\n"
+        tableViewF_2->setStyleSheet(QLatin1String("#tableViewF_2 {\n"
 "border:5px outset #f3f2f7;\n"
 "    color: #7888b9;\n"
 "font-weight: bold;\n"
@@ -4399,8 +4412,8 @@ public:
 "    background-color: #b6b6b6;\n"
 "    min-height: 5px;\n"
 "    border-radius: 4px;\n"
-""
-                        "}\n"
+"}"
+                        "\n"
 "\n"
 "QScrollBar::sub-line:vertical {\n"
 "    margin: 3px 0px 3px 1px;  1px to correctly fit the 10px width image /\n"
@@ -4436,8 +4449,8 @@ public:
 "}\n"
 "\n"
 "\n"
-"QScrollBar::add-page:v"
-                        "ertical,\n"
+"QScrollBar::add-page:ve"
+                        "rtical,\n"
 "QScrollBar::sub-page:vertical {\n"
 "    background: none;\n"
 "}*/"));
@@ -4471,7 +4484,7 @@ public:
 "}"));
         trierf_2 = new QPushButton(affichagemed_2);
         trierf_2->setObjectName(QStringLiteral("trierf_2"));
-        trierf_2->setGeometry(QRect(30, 290, 36, 36));
+        trierf_2->setGeometry(QRect(30, 340, 36, 36));
         trierf_2->setStyleSheet(QLatin1String("#trierf_2{\n"
 "border-image: url(:/images/triperso1.png);\n"
 "}\n"
@@ -4533,7 +4546,7 @@ public:
 "}"));
         supprimerf_2 = new QPushButton(affichagemed_2);
         supprimerf_2->setObjectName(QStringLiteral("supprimerf_2"));
-        supprimerf_2->setGeometry(QRect(565, 24, 35, 35));
+        supprimerf_2->setGeometry(QRect(520, 22, 35, 35));
         supprimerf_2->setStyleSheet(QLatin1String("#supprimerf_2{\n"
 "border-image: url(:/images/supprimerperso1.png);\n"
 "}\n"
@@ -4545,7 +4558,7 @@ public:
 "}"));
         modiffiche_2 = new QPushButton(affichagemed_2);
         modiffiche_2->setObjectName(QStringLiteral("modiffiche_2"));
-        modiffiche_2->setGeometry(QRect(310, 23, 35, 35));
+        modiffiche_2->setGeometry(QRect(319, 23, 35, 35));
         modiffiche_2->setMouseTracking(false);
         modiffiche_2->setStyleSheet(QLatin1String("#modiffiche_2{\n"
 "border-image: url(:/images/modifierperso1.png);\n"
@@ -4558,27 +4571,27 @@ public:
 "}"));
         ajouterc = new QPushButton(affichagemed_2);
         ajouterc->setObjectName(QStringLiteral("ajouterc"));
-        ajouterc->setGeometry(QRect(30, 210, 35, 35));
+        ajouterc->setGeometry(QRect(30, 260, 40, 40));
         ajouterc->setStyleSheet(QLatin1String("#ajouterc{\n"
-"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"border-image: url(:/images/ajoutc1.png);\n"
 "}\n"
 "#ajouterc:hover{\n"
-"border-image: url(:/images/consultation2.png);\n"
+"border-image: url(:/images/ajoutc2.png);\n"
 "}\n"
 "#ajouterc:pressed{\n"
-"border-image: url(:/images/consultation1.png);\n"
+"border-image: url(:/images/ajoutc1.png);\n"
 "}"));
         retourfiche = new QPushButton(affichagemed_2);
         retourfiche->setObjectName(QStringLiteral("retourfiche"));
-        retourfiche->setGeometry(QRect(30, 150, 35, 35));
+        retourfiche->setGeometry(QRect(30, 180, 40, 40));
         retourfiche->setStyleSheet(QLatin1String("#retourfiche{\n"
-"border-image: url(:/Downloads/icons8-chat-bout-a-bout-100.png);\n"
+"border-image: url(:/images/retourf1.png);\n"
 "}\n"
 "#retourfiche:hover{\n"
-"border-image: url(:/Downloads/icons8-dying-64.png);\n"
+"border-image: url(:/images/retourf2.png);\n"
 "}\n"
 "#retourfiche:pressed{\n"
-"border-image: url(:/images/consultation1.png);\n"
+"border-image: url(:/images/retourf1.png);\n"
 "}"));
         smsf_2 = new QPushButton(affichagemed_2);
         smsf_2->setObjectName(QStringLiteral("smsf_2"));
@@ -4631,7 +4644,7 @@ public:
         retranslateUi(MainWindow);
 
         exigo->setCurrentIndex(4);
-        tabpersonnel->setCurrentIndex(0);
+        tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -5139,13 +5152,17 @@ public:
 #endif // QT_NO_TOOLTIP
         consultation->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        consultation_2->setToolTip(QApplication::translate("MainWindow", "G\303\251rer Les Consultations De Ce Patient", Q_NULLPTR));
+        imprimerfiche->setToolTip(QApplication::translate("MainWindow", "G\303\251rer Les Consultations De Ce Patient", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        consultation_2->setText(QString());
+        imprimerfiche->setText(QString());
 #ifndef QT_NO_TOOLTIP
         smsf->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         smsf->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        statmed->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        statmed->setText(QString());
         gestmed->setTabText(gestmed->indexOf(Fiche), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         rechercherfiche_2->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
