@@ -18,8 +18,12 @@ public:
     explicit dialogc(QWidget *parent = nullptr);
     ~dialogc();
 
-    //void setidcons(int id){ID=id;}
+    void setidcons(int id){ID=id;}
     void setetat(int et){etat=et;}
+    void setcin_b(QString c){CIN=c;}
+    void setIDP(QString p){IDP=p;}
+
+    void affichercons(consultation &c);
 
 private slots:
     void on_confirmerAjouterconst_clicked();
@@ -30,7 +34,8 @@ private:
     Ui::dialogc *ui;
     int etat;
     int ID;
-    //consultation C;
-};
+    QString CIN;
+    QString IDP;
 
+};
 #endif // DIALOGC_H

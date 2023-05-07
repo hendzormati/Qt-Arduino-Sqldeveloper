@@ -98,7 +98,7 @@ void dialogc::on_confirmerAjouterconst_clicked()
     }
     else if (!numtail)
     {
-        msgBox.setText("Taille doit comporter des chiffres.");
+        msgBox.setText("Taille doit comporter uniquement des chiffres.");
         msgBox.exec();
         verif=false;
     }
@@ -112,7 +112,7 @@ void dialogc::on_confirmerAjouterconst_clicked()
     }
     else if (!numpoids)
     {
-        msgBox.setText("Poids doit comporter des chiffres.");
+        msgBox.setText("Poids doit comporter uniquement des chiffres.");
         msgBox.exec();
         verif=false;
     }
@@ -126,7 +126,7 @@ void dialogc::on_confirmerAjouterconst_clicked()
     }
     else if (!numtens)
     {
-        msgBox.setText("Tension doit comporter des chiffres.");
+        msgBox.setText("Tension doit comporter uniquement des chiffres.");
         msgBox.exec();
         verif=false;
     }
@@ -140,7 +140,7 @@ void dialogc::on_confirmerAjouterconst_clicked()
     }
     else if (!numtemp)
     {
-        msgBox.setText("Temperature doit comporter des chiffres.");
+        msgBox.setText("Temperature doit comporter uniquement des chiffres.");
         msgBox.exec();
         verif=false;
     }
@@ -162,13 +162,12 @@ void dialogc::on_confirmerAjouterconst_clicked()
     ///Fin controle de saisie:
 
     QDateTime dateRec = QDateTime::currentDateTime();
-    //consultation C(0,ui->taille->text(),ui->poids->text(),ui->tension->text(),ui->temperature->text(),idp,cin,res,dateRec);
-    ///idp et cin
+    consultation C(0,ui->taille->text(),ui->poids->text(),ui->tension->text(),ui->temperature->text(),IDP,CIN,res,dateRec);
     bool test=true;
     if (verif)
     {
-        //if(etat==0) //test=C.ajouter_c();
-        //else //test=C.modifier_c();
+        if(etat==1) test=C.ajouter_c();
+        else test=C.modifier_c(ID);
         if (test)
         {
             close();
@@ -184,4 +183,14 @@ void dialogc::on_confirmerAjouterconst_clicked()
 void dialogc::on_closeajoutercons_clicked()
 {
     close();
+}
+
+void dialogc::affichercons(consultation &c)
+{
+    ui->taille->setText(c.get_taille_p());
+    ui->poids->setText(c.get_poid_p());
+    ui->tension->setText(c.get_tension());
+    ui->temperature->setText(c.get_temperature());
+    ui->resultat->setPlainText(c.get_resultat_c());
+    ui->ajoutcons->setText("Modifier une consultation");
 }

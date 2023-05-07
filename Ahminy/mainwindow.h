@@ -384,6 +384,8 @@ private slots:
    void on_supprimerf_2_clicked();
    void on_ajouterc_clicked();
 
+   void on_modiffiche_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;

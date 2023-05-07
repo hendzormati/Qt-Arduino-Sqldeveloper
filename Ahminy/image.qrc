@@ -141,9 +141,11 @@
         <file>images/meilleurd.png</file>
         <file>images/consultation1.png</file>
         <file>images/consultation2.png</file>
-        <file>../../../Downloads/icons8-chat-bout-a-bout-100.png</file>
-        <file>../../../Downloads/icons8-dying-64.png</file>
         <file>images/sms1.png</file>
         <file>images/sms2.png</file>
+        <file>images/ajoutc1.png</file>
+        <file>images/ajoutc2.png</file>
+        <file>images/retourf1.png</file>
+        <file>images/retourf2.png</file>
     </qresource>
 </RCC>
