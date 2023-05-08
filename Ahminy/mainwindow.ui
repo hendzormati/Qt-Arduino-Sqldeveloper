@@ -65,7 +65,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -2144,7 +2144,7 @@ background:#f3f2f7;
           <bool>false</bool>
          </property>
          <property name="toolTip">
-          <string>Modifier</string>
+          <string>Modifier Les Données De Cet Employé</string>
          </property>
          <property name="whatsThis">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;modifier&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2174,7 +2174,7 @@ border-image: url(:/images/modifierperso3.png);
           </rect>
          </property>
          <property name="toolTip">
-          <string>Supprimer</string>
+          <string>Supprimer Cet Employé</string>
          </property>
          <property name="styleSheet">
           <string notr="true">#supprimerp{
@@ -2201,7 +2201,7 @@ border-image: url(:/images/supprimerperso3.png);
           </rect>
          </property>
          <property name="toolTip">
-          <string>Voir Plus</string>
+          <string>Afficher Les Données De Cet Employé</string>
          </property>
          <property name="styleSheet">
           <string notr="true">#afficherp{
@@ -2335,7 +2335,7 @@ selection-color:#425180;
           </rect>
          </property>
          <property name="toolTip">
-          <string>Voir Statistique</string>
+          <string>Voir Statistique Annuelle</string>
          </property>
          <property name="styleSheet">
           <string notr="true">
@@ -2363,7 +2363,7 @@ border-image: url(:/images/statperso2.png);
           </rect>
          </property>
          <property name="toolTip">
-          <string>Télécharger PDF</string>
+          <string>Télécharger La Fiche De Cet Employé</string>
          </property>
          <property name="styleSheet">
           <string notr="true">#pdfp{
@@ -2390,7 +2390,7 @@ border-image: url(:/images/pdfperso2.png);
           </rect>
          </property>
          <property name="toolTip">
-          <string>Mailing</string>
+          <string>Contacter Un Employé Par Mail</string>
          </property>
          <property name="styleSheet">
           <string notr="true">
@@ -2446,7 +2446,7 @@ border-image: url(:/images//home_p3.png);
           </rect>
          </property>
          <property name="toolTip">
-          <string>Affecter RFID</string>
+          <string>Affecter Une Carte RFID à Cet Employé</string>
          </property>
          <property name="styleSheet">
           <string notr="true">#ajoutrfidp{
@@ -5841,10 +5841,10 @@ background: #f6f1f7;
      <widget class="QTableView" name="tableView_excel_inv">
       <property name="geometry">
        <rect>
-        <x>-30</x>
-        <y>730</y>
-        <width>20</width>
-        <height>21</height>
+        <x>-10</x>
+        <y>-1000</y>
+        <width>100</width>
+        <height>100</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -7961,13 +7961,60 @@ background: #f6f1f7;
          </property>
         </widget>
        </widget>
-       <widget class="QWidget" name="hatachy">
+       <widget class="QWidget" name="statm">
         <property name="styleSheet">
-         <string notr="true">#ajoutermedecin{ background: #fbf9f9;}</string>
+         <string notr="true">#statm{ background: #fbf9f9;}</string>
         </property>
         <attribute name="title">
          <string>Tab 2</string>
         </attribute>
+        <widget class="QFrame" name="statmedecin">
+         <property name="geometry">
+          <rect>
+           <x>-90</x>
+           <y>60</y>
+           <width>561</width>
+           <height>460</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4"/>
+        </widget>
+        <widget class="QPushButton" name="closestatm">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>28</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#closestatm{
+color:#425180;
+border: 4px inset #dcd0c9;
+border-radius: 15px;
+background: #f3f2f7;
+}
+#closestatm:hover{
+border: 4px outset #dcd0c9;
+background: #f0e4e0;
+}
+#closestatm:pressed{
+border: 4px inset #dcd0c9;
+background: #f6f1f7;
+}</string>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
        </widget>
        <widget class="QWidget" name="ajouterfiche">
         <property name="styleSheet">
@@ -9041,17 +9088,17 @@ border-image: url(:/images/consultation1.png);
            </rect>
           </property>
           <property name="toolTip">
-           <string>Gérer Les Consultations De Ce Patient</string>
+           <string>Télécharger La Fiche Du Patient</string>
           </property>
           <property name="styleSheet">
            <string notr="true">#imprimerfiche{
-border-image: url(:/images/imprimerf1.png);
+border-image: url(:/images/pdfperso1.png);
 }
 #imprimerfiche:hover{
-border-image: url(:/images/imprimerf2.png);
+border-image: url(:/images/pdfperso2.png);
 }
 #imprimerfiche:pressed{
-border-image: url(:/images/imprimerf1.png);
+border-image: url(:/images/pdfperso1.png);
 }</string>
           </property>
           <property name="text">

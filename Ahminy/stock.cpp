@@ -62,8 +62,13 @@ return model;
 QSqlQueryModel * stock::afficher_inv_bilan()
 {
 QSqlQueryModel * model=new QSqlQueryModel ();
-model->setQuery("SELECT stock.type, EXTRACT(MONTH FROM stock_stat.date_ajout) AS mois, (SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) AS nb,  stock.prix as prix_unitaire ,stock.prix*(SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) as prix_total FROM stock_stat ,stock where stock_stat.id_s = stock.id_s GROUP BY EXTRACT(MONTH FROM stock_stat.date_ajout), stock.type, stock.prix; ");
-return model;
+  QSqlQuery query;
+ query.prepare("SELECT stock.type, TO_CHAR(TO_DATE(stock_stat.date_ajout, 'DD/MM/YYYY'), 'Month','NLS_DATE_LANGUAGE = FRENCH') AS Mois, (SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) AS nb,  stock.prix as prix_unitaire ,stock.prix*(SUM(stock_stat.nb_tot) - SUM(stock_stat.nb_res)) as prix_total FROM stock_stat ,stock where stock_stat.id_s = stock.id_s GROUP BY TO_CHAR(TO_DATE(stock_stat.date_ajout, 'DD/MM/YYYY'), 'Month','NLS_DATE_LANGUAGE = FRENCH'), stock.type, stock.prix; ");
+ if (!query.exec()) {
+     qDebug() << "Failed to execute query:" << query.lastError().text();
+ }
+  model->setQuery(query);
+ return model;
 }
 //delete
 bool stock::supprimer(int id_s)

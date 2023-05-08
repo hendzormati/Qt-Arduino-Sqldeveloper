@@ -2947,11 +2947,19 @@ debug/moc_mailingp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../Ahminy/mailingp.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -3591,11 +3599,19 @@ debug/moc_mainwindow.cpp: ../Ahminy/personnel.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../Ahminy/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -4235,11 +4251,19 @@ debug/moc_modifmdp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../Ahminy/modifmdp.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -7718,11 +7742,19 @@ debug/mailingp.o: ../Ahminy/mailingp.cpp ../Ahminy/mailingp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../SMTPClient/smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QByteArray \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QFileInfo \
@@ -8375,11 +8407,19 @@ debug/main.o: ../Ahminy/main.cpp ../Ahminy/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		../Ahminy/connection.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QCryptographicHash
@@ -9019,11 +9059,19 @@ debug/mainwindow.o: ../Ahminy/mainwindow.cpp ../Ahminy/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		ui_mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
@@ -9678,11 +9726,19 @@ debug/modifmdp.o: ../Ahminy/modifmdp.cpp ../Ahminy/modifmdp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupport \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QtPrintSupportDepends \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qpagesetupdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintengine.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprinterinfo.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QPair \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qtprintsupportversion.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
 		ui_modifmdp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \

@@ -332,7 +332,10 @@ public:
     QWidget *imagemedecin;
     QWidget *imagemed;
     QPushButton *ajouterfichee;
-    QWidget *hatachy;
+    QWidget *statm;
+    QFrame *statmedecin;
+    QVBoxLayout *verticalLayout_4;
+    QPushButton *closestatm;
     QWidget *ajouterfiche;
     QFrame *ajouterfich;
     QLabel *cinfichL;
@@ -3033,7 +3036,7 @@ public:
         inv->addTab(afficheplusInvl, QString());
         tableView_excel_inv = new QTableView(inventaire);
         tableView_excel_inv->setObjectName(QStringLiteral("tableView_excel_inv"));
-        tableView_excel_inv->setGeometry(QRect(-30, 730, 20, 21));
+        tableView_excel_inv->setGeometry(QRect(-10, -1000, 100, 100));
         tableView_excel_inv->setStyleSheet(QStringLiteral(""));
         exigo->addTab(inventaire, QString());
         tresorier = new QWidget();
@@ -3830,10 +3833,33 @@ public:
         ajouterfichee->setGeometry(QRect(126, 460, 130, 50));
         ajouterfichee->setFont(font7);
         med->addTab(imagemedecin, QString());
-        hatachy = new QWidget();
-        hatachy->setObjectName(QStringLiteral("hatachy"));
-        hatachy->setStyleSheet(QStringLiteral("#ajoutermedecin{ background: #fbf9f9;}"));
-        med->addTab(hatachy, QString());
+        statm = new QWidget();
+        statm->setObjectName(QStringLiteral("statm"));
+        statm->setStyleSheet(QStringLiteral("#statm{ background: #fbf9f9;}"));
+        statmedecin = new QFrame(statm);
+        statmedecin->setObjectName(QStringLiteral("statmedecin"));
+        statmedecin->setGeometry(QRect(-90, 60, 561, 460));
+        verticalLayout_4 = new QVBoxLayout(statmedecin);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        closestatm = new QPushButton(statm);
+        closestatm->setObjectName(QStringLiteral("closestatm"));
+        closestatm->setGeometry(QRect(10, 60, 28, 28));
+        closestatm->setFont(font12);
+        closestatm->setStyleSheet(QLatin1String("#closestatm{\n"
+"color:#425180;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 15px;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#closestatm:hover{\n"
+"border: 4px outset #dcd0c9;\n"
+"background: #f0e4e0;\n"
+"}\n"
+"#closestatm:pressed{\n"
+"border: 4px inset #dcd0c9;\n"
+"background: #f6f1f7;\n"
+"}"));
+        med->addTab(statm, QString());
         ajouterfiche = new QWidget();
         ajouterfiche->setObjectName(QStringLiteral("ajouterfiche"));
         ajouterfiche->setStyleSheet(QStringLiteral("#ajouterfiche{background: #fbf9f9;}"));
@@ -4321,13 +4347,13 @@ public:
         imprimerfiche->setObjectName(QStringLiteral("imprimerfiche"));
         imprimerfiche->setGeometry(QRect(280, 23, 35, 35));
         imprimerfiche->setStyleSheet(QLatin1String("#imprimerfiche{\n"
-"border-image: url(:/images/imprimerf1.png);\n"
+"border-image: url(:/images/pdfperso1.png);\n"
 "}\n"
 "#imprimerfiche:hover{\n"
-"border-image: url(:/images/imprimerf2.png);\n"
+"border-image: url(:/images/pdfperso2.png);\n"
 "}\n"
 "#imprimerfiche:pressed{\n"
-"border-image: url(:/images/imprimerf1.png);\n"
+"border-image: url(:/images/pdfperso1.png);\n"
 "}"));
         smsf = new QPushButton(affichagemed);
         smsf->setObjectName(QStringLiteral("smsf"));
@@ -4644,7 +4670,7 @@ public:
         retranslateUi(MainWindow);
 
         exigo->setCurrentIndex(0);
-        tabpersonnel->setCurrentIndex(0);
+        tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -4736,18 +4762,18 @@ public:
         rechercheperso->setText(QString());
         rechercherper->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        modifierp->setToolTip(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
+        modifierp->setToolTip(QApplication::translate("MainWindow", "Modifier Les Donn\303\251es De Cet Employ\303\251", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_WHATSTHIS
         modifierp->setWhatsThis(QApplication::translate("MainWindow", "<html><head/><body><p>modifier</p></body></html>", Q_NULLPTR));
 #endif // QT_NO_WHATSTHIS
         modifierp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        supprimerp->setToolTip(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
+        supprimerp->setToolTip(QApplication::translate("MainWindow", "Supprimer Cet Employ\303\251", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         supprimerp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        afficherp->setToolTip(QApplication::translate("MainWindow", "Voir Plus", Q_NULLPTR));
+        afficherp->setToolTip(QApplication::translate("MainWindow", "Afficher Les Donn\303\251es De Cet Employ\303\251", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         afficherp->setText(QString());
 #ifndef QT_NO_TOOLTIP
@@ -4762,15 +4788,15 @@ public:
         typetrip->setItemText(5, QApplication::translate("MainWindow", "Salaire", Q_NULLPTR));
 
 #ifndef QT_NO_TOOLTIP
-        statp->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
+        statp->setToolTip(QApplication::translate("MainWindow", "Voir Statistique Annuelle", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         statp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        pdfp->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger PDF", Q_NULLPTR));
+        pdfp->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger La Fiche De Cet Employ\303\251", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         pdfp->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        mailp->setToolTip(QApplication::translate("MainWindow", "Mailing", Q_NULLPTR));
+        mailp->setToolTip(QApplication::translate("MainWindow", "Contacter Un Employ\303\251 Par Mail", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         mailp->setText(QString());
 #ifndef QT_NO_TOOLTIP
@@ -4778,7 +4804,7 @@ public:
 #endif // QT_NO_TOOLTIP
         home_p->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        ajoutrfidp->setToolTip(QApplication::translate("MainWindow", "Affecter RFID", Q_NULLPTR));
+        ajoutrfidp->setToolTip(QApplication::translate("MainWindow", "Affecter Une Carte RFID \303\240 Cet Employ\303\251", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         ajoutrfidp->setText(QString());
         titreperso->setText(QApplication::translate("MainWindow", "Gestion Du Personnel", Q_NULLPTR));
@@ -5084,7 +5110,8 @@ public:
         titremedecin->setText(QApplication::translate("MainWindow", "Gestion Des Patients", Q_NULLPTR));
         ajouterfichee->setText(QApplication::translate("MainWindow", "Ajouter", Q_NULLPTR));
         med->setTabText(med->indexOf(imagemedecin), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
-        med->setTabText(med->indexOf(hatachy), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
+        closestatm->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
+        med->setTabText(med->indexOf(statm), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         cinfichL->setText(QApplication::translate("MainWindow", "Cin ", Q_NULLPTR));
         confirmerAjoutfich->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
         titreajoutfich->setText(QApplication::translate("MainWindow", "Ajouter un Patient", Q_NULLPTR));
@@ -5152,7 +5179,7 @@ public:
 #endif // QT_NO_TOOLTIP
         consultation->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        imprimerfiche->setToolTip(QApplication::translate("MainWindow", "G\303\251rer Les Consultations De Ce Patient", Q_NULLPTR));
+        imprimerfiche->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger La Fiche Du Patient", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         imprimerfiche->setText(QString());
 #ifndef QT_NO_TOOLTIP

@@ -397,6 +397,10 @@ private slots:
 
    void on_imprimerfiche_clicked();
 
+   void on_statmed_clicked();
+
+   void on_closestatm_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;

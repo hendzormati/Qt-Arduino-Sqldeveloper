@@ -117,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->annuler_imageinv->setVisible(false);
     ui->image_name_inv->setVisible(false);
-    ui->tableView_excel_inv->setVisible(false);
+    //ui->tableView_excel_inv->setVisible(false);
 
     ui->suppmodifinv->setHidden(1);
     ui->modifierinv_2->setHidden(1);
@@ -4407,6 +4407,7 @@ void MainWindow::on_imprimerfiche_clicked()
     consultation c;
     Stmp.Get_sdf(s,ui->rechercherfiche->text());
     F.getfiche(f,ui->rechercherfiche->text());
+
     int agee = s.Get_dob_b().daysTo(QDate::currentDate()) / 365;
     QSqlQuery query;
     query.prepare("SELECT COUNT(*) FROM consultations WHERE cin_b = :cin_b");
@@ -4424,6 +4425,8 @@ void MainWindow::on_imprimerfiche_clicked()
         // Do something with the idc value
     }
     C.getconsultation(c,idc);
+    Personnel p;
+    P.getperso(p,c.get_id_p());
     // Print the age
 
     QString age=QString::number(agee);
@@ -4465,7 +4468,7 @@ qDebug() << "date adeya " << c.get_date_c();
         painter.drawText(2800, 1800, "Fiche Patient");
          painter.setFont(QFont("Bell MT", 27,QFont::DemiBold));
         if(nbb>0)
-        {painter.drawText(1500, 7550, "Etat De La Derniére Consultation");
+        {painter.drawText(1500, 8450, "Etat De La Derniére Consultation");
         }
         else painter.drawText(2400, 8000, "Aucune Consultation");
 
@@ -4481,16 +4484,13 @@ qDebug() << "date adeya " << c.get_date_c();
         painter.drawText(700, 6300, "Description De L'antécédant   :");
 
         if(nbb>0)
-        {painter.drawText(700, 8250, "Nombre De Consultations   :");
-         painter.drawText(700, 8950, "Date De La Consultation   :");
-         painter.drawText(700, 9650, "Tension Du Patient   :");
-         painter.drawText(700, 10350, "Température Du Patient   :");
-         painter.drawText(700, 11050, "Résultat De La Consultation   :");
+        {painter.drawText(700, 7550, "Nombre De Consultations   :");
+         painter.drawText(700, 9150, "Date De La Consultation   :");
+         painter.drawText(700, 9850, "Médecin traitant    :");
+         painter.drawText(700, 10550, "Tension Du Patient   :");
+         painter.drawText(700, 11250, "Température Du Patient   :");
+         painter.drawText(700, 11950, "Résultat De La Consultation   :");
         }
-        /*painter.drawText(700, 9800, "Date de Naissance    :");
-        painter.drawText(700, 10800, "Téléphone");
-        painter.drawText(700, 11800, "Adresse");*/
-
         //// les données
         pen.setColor("#846649");
         painter.setPen(pen);
@@ -4502,15 +4502,13 @@ qDebug() << "date adeya " << c.get_date_c();
         painter.drawText(5800, 5600,f.get_categorie_ant());
         painter.drawText(700, 6850, f.get_description_ant());
         if(nbb>0)
-        {painter.drawText(5800, 8250,nb);
-            painter.drawText(5800, 8950,c.get_date_c().toString("dd/MM/yyyy hh:mm:ss"));
-            painter.drawText(5800, 9650, c.get_tension()+" mmHg");
-            painter.drawText(5800, 10350, c.get_temperature()+" °C");
-            painter.drawText(700, 11750,c.get_resultat_c());
+        {painter.drawText(5800, 7550,nb);
+            painter.drawText(5800, 9150,c.get_date_c().toString("dd/MM/yyyy hh:mm:ss"));
+            painter.drawText(5800, 9850,"Dr."+p.get_nom_p()+" "+p.get_prenom_p());
+            painter.drawText(5800, 10550, c.get_tension()+" mmHg");
+            painter.drawText(5800, 11250, c.get_temperature()+" °C");
+            painter.drawText(700, 12650,c.get_resultat_c());
         }
-        /*painter.drawText(4500, 9800,p1.get_dob_p().toString("dd MMMM yyyy"));
-        painter.drawText(3000, 10800, p1.get_numtel());
-        painter.drawText(3000, 11800, p1.get_adresse());*/
         painter.end();
         qDebug() << "PDF generated successfully.";
         qDebug() << "Current working directory:" << QDir::currentPath();
@@ -4518,4 +4516,88 @@ qDebug() << "date adeya " << c.get_date_c();
     } else {
         qDebug() << "Error: could not open file" << fileName;
     }
+}
+
+void MainWindow::on_statmed_clicked()
+{
+    on_home_f_clicked();
+    QSqlQuery query;
+    query.prepare("SELECT TO_CHAR(TO_DATE(date_c, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH') AS Mois, COUNT(*) AS NbConsultations, fiche.NOMPRENOM AS NomPrenom FROM consultations JOIN fiche ON consultations.cin_b = fiche.cin_b WHERE EXTRACT(YEAR FROM TO_DATE(date_c, 'DD/MM/YYYY HH24:MI:SS')) = EXTRACT(YEAR FROM SYSDATE) GROUP BY TO_CHAR(TO_DATE(date_c, 'DD/MM/YYYY HH24:MI:SS'), 'Month','NLS_DATE_LANGUAGE = FRENCH'), fiche.NOMPRENOM");
+
+    if (!query.exec()) {
+        qDebug() << "Failed to execute query:" << query.lastError().text();
+        return;
+    }
+
+    std::map<std::string, std::vector<std::string>> monthNames;
+    std::map<std::string, int> monthTotals;  // New map to store total number of consultations for each month
+    std::map<std::string, bool> monthSlicesAdded;
+    QChart *chart = new QChart();
+    chart->setTitle("Nombre de consultations par mois pour l'année " + QString::number(QDate::currentDate().year()));
+
+    QPieSeries *series = new QPieSeries();
+    series->setHoleSize(0.35);
+
+    while (query.next()) {
+        QString month = query.value(0).toString();
+        int numConsultations = query.value(1).toInt();
+        QString nomPrenom = query.value(2).toString();
+        QString tooltipText = nomPrenom + " : " + QString::number(numConsultations) + " consultations";
+        if (monthNames.count(month.toStdString()) == 0) {
+            monthNames[month.toStdString()] = std::vector<std::string>{tooltipText.toStdString()};
+            monthTotals[month.toStdString()] = numConsultations;
+        } else {
+            auto& tooltipVec = monthNames[month.toStdString()];
+            if (std::find(tooltipVec.begin(), tooltipVec.end(), tooltipText.toStdString()) == tooltipVec.end()) {
+                tooltipVec.push_back(tooltipText.toStdString());
+                monthTotals[month.toStdString()] += numConsultations;
+            }
+        }
+
+        // Check if a slice has already been added for this month
+        if (!monthSlicesAdded[month.toStdString()]) {
+            QPieSlice *slice = new QPieSlice(month, monthTotals[month.toStdString()], chart);
+            series->append(slice);
+            monthSlicesAdded[month.toStdString()] = true;
+        }
+    }
+
+    chart->addSeries(series);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->setTheme(QChart::ChartThemeBlueIcy);
+    QColor bgColor("#f8f5f1");
+    QBrush bgBrush(bgColor);
+    QPen bgPen("#f8f5f1");
+    bgPen.setWidth(35);
+    chart->setBackgroundBrush(bgBrush);
+    chart->setBackgroundPen(bgPen);
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
+        if (isHovered) {
+                QString month = slice->label();
+                std::vector<std::string> tooltips = monthNames.at(month.toStdString());
+                int nb=monthTotals.at(month.toStdString());
+                std::string tooltipText;
+                tooltipText += "Total Des Consultations de "+month.toStdString()+":" + QString::number(nb).toStdString() +"\n";
+                for (const auto& t : tooltips) {
+                    tooltipText += t + "\n";
+                }
+                chartView->setToolTip(QString::fromStdString(tooltipText));
+            } else {
+                chartView->setToolTip("");
+            }
+    });
+
+
+
+    chartView->setParent(ui->statmedecin);
+    ui->med->setCurrentIndex(1);
+
+
+}
+
+void MainWindow::on_closestatm_clicked()
+{
+    on_home_f_clicked();
 }

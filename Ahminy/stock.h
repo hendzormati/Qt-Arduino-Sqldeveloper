@@ -2,6 +2,8 @@
 #define STOCK_H
 #include<QSqlQueryModel>
 #include<QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
 #include <QString>
 class stock
 {
