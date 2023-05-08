@@ -323,7 +323,8 @@ int Personnel::nombremetier(int salaire) {
 void Personnel::generatePDFReport(QString id)
 {
     QSqlQuery query;
-    query.prepare("SELECT NOM_P,PRENOM_P FROM personnel where PRENOM_P LIKE 'isra' ");
+    query.prepare("SELECT NOM_P,PRENOM_P FROM personnel where id_p= :id_p");
+    query.bindValue(":id_p",id);
     if (!query.exec()) {
         qDebug() << "Error: could not execute query.";
         return;

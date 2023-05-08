@@ -268,6 +268,7 @@ debug/qrc_image.cpp: ../Ahminy/image.qrc \
 		../Ahminy/images/afficherperso2.png \
 		../Ahminy/images/historique1.png \
 		../Ahminy/images/pdfperso1.png \
+		../Ahminy/images/imprimerf2.png \
 		../Ahminy/images/affsdf1.png \
 		../Ahminy/images/profilpersof.png \
 		../Ahminy/images/pdfinv2.png \
@@ -287,6 +288,7 @@ debug/qrc_image.cpp: ../Ahminy/image.qrc \
 		../Ahminy/images/hideL.png \
 		../Ahminy/images/notifsdf2.png \
 		../Ahminy/images/best1.png \
+		../Ahminy/images/retourf2.png \
 		../Ahminy/images/checked.png \
 		../Ahminy/images/affi+2.png \
 		../Ahminy/images/affichplus1.png \
@@ -294,6 +296,7 @@ debug/qrc_image.cpp: ../Ahminy/image.qrc \
 		../Ahminy/images/showL.png \
 		../Ahminy/images/rfidlogin.png \
 		../Ahminy/images/rechtr2.png \
+		../Ahminy/images/ajoutc2.png \
 		../Ahminy/images/stock.png \
 		../Ahminy/images/home_p3.png \
 		../Ahminy/images/statperso1.png \
@@ -346,6 +349,7 @@ debug/qrc_image.cpp: ../Ahminy/image.qrc \
 		../Ahminy/images/modifierinv1.png \
 		../Ahminy/images/afficherperso1.png \
 		../Ahminy/images/meilleurd.png \
+		../Ahminy/images/imprimerf1.png \
 		../Ahminy/images/profilsdfh.png \
 		../Ahminy/images/pdfinv1.png \
 		../Ahminy/images/tritr2.png \
@@ -364,10 +368,12 @@ debug/qrc_image.cpp: ../Ahminy/image.qrc \
 		../Ahminy/images/profilinvf.png \
 		../Ahminy/images/rectangle-xmark.png \
 		../Ahminy/images/showM.png \
+		../Ahminy/images/retourf1.png \
 		../Ahminy/images/statperso2.png \
 		../Ahminy/images/medecin.png \
 		../Ahminy/images/modifsdf1.png \
 		../Ahminy/images/rechtr1.png \
+		../Ahminy/images/ajoutc1.png \
 		../Ahminy/images/home_p2.png \
 		../../../Downloads/icons8-dying-64.png \
 		../../../Downloads/icons8-chat-bout-a-bout-100.png
@@ -2914,6 +2920,7 @@ debug/moc_mailingp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -2940,6 +2947,11 @@ debug/moc_mailingp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		../Ahminy/mailingp.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -3552,6 +3564,7 @@ debug/moc_mainwindow.cpp: ../Ahminy/personnel.h \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -3578,6 +3591,11 @@ debug/moc_mainwindow.cpp: ../Ahminy/personnel.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		../Ahminy/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -4190,6 +4208,7 @@ debug/moc_modifmdp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -4216,6 +4235,11 @@ debug/moc_modifmdp.cpp: C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		../Ahminy/modifmdp.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
@@ -5156,7 +5180,59 @@ debug/dialogc.o: ../Ahminy/dialogc.cpp ../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQueryModel \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		ui_dialogc.h
+		ui_dialogc.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QFrame \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qtextedit.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextdocument.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qtextlayout.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qglyphrun.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qrawfont.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/qfontdatabase.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dialogc.o ..\Ahminy\dialogc.cpp
 
 debug/dialogp.o: ../Ahminy/dialogp.cpp ../Ahminy/dialogp.h \
@@ -7615,6 +7691,7 @@ debug/mailingp.o: ../Ahminy/mailingp.cpp ../Ahminy/mailingp.h \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -7641,6 +7718,11 @@ debug/mailingp.o: ../Ahminy/mailingp.cpp ../Ahminy/mailingp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		../SMTPClient/smtp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QByteArray \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QFileInfo \
@@ -8266,6 +8348,7 @@ debug/main.o: ../Ahminy/main.cpp ../Ahminy/mainwindow.h \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -8292,6 +8375,11 @@ debug/main.o: ../Ahminy/main.cpp ../Ahminy/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		../Ahminy/connection.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlError \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QCryptographicHash
@@ -8904,6 +8992,7 @@ debug/mainwindow.o: ../Ahminy/mainwindow.cpp ../Ahminy/mainwindow.h \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -8930,6 +9019,11 @@ debug/mainwindow.o: ../Ahminy/mainwindow.cpp ../Ahminy/mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		ui_mainwindow.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \
@@ -9557,6 +9651,7 @@ debug/modifmdp.o: ../Ahminy/modifmdp.cpp ../Ahminy/modifmdp.h \
 		../Ahminy/donnation.h \
 		../Ahminy/fiche.h \
 		../Ahminy/consultation.h \
+		../Ahminy/dialogc.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QApplication \
@@ -9583,6 +9678,11 @@ debug/modifmdp.o: ../Ahminy/modifmdp.cpp ../Ahminy/modifmdp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QTableWidgetItem \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QBarSeries \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCharts/QCategoryAxis \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qabstractprintdialog.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/QPrintPreviewDialog \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtPrintSupport/qprintpreviewdialog.h \
 		ui_modifmdp.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QButtonGroup \

@@ -60,9 +60,11 @@
 #include <QValueAxis>
 #include <map>
 
-#include <QtPrintSupport/QPrinter>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrintPreviewDialog>
+#include <QtPrintSupport>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QPrintPreviewDialog>
+
 #include <QPainter>
 
 using namespace QtCharts;

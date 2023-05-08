@@ -4319,7 +4319,7 @@ public:
 "}"));
         imprimerfiche = new QPushButton(affichagemed);
         imprimerfiche->setObjectName(QStringLiteral("imprimerfiche"));
-        imprimerfiche->setGeometry(QRect(280, 20, 35, 35));
+        imprimerfiche->setGeometry(QRect(280, 23, 35, 35));
         imprimerfiche->setStyleSheet(QLatin1String("#imprimerfiche{\n"
 "border-image: url(:/images/imprimerf1.png);\n"
 "}\n"
@@ -4643,8 +4643,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        exigo->setCurrentIndex(4);
-        tabpersonnel->setCurrentIndex(1);
+        exigo->setCurrentIndex(0);
+        tabpersonnel->setCurrentIndex(0);
         barpersonnel->setCurrentIndex(-1);
 
 

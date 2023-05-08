@@ -30,7 +30,7 @@ bool consultation::ajouter_c()
     query.bindValue(":temperature",temperature);
     query.bindValue(":id_p",id_p);
     query.bindValue(":resultat_c",resultat_c);
-    query.bindValue(":date_c",date_c.toString("DD/MM/YYYY HH24:MI:SS"));
+    query.bindValue(":date_c",date_c.toString("dd/MM/yyyy hh:mm:ss"));
     return query.exec();
 }
 QSqlQueryModel * consultation::afficher_c(QString cin_b)
@@ -61,7 +61,7 @@ bool consultation::modifier_c(int idc)
     query.bindValue(":tension",tension);
     query.bindValue(":temperature",temperature);
     query.bindValue(":resultat_c",resultat_c);
-    query.bindValue(":date_c",date_c.toString("DD/MM/YYYY HH24:MI:SS"));
+    query.bindValue(":date_c",date_c.toString("dd/MM/yyyy hh:mm:ss"));
     return query.exec();
 }
 bool consultation::supprimer_c(int idc)
@@ -88,7 +88,7 @@ void consultation::getconsultation(consultation &c, int idc)
             c.set_temperature(query.value("temperature").toString());
             c.set_id_p(query.value("id_p").toString());
             c.set_resultat_c(query.value("resultat_c").toString());
-            c.set_date_c(query.value("date_c").toDateTime());
+            c.set_date_c(QDateTime::fromString(query.value("date_c").toString(), "dd/MM/yyyy hh:mm:ss"));
 
         }
 

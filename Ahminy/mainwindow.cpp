@@ -168,6 +168,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->typetrif->setHidden(1);
     ui->typetrif->setCurrentIndex(0);
     ui->tableViewF->setModel(F.afficher_f());
+     ui->descriptionpatfich->setMaximumBlockCount(3);
+     ui->descriptionpatfich_2->setMaximumBlockCount(3);
 }
 void MainWindow::Incondie()
 {
@@ -975,7 +977,6 @@ void MainWindow::on_ajoutrfidp_clicked()
 void MainWindow::on_pdfp_clicked()
 {
     P.generatePDFReport(ui->rechercherper->text());
-
 }
 void MainWindow::on_statp_clicked()
 {
@@ -3956,7 +3957,7 @@ void MainWindow::on_confirmerAjoutfich_clicked()
     msgBox.setIcon(QMessageBox::Information);
 
     ///Debut controle de saisie:
-    ui->descriptionpatfich->setMaximumBlockCount(60);
+
 
     bool numdesc=true;
     for (int i=0; i<ui->descriptionpatfich->toPlainText().length(); i++)
@@ -4115,7 +4116,7 @@ void MainWindow::on_confirmerModifich_clicked()
     msgBox.setIcon(QMessageBox::Information);
 
     ///Debut controle de saisie:
-    ui->descriptionpatfich_2->setMaximumBlockCount(60);
+
 
     bool numdesc=true;
     for (int i=0; i<ui->descriptionpatfich_2->toPlainText().length(); i++)
@@ -4147,7 +4148,7 @@ void MainWindow::on_confirmerModifich_clicked()
     fiche f;
     QString cin_b=ui->rechercherfiche->text();
     QString descr=ui->descriptionpatfich_2->toPlainText().toLower();
-            descr[0]=descr[0].toUpper();
+    descr[0]=descr[0].toUpper();
     F.getfiche(f,cin_b);
     if (verif)
     {
@@ -4209,17 +4210,17 @@ void MainWindow::on_consultation_clicked()
     {
 
         qDebug() << query.value(0).toString() +" "+ query.value(1).toString();
-         ui->titremedecin->setText(query.value(0).toString() +" "+ query.value(1).toString());
+        ui->titremedecin->setText(query.value(0).toString() +" "+ query.value(1).toString());
     }
 }
 
 void MainWindow::on_retourfiche_clicked()
 {
     ui->gestmed->setCurrentIndex(0);
-     ui->titremedecin->setText("Gestion Des Patients");
-     ui->ajouterfichee->setHidden(0);
-     ui->med->setDisabled(0);
-     ui->med->setCurrentIndex(0);
+    ui->titremedecin->setText("Gestion Des Patients");
+    ui->ajouterfichee->setHidden(0);
+    ui->med->setDisabled(0);
+    ui->med->setCurrentIndex(0);
 }
 void MainWindow::on_home_f_2_clicked()
 {
@@ -4371,14 +4372,14 @@ void MainWindow::on_supprimerf_2_clicked()
 
 void MainWindow::on_ajouterc_clicked()
 {
-      dialogc d;
-      d.setWindowTitle("Ajouter Consultation");
-      QString cin_b=ui->rechercherfiche->text();
-      d.setetat(1);
-      d.setcin_b(cin_b);
-      d.setIDP(P.get_id_p());
-      d.exec();
-      ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
+    dialogc d;
+    d.setWindowTitle("Ajouter Consultation");
+    QString cin_b=ui->rechercherfiche->text();
+    d.setetat(1);
+    d.setcin_b(cin_b);
+    d.setIDP(P.get_id_p());
+    d.exec();
+    ui->tableViewF_2->setModel(C.afficher_c(ui->rechercherfiche->text()));
 }
 
 void MainWindow::on_modiffiche_2_clicked()
@@ -4400,101 +4401,121 @@ void MainWindow::on_modiffiche_2_clicked()
 void MainWindow::on_imprimerfiche_clicked()
 {
 
-    /*QTextDocument document;
-    QTextCursor cursor(&document);
-    cursor.insertText("Hello, world!");
-
-    QPrinter printer(QPrinter::HighResolution);
-    printer.setOutputFormat(QPrinter::PdfFormat);
-    printer.setOutputFileName("output.pdf");
-
-    QPrintDialog printDialog(&printer, this);
-    if (printDialog.exec() == QDialog::Accepted) {
-        document.print(&printer);
-    }*/
-
-
-
+    QString systemDate = QDate::currentDate().toString("dd_MMMM_yyyy");
+    Sdf s;
+    fiche f;
+    consultation c;
+    Stmp.Get_sdf(s,ui->rechercherfiche->text());
+    F.getfiche(f,ui->rechercherfiche->text());
+    int agee = s.Get_dob_b().daysTo(QDate::currentDate()) / 365;
     QSqlQuery query;
-            query.prepare("SELECT * FROM fiche");
-            if (query.exec()) {
-                // create printer object
-                QPrinter printer(QPrinter::HighResolution);
+    query.prepare("SELECT COUNT(*) FROM consultations WHERE cin_b = :cin_b");
+    query.bindValue(":cin_b", s.Get_cin_b()); // replace cin_b with the actual value or variable
+    query.exec();
+    query.next();
+    int nbb = query.value(0).toInt();
+    QString nb=QString::number(nbb);
+    query.prepare("SELECT idc FROM consultations WHERE cin_b = :cin_b ORDER BY idc DESC");
+    query.bindValue(":cin_b",  s.Get_cin_b()); // replace cin_b with the actual value or variable
+    query.exec();
+    int idc=0;
+    if (query.next()) {
+       idc = query.value(0).toInt();
+        // Do something with the idc value
+    }
+    C.getconsultation(c,idc);
+    // Print the age
 
-                // create print preview dialog
-                QPrintPreviewDialog preview(&printer, this);
-                preview.setMinimumSize(600, 400); // set minimum size
+    QString age=QString::number(agee);
+qDebug() << "date b string " << c.get_date_c().toString("dd/MM/yyyy hh:mm:ss");
+qDebug() << "date adeya " << c.get_date_c();
+    QString fileName = "pdfpatient/"+s.Get_prenom_b()+"_"+s.Get_nom_b()+"_"+s.Get_cin_b()+"_"+systemDate +".pdf";
 
-                // connect to the paint requested signal to render the page
-                connect(&preview, &QPrintPreviewDialog::paintRequested, this, [=, &query](QPrinter *printer){
-                    // create painter object and set font
-                    QPainter painter(printer);
-                    QFont font("Helvetica", 12);
-                    painter.setFont(font);
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly)) {
+        QPdfWriter writer(&file);
+        QPainter painter(&writer);
+        writer.setPageSize(QPageSize(QPageSize::A4));
+        /// version 2  // Draw the report title
+        writer.setPageMargins(QMarginsF(30, 30, 30, 30));
+        painter.setRenderHint(QPainter::Antialiasing);
+        QImage logo(":/images/ahminy.png");
+        painter.drawImage(QRectF(-170,-120, 2000, 1500), logo);
+        //////////////date li lfouk
 
-                    // set pen color to blue
-                    QPen pen;
-                    pen.setColor(Qt::blue);
-                    painter.setPen(pen);
+        ///l loun text
+        QPen pen("#6b694c");
+        painter.setPen(pen);
+        /// type lektiba wel kobr
+        painter.setFont(QFont("Baskerville Old Face", 18));
 
-                    // iterate over result set and draw data on painter
-                    while (query.next()) {
-                        QString cin_b = query.value("cin_b").toString();
-                        QString nomprenom = query.value("nomprenom").toString();
-                        QString categorie_ant = query.value("categorie_ant").toString();
-                        QString description_ant = query.value("description_ant").toString();
-                        QString date_f = query.value("date_f").toString();
+        QDate d;
+        QDateTime dt;
+        QString ch="Éditée le "+d.currentDate().toString("dddd dd MMMM yyyy");
+        painter.drawText(5500, 400,ch);
+        QString ch1=dt.currentDateTime().toString("hh:mm:ss");
+        painter.drawText(7400, 700,ch1);
+        painter.drawText(5400, 13250,"Éditée par "+P.get_nom_p()+" "+P.get_prenom_p());
+        ///////////titre
+        pen.setColor("#c4c08c");
+        painter.setPen(pen);
+        QFont font("Bell MT", 35,QFont::Bold);
+        font.setUnderline(1);
+        painter.setFont(font);
+        painter.drawText(2800, 1800, "Fiche Patient");
+         painter.setFont(QFont("Bell MT", 27,QFont::DemiBold));
+        if(nbb>0)
+        {painter.drawText(1500, 7550, "Etat De La Derniére Consultation");
+        }
+        else painter.drawText(2400, 8000, "Aucune Consultation");
 
-                        // draw data on painter
-                        painter.drawText(100, 100, "CIN: " + cin_b);
-                        painter.drawText(100, 120, "Nom et prénom: " + nomprenom);
-                        painter.drawText(100, 140, "Catégorie antécédents: " + categorie_ant);
-                        painter.drawText(100, 160, "Description antécédents: " + description_ant);
-                        painter.drawText(100, 180, "Date de la fiche: " + date_f);
-                        painter.drawText(100, 200, "------------------------");
-                    }
-                });
+        ////// les entetee
+        pen.setColor("#5c4633");
+        painter.setPen(pen);
+        painter.setFont(QFont("Bell MT", 25,QFont::DemiBold));
+        painter.drawText(700, 2800, "Carte d'Identité  Nationale   :");
+        painter.drawText(700, 3500, "Prénom et nom   :");
+        painter.drawText(700, 4200, "Sexe   :");
+        painter.drawText(700, 4900, "Age   :");
+        painter.drawText(700, 5600, "Antécédant Médicaux   :");
+        painter.drawText(700, 6300, "Description De L'antécédant   :");
 
-                // show print preview dialog
-                preview.exec();
-            } else {
-                qDebug() << "Error executing query: " << query.lastError().text();
-            }
+        if(nbb>0)
+        {painter.drawText(700, 8250, "Nombre De Consultations   :");
+         painter.drawText(700, 8950, "Date De La Consultation   :");
+         painter.drawText(700, 9650, "Tension Du Patient   :");
+         painter.drawText(700, 10350, "Température Du Patient   :");
+         painter.drawText(700, 11050, "Résultat De La Consultation   :");
+        }
+        /*painter.drawText(700, 9800, "Date de Naissance    :");
+        painter.drawText(700, 10800, "Téléphone");
+        painter.drawText(700, 11800, "Adresse");*/
 
-    /*QSqlQuery query;
-            query.prepare("SELECT * FROM fiche");
-            if (query.exec()) {
-                // create printer object
-                QPrinter printer(QPrinter::HighResolution);
-
-                // create print dialog
-                QPrintDialog printDialog(&printer, this);
-
-                // if the user clicked 'OK' in the print dialog, print the data
-                if (printDialog.exec() == QDialog::Accepted) {
-                    // create painter object and set font
-                    QPainter painter(&printer);
-                    QFont font("Helvetica", 12);
-                    painter.setFont(font);
-
-                    // iterate over result set and draw data on painter
-                    while (query.next()) {
-                        QString cin_b = query.value("cin_b").toString();
-                        QString nomprenom = query.value("nomprenom").toString();
-                        QString categorie_ant = query.value("categorie_ant").toString();
-                        QString description_ant = query.value("description_ant").toString();
-                        QString date_f = query.value("date_f").toString();
-
-                        // draw data on painter
-                        painter.drawText(100, 100, "CIN: " + cin_b);
-                        painter.drawText(100, 120, "Nom et prénom: " + nomprenom);
-                        painter.drawText(100, 140, "Catégorie antécédents: " + categorie_ant);
-                        painter.drawText(100, 160, "Description antécédents: " + description_ant);
-                        painter.drawText(100, 180, "Date de la fiche: " + date_f);
-                        painter.drawText(100, 200, "------------------------");
-                    }
-                }
-            } else {
-                qDebug() << "Error executing query: " << query.lastError().text();
-            }*/
+        //// les données
+        pen.setColor("#846649");
+        painter.setPen(pen);
+        painter.setFont(QFont("Baskerville Old Face", 20,QFont::DemiBold));
+        painter.drawText(5800, 2800, s.Get_cin_b());
+        painter.drawText(5800, 3500, f.get_nomprenom());
+        painter.drawText(5800, 4200, s.Get_sexe_b());
+        painter.drawText(5800, 4900, age);
+        painter.drawText(5800, 5600,f.get_categorie_ant());
+        painter.drawText(700, 6850, f.get_description_ant());
+        if(nbb>0)
+        {painter.drawText(5800, 8250,nb);
+            painter.drawText(5800, 8950,c.get_date_c().toString("dd/MM/yyyy hh:mm:ss"));
+            painter.drawText(5800, 9650, c.get_tension()+" mmHg");
+            painter.drawText(5800, 10350, c.get_temperature()+" °C");
+            painter.drawText(700, 11750,c.get_resultat_c());
+        }
+        /*painter.drawText(4500, 9800,p1.get_dob_p().toString("dd MMMM yyyy"));
+        painter.drawText(3000, 10800, p1.get_numtel());
+        painter.drawText(3000, 11800, p1.get_adresse());*/
+        painter.end();
+        qDebug() << "PDF generated successfully.";
+        qDebug() << "Current working directory:" << QDir::currentPath();
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+    } else {
+        qDebug() << "Error: could not open file" << fileName;
+    }
 }
