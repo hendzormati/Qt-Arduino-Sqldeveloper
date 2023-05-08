@@ -4245,7 +4245,7 @@ void MainWindow::on_trierf_2_clicked()
 {
     on_home_f_2_clicked();
     ui->recherchefiche_2->setEnabled(1);
-    ui->smsf_2->setEnabled(1);
+    ui->calendrier->setEnabled(1);
     ui->retourfiche->setEnabled(1);
     //ui->statp->setEnabled(1);
     //ui->mailp->setEnabled(1);
@@ -4258,7 +4258,7 @@ void MainWindow::on_recherchefiche_2_clicked()
 {
     //ui->statp->setEnabled(1);
     ui->trierf_2->setEnabled(1);
-    ui->smsf_2->setEnabled(1);
+    ui->calendrier->setEnabled(1);
     ui->ajouterc->setEnabled(1);
     ui->retourfiche->setEnabled(1);
     //ui->mailp->setEnabled(1);
@@ -4369,7 +4369,7 @@ void MainWindow::on_supprimerf_2_clicked()
     ui->recherchefiche_2->setEnabled(1);
     //ui->statp->setEnabled(1);
     ui->trierf_2->setEnabled(1);
-    ui->smsf_2->setEnabled(1);
+    ui->calendrier->setEnabled(1);
 }
 
 void MainWindow::on_ajouterc_clicked()

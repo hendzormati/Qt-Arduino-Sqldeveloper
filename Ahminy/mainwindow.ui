@@ -2275,7 +2275,7 @@ selection-color:#425180;
            <string>Identifiant</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
           </property>
          </item>
@@ -2284,7 +2284,7 @@ selection-color:#425180;
            <string>Identifiant</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
           </property>
          </item>
@@ -2293,7 +2293,7 @@ selection-color:#425180;
            <string>Metier</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
           </property>
          </item>
@@ -2302,7 +2302,7 @@ selection-color:#425180;
            <string>Metier</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
           </property>
          </item>
@@ -2311,7 +2311,7 @@ selection-color:#425180;
            <string>Salaire</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
           </property>
          </item>
@@ -2320,7 +2320,7 @@ selection-color:#425180;
            <string>Salaire</string>
           </property>
           <property name="icon">
-           <iconset resource="image.qrc">
+           <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
             <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
           </property>
          </item>
@@ -3603,7 +3603,7 @@ selection-color:#56695b;
          <string>Nom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -3612,7 +3612,7 @@ selection-color:#56695b;
          <string>Nom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -3621,7 +3621,7 @@ selection-color:#56695b;
          <string>Prenom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -3630,7 +3630,7 @@ selection-color:#56695b;
          <string>Prenom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -3639,7 +3639,7 @@ selection-color:#56695b;
          <string>Date Entree</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -3648,7 +3648,7 @@ selection-color:#56695b;
          <string>Date Entree</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -3657,7 +3657,7 @@ selection-color:#56695b;
          <string>Date Sortie</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -3666,7 +3666,7 @@ selection-color:#56695b;
          <string>Date Sortie</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -4369,7 +4369,7 @@ selection-color:#56695b;
          <string>Catégorie</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -4378,7 +4378,7 @@ selection-color:#56695b;
          <string>Catégorie</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -4387,7 +4387,7 @@ selection-color:#56695b;
          <string>Type</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -4396,7 +4396,7 @@ selection-color:#56695b;
          <string>Type</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -4405,7 +4405,7 @@ selection-color:#56695b;
          <string>Prix</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -4414,7 +4414,7 @@ selection-color:#56695b;
          <string>Prix</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -7629,7 +7629,7 @@ selection-color:#56695b;
          <string>Cin</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -7638,7 +7638,7 @@ selection-color:#56695b;
          <string>Cin</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -7647,7 +7647,7 @@ selection-color:#56695b;
          <string>Nom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -7656,7 +7656,7 @@ selection-color:#56695b;
          <string>Nom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -7665,7 +7665,7 @@ selection-color:#56695b;
          <string>Prénom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -7674,7 +7674,7 @@ selection-color:#56695b;
          <string>Prénom</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -7683,7 +7683,7 @@ selection-color:#56695b;
          <string>Montant</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fhautsdf .png</normaloff>:/images/fhautsdf .png</iconset>
         </property>
        </item>
@@ -7692,7 +7692,7 @@ selection-color:#56695b;
          <string>Montant</string>
         </property>
         <property name="icon">
-         <iconset resource="image.qrc">
+         <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
           <normaloff>:/images/fbassdf.png</normaloff>:/images/fbassdf.png</iconset>
         </property>
        </item>
@@ -8618,20 +8618,201 @@ background: #f6f1f7;
          <property name="geometry">
           <rect>
            <x>50</x>
-           <y>160</y>
+           <y>140</y>
            <width>341</width>
-           <height>321</height>
+           <height>361</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <italic>true</italic>
-           <bold>true</bold>
-           <underline>true</underline>
+           <family>Arial</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+           <underline>false</underline>
            <strikeout>false</strikeout>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QCalendarWidget QWidget {
+	 alternate-background-color: #e0dfe5;
+}
+
+/* style for top navigation area ###############################################*/ 
+
+#qt_calendar_navigationbar {
+    background-color: #fff;
+	border: 2px solid  #7888B9;
+	border-bottom: 0px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+/* style for month change buttons ############################################ */
+
+#qt_calendar_prevmonth, 
+#qt_calendar_nextmonth {
+	/* border delete */
+    border: none;  
+    /* delete default icons */
+	qproperty-icon: none; 
+	
+    min-width: 20px;
+    max-width:20px;
+    min-height: 20px;
+    max-height: 20px;
+
+    border-radius: 5px; 
+	/* set background transparent */
+    background-color: transparent; 
+	padding: 5px;
+}
+
+/* style for pre month button ############################################ */
+
+#qt_calendar_prevmonth {
+	/* set text for button */
+	/*qproperty-text: &amp;quot;&amp;gt;&amp;quot;;*/
+	margin-left:5px;	
+	border-image: url(:/images/fg2.png);
+}
+
+/* style for next month button ########################################### */
+#qt_calendar_nextmonth {
+	margin-right:5px;
+	border-image: url(:/images/fd2.png);
+	
+    /* qproperty-text: &amp;quot;&amp;gt;&amp;quot;; */
+}
+/*#qt_calendar_prevmonth:hover, {
+background-color: #7888B9;
+border-image: url(:/images/fg2.png);
+}
+
+#qt_calendar_nextmonth:hover {
+    background-color: #7888B9;
+	border-image: url(:/images/fd2.png);
+}*/
+
+#qt_calendar_prevmonth:pressed, 
+#qt_calendar_nextmonth:pressed {
+   /* background-color: rgba(235, 235, 235, 100);*/
+background-color:#7888B9;
+}
+
+
+/* Style for month and yeat buttons #################################### */
+
+#qt_calendar_yearbutton {
+    color: #000;
+	margin:5px;
+    border-radius: 5px;
+	font-size: 18px;
+	padding:0px 10px;
+	/*font: 18pt &quot;Arial&quot;;*/
+}
+
+ #qt_calendar_monthbutton {
+	width: 110px;
+    color: #000;
+	font-size: 18px;
+	margin:5px 0px;
+    border-radius: 5px;
+	padding:0px 2px;
+	/*font: 18pt &quot;Arial&quot;;*/
+}
+
+#qt_calendar_yearbutton:hover, 
+#qt_calendar_monthbutton:hover {
+    background-color: #7888B9;
+}
+
+#qt_calendar_yearbutton:pressed, 
+#qt_calendar_monthbutton:pressed {
+	background-color: #7888B9;
+}
+
+/* Style for year input lineEdit ######################################*/
+
+#qt_calendar_yearedit {
+    min-width: 53px;
+    color: #000;
+    background: transparent;
+	font-size: 13px;
+}
+
+/* Style for year change buttons ######################################*/
+
+#qt_calendar_yearedit::up-button { 
+	
+	
+	border-image: url(:/images/fh.png);
+    subcontrol-position: right;
+}
+
+#qt_calendar_yearedit::down-button { 
+	
+	
+	;
+	border-image: url(:/images/fb.png);
+    subcontrol-position: left; 
+}
+
+#qt_calendar_yearedit::down-button, 
+#qt_calendar_yearedit::up-button {
+	width:10px;
+	padding: 0px 5px;
+	border-radius:3px;
+}
+
+#qt_calendar_yearedit::down-button:hover, 
+#qt_calendar_yearedit::up-button:hover {
+	background-color: #7888B9;
+}
+
+/* Style for month select menu ##################################### */
+
+#calendarWidget QToolButton QMenu {
+     background-color: white;
+
+}
+#calendarWidget QToolButton QMenu::item {
+	/*padding: 10px;*/
+}
+ #calendarWidget QToolButton QMenu::item:selected:enabled {
+    background-color: #7888B9;
+}
+
+#calendarWidget QToolButton::menu-indicator {
+	/* Remove toolButton arrow */
+      /*image: none; */
+	nosubcontrol-origin: margin;
+	subcontrol-position: right center;
+	margin-top: 10px;
+	width:20px;
+}
+
+/* Style for calendar table ########################################## */
+#qt_calendar_calendarview {
+	/* Remove the selected dashed box */
+    outline: 0px;
+
+	border: 2px solid  #7888B9;
+	border-top: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#qt_calendar_calendarview::item:hover {
+   border-radius:5px;
+	background-color:#aaffff;
+}
+
+#qt_calendar_calendarview::item:selected {
+    background-color: #7888B9; 
+	border-radius:5px;
+}</string>
          </property>
         </widget>
        </widget>
@@ -8969,7 +9150,7 @@ selection-color:#425180;
             <string>Cin Patient</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -8978,7 +9159,7 @@ selection-color:#425180;
             <string>Cin Patient</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -8987,7 +9168,7 @@ selection-color:#425180;
             <string>Nom Prenom</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -8996,7 +9177,7 @@ selection-color:#425180;
             <string>Nom Prenom</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9005,7 +9186,7 @@ selection-color:#425180;
             <string>Date D'ajout</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -9014,7 +9195,7 @@ selection-color:#425180;
             <string>Date D'ajout</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9162,7 +9343,7 @@ border-image: url(:/images/statperso2.png);
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="smsf_2">
+         <widget class="QPushButton" name="calendrier">
           <property name="geometry">
            <rect>
             <x>40</x>
@@ -9176,15 +9357,13 @@ border-image: url(:/images/statperso2.png);
           </property>
           <property name="styleSheet">
            <string notr="true">
-#smsf_2{
-border-image: url(:/images/sms1.png);
+#calendrier{
+	border-image: url(:/images/calendrier1.png);
 }
-#smsf_2:hover{
-border-image: url(:/images/sms2.png);
+#calendrier:hover{
+	border-image: url(:/images/calendrier2.png);
 }
-#smsf_2:pressed{
-border-image: url(:/images/sms1.png);
-}</string>
+</string>
           </property>
           <property name="text">
            <string/>
@@ -9201,7 +9380,7 @@ border-image: url(:/images/sms1.png);
          <zorder>smsf</zorder>
          <zorder>statmed</zorder>
          <zorder>home_f</zorder>
-         <zorder>smsf_2</zorder>
+         <zorder>calendrier</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="Consultation">
@@ -9508,7 +9687,7 @@ selection-color:#425180;
             <string>Taille</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -9517,7 +9696,7 @@ selection-color:#425180;
             <string>Taille</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9526,7 +9705,7 @@ selection-color:#425180;
             <string>Poids</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -9535,7 +9714,7 @@ selection-color:#425180;
             <string>Poids</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9544,7 +9723,7 @@ selection-color:#425180;
             <string>Tension</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -9553,7 +9732,7 @@ selection-color:#425180;
             <string>Tension</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9562,7 +9741,7 @@ selection-color:#425180;
             <string>Date d'Ajout</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/upperso.png</normaloff>:/images/upperso.png</iconset>
            </property>
           </item>
@@ -9571,7 +9750,7 @@ selection-color:#425180;
             <string>Date d'Ajout</string>
            </property>
            <property name="icon">
-            <iconset resource="image.qrc">
+            <iconset resource="../../../Qt-Arduino-Sqldeveloper/Ahminy/image.qrc">
              <normaloff>:/images/downperso.png</normaloff>:/images/downperso.png</iconset>
            </property>
           </item>
@@ -9830,8 +10009,6 @@ selection-color:#b9b2c1;
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="image.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -141,8 +141,6 @@
         <file>images/meilleurd.png</file>
         <file>images/consultation1.png</file>
         <file>images/consultation2.png</file>
-        <file>../../../Downloads/icons8-chat-bout-a-bout-100.png</file>
-        <file>../../../Downloads/icons8-dying-64.png</file>
         <file>images/sms1.png</file>
         <file>images/sms2.png</file>
         <file>images/retourf1.png</file>
@@ -151,5 +149,11 @@
         <file>images/ajoutc2.png</file>
         <file>images/imprimerf2.png</file>
         <file>images/imprimerf1.png</file>
+        <file>images/calendrier1.png</file>
+        <file>images/calendrier2.png</file>
+        <file>images/fb.png</file>
+        <file>images/fd2.png</file>
+        <file>images/fg2.png</file>
+        <file>images/fh.png</file>
     </qresource>
 </RCC>
