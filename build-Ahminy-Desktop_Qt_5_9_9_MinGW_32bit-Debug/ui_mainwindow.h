@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
@@ -358,6 +359,8 @@ public:
     QLabel *nomprepat_2;
     QLabel *antpatfichL_2;
     QComboBox *antpatientfich_2;
+    QWidget *calendriermed;
+    QCalendarWidget *calendarmed;
     QFrame *frame;
     QTabWidget *gestmed;
     QWidget *Fiche;
@@ -371,9 +374,9 @@ public:
     QPushButton *supprimerf;
     QPushButton *modiffiche;
     QPushButton *consultation;
-    QPushButton *imprimerfiche;
     QPushButton *smsf;
     QPushButton *statmed;
+    QPushButton *smsf_2;
     QWidget *Consultation;
     QWidget *affichagemed_2;
     QTableView *tableViewF_2;
@@ -386,7 +389,7 @@ public:
     QPushButton *modiffiche_2;
     QPushButton *ajouterc;
     QPushButton *retourfiche;
-    QPushButton *smsf_2;
+    QPushButton *imprimerfiche;
     QComboBox *barpersonnel;
     QLabel *nom_prenom_P;
     QPushButton *profil_p;
@@ -4110,6 +4113,13 @@ public:
         antpatientfich_2->setObjectName(QStringLiteral("antpatientfich_2"));
         antpatientfich_2->setGeometry(QRect(165, 165, 191, 41));
         med->addTab(modifierfiche, QString());
+        calendriermed = new QWidget();
+        calendriermed->setObjectName(QStringLiteral("calendriermed"));
+        calendriermed->setStyleSheet(QStringLiteral("#calendriermed{ background: #fbf9f9;}"));
+        calendarmed = new QCalendarWidget(calendriermed);
+        calendarmed->setObjectName(QStringLiteral("calendarmed"));
+        calendarmed->setGeometry(QRect(50, 160, 341, 321));
+        med->addTab(calendriermed, QString());
         frame = new QFrame(medecin);
         frame->setObjectName(QStringLiteral("frame"));
         frame->setGeometry(QRect(524, 119, 850, 530));
@@ -4138,8 +4148,8 @@ public:
 "    color: #7888b9;\n"
 "	font-weight: bold;\n"
 "text-align: center;\n"
-"	font-size: 20px;\n"
-" 	padding: 4px;\n"
+"	font-size: 24px;\n"
+" 	padding: 2px;\n"
 "    gridline-color: #425180;\n"
 "	selection-background-color: #f3f2f7;\n"
 "}\n"
@@ -4343,18 +4353,6 @@ public:
 "#consultation:pressed{\n"
 "border-image: url(:/images/consultation1.png);\n"
 "}"));
-        imprimerfiche = new QPushButton(affichagemed);
-        imprimerfiche->setObjectName(QStringLiteral("imprimerfiche"));
-        imprimerfiche->setGeometry(QRect(280, 23, 35, 35));
-        imprimerfiche->setStyleSheet(QLatin1String("#imprimerfiche{\n"
-"border-image: url(:/images/pdfperso1.png);\n"
-"}\n"
-"#imprimerfiche:hover{\n"
-"border-image: url(:/images/pdfperso2.png);\n"
-"}\n"
-"#imprimerfiche:pressed{\n"
-"border-image: url(:/images/pdfperso1.png);\n"
-"}"));
         smsf = new QPushButton(affichagemed);
         smsf->setObjectName(QStringLiteral("smsf"));
         smsf->setGeometry(QRect(30, 260, 36, 36));
@@ -4381,6 +4379,31 @@ public:
 "#statmed:pressed{\n"
 "border-image: url(:/images/statperso2.png);\n"
 "}"));
+        smsf_2 = new QPushButton(affichagemed);
+        smsf_2->setObjectName(QStringLiteral("smsf_2"));
+        smsf_2->setGeometry(QRect(40, 40, 36, 36));
+        smsf_2->setStyleSheet(QLatin1String("\n"
+"#smsf_2{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}\n"
+"#smsf_2:hover{\n"
+"border-image: url(:/images/sms2.png);\n"
+"}\n"
+"#smsf_2:pressed{\n"
+"border-image: url(:/images/sms1.png);\n"
+"}"));
+        tableViewF->raise();
+        rechercherfiche->raise();
+        trierf->raise();
+        recherchefiche->raise();
+        typetrif->raise();
+        supprimerf->raise();
+        modiffiche->raise();
+        consultation->raise();
+        smsf->raise();
+        statmed->raise();
+        home_f->raise();
+        smsf_2->raise();
         gestmed->addTab(Fiche, QString());
         Consultation = new QWidget();
         Consultation->setObjectName(QStringLiteral("Consultation"));
@@ -4619,18 +4642,17 @@ public:
 "#retourfiche:pressed{\n"
 "border-image: url(:/images/retourf1.png);\n"
 "}"));
-        smsf_2 = new QPushButton(affichagemed_2);
-        smsf_2->setObjectName(QStringLiteral("smsf_2"));
-        smsf_2->setGeometry(QRect(30, 10, 36, 36));
-        smsf_2->setStyleSheet(QLatin1String("\n"
-"#smsf_2{\n"
-"border-image: url(:/images/sms1.png);\n"
+        imprimerfiche = new QPushButton(affichagemed_2);
+        imprimerfiche->setObjectName(QStringLiteral("imprimerfiche"));
+        imprimerfiche->setGeometry(QRect(280, 24, 35, 35));
+        imprimerfiche->setStyleSheet(QLatin1String("#imprimerfiche{\n"
+"border-image: url(:/images/pdfperso1.png);\n"
 "}\n"
-"#smsf_2:hover{\n"
-"border-image: url(:/images/sms2.png);\n"
+"#imprimerfiche:hover{\n"
+"border-image: url(:/images/pdfperso2.png);\n"
 "}\n"
-"#smsf_2:pressed{\n"
-"border-image: url(:/images/sms1.png);\n"
+"#imprimerfiche:pressed{\n"
+"border-image: url(:/images/pdfperso1.png);\n"
 "}"));
         gestmed->addTab(Consultation, QString());
         exigo->addTab(medecin, QString());
@@ -4669,7 +4691,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        exigo->setCurrentIndex(0);
+        exigo->setCurrentIndex(4);
         tabpersonnel->setCurrentIndex(1);
         barpersonnel->setCurrentIndex(-1);
 
@@ -5121,11 +5143,11 @@ public:
         antpatfichL->setText(QApplication::translate("MainWindow", "Ant\303\251c\303\251dents", Q_NULLPTR));
         antpatientfich->clear();
         antpatientfich->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Familiaux ", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Medicaux personnels", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Medicamenteux", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Psychosociaux ", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Environnementaux ", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypertension", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypotension", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypoglycemie", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hyperglycemie", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Autre", Q_NULLPTR)
         );
         med->setTabText(med->indexOf(ajouterfiche), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         confirmerModifich->setText(QApplication::translate("MainWindow", "Confirmer", Q_NULLPTR));
@@ -5136,13 +5158,14 @@ public:
         antpatfichL_2->setText(QApplication::translate("MainWindow", "Ant\303\251c\303\251dents", Q_NULLPTR));
         antpatientfich_2->clear();
         antpatientfich_2->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Familiaux ", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Medicaux personnels", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Medicamenteux", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Psychosociaux ", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Environnementaux ", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypertension", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypotension", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hypoglycemie", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Hyperglycemie", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Autre", Q_NULLPTR)
         );
         med->setTabText(med->indexOf(modifierfiche), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        med->setTabText(med->indexOf(calendriermed), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         rechercherfiche->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         trierf->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
@@ -5179,10 +5202,6 @@ public:
 #endif // QT_NO_TOOLTIP
         consultation->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        imprimerfiche->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger La Fiche Du Patient", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        imprimerfiche->setText(QString());
-#ifndef QT_NO_TOOLTIP
         smsf->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         smsf->setText(QString());
@@ -5190,6 +5209,10 @@ public:
         statmed->setToolTip(QApplication::translate("MainWindow", "Voir Statistique", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         statmed->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        smsf_2->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        smsf_2->setText(QString());
         gestmed->setTabText(gestmed->indexOf(Fiche), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         rechercherfiche_2->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
@@ -5233,9 +5256,9 @@ public:
 #endif // QT_NO_TOOLTIP
         retourfiche->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        smsf_2->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
+        imprimerfiche->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger La Fiche Du Patient", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        smsf_2->setText(QString());
+        imprimerfiche->setText(QString());
         gestmed->setTabText(gestmed->indexOf(Consultation), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         exigo->setTabText(exigo->indexOf(medecin), QApplication::translate("MainWindow", "loujain", Q_NULLPTR));
         barpersonnel->clear();

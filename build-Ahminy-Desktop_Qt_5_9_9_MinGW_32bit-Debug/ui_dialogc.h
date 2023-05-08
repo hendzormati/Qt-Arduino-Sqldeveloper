@@ -259,7 +259,7 @@ public:
         kg->setFont(font3);
         c = new QLabel(ajouterconst);
         c->setObjectName(QStringLiteral("c"));
-        c->setGeometry(QRect(420, 290, 41, 31));
+        c->setGeometry(QRect(360, 290, 101, 31));
         c->setFont(font3);
         hg = new QLabel(ajouterconst);
         hg->setObjectName(QStringLiteral("hg"));
@@ -280,11 +280,11 @@ public:
         resultatL->setText(QApplication::translate("dialogc", "R\303\251sultat", Q_NULLPTR));
         tailleL->setText(QApplication::translate("dialogc", "Taille de Patient", Q_NULLPTR));
         poidsL->setText(QApplication::translate("dialogc", "Poids de Patient", Q_NULLPTR));
-        temperatureL->setText(QApplication::translate("dialogc", "Temp\303\251rature", Q_NULLPTR));
+        temperatureL->setText(QApplication::translate("dialogc", "Glycemie", Q_NULLPTR));
         tensionL->setText(QApplication::translate("dialogc", "Tension Art\303\251rielle", Q_NULLPTR));
         cm->setText(QApplication::translate("dialogc", "Cm", Q_NULLPTR));
         kg->setText(QApplication::translate("dialogc", "Kg", Q_NULLPTR));
-        c->setText(QApplication::translate("dialogc", "\302\260C", Q_NULLPTR));
+        c->setText(QApplication::translate("dialogc", "mmol/L", Q_NULLPTR));
         hg->setText(QApplication::translate("dialogc", "mmHg", Q_NULLPTR));
     } // retranslateUi
 

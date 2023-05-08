@@ -401,6 +401,8 @@ private slots:
 
    void on_closestatm_clicked();
 
+   void on_smsf_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;

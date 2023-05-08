@@ -131,22 +131,23 @@ QSqlQueryModel * fiche::trier_f(int i)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
         switch(i)
-        { case 0:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY cin_b");
+        { case 0:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY cin_b");
             break;
-        case 1:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY cin_b DESC");
+        case 1:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY cin_b DESC");
             break;
-        case 2:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY nomprenom");
+        case 2:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY nomprenom");
             break;
-        case 3:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY nomprenom DESC");
+        case 3:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY nomprenom DESC");
             break;
-        case 4:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY date_f");
+        case 4:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY date_f");
             break;
-        case 5:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant from fiche ORDER BY date_f DESC");
+        case 5:  model->setQuery("select cin_b,nomprenom,categorie_ant, description_ant,date_f from fiche ORDER BY date_f DESC");
             break;
         }
         model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
         model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom_Prénom"));
         model->setHeaderData(2,Qt::Horizontal,QObject::tr("Antécédent"));
         model->setHeaderData(3,Qt::Horizontal,QObject::tr("Description"));
+        model->setHeaderData(4,Qt::Horizontal,QObject::tr("Date D'ajout"));
         return model;
     }

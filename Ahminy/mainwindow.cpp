@@ -168,8 +168,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->typetrif->setHidden(1);
     ui->typetrif->setCurrentIndex(0);
     ui->tableViewF->setModel(F.afficher_f());
-     ui->descriptionpatfich->setMaximumBlockCount(3);
-     ui->descriptionpatfich_2->setMaximumBlockCount(3);
+    ui->descriptionpatfich->setMaximumBlockCount(3);
+    ui->descriptionpatfich_2->setMaximumBlockCount(3);
 }
 void MainWindow::Incondie()
 {
@@ -3828,7 +3828,7 @@ void MainWindow::on_home_f_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    ui->imprimerfiche->setHidden(1);
+    //ui->imprimerfiche->setHidden(1);
     ui->recherchefiche->setEnabled(1);
     ui->tableViewF->setEnabled(1);
     ui->trierf->setEnabled(1);
@@ -3869,7 +3869,7 @@ void MainWindow::on_recherchefiche_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    ui->imprimerfiche->setHidden(1);
+    //ui->imprimerfiche->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
     // ui->afficherp->setHidden(1);
     //ui->pdfp->setHidden(1);
@@ -4057,7 +4057,7 @@ void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
     ui->modiffiche->setHidden(0);
     ui->supprimerf->setHidden(0);
     ui->consultation->setHidden(0);
-    ui->imprimerfiche->setHidden(0);
+    //ui->imprimerfiche->setHidden(0);
     //ui->ajoutrfidp->setHidden(0);
     //ui->pdfp->setHidden(0);
     // ui->afficherp->setHidden(0);
@@ -4226,7 +4226,7 @@ void MainWindow::on_home_f_2_clicked()
 {
     ui->modiffiche_2->setHidden(1);
     ui->supprimerf_2->setHidden(1);
-
+    ui->imprimerfiche->setHidden(1);
     //ui->consultation_2->setHidden(1);
     ui->recherchefiche_2->setEnabled(1);
     ui->tableViewF_2->setEnabled(1);
@@ -4270,7 +4270,7 @@ void MainWindow::on_recherchefiche_2_clicked()
     ui->rechercherfiche_2->setEnabled(1);
     ui->modiffiche_2->setHidden(1);
     ui->supprimerf_2->setHidden(1);
-
+    ui->imprimerfiche->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
     // ui->afficherp->setHidden(1);
     //ui->pdfp->setHidden(1);
@@ -4322,6 +4322,7 @@ void MainWindow::on_tableViewF_2_clicked(const QModelIndex &index)
     ui->rechercherfiche_2->setHidden(0);
     ui->modiffiche_2->setHidden(0);
     ui->supprimerf_2->setHidden(0);
+    ui->imprimerfiche->setHidden(0);
     //ui->consultation->setHidden(0);
     //ui->consultation_2->setHidden(0);
     //ui->ajoutrfidp->setHidden(0);
@@ -4329,6 +4330,7 @@ void MainWindow::on_tableViewF_2_clicked(const QModelIndex &index)
     // ui->afficherp->setHidden(0);
     ui->modiffiche_2->setEnabled(1);
     ui->supprimerf_2->setEnabled(1);
+    ui->imprimerfiche->setEnabled(1);
     //ui->ajoutrfidp->setEnabled(1);
     //ui->pdfp->setEnabled(1);
     //ui->afficherp->setEnabled(1);
@@ -4424,19 +4426,19 @@ void MainWindow::on_imprimerfiche_clicked()
     query.prepare("SELECT idc FROM consultations WHERE cin_b = :cin_b ORDER BY idc DESC");
     query.bindValue(":cin_b",  s.Get_cin_b()); // replace cin_b with the actual value or variable
     query.exec();
-    int idc=0;
+    /*int idc=0;
     if (query.next()) {
        idc = query.value(0).toInt();
         // Do something with the idc value
-    }
-    C.getconsultation(c,idc);
+    }*/
+    C.getconsultation(c,ui->rechercherfiche_2->text().toInt());
     Personnel p;
     P.getperso(p,c.get_id_p());
     // Print the age
 
     QString age=QString::number(agee);
-qDebug() << "date b string " << c.get_date_c().toString("dd/MM/yyyy hh:mm:ss");
-qDebug() << "date adeya " << c.get_date_c();
+    qDebug() << "date b string " << c.get_date_c().toString("dd/MM/yyyy hh:mm:ss");
+    qDebug() << "date adeya " << c.get_date_c();
     QString fileName = "pdfpatient/"+s.Get_prenom_b()+"_"+s.Get_nom_b()+"_"+s.Get_cin_b()+"_"+systemDate +".pdf";
 
     QFile file(fileName);
@@ -4471,12 +4473,11 @@ qDebug() << "date adeya " << c.get_date_c();
         font.setUnderline(1);
         painter.setFont(font);
         painter.drawText(2800, 1800, "Fiche Patient");
-         painter.setFont(QFont("Bell MT", 27,QFont::DemiBold));
+        //painter.setFont(QFont("Bell MT", 27,QFont::DemiBold));
         if(nbb>0)
-        {painter.drawText(1500, 8450, "Etat De La Derniére Consultation");
+        {painter.drawText(1600, 8450, "Rapport de Consultation");
         }
         else painter.drawText(2400, 8000, "Aucune Consultation");
-
         ////// les entetee
         pen.setColor("#5c4633");
         painter.setPen(pen);
@@ -4490,11 +4491,11 @@ qDebug() << "date adeya " << c.get_date_c();
 
         if(nbb>0)
         {painter.drawText(700, 7550, "Nombre De Consultations   :");
-         painter.drawText(700, 9150, "Date De La Consultation   :");
-         painter.drawText(700, 9850, "Médecin traitant    :");
-         painter.drawText(700, 10550, "Tension Du Patient   :");
-         painter.drawText(700, 11250, "Température Du Patient   :");
-         painter.drawText(700, 11950, "Résultat De La Consultation   :");
+            painter.drawText(700, 9150, "Date De La Consultation   :");
+            painter.drawText(700, 9850, "Médecin traitant    :");
+            painter.drawText(700, 10550, "Tension Artérielle   :");
+            painter.drawText(700, 11250, "Taux De Glycemie   :");
+            painter.drawText(700, 11950, "Résultat De La Consultation   :");
         }
         //// les données
         pen.setColor("#846649");
@@ -4511,7 +4512,7 @@ qDebug() << "date adeya " << c.get_date_c();
             painter.drawText(5800, 9150,c.get_date_c().toString("dd/MM/yyyy hh:mm:ss"));
             painter.drawText(5800, 9850,"Dr."+p.get_nom_p()+" "+p.get_prenom_p());
             painter.drawText(5800, 10550, c.get_tension()+" mmHg");
-            painter.drawText(5800, 11250, c.get_temperature()+" °C");
+            painter.drawText(5800, 11250, c.get_temperature()+" mmol/L");
             painter.drawText(700, 12650,c.get_resultat_c());
         }
         painter.end();
@@ -4580,18 +4581,18 @@ void MainWindow::on_statmed_clicked()
     chartView->setRenderHint(QPainter::Antialiasing);
     QObject::connect(series, &QPieSeries::hovered, chartView, [=] (QPieSlice *slice, bool isHovered) {
         if (isHovered) {
-                QString month = slice->label();
-                std::vector<std::string> tooltips = monthNames.at(month.toStdString());
-                int nb=monthTotals.at(month.toStdString());
-                std::string tooltipText;
-                tooltipText += "Total Des Consultations de "+month.toStdString()+":" + QString::number(nb).toStdString() +"\n";
-                for (const auto& t : tooltips) {
-                    tooltipText += t + "\n";
-                }
-                chartView->setToolTip(QString::fromStdString(tooltipText));
-            } else {
-                chartView->setToolTip("");
+            QString month = slice->label();
+            std::vector<std::string> tooltips = monthNames.at(month.toStdString());
+            int nb=monthTotals.at(month.toStdString());
+            std::string tooltipText;
+            tooltipText += "Total Des Consultations de "+month.toStdString()+":" + QString::number(nb).toStdString() +"\n";
+            for (const auto& t : tooltips) {
+                tooltipText += t + "\n";
             }
+            chartView->setToolTip(QString::fromStdString(tooltipText));
+        } else {
+            chartView->setToolTip("");
+        }
     });
 
 
@@ -4605,4 +4606,24 @@ void MainWindow::on_statmed_clicked()
 void MainWindow::on_closestatm_clicked()
 {
     on_home_f_clicked();
+}
+
+void MainWindow::on_smsf_2_clicked()
+{
+    ui->med->setCurrentIndex(4);
+    // Create a SQL query to retrieve all the date_c values from the "consultations" table
+    QSqlQuery query("SELECT date_c FROM consultations");
+
+    // Create a QTextCharFormat object to set the background color for the dates
+    QTextCharFormat format;
+    format.setBackground(Qt::green); // Set the background color to green
+
+    // Iterate over the query result and set the date text format for each date in the CalendarWidget
+    while (query.next()) {
+        QString dateString = query.value(0).toString();
+        QDateTime dateTime = QDateTime::fromString(dateString, "dd/MM/yyyy hh:mm:ss");
+        ui->calendarmed->setDateTextFormat(dateTime.date(), format);
+    }
+
+
 }

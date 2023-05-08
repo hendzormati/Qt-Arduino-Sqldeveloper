@@ -34,7 +34,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <property name="usesScrollButtons">
      <bool>true</bool>
@@ -8310,27 +8310,27 @@ background: #f6f1f7;
           </property>
           <item>
            <property name="text">
-            <string>Familiaux </string>
+            <string>Hypertension</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Medicaux personnels</string>
+            <string>Hypotension</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Medicamenteux</string>
+            <string>Hypoglycemie</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Psychosociaux </string>
+            <string>Hyperglycemie</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Environnementaux </string>
+            <string>Autre</string>
            </property>
           </item>
          </widget>
@@ -8581,30 +8581,48 @@ background: #f6f1f7;
           </property>
           <item>
            <property name="text">
-            <string>Familiaux </string>
+            <string>Hypertension</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Medicaux personnels</string>
+            <string>Hypotension</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Medicamenteux</string>
+            <string>Hypoglycemie</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Psychosociaux </string>
+            <string>Hyperglycemie</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>Environnementaux </string>
+            <string>Autre</string>
            </property>
           </item>
          </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="calendriermed">
+        <property name="styleSheet">
+         <string notr="true">#calendriermed{ background: #fbf9f9;}</string>
+        </property>
+        <attribute name="title">
+         <string>Page</string>
+        </attribute>
+        <widget class="QCalendarWidget" name="calendarmed">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>160</y>
+           <width>341</width>
+           <height>321</height>
+          </rect>
+         </property>
         </widget>
        </widget>
       </widget>
@@ -8685,8 +8703,8 @@ border:5px outset #f3f2f7;
     color: #7888b9;
 	font-weight: bold;
 text-align: center;
-	font-size: 20px;
- 	padding: 4px;
+	font-size: 24px;
+ 	padding: 2px;
     gridline-color: #425180;
 	selection-background-color: #f3f2f7;
 }
@@ -9078,33 +9096,6 @@ border-image: url(:/images/consultation1.png);
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="imprimerfiche">
-          <property name="geometry">
-           <rect>
-            <x>280</x>
-            <y>23</y>
-            <width>35</width>
-            <height>35</height>
-           </rect>
-          </property>
-          <property name="toolTip">
-           <string>Télécharger La Fiche Du Patient</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">#imprimerfiche{
-border-image: url(:/images/pdfperso1.png);
-}
-#imprimerfiche:hover{
-border-image: url(:/images/pdfperso2.png);
-}
-#imprimerfiche:pressed{
-border-image: url(:/images/pdfperso1.png);
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
          <widget class="QPushButton" name="smsf">
           <property name="geometry">
            <rect>
@@ -9161,6 +9152,46 @@ border-image: url(:/images/statperso2.png);
            <string/>
           </property>
          </widget>
+         <widget class="QPushButton" name="smsf_2">
+          <property name="geometry">
+           <rect>
+            <x>40</x>
+            <y>40</y>
+            <width>36</width>
+            <height>36</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Contacter Un Autre Medecin</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+#smsf_2{
+border-image: url(:/images/sms1.png);
+}
+#smsf_2:hover{
+border-image: url(:/images/sms2.png);
+}
+#smsf_2:pressed{
+border-image: url(:/images/sms1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <zorder>tableViewF</zorder>
+         <zorder>rechercherfiche</zorder>
+         <zorder>trierf</zorder>
+         <zorder>recherchefiche</zorder>
+         <zorder>typetrif</zorder>
+         <zorder>supprimerf</zorder>
+         <zorder>modiffiche</zorder>
+         <zorder>consultation</zorder>
+         <zorder>smsf</zorder>
+         <zorder>statmed</zorder>
+         <zorder>home_f</zorder>
+         <zorder>smsf_2</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="Consultation">
@@ -9649,28 +9680,27 @@ border-image: url(:/images/retourf1.png);
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="smsf_2">
+         <widget class="QPushButton" name="imprimerfiche">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>10</y>
-            <width>36</width>
-            <height>36</height>
+            <x>280</x>
+            <y>24</y>
+            <width>35</width>
+            <height>35</height>
            </rect>
           </property>
           <property name="toolTip">
-           <string>Contacter Un Autre Medecin</string>
+           <string>Télécharger La Fiche Du Patient</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">
-#smsf_2{
-border-image: url(:/images/sms1.png);
+           <string notr="true">#imprimerfiche{
+border-image: url(:/images/pdfperso1.png);
 }
-#smsf_2:hover{
-border-image: url(:/images/sms2.png);
+#imprimerfiche:hover{
+border-image: url(:/images/pdfperso2.png);
 }
-#smsf_2:pressed{
-border-image: url(:/images/sms1.png);
+#imprimerfiche:pressed{
+border-image: url(:/images/pdfperso1.png);
 }</string>
           </property>
           <property name="text">
