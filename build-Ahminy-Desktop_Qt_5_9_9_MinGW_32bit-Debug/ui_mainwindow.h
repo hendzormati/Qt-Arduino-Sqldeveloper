@@ -4119,6 +4119,14 @@ public:
         calendarmed = new QCalendarWidget(calendriermed);
         calendarmed->setObjectName(QStringLiteral("calendarmed"));
         calendarmed->setGeometry(QRect(50, 160, 341, 321));
+        QFont font20;
+        font20.setPointSize(10);
+        font20.setBold(true);
+        font20.setItalic(true);
+        font20.setUnderline(true);
+        font20.setWeight(75);
+        font20.setStrikeOut(false);
+        calendarmed->setFont(font20);
         med->addTab(calendriermed, QString());
         frame = new QFrame(medecin);
         frame->setObjectName(QStringLiteral("frame"));
@@ -4632,7 +4640,7 @@ public:
 "}"));
         retourfiche = new QPushButton(affichagemed_2);
         retourfiche->setObjectName(QStringLiteral("retourfiche"));
-        retourfiche->setGeometry(QRect(30, 180, 40, 40));
+        retourfiche->setGeometry(QRect(30, 180, 42, 42));
         retourfiche->setStyleSheet(QLatin1String("#retourfiche{\n"
 "border-image: url(:/images/retourf1.png);\n"
 "}\n"

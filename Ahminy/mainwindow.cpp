@@ -4608,22 +4608,41 @@ void MainWindow::on_closestatm_clicked()
     on_home_f_clicked();
 }
 
-void MainWindow::on_smsf_2_clicked()
+void MainWindow::on_calendrier_clicked()
 {
     ui->med->setCurrentIndex(4);
-    // Create a SQL query to retrieve all the date_c values from the "consultations" table
-    QSqlQuery query("SELECT date_c FROM consultations");
-
-    // Create a QTextCharFormat object to set the background color for the dates
+    QSqlQuery query("SELECT date_c, cin_b FROM consultations");
     QTextCharFormat format;
     format.setBackground(Qt::green); // Set the background color to green
-
-    // Iterate over the query result and set the date text format for each date in the CalendarWidget
+    QMap<QDate, QStringList> cinBsByDate;
     while (query.next()) {
         QString dateString = query.value(0).toString();
         QDateTime dateTime = QDateTime::fromString(dateString, "dd/MM/yyyy hh:mm:ss");
-        ui->calendarmed->setDateTextFormat(dateTime.date(), format);
+        QDate date = dateTime.date();
+        QString cin_b = query.value(1).toString();
+        fiche f;
+        F.getfiche(f,cin_b);
+        if (!cinBsByDate.contains(date)) {
+            QStringList cinBs;
+            cinBs.append(f.get_nomprenom());
+            cinBsByDate.insert(date, cinBs);
+        } else {
+            QStringList cinBs = cinBsByDate.value(date);
+            if (!cinBs.contains(f.get_nomprenom())) {
+                cinBs.append(f.get_nomprenom());
+                cinBsByDate.insert(date, cinBs);
+            }
+        }
     }
-
-
+    QMapIterator<QDate, QStringList> i(cinBsByDate);
+    while (i.hasNext()) {
+        i.next();
+        QDate date = i.key();
+        QStringList cinBs = i.value();
+        QString tooltip = "Liste des patients : \n" + cinBs.join("\n");
+        QTextCharFormat format;
+        format.setBackground(Qt::green);
+        format.setToolTip(tooltip);
+        ui->calendarmed->setDateTextFormat(date, format);
+    }
 }

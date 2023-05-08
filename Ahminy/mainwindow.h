@@ -401,7 +401,7 @@ private slots:
 
    void on_closestatm_clicked();
 
-   void on_smsf_2_clicked();
+   void on_calendrier_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -9162,7 +9162,7 @@ border-image: url(:/images/statperso2.png);
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="smsf_2">
+         <widget class="QPushButton" name="calendrier">
           <property name="geometry">
            <rect>
             <x>40</x>
@@ -9201,7 +9201,7 @@ border-image: url(:/images/sms1.png);
          <zorder>smsf</zorder>
          <zorder>statmed</zorder>
          <zorder>home_f</zorder>
-         <zorder>smsf_2</zorder>
+         <zorder>calendrier</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="Consultation">
