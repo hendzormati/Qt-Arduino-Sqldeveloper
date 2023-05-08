@@ -4372,9 +4372,12 @@ void MainWindow::on_supprimerf_2_clicked()
 
 void MainWindow::on_ajouterc_clicked()
 {
+    fiche f;
     dialogc d;
     d.setWindowTitle("Ajouter Consultation");
     QString cin_b=ui->rechercherfiche->text();
+    F.getfiche(f,ui->rechercherfiche->text());
+    d.setant(f.get_categorie_ant());
     d.setetat(1);
     d.setcin_b(cin_b);
     d.setIDP(P.get_id_p());
@@ -4384,12 +4387,14 @@ void MainWindow::on_ajouterc_clicked()
 
 void MainWindow::on_modiffiche_2_clicked()
 {
-
+    fiche f;
     dialogc d;
     d.setWindowTitle("Modifier Consultation");
     int id=ui->rechercherfiche_2->text().toInt();
+    F.getfiche(f,ui->rechercherfiche->text());
     consultation c;
     C.getconsultation(c,id);
+    d.setant(f.get_categorie_ant());
     d.setetat(0);
     d.setidcons(id);
     d.affichercons(c);

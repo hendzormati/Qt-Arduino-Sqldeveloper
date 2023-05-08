@@ -22,6 +22,7 @@ dialogc::~dialogc()
 
 void dialogc::on_confirmerAjouterconst_clicked()
 {
+    Sdf S;
     QMessageBox msgBox;
     msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
     msgBox.setWindowOpacity(0.8);
@@ -171,6 +172,7 @@ void dialogc::on_confirmerAjouterconst_clicked()
         else test=C.modifier_c(ID);
         if (test)
         {
+            if (malade==1)  S.modifier_malade(CIN,1);
             close();
         }
         else
@@ -194,4 +196,58 @@ void dialogc::affichercons(consultation &c)
     ui->temperature->setText(c.get_temperature());
     ui->resultat->setPlainText(c.get_resultat_c());
     ui->ajoutcons->setText("Modifier une consultation");
+}
+
+void dialogc::on_tension_editingFinished()
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    msgBox.setIcon(QMessageBox::Information);
+
+    float tens=ui->tension->text().toFloat();
+    if ((tens>=180)&&(!ui->tension->text().isEmpty())&&("Hypertension"==ant))
+    {
+        malade=1;
+        msgBox.setText("Alerte:\nPatient atteint d'hypertension\nNécessite une attention médicale immédiate!");
+        msgBox.exec();
+    }
+    else if ((tens<90)&&(!ui->tension->text().isEmpty())&&("Hypotension"==ant))
+    {
+        malade=1;
+        msgBox.setText("Alerte:\nPatient atteint d'Hypotension\nNécessite une attention médicale immédiate!");
+        msgBox.exec();
+    }
+}
+
+void dialogc::on_temperature_editingFinished()
+{
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QMessageBox {background:#f8f5f1; border:8px double #e0dfe5;  border-bottom-right-radius: 10px;   border-bottom-left-radius: 20px; text-align: center;font-size: 30px; padding: 10px; } QLabel{color:#425180; font-weight: bold;} QPushButton { font-weight: bold;font-size: 20px;padding: 5px; color:#425180;border: 4px inset #dcd0c9;border-radius: 15px;background: #f3f2f7;}QPushButton:hover{border: 4px outset #dcd0c9;background: #e0dfe5;}QPushButton:pressed{border: 4px inset #dcd0c9;background: #f6f1f7;}");
+    msgBox.setWindowOpacity(0.8);
+    msgBox.setFixedSize(600,600);
+    QFont bellMTFont("Bell MT");
+    msgBox.setFont(bellMTFont);
+    msgBox.setWindowIcon(QIcon(":/images/ahminy.png"));
+    msgBox.setWindowTitle("Ahminy");
+    msgBox.setIcon(QMessageBox::Information);
+
+    float glyc=ui->temperature->text().toFloat();
+    if ((glyc>=13.9)&&(!ui->temperature->text().isEmpty())&&("Hyperglycemie"==ant))
+    {
+        malade=1;
+        msgBox.setText("Alerte:\nPatient atteint d'hyperglycémie\nNécessite une attention médicale immédiate!");
+        msgBox.exec();
+    }
+    else if ((glyc<3.9)&&(!ui->temperature->text().isEmpty())&&("Hypoglycemie"==ant))
+    {
+        malade=1;
+        msgBox.setText("Alerte:\nPatient atteint d'hypoglycemie\nNécessite une attention médicale immédiate!");
+        msgBox.exec();
+    }
 }
