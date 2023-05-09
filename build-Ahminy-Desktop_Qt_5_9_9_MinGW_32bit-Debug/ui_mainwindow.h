@@ -376,7 +376,7 @@ public:
     QPushButton *consultation;
     QPushButton *smsf;
     QPushButton *statmed;
-    QPushButton *smsf_2;
+    QPushButton *calendrier;
     QWidget *Consultation;
     QWidget *affichagemed_2;
     QTableView *tableViewF_2;
@@ -4118,15 +4118,198 @@ public:
         calendriermed->setStyleSheet(QStringLiteral("#calendriermed{ background: #fbf9f9;}"));
         calendarmed = new QCalendarWidget(calendriermed);
         calendarmed->setObjectName(QStringLiteral("calendarmed"));
-        calendarmed->setGeometry(QRect(50, 160, 341, 321));
+        calendarmed->setGeometry(QRect(50, 140, 341, 361));
         QFont font20;
-        font20.setPointSize(10);
-        font20.setBold(true);
-        font20.setItalic(true);
-        font20.setUnderline(true);
-        font20.setWeight(75);
+        font20.setFamily(QStringLiteral("Arial"));
+        font20.setPointSize(12);
+        font20.setBold(false);
+        font20.setItalic(false);
+        font20.setUnderline(false);
+        font20.setWeight(50);
         font20.setStrikeOut(false);
         calendarmed->setFont(font20);
+        calendarmed->setStyleSheet(QLatin1String("QCalendarWidget QWidget {\n"
+"	 alternate-background-color: #e0dfe5;\n"
+"}\n"
+"\n"
+"/* style for top navigation area ###############################################*/ \n"
+"\n"
+"#qt_calendar_navigationbar {\n"
+"    background-color: #fff;\n"
+"	border: 2px solid  #7888B9;\n"
+"	border-bottom: 0px;\n"
+"	border-top-left-radius: 15px;\n"
+"	border-top-right-radius: 15px;\n"
+"}\n"
+"\n"
+"/* style for month change buttons ############################################ */\n"
+"\n"
+"#qt_calendar_prevmonth, \n"
+"#qt_calendar_nextmonth {\n"
+"	/* border delete */\n"
+"    border: none;  \n"
+"    /* delete default icons */\n"
+"	qproperty-icon: none; \n"
+"	\n"
+"    min-width: 20px;\n"
+"    max-width:20px;\n"
+"    min-height: 20px;\n"
+"    max-height: 20px;\n"
+"\n"
+"    border-radius: 5px; \n"
+"	/* set background transparent */\n"
+"    background-color: transparent; \n"
+"	padding: 5px;\n"
+"}\n"
+"\n"
+"/* style for pre month button ############################################ */\n"
+"\n"
+"#qt_calendar_prevmonth {\n"
+"	/* set text for "
+                        "button */\n"
+"	/*qproperty-text: &quot;&gt;&quot;;*/\n"
+"	margin-left:5px;	\n"
+"	border-image: url(:/images/fg2.png);\n"
+"}\n"
+"\n"
+"/* style for next month button ########################################### */\n"
+"#qt_calendar_nextmonth {\n"
+"	margin-right:5px;\n"
+"	border-image: url(:/images/fd2.png);\n"
+"	\n"
+"    /* qproperty-text: &quot;&gt;&quot;; */\n"
+"}\n"
+"/*#qt_calendar_prevmonth:hover, {\n"
+"background-color: #7888B9;\n"
+"border-image: url(:/images/fg2.png);\n"
+"}\n"
+"\n"
+"#qt_calendar_nextmonth:hover {\n"
+"    background-color: #7888B9;\n"
+"	border-image: url(:/images/fd2.png);\n"
+"}*/\n"
+"\n"
+"#qt_calendar_prevmonth:pressed, \n"
+"#qt_calendar_nextmonth:pressed {\n"
+"   /* background-color: rgba(235, 235, 235, 100);*/\n"
+"background-color:#7888B9;\n"
+"}\n"
+"\n"
+"\n"
+"/* Style for month and yeat buttons #################################### */\n"
+"\n"
+"#qt_calendar_yearbutton {\n"
+"    color: #000;\n"
+"	margin:5px;\n"
+"    border-radius: 5px;\n"
+"	font-size: 18px;\n"
+"	padding:0px 10px;\n"
+"	/*font:"
+                        " 18pt \"Arial\";*/\n"
+"}\n"
+"\n"
+" #qt_calendar_monthbutton {\n"
+"	width: 110px;\n"
+"    color: #000;\n"
+"	font-size: 18px;\n"
+"	margin:5px 0px;\n"
+"    border-radius: 5px;\n"
+"	padding:0px 2px;\n"
+"	/*font: 18pt \"Arial\";*/\n"
+"}\n"
+"\n"
+"#qt_calendar_yearbutton:hover, \n"
+"#qt_calendar_monthbutton:hover {\n"
+"    background-color: #7888B9;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearbutton:pressed, \n"
+"#qt_calendar_monthbutton:pressed {\n"
+"	background-color: #7888B9;\n"
+"}\n"
+"\n"
+"/* Style for year input lineEdit ######################################*/\n"
+"\n"
+"#qt_calendar_yearedit {\n"
+"    min-width: 53px;\n"
+"    color: #000;\n"
+"    background: transparent;\n"
+"	font-size: 13px;\n"
+"}\n"
+"\n"
+"/* Style for year change buttons ######################################*/\n"
+"\n"
+"#qt_calendar_yearedit::up-button { \n"
+"	\n"
+"	\n"
+"	border-image: url(:/images/fh.png);\n"
+"    subcontrol-position: right;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button { \n"
+"	\n"
+"	\n"
+"	;\n"
+"	border-image: url(:/images/fb.png);\n"
+""
+                        "    subcontrol-position: left; \n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button, \n"
+"#qt_calendar_yearedit::up-button {\n"
+"	width:10px;\n"
+"	padding: 0px 5px;\n"
+"	border-radius:3px;\n"
+"}\n"
+"\n"
+"#qt_calendar_yearedit::down-button:hover, \n"
+"#qt_calendar_yearedit::up-button:hover {\n"
+"	background-color: #7888B9;\n"
+"}\n"
+"\n"
+"/* Style for month select menu ##################################### */\n"
+"\n"
+"#calendarWidget QToolButton QMenu {\n"
+"     background-color: white;\n"
+"\n"
+"}\n"
+"#calendarWidget QToolButton QMenu::item {\n"
+"	/*padding: 10px;*/\n"
+"}\n"
+" #calendarWidget QToolButton QMenu::item:selected:enabled {\n"
+"    background-color: #7888B9;\n"
+"}\n"
+"\n"
+"#calendarWidget QToolButton::menu-indicator {\n"
+"	/* Remove toolButton arrow */\n"
+"      /*image: none; */\n"
+"	nosubcontrol-origin: margin;\n"
+"	subcontrol-position: right center;\n"
+"	margin-top: 10px;\n"
+"	width:20px;\n"
+"}\n"
+"\n"
+"/* Style for calendar table ########################################## */\n"
+"#qt_calendar_calenda"
+                        "rview {\n"
+"	/* Remove the selected dashed box */\n"
+"    outline: 0px;\n"
+"\n"
+"	border: 2px solid  #7888B9;\n"
+"	border-top: 0px;\n"
+"	border-bottom-left-radius: 5px;\n"
+"	border-bottom-right-radius: 5px;\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview::item:hover {\n"
+"   border-radius:5px;\n"
+"	background-color:#aaffff;\n"
+"}\n"
+"\n"
+"#qt_calendar_calendarview::item:selected {\n"
+"    background-color: #7888B9; \n"
+"	border-radius:5px;\n"
+"}"));
         med->addTab(calendriermed, QString());
         frame = new QFrame(medecin);
         frame->setObjectName(QStringLiteral("frame"));
@@ -4387,19 +4570,17 @@ public:
 "#statmed:pressed{\n"
 "border-image: url(:/images/statperso2.png);\n"
 "}"));
-        smsf_2 = new QPushButton(affichagemed);
-        smsf_2->setObjectName(QStringLiteral("smsf_2"));
-        smsf_2->setGeometry(QRect(40, 40, 36, 36));
-        smsf_2->setStyleSheet(QLatin1String("\n"
-"#smsf_2{\n"
-"border-image: url(:/images/sms1.png);\n"
+        calendrier = new QPushButton(affichagemed);
+        calendrier->setObjectName(QStringLiteral("calendrier"));
+        calendrier->setGeometry(QRect(40, 40, 36, 36));
+        calendrier->setStyleSheet(QLatin1String("\n"
+"#calendrier{\n"
+"	border-image: url(:/images/calendrier1.png);\n"
 "}\n"
-"#smsf_2:hover{\n"
-"border-image: url(:/images/sms2.png);\n"
+"#calendrier:hover{\n"
+"	border-image: url(:/images/calendrier2.png);\n"
 "}\n"
-"#smsf_2:pressed{\n"
-"border-image: url(:/images/sms1.png);\n"
-"}"));
+""));
         tableViewF->raise();
         rechercherfiche->raise();
         trierf->raise();
@@ -4411,7 +4592,7 @@ public:
         smsf->raise();
         statmed->raise();
         home_f->raise();
-        smsf_2->raise();
+        calendrier->raise();
         gestmed->addTab(Fiche, QString());
         Consultation = new QWidget();
         Consultation->setObjectName(QStringLiteral("Consultation"));
@@ -4699,8 +4880,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        exigo->setCurrentIndex(4);
-        tabpersonnel->setCurrentIndex(1);
+        exigo->setCurrentIndex(0);
+        tabpersonnel->setCurrentIndex(0);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -5218,9 +5399,9 @@ public:
 #endif // QT_NO_TOOLTIP
         statmed->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        smsf_2->setToolTip(QApplication::translate("MainWindow", "Contacter Un Autre Medecin", Q_NULLPTR));
+        calendrier->setToolTip(QApplication::translate("MainWindow", "Calendrier", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        smsf_2->setText(QString());
+        calendrier->setText(QString());
         gestmed->setTabText(gestmed->indexOf(Fiche), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         rechercherfiche_2->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP

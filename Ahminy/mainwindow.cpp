@@ -4613,7 +4613,8 @@ void MainWindow::on_calendrier_clicked()
     ui->med->setCurrentIndex(4);
     QSqlQuery query("SELECT date_c, cin_b FROM consultations");
     QTextCharFormat format;
-    format.setBackground(Qt::green); // Set the background color to green
+    QColor color("#7888b9");
+    format.setBackground(color); // Set the background color to green
     QMap<QDate, QStringList> cinBsByDate;
     while (query.next()) {
         QString dateString = query.value(0).toString();
@@ -4641,7 +4642,7 @@ void MainWindow::on_calendrier_clicked()
         QStringList cinBs = i.value();
         QString tooltip = "Liste des patients : \n" + cinBs.join("\n");
         QTextCharFormat format;
-        format.setBackground(Qt::green);
+        format.setBackground(color);
         format.setToolTip(tooltip);
         ui->calendarmed->setDateTextFormat(date, format);
     }

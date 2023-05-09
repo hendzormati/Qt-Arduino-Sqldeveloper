@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[179];
-    char stringdata0[4084];
+    char stringdata0[4088];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -209,7 +209,7 @@ QT_MOC_LITERAL(174, 3976, 23), // "on_modiffiche_2_clicked"
 QT_MOC_LITERAL(175, 4000, 24), // "on_imprimerfiche_clicked"
 QT_MOC_LITERAL(176, 4025, 18), // "on_statmed_clicked"
 QT_MOC_LITERAL(177, 4044, 21), // "on_closestatm_clicked"
-QT_MOC_LITERAL(178, 4066, 17) // "on_smsf_2_clicked"
+QT_MOC_LITERAL(178, 4066, 21) // "on_calendrier_clicked"
 
     },
     "MainWindow\0on_showpswd_pressed\0\0"
@@ -328,7 +328,7 @@ QT_MOC_LITERAL(178, 4066, 17) // "on_smsf_2_clicked"
     "on_tableViewF_2_clicked\0on_supprimerf_2_clicked\0"
     "on_ajouterc_clicked\0on_modiffiche_2_clicked\0"
     "on_imprimerfiche_clicked\0on_statmed_clicked\0"
-    "on_closestatm_clicked\0on_smsf_2_clicked"
+    "on_closestatm_clicked\0on_calendrier_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -863,7 +863,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 164: _t->on_imprimerfiche_clicked(); break;
         case 165: _t->on_statmed_clicked(); break;
         case 166: _t->on_closestatm_clicked(); break;
-        case 167: _t->on_smsf_2_clicked(); break;
+        case 167: _t->on_calendrier_clicked(); break;
         default: ;
         }
     }
