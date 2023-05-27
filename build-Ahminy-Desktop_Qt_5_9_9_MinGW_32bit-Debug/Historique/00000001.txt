@@ -1,8 +1,15 @@
-                          Faracha Hamra
+                          Jebri Hamza
 
 Passage Numero : 1
 Ajouté par : Louhaichi Nour
 Date d entree : 01/05/2023
 Date de sortie : 01/05/2023
 Numero de la chambre : 1
+
+
+Passage Numero : 3
+Ajouté par : Louhaichi Nour
+Date d entree : 15/04/2023
+Date de sortie : 13/05/2023
+Numero de la chambre : 3
 

@@ -361,6 +361,15 @@ public:
     QComboBox *antpatientfich_2;
     QWidget *calendriermed;
     QCalendarWidget *calendarmed;
+    QWidget *tab;
+    QFrame *ajouterMed_2;
+    QLabel *contactsms;
+    QPushButton *smsenv;
+    QLabel *titreajoutmed1_2;
+    QLabel *descriptionpatientL_4;
+    QPushButton *closeajoutermed_2;
+    QComboBox *numsms;
+    QPlainTextEdit *messms;
     QFrame *frame;
     QTabWidget *gestmed;
     QWidget *Fiche;
@@ -377,6 +386,7 @@ public:
     QPushButton *smsf;
     QPushButton *statmed;
     QPushButton *calendrier;
+    QPushButton *imprimerfiche_2;
     QWidget *Consultation;
     QWidget *affichagemed_2;
     QTableView *tableViewF_2;
@@ -4311,6 +4321,138 @@ public:
 "	border-radius:5px;\n"
 "}"));
         med->addTab(calendriermed, QString());
+        tab = new QWidget();
+        tab->setObjectName(QStringLiteral("tab"));
+        tab->setStyleSheet(QStringLiteral("#tab{ background: #fbf9f9;}"));
+        ajouterMed_2 = new QFrame(tab);
+        ajouterMed_2->setObjectName(QStringLiteral("ajouterMed_2"));
+        ajouterMed_2->setGeometry(QRect(10, 90, 381, 421));
+        ajouterMed_2->setStyleSheet(QLatin1String("#ajouterMed_2{background:#f8f5f1;border:8px double #e0dfe5;  border-top-right-radius: 70px;   border-bottom-left-radius: 70px;}\n"
+"#titreajoutmed1_2{color:#425180;}\n"
+"#contactsms{color:#4f619a;}\n"
+"#descriptionpatientL_4{color:#4f619a;}\n"
+"#resultatpatientL{color:#4f619a;}\n"
+"#messms{ \n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"border: 2px outset #e0dfe5;\n"
+"border-radius: 7px;\n"
+"background-color: #fefefb;\n"
+"selection-background-color: #d3d3d3;\n"
+"selection-color: #33457d;\n"
+"\n"
+"}\n"
+"#messms:hover{\n"
+"border: 2px inset #dcd0c9;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#resultatpatient{ \n"
+"color:#425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"border: 2px outset #e0dfe5;\n"
+"border-radius: 7px;\n"
+"background: #fefefb;\n"
+"selection-background-color: #d3d3d3;\n"
+"selection-color: #33457d;\n"
+"}\n"
+"#resultatpatient:hover{\n"
+"border: 2px inset #dcd0c9;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#cinpatient{ \n"
+"border: 2px solid #e0dfe5;\n"
+"border-radius: 7px;\n"
+"color: "
+                        "#425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"}\n"
+"#cinpatient QAbstractItemView{ \n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"selection-background-color: #ffffff;\n"
+"selection-color:#56695b;\n"
+"}\n"
+"#smsenv{\n"
+"color:#425180;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 15px;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#smsenv:hover{\n"
+"border: 4px outset #dcd0c9;\n"
+"background: #e0dfe5;\n"
+"}\n"
+"#smsenv:pressed{\n"
+"border: 4px inset #dcd0c9;\n"
+"background: #f6f1f7;\n"
+"}\n"
+"#closeajoutermed_2{\n"
+"color:#425180;\n"
+"border: 4px inset #dcd0c9;\n"
+"border-radius: 15px;\n"
+"background: #f3f2f7;\n"
+"}\n"
+"#closeajoutermed_2:hover{\n"
+"border: 4px outset #dcd0c9;\n"
+"background: #f0e4e0;\n"
+"}\n"
+"#closeajoutermed_2:pressed{\n"
+"border: 4px inset #dcd0c9;\n"
+"background: #f6f1f7;\n"
+"}\n"
+""));
+        ajouterMed_2->setFrameShape(QFrame::StyledPanel);
+        ajouterMed_2->setFrameShadow(QFrame::Raised);
+        contactsms = new QLabel(ajouterMed_2);
+        contactsms->setObjectName(QStringLiteral("contactsms"));
+        contactsms->setGeometry(QRect(10, 130, 141, 31));
+        contactsms->setFont(font4);
+        smsenv = new QPushButton(ajouterMed_2);
+        smsenv->setObjectName(QStringLiteral("smsenv"));
+        smsenv->setGeometry(QRect(120, 350, 133, 50));
+        smsenv->setFont(font9);
+        titreajoutmed1_2 = new QLabel(ajouterMed_2);
+        titreajoutmed1_2->setObjectName(QStringLiteral("titreajoutmed1_2"));
+        titreajoutmed1_2->setGeometry(QRect(90, 50, 311, 31));
+        QFont font21;
+        font21.setFamily(QStringLiteral("Bell MT"));
+        font21.setPointSize(15);
+        font21.setBold(true);
+        font21.setUnderline(true);
+        font21.setWeight(75);
+        titreajoutmed1_2->setFont(font21);
+        descriptionpatientL_4 = new QLabel(ajouterMed_2);
+        descriptionpatientL_4->setObjectName(QStringLiteral("descriptionpatientL_4"));
+        descriptionpatientL_4->setGeometry(QRect(18, 260, 131, 31));
+        descriptionpatientL_4->setFont(font19);
+        closeajoutermed_2 = new QPushButton(ajouterMed_2);
+        closeajoutermed_2->setObjectName(QStringLiteral("closeajoutermed_2"));
+        closeajoutermed_2->setGeometry(QRect(12, 11, 28, 28));
+        closeajoutermed_2->setFont(font12);
+        numsms = new QComboBox(ajouterMed_2);
+        numsms->setObjectName(QStringLiteral("numsms"));
+        numsms->setGeometry(QRect(140, 130, 201, 41));
+        numsms->setStyleSheet(QLatin1String("border: 2px solid #e0dfe5;\n"
+"border-radius: 7px;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"color: #425180;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"selection-background-color: #ffffff;\n"
+"selection-color:#56695b;\n"
+"\n"
+""));
+        numsms->setEditable(true);
+        messms = new QPlainTextEdit(ajouterMed_2);
+        messms->setObjectName(QStringLiteral("messms"));
+        messms->setGeometry(QRect(140, 230, 201, 101));
+        med->addTab(tab, QString());
         frame = new QFrame(medecin);
         frame->setObjectName(QStringLiteral("frame"));
         frame->setGeometry(QRect(524, 119, 850, 530));
@@ -4581,6 +4723,18 @@ public:
 "	border-image: url(:/images/calendrier2.png);\n"
 "}\n"
 ""));
+        imprimerfiche_2 = new QPushButton(affichagemed);
+        imprimerfiche_2->setObjectName(QStringLiteral("imprimerfiche_2"));
+        imprimerfiche_2->setGeometry(QRect(280, 24, 35, 35));
+        imprimerfiche_2->setStyleSheet(QLatin1String("#imprimerfiche_2{\n"
+"border-image: url(:/images/pdfperso1.png);\n"
+"}\n"
+"#imprimerfiche_2:hover{\n"
+"border-image: url(:/images/pdfperso2.png);\n"
+"}\n"
+"#imprimerfiche_2:pressed{\n"
+"border-image: url(:/images/pdfperso1.png);\n"
+"}"));
         tableViewF->raise();
         rechercherfiche->raise();
         trierf->raise();
@@ -4593,6 +4747,7 @@ public:
         statmed->raise();
         home_f->raise();
         calendrier->raise();
+        imprimerfiche_2->raise();
         gestmed->addTab(Fiche, QString());
         Consultation = new QWidget();
         Consultation->setObjectName(QStringLiteral("Consultation"));
@@ -4882,6 +5037,7 @@ public:
 
         exigo->setCurrentIndex(0);
         tabpersonnel->setCurrentIndex(0);
+        med->setCurrentIndex(5);
         barpersonnel->setCurrentIndex(-1);
 
 
@@ -5355,6 +5511,20 @@ public:
         );
         med->setTabText(med->indexOf(modifierfiche), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         med->setTabText(med->indexOf(calendriermed), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        contactsms->setText(QApplication::translate("MainWindow", "contact :", Q_NULLPTR));
+        smsenv->setText(QApplication::translate("MainWindow", "SMS", Q_NULLPTR));
+        titreajoutmed1_2->setText(QApplication::translate("MainWindow", "Envoyer un sms :", Q_NULLPTR));
+        descriptionpatientL_4->setText(QApplication::translate("MainWindow", "message :", Q_NULLPTR));
+        closeajoutermed_2->setText(QApplication::translate("MainWindow", "X", Q_NULLPTR));
+        numsms->clear();
+        numsms->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "98962361", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "54666580", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "99889045", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "96645288", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "28500013", Q_NULLPTR)
+        );
+        med->setTabText(med->indexOf(tab), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         rechercherfiche->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         trierf->setToolTip(QApplication::translate("MainWindow", "Trier", Q_NULLPTR));
@@ -5402,6 +5572,10 @@ public:
         calendrier->setToolTip(QApplication::translate("MainWindow", "Calendrier", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         calendrier->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        imprimerfiche_2->setToolTip(QApplication::translate("MainWindow", "T\303\251l\303\251charger La Fiche Du Patient", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        imprimerfiche_2->setText(QString());
         gestmed->setTabText(gestmed->indexOf(Fiche), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         rechercherfiche_2->setPlaceholderText(QApplication::translate("MainWindow", "Tous les champs disponible", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP

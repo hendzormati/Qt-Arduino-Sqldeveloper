@@ -9369,6 +9369,33 @@ border-image: url(:/images/statperso2.png);
            <string/>
           </property>
          </widget>
+         <widget class="QPushButton" name="imprimerfiche_2">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>24</y>
+            <width>35</width>
+            <height>35</height>
+           </rect>
+          </property>
+          <property name="toolTip">
+           <string>Télécharger La Fiche Du Patient</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#imprimerfiche_2{
+border-image: url(:/images/pdfperso1.png);
+}
+#imprimerfiche_2:hover{
+border-image: url(:/images/pdfperso2.png);
+}
+#imprimerfiche_2:pressed{
+border-image: url(:/images/pdfperso1.png);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
          <zorder>tableViewF</zorder>
          <zorder>rechercherfiche</zorder>
          <zorder>trierf</zorder>
@@ -9381,6 +9408,7 @@ border-image: url(:/images/statperso2.png);
          <zorder>statmed</zorder>
          <zorder>home_f</zorder>
          <zorder>calendrier</zorder>
+         <zorder>imprimerfiche_2</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="Consultation">

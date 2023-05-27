@@ -24,6 +24,7 @@ INPUT(
 ./debug\qrcode.o
 ./debug\rfidpers.o
 ./debug\sdf.o
+./debug\sms.o
 ./debug\stock.o
 ./debug\stock_stat.o
 ./debug\vente.o

@@ -13,3 +13,17 @@ Date d entree : 02/05/2023
 Date de sortie : 02/05/2023
 Numero de la chambre : 10
 
+
+Passage Numero : 4
+Ajouté par : Louhaichi Nour
+Date d entree : 09/05/2023
+Date de sortie : 12/05/2023
+Numero de la chambre : 9
+
+
+Passage Numero : 5
+Ajouté par : Louhaichi Nour
+Date d entree : 13/05/2023
+Date de sortie : 13/05/2023
+Numero de la chambre : 9
+

@@ -24,6 +24,7 @@ INPUT(
 ./release\qrcode.o
 ./release\rfidpers.o
 ./release\sdf.o
+./release\sms.o
 ./release\stock.o
 ./release\stock_stat.o
 ./release\vente.o

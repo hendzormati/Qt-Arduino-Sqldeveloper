@@ -403,6 +403,8 @@ private slots:
 
    void on_calendrier_clicked();
 
+   void on_imprimerfiche_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Personnel P;

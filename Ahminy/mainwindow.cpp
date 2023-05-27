@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->nomsdf->setMaxLength(20);
     ui->prenomsdf->setMaxLength(20);
     ///Arduino:
-    int ret2=A_sdf.connect_incondie();
+    /*int ret2=A_sdf.connect_incondie();
     switch(ret2){
     case(0):{
         qDebug()<< "arduino is available and connected to port : "<< A_sdf.getincondie_port_name();
@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
     case(-1):qDebug() << "arduino is not available";
         break;
     }
-    QObject::connect(A_sdf.getserialsdf(),SIGNAL(readyRead()),this,SLOT(Incondie()));
+    QObject::connect(A_sdf.getserialsdf(),SIGNAL(readyRead()),this,SLOT(Incondie()));*/
     ////inv
     /*int ret=A.connect_arduino(); // lancer la connexion à arduino
     switch(ret){
@@ -3828,7 +3828,7 @@ void MainWindow::on_home_f_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    //ui->imprimerfiche->setHidden(1);
+    ui->imprimerfiche_2->setHidden(1);
     ui->recherchefiche->setEnabled(1);
     ui->tableViewF->setEnabled(1);
     ui->trierf->setEnabled(1);
@@ -3869,7 +3869,7 @@ void MainWindow::on_recherchefiche_clicked()
     ui->modiffiche->setHidden(1);
     ui->supprimerf->setHidden(1);
     ui->consultation->setHidden(1);
-    //ui->imprimerfiche->setHidden(1);
+    ui->imprimerfiche_2->setHidden(1);
     //ui->ajoutrfidp->setHidden(1);
     // ui->afficherp->setHidden(1);
     //ui->pdfp->setHidden(1);
@@ -4054,14 +4054,14 @@ void MainWindow::on_modiffiche_clicked()
 void MainWindow::on_tableViewF_clicked(const QModelIndex &index)
 {
     ui->rechercherfiche->setHidden(0);
-    ui->modiffiche->setHidden(0);
+    ui->modiffiche_2->setHidden(0);
     ui->supprimerf->setHidden(0);
     ui->consultation->setHidden(0);
     //ui->imprimerfiche->setHidden(0);
     //ui->ajoutrfidp->setHidden(0);
     //ui->pdfp->setHidden(0);
     // ui->afficherp->setHidden(0);
-    ui->modiffiche->setEnabled(1);
+    ui->modiffiche_2->setEnabled(1);
     ui->supprimerf->setEnabled(1);
     //ui->ajoutrfidp->setEnabled(1);
     //ui->pdfp->setEnabled(1);
@@ -4645,5 +4645,123 @@ void MainWindow::on_calendrier_clicked()
         format.setBackground(color);
         format.setToolTip(tooltip);
         ui->calendarmed->setDateTextFormat(date, format);
+    }
+}
+
+void MainWindow::on_imprimerfiche_2_clicked()
+{
+    QString systemDate = QDate::currentDate().toString("dd_MMMM_yyyy");
+    Sdf s;
+    fiche f;
+    consultation c;
+    Stmp.Get_sdf(s,ui->rechercherfiche->text());
+    F.getfiche(f,ui->rechercherfiche->text());
+
+    int agee = s.Get_dob_b().daysTo(QDate::currentDate()) / 365;
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM consultations WHERE cin_b = :cin_b");
+    query.bindValue(":cin_b", s.Get_cin_b()); // replace cin_b with the actual value or variable
+    query.exec();
+    query.next();
+    int nbb = query.value(0).toInt();
+    QString nb=QString::number(nbb);
+    query.prepare("SELECT idc FROM consultations WHERE cin_b = :cin_b ORDER BY idc DESC");
+    query.bindValue(":cin_b",  s.Get_cin_b()); // replace cin_b with the actual value or variable
+    query.exec();
+    int idc=0;
+    if (query.next()) {
+       idc = query.value(0).toInt();
+        // Do something with the idc value
+    }
+    C.getconsultation(c,idc);
+    Personnel p;
+    P.getperso(p,c.get_id_p());
+    // Print the age
+
+    QString age=QString::number(agee);
+    qDebug() << "date b string " << c.get_date_c().toString("dd/MM/yyyy hh:mm:ss");
+    qDebug() << "date adeya " << c.get_date_c();
+    QString fileName = "pdffichepatient/"+s.Get_prenom_b()+"_"+s.Get_nom_b()+"_"+s.Get_cin_b()+"_"+systemDate +".pdf";
+
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly)) {
+        QPdfWriter writer(&file);
+        QPainter painter(&writer);
+        writer.setPageSize(QPageSize(QPageSize::A4));
+        /// version 2  // Draw the report title
+        writer.setPageMargins(QMarginsF(30, 30, 30, 30));
+        painter.setRenderHint(QPainter::Antialiasing);
+        QImage logo(":/images/ahminy.png");
+        painter.drawImage(QRectF(-170,-120, 2000, 1500), logo);
+        //////////////date li lfouk
+
+        ///l loun text
+        QPen pen("#6b694c");
+        painter.setPen(pen);
+        /// type lektiba wel kobr
+        painter.setFont(QFont("Baskerville Old Face", 18));
+
+        QDate d;
+        QDateTime dt;
+        QString ch="Éditée le "+d.currentDate().toString("dddd dd MMMM yyyy");
+        painter.drawText(5500, 400,ch);
+        QString ch1=dt.currentDateTime().toString("hh:mm:ss");
+        painter.drawText(7400, 700,ch1);
+        painter.drawText(5400, 13250,"Éditée par "+P.get_nom_p()+" "+P.get_prenom_p());
+        ///////////titre
+        pen.setColor("#c4c08c");
+        painter.setPen(pen);
+        QFont font("Bell MT", 35,QFont::Bold);
+        font.setUnderline(1);
+        painter.setFont(font);
+        painter.drawText(2800, 1800, "Fiche Patient");
+        painter.setFont(QFont("Bell MT", 27,QFont::DemiBold));
+        if(nbb>0)
+        {painter.drawText(1200, 8450, "Rapport de La Derniére Consultation");
+        }
+        else painter.drawText(2400, 8000, "Aucune Consultation");
+        ////// les entetee
+        pen.setColor("#5c4633");
+        painter.setPen(pen);
+        painter.setFont(QFont("Bell MT", 25,QFont::DemiBold));
+        painter.drawText(700, 2800, "Carte d'Identité  Nationale   :");
+        painter.drawText(700, 3500, "Prénom et nom   :");
+        painter.drawText(700, 4200, "Sexe   :");
+        painter.drawText(700, 4900, "Age   :");
+        painter.drawText(700, 5600, "Antécédant Médicaux   :");
+        painter.drawText(700, 6300, "Description De L'antécédant   :");
+
+        if(nbb>0)
+        {painter.drawText(700, 7550, "Nombre De Consultations   :");
+            painter.drawText(700, 9150, "Date De La Consultation   :");
+            painter.drawText(700, 9850, "Médecin traitant    :");
+            painter.drawText(700, 10550, "Tension Artérielle   :");
+            painter.drawText(700, 11250, "Taux De Glycemie   :");
+            painter.drawText(700, 11950, "Résultat De La Consultation   :");
+        }
+        //// les données
+        pen.setColor("#846649");
+        painter.setPen(pen);
+        painter.setFont(QFont("Baskerville Old Face", 20,QFont::DemiBold));
+        painter.drawText(5800, 2800, s.Get_cin_b());
+        painter.drawText(5800, 3500, f.get_nomprenom());
+        painter.drawText(5800, 4200, s.Get_sexe_b());
+        painter.drawText(5800, 4900, age);
+        painter.drawText(5800, 5600,f.get_categorie_ant());
+        painter.drawText(700, 6850, f.get_description_ant());
+        if(nbb>0)
+        {painter.drawText(5800, 7550,nb);
+            painter.drawText(5800, 9150,c.get_date_c().toString("dd/MM/yyyy hh:mm:ss"));
+            painter.drawText(5800, 9850,"Dr."+p.get_nom_p()+" "+p.get_prenom_p());
+            painter.drawText(5800, 10550, c.get_tension()+" mmHg");
+            painter.drawText(5800, 11250, c.get_temperature()+" mmol/L");
+            painter.drawText(700, 12650,c.get_resultat_c());
+        }
+        painter.end();
+        qDebug() << "PDF generated successfully.";
+        qDebug() << "Current working directory:" << QDir::currentPath();
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/HP/Desktop/AhminyFinal/build-Ahminy-Desktop_Qt_5_9_9_MinGW_32bit-Debug/"+fileName));
+    } else {
+        qDebug() << "Error: could not open file" << fileName;
     }
 }
