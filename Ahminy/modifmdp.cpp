@@ -146,11 +146,11 @@ Email modifmdp::createcodemail()
         code += alphanum[rand() % (sizeof(alphanum) - 1)];
     }
 
-    EmailAddress credentials("hend.zormati@esprit.tn",
-                             "211JFT8977");
+    EmailAddress credentials("your mail",
+                             "your password");
 
     // Create the from EmailAddress
-    EmailAddress from("hend.zormati@esprit.tn");
+    EmailAddress from("your mail");
 
     // Create the to EmailAddress
     EmailAddress to(email);
