@@ -41,28 +41,21 @@ This repository contains a desktop application developed on Qt Creator for manag
 ## Database Setup
 
 To set up the database for the Share and Care Center Management Application, follow these steps:
-
-Locate the SQL File:
-
+**Locate the SQL File:**
 The SQL file required for the application is named ahminy.sql and is included in this project.
-Configure Database Connection:
-
-Open the connection.cpp file in your project.
-Locate the section where the database connection is established.
-Update the username and password to your Oracle account credentials.
-Test Account:
-
+**Configure Database Connection:**
+1. Open the connection.cpp file in your project.
+2. Locate the section where the database connection is established.
+3. Update the username and password to your Oracle account credentials.
+**Test Account:**
 When launching the application, you can log in using the following test credentials to explore the features:
-Username: test
-Password: test
-Mailing Configuration:
-
+-Username: test
+-Password: test
+**Mailing Configuration:**
 If you wish to use the mailing feature, be sure to enter your own email information in the relevant section of the application.
-Run the Application:
-
-Ensure the database is set up and running.
-Launch the Share and Care Center Management Application to start using the features.
-
+**Run the Application:**
+-Ensure the database is set up and running.
+-Launch the Share and Care Center Management Application to start using the features.
 ## Usage
 
 1. Launch the Share and Care Center Management Application.
