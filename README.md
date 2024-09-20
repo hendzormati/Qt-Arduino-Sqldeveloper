@@ -10,6 +10,7 @@ This repository contains a desktop application developed on Qt Creator for manag
 - [Project Features](#project-features)
 - [Installation](#installation)
 - [Usage](#usage)
+-  [Database Setup](#Database-Setup)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
@@ -36,6 +37,31 @@ This repository contains a desktop application developed on Qt Creator for manag
 2. Open the project in Qt Creator or your preferred IDE.
 3. Configure the necessary dependencies and build the application.
 4. Install any required libraries or packages specified in the project documentation.
+
+## Database Setup
+
+To set up the database for the Share and Care Center Management Application, follow these steps:
+
+Locate the SQL File:
+
+The SQL file required for the application is named ahminy.sql and is included in this project.
+Configure Database Connection:
+
+Open the connection.cpp file in your project.
+Locate the section where the database connection is established.
+Update the username and password to your Oracle account credentials.
+Test Account:
+
+When launching the application, you can log in using the following test credentials to explore the features:
+Username: test
+Password: test
+Mailing Configuration:
+
+If you wish to use the mailing feature, be sure to enter your own email information in the relevant section of the application.
+Run the Application:
+
+Ensure the database is set up and running.
+Launch the Share and Care Center Management Application to start using the features.
 
 ## Usage
 
